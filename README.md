@@ -2,15 +2,21 @@
 
 Fullstackdiv Material
 
-## Getting Started
+## Setup Environment file
+```
+cp .env.sample to .env
+```
 
-This project is a starting point for a Flutter application.
+## Install all dependencies
+```
+flutter pub get
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Run generator watcher
+```
+flutter packages pub run build_runner watch --delete-conflicting-outputs
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Open Project using editor of choice (e.g. Android Studio)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Run the app
