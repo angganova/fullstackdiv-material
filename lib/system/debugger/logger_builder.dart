@@ -4,6 +4,7 @@ import 'package:logger/logger.dart';
 
 class LoggerBuilder {
   LoggerBuilder(this.tag, {this.easySearch = true});
+
   final String tag;
   final bool easySearch;
   final String defaultEasySearchTag = 'XXX ';

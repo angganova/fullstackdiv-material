@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:fullstackdiv_material/system/extensions/extensions_variable.dart';
 import 'package:intl/intl.dart';
 
 extension StringExtension on String {
@@ -111,13 +112,12 @@ extension StringExtension on String {
     return result;
   }
 
-  ///
-  /// ALL ABOUT TIME
-  ///
-  /// Format Time Stamp
   String formatDate(String format) {
+    final String emptyString = '';
     if (this.isNullOrEmpty) {
-      return '';
+      return emptyString;
+    } else if (!this.isDate) {
+      return emptyString;
     }
 
     DateTime newDate;
@@ -126,7 +126,7 @@ extension StringExtension on String {
       newDate = this.getUTCDateTimeFromString;
     } catch (e) {
       e.printStackTrace();
-      return "Date not valid";
+      return emptyString;
     }
 
     if (newDate != null) {
@@ -134,13 +134,14 @@ extension StringExtension on String {
       return formatter.format(newDate);
     }
 
-    return "Date not valid";
+    return emptyString;
   }
 
   DateTime get getUTCDateTimeFromString {
     try {
       final DateTime dateTime =
-          DateFormat('yyyy-MM-ddTHH:mm:ssZ').parseUTC(this);
+          DateFormat(ExtensionsVariable.dateFormatYYMMDDTHHMMSSZ)
+              .parseUTC(this);
       return dateTime;
     } catch (e) {
       return null;

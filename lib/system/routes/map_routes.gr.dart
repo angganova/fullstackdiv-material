@@ -178,7 +178,7 @@ class AppRouter extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
-    RouteDef(Routes.zestDemo, page: ZestDemo),
+    RouteDef(Routes.zestDemo, page: Demo),
     RouteDef(Routes.demoCardPage, page: DemoCardPage),
     RouteDef(Routes.cardMenuPage, page: CardMenuPage),
     RouteDef(Routes.demoBottomSheetPage, page: DemoBottomSheetPage),
@@ -234,9 +234,9 @@ class AppRouter extends RouterBase {
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
-    ZestDemo: (data) {
+    Demo: (data) {
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => ZestDemo(),
+        builder: (context) => Demo(),
         settings: data,
       );
     },

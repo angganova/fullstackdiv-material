@@ -7,7 +7,7 @@ import 'package:fullstackdiv_material/system/global_styles.dart';
 
 import 'data/demo_controller_data.dart';
 
-class ZestDemo extends StatelessWidget {
+class Demo extends StatelessWidget {
   /// this is the main menu of the demo page
 
   @override
