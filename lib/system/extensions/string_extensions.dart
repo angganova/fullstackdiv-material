@@ -6,17 +6,76 @@ extension StringExtension on String {
   bool get isNullOrEmpty => this == null || isEmpty;
   bool get isNotNullOrEmpty => this != null || isNotEmpty;
 
-  //first letter only
-  String get capsWord =>
-      isNotEmpty ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}' : '';
+  bool get isNumber {
+    try {
+      int.parse(this);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
 
-  //all letter in string
-  String get allCaps => toUpperCase();
+  bool get isBool => this.ignoreCase('true') || this.ignoreCase('false');
 
-  //first letter for each word in a string
-  String get titleCase => split(' ')
-      .map((String word) => word[0].toUpperCase() + word.substring(1))
-      .join(' ');
+  bool get toBool => this.ignoreCase('true');
+
+  bool ignoreCase(String s2) {
+    if (this == null) {
+      return this == s2;
+    } else {
+      return toLowerCase() == (s2 ?? '').toLowerCase() &&
+          toUpperCase() == (s2 ?? '').toUpperCase();
+    }
+  }
+
+  bool isEmail(String value) {
+    Pattern pattern =
+        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
+    RegExp regex = new RegExp(pattern);
+    if (regex.hasMatch(value))
+      return true;
+    else
+      return false;
+  }
+
+  bool get isDate {
+    try {
+      return DateTime.parse(this) != null;
+    } catch (e) {
+      return false;
+    }
+  }
+
+  String get capWord => isNotNullOrEmpty
+      ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}'
+      : '';
+
+  String get capsWords {
+    try {
+      return this
+          .split(' ')
+          .map((String word) => word[0].toUpperCase() + word.substring(1))
+          .join(' ');
+    } catch (_) {
+      return this;
+    }
+  }
+
+  String get capsSentence => isNotNullOrEmpty
+      ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}'
+      : '';
+
+  String get capsSentences {
+    try {
+      return this
+          .split('. ')
+          .map((String sentence) =>
+              sentence[0].toUpperCase() + sentence.substring(1))
+          .join('. ');
+    } catch (_) {
+      return this;
+    }
+  }
 
   T toEnum<T>(List<T> values) {
     for (final T item in values) {
@@ -28,16 +87,7 @@ extension StringExtension on String {
     return null;
   }
 
-  bool ignoreCase(String s2) {
-    if (this == null) {
-      return this == s2;
-    } else {
-      return toLowerCase() == (s2 ?? '').toLowerCase() &&
-          toUpperCase() == (s2 ?? '').toUpperCase();
-    }
-  }
-
-  List<String> splitWith(String separator, {int max = 0}) {
+  List<String> splitWithSeparator(String separator, {int max = 0}) {
     final List<String> result = <String>[];
     String string = this;
 
