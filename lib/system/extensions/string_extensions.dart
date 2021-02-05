@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
 
 extension StringExtension on String {
   bool get isNull => this == null;
@@ -108,5 +109,41 @@ extension StringExtension on String {
     }
 
     return result;
+  }
+
+  ///
+  /// ALL ABOUT TIME
+  ///
+  /// Format Time Stamp
+  String formatDate(String format) {
+    if (this.isNullOrEmpty) {
+      return '';
+    }
+
+    DateTime newDate;
+
+    try {
+      newDate = this.getUTCDateTimeFromString;
+    } catch (e) {
+      e.printStackTrace();
+      return "Date not valid";
+    }
+
+    if (newDate != null) {
+      final DateFormat formatter = DateFormat(format);
+      return formatter.format(newDate);
+    }
+
+    return "Date not valid";
+  }
+
+  DateTime get getUTCDateTimeFromString {
+    try {
+      final DateTime dateTime =
+          DateFormat('yyyy-MM-ddTHH:mm:ssZ').parseUTC(this);
+      return dateTime;
+    } catch (e) {
+      return null;
+    }
   }
 }

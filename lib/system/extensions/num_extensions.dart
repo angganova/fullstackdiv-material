@@ -2,10 +2,13 @@ import 'dart:math';
 
 import 'package:intl/intl.dart';
 
-extension DoubleExtensions on double {
+extension NumExtensions on num {
   bool get isZero => this == 0;
   bool get isLessThanZero => this < 0;
+  bool get isLessOrEqualToZero => this <= 0;
   bool get isMoreThanZero => this > 0;
+  bool get isMoreOrEqualToZero => this >= 0;
+  bool isEqual(double i) => this == i;
 
   String formatCurrency(String currency, String separator) {
     if (this < 1000) return "$currency ${this.floor()}";
