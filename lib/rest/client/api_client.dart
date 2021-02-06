@@ -4,8 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:retry/retry.dart';
 import 'package:fullstackdiv_material/rest/response_model/global_response.dart';
 import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
-import 'package:fullstackdiv_material/system/exception/api_error_exception.dart';
-import 'package:fullstackdiv_material/system/exception/global_exception.dart';
+import 'package:fullstackdiv_material/system/exception/api_global_exception.dart';
+import 'package:fullstackdiv_material/system/exception/api_acceptable_exception.dart';
 import 'package:fullstackdiv_material/system/global_variables.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
 
@@ -50,379 +50,326 @@ class ApiClient {
     );
     _dio.options = options;
 
-    if (betaMode)
+    if (betaMode) {
       _dio.interceptors
           .add(LogInterceptor(responseBody: true, requestBody: true));
+    }
 
     return this;
   }
 
   Options _getAdditionalOptions(
-      {Map<String, dynamic> extraHeaders,
-      Duration sendTimeout,
-      Duration receiveTimeout}) {
-    return Options(
-        sendTimeout:
-            sendTimeout?.inMilliseconds ?? _defaultSendTimeout.inMilliseconds,
-        receiveTimeout: receiveTimeout?.inMilliseconds ??
-            _defaultReceiveTimeout.inMilliseconds,
-        headers: extraHeaders);
-  }
+          {Map<String, dynamic> extraHeaders,
+          Duration sendTimeout,
+          Duration receiveTimeout}) =>
+      Options(
+          headers: extraHeaders,
+          sendTimeout:
+              sendTimeout?.inMilliseconds ?? _defaultSendTimeout.inMilliseconds,
+          receiveTimeout: receiveTimeout?.inMilliseconds ??
+              _defaultReceiveTimeout.inMilliseconds);
 
   RetryOptions _getRetryOption({int maxRetries}) => RetryOptions(
         maxAttempts: maxRetries ?? 3,
       );
 
-  /// Minimum requirement for get API
+  /// GET - This is for api that return object as reply
   Future<Map<String, dynamic>> get(String url,
       {Map<String, dynamic> queryParams,
       Duration receiveTimeout,
       Duration sendTimeout,
-      int maxRetries = 3}) async {
-    final RetryOptions _retryOptions = _getRetryOption(
+      int maxRetries = 3,
+      bool acceptError}) async {
+    final RetryOptions _retryOption = _getRetryOption(
       maxRetries: maxRetries,
     );
+
     final Options _mergedOption = _getAdditionalOptions(
         receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
 
-    return _retryOptions.retry(
-        () => _dio
-                .get<String>(
-              url,
-              queryParameters: queryParams,
+    return _retryOption.retry(
+        () => basicGet(
+              url: url,
+              queryParams: queryParams,
               options: _mergedOption,
-            )
-                .then((Response<String> value) {
+            ).then((Response<String> value) {
               if (isSuccessResponse(value)) {
                 return jsonDecode(value.data) as Map<String, dynamic>;
               } else {
-                throwGlobalApiError(value);
+                throwApiException(value, acceptError: acceptError);
                 return null;
               }
             }),
-        retryIf: (Exception e) => shouldRetryException(e),
+        retryIf: (Exception e) => shouldRetry(e),
         onRetry: (Exception e) => printError(url, e));
   }
 
-  /// This is for api that read array object as reply
+  /// GET - This is for api that return array object as reply
   Future<List<dynamic>> getList(String url,
       {Map<String, dynamic> queryParams,
       Duration receiveTimeout,
       Duration sendTimeout,
-      int maxRetries = 3}) async {
-    final RetryOptions _retryOptions = _getRetryOption(
+      int maxRetries = 3,
+      bool acceptError}) async {
+    final RetryOptions _retryOption = _getRetryOption(
       maxRetries: maxRetries,
     );
+
     final Options _mergedOption = _getAdditionalOptions(
         receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
-    return _retryOptions.retry(
-        () => _dio
-                .get<String>(
-              url,
-              queryParameters: queryParams,
+
+    return _retryOption.retry(
+        () => basicGet(
+              url: url,
+              queryParams: queryParams,
               options: _mergedOption,
-            )
-                .then((Response<String> value) {
+            ).then((Response<String> value) {
               if (isSuccessResponse(value)) {
                 return jsonDecode(value.data) as List<dynamic>;
               } else {
-                throwGlobalApiError(value);
+                throwApiException(value, acceptError: acceptError);
                 return null;
               }
             }),
-        retryIf: (Exception e) => shouldRetryException(e),
+        retryIf: (Exception e) => shouldRetry(e),
         onRetry: (Exception e) => printError(url, e));
   }
 
-  /// Minimum requirement for post API
-  Future<Map<String, dynamic>> post(
-    String url, {
-    Map<String, dynamic> headers,
-    Map<String, dynamic> queryParams,
-    Map<String, dynamic> requestBody,
-    Duration receiveTimeout,
-    Duration sendTimeout,
-    int maxRetries = 3,
-  }) async {
-    final RetryOptions _retryOptions = _getRetryOption(
+  /// POST - This is for api that return object as reply
+  Future<Map<String, dynamic>> post(String url,
+      {Map<String, dynamic> headers,
+      Map<String, dynamic> queryParams,
+      Map<String, dynamic> requestBody,
+      Duration receiveTimeout,
+      Duration sendTimeout,
+      int maxRetries = 0,
+      bool acceptError}) async {
+    final RetryOptions _retryOption = _getRetryOption(
       maxRetries: maxRetries,
     );
+
     final Options _mergedOption = _getAdditionalOptions(
         receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
 
-    return _retryOptions.retry(
-        () => _dio
-                .post<String>(
-              url,
-              queryParameters: queryParams,
-              data: requestBody,
+    return _retryOption.retry(
+        () => basicPostWithBody(
+              url: url,
+              queryParams: queryParams,
+              requestBody: requestBody,
               options: _mergedOption,
-            )
-                .then((Response<String> value) {
+            ).then((Response<String> value) {
               if (isSuccessResponse(value)) {
                 final Map<String, dynamic> data =
                     jsonDecode(value.data) as Map<String, dynamic>;
                 return data;
               } else {
-                throwGlobalApiError(value);
+                throwApiException(value, acceptError: acceptError);
                 return null;
               }
             }),
-        retryIf: (Exception e) => shouldRetryException(e),
+        retryIf: (Exception e) => shouldRetry(e),
         onRetry: (Exception e) => printError(url, e));
   }
 
-  /// Minimum requirement for posting FormData API
+  /// POST - This is for api that return object as reply
   Future<T> postFormData<T>(String url,
       {Map<String, dynamic> queryParams,
       FormData formData,
       Duration receiveTimeout,
       Duration sendTimeout,
-      int maxRetries = 3}) async {
-    final RetryOptions retryOptions = RetryOptions(
-      maxAttempts: maxRetries,
+      int maxRetries = 0,
+      bool acceptError}) async {
+    final RetryOptions _retryOption = _getRetryOption(
+      maxRetries: maxRetries,
     );
 
-    return retryOptions.retry(
-        () => _dio
-                .post<String>(
-              url,
-              queryParameters: queryParams,
-              data: formData,
-              options: _getAdditionalOptions(),
-            )
-                .then((Response<String> value) {
+    final Options _mergedOption = _getAdditionalOptions(
+        receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
+
+    return _retryOption.retry(
+        () => basicPostWithFormData(
+              url: url,
+              queryParams: queryParams,
+              formData: formData,
+              options: _mergedOption,
+            ).then((Response<String> value) {
               if (isSuccessResponse(value)) {
                 return jsonDecode(value.data) as T;
               } else {
-                throwGlobalApiError(value);
+                throwApiException(value, acceptError: acceptError);
                 return null;
               }
             }),
-        retryIf: (Exception e) => shouldRetryException(e),
+        retryIf: (Exception e) => shouldRetry(e),
         onRetry: (Exception e) => printError(url, e));
   }
 
-  /// Minimum requirement for patch API
+  /// POST - This is for api that return array object as reply
+  Future<List<dynamic>> postToList(String url,
+      {Map<String, dynamic> queryParams,
+      Map<String, dynamic> requestBody,
+      Duration receiveTimeout,
+      Duration sendTimeout,
+      int maxRetries = 0,
+      bool acceptError}) async {
+    final RetryOptions _retryOption = _getRetryOption(
+      maxRetries: maxRetries,
+    );
+
+    final Options _mergedOption = _getAdditionalOptions(
+        receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
+
+    return _retryOption.retry(
+        () => basicPostWithBody(
+              url: url,
+              queryParams: queryParams,
+              requestBody: requestBody,
+              options: _mergedOption,
+            ).then((Response<String> value) {
+              if (isSuccessResponse(value)) {
+                return jsonDecode(value.data) as List<dynamic>;
+              } else {
+                throwApiException(value, acceptError: acceptError);
+                return null;
+              }
+            }),
+        retryIf: (Exception e) => shouldRetry(e),
+        onRetry: (Exception e) => printError(url, e));
+  }
+
+  /// PATCH - This is for api that return object as reply
   Future<Map<String, dynamic>> patch(String url,
       {Map<String, dynamic> queryParams,
       Map<String, dynamic> requestBody,
       Duration receiveTimeout,
       Duration sendTimeout,
-      int maxRetries = 0}) async {
-    final RetryOptions retryOptions = RetryOptions(
-      maxAttempts: maxRetries,
+      int maxRetries = 0,
+      bool acceptError}) async {
+    final RetryOptions _retryOption = _getRetryOption(
+      maxRetries: maxRetries,
     );
-    return retryOptions.retry(
-        () => _dio
-                .patch<String>(
-              url,
-              queryParameters: queryParams,
-              data: requestBody,
-              options: _getAdditionalOptions(),
-            )
-                .then((Response<String> value) {
+
+    final Options _mergedOption = _getAdditionalOptions(
+        receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
+
+    return _retryOption.retry(
+        () => basicPatch(
+              url: url,
+              queryParams: queryParams,
+              requestBody: requestBody,
+              options: _mergedOption,
+            ).then((Response<String> value) {
               if (isSuccessResponse(value)) {
                 return jsonDecode(value.data) as Map<String, dynamic>;
               } else {
-                throwGlobalApiError(value);
+                throwApiException(value, acceptError: acceptError);
                 return null;
               }
             }),
-        retryIf: (Exception e) => shouldRetryException(e),
+        retryIf: (Exception e) => shouldRetry(e),
         onRetry: (Exception e) => printError(url, e));
   }
 
-  /// Use this function to patch and return direct list of json object
-  Future<List<Map<String, dynamic>>> patchToList(String url,
+  /// PATCH - This is for api that return array object as reply
+  Future<List<dynamic>> patchToList(String url,
       {Map<String, dynamic> queryParams,
       Map<String, dynamic> requestBody,
       Duration receiveTimeout,
       Duration sendTimeout,
-      int maxRetries = 0}) async {
-    final RetryOptions retryOptions = RetryOptions(
-      maxAttempts: maxRetries,
+      int maxRetries = 0,
+      bool acceptError}) async {
+    final RetryOptions _retryOption = _getRetryOption(
+      maxRetries: maxRetries,
     );
-    return retryOptions.retry(
-        () => _dio
-                .patch<String>(
-              url,
-              queryParameters: queryParams,
-              data: requestBody,
-              options: _getAdditionalOptions(),
-            )
-                .then((Response<String> value) {
-              if (isSuccessResponse(value)) {
-                final String toMapString = '\{\"data\":${value.data}\}';
-                final Map<String, dynamic> resultMap =
-                    jsonDecode(toMapString) as Map<String, dynamic>;
-                final List<Map<String, dynamic>> result =
-                    (resultMap['data'] as List<dynamic>)
-                        ?.map((dynamic e) =>
-                            e == null ? null : e as Map<String, dynamic>)
-                        ?.toList();
 
-                return result;
+    final Options _mergedOption = _getAdditionalOptions(
+        receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
+
+    return _retryOption.retry(
+        () => basicPatch(
+              url: url,
+              queryParams: queryParams,
+              requestBody: requestBody,
+              options: _mergedOption,
+            ).then((Response<String> value) {
+              if (isSuccessResponse(value)) {
+                return jsonDecode(value.data) as List<dynamic>;
               } else {
-                throwGlobalApiError(value);
+                throwApiException(value, acceptError: acceptError);
                 return null;
               }
             }),
-        retryIf: (Exception e) => shouldRetryException(e),
+        retryIf: (Exception e) => shouldRetry(e),
         onRetry: (Exception e) => printError(url, e));
   }
 
-  /// Use this function to retrieve direct list of json object
-  Future<List<Map<String, dynamic>>> postToList(String url,
-      {Map<String, dynamic> queryParams,
-      Map<String, dynamic> requestBody,
-      Duration receiveTimeout,
-      Duration sendTimeout,
-      int maxRetries = 3}) async {
-    final RetryOptions retryOptions = RetryOptions(
-      maxAttempts: maxRetries,
-    );
-    return retryOptions.retry(
-        () => _dio
-                .post<String>(
-              url,
-              queryParameters: queryParams,
-              data: requestBody,
-              options: _getAdditionalOptions(),
-            )
-                .then((Response<String> value) {
-              if (isSuccessResponse(value)) {
-                final String toMapString = '\{\"data\":${value.data}\}';
-                final Map<String, dynamic> resultMap =
-                    jsonDecode(toMapString) as Map<String, dynamic>;
-                final List<Map<String, dynamic>> result =
-                    (resultMap['data'] as List<dynamic>)
-                        ?.map((dynamic e) =>
-                            e == null ? null : e as Map<String, dynamic>)
-                        ?.toList();
-
-                return result;
-              } else {
-                throwGlobalApiError(value);
-                return null;
-              }
-            }),
-        retryIf: (Exception e) => shouldRetryException(e),
-        onRetry: (Exception e) => printError(url, e));
-  }
-
-  Future<Map<String, dynamic>> postAcceptError(
-    String url, {
-    Map<String, dynamic> queryParams,
-    Map<String, dynamic> requestBody,
-    Map<String, dynamic> headers,
-    Duration receiveTimeout,
-    Duration sendTimeout,
-  }) async {
-    final Options mergedOptions = _getAdditionalOptions(
-        extraHeaders: headers,
-        sendTimeout: sendTimeout,
-        receiveTimeout: receiveTimeout);
-
-    return _dio
-        .post<String>(
-      url,
-      queryParameters: queryParams,
-      data: requestBody,
-      options: mergedOptions,
-    )
-        .then((Response<String> value) {
-      if (isSuccessResponse(value)) {
-        /// Success
-        return jsonDecode(value.data) as Map<String, dynamic>;
-      } else if (value.statusCode.isMoreOrEqualTo(400) &&
-          value.statusCode.isLessThan(500)) {
-        /// Client Error
-        throw GlobalErrorException(value.data);
-      } else if (value.statusCode.isMoreOrEqualTo(500)) {
-        /// Server Error
-        final Map<String, dynamic> data =
-            jsonDecode(value.data) as Map<String, dynamic>;
-        final GlobalResponse obj = GlobalResponse.fromJson(data);
-        throw Exception(obj.message);
-      } else {
-        final Map<String, dynamic> data =
-            jsonDecode(value.data) as Map<String, dynamic>;
-        final GlobalResponse obj = GlobalResponse.fromJson(data);
-        throw Exception(obj.message);
-      }
-    });
-  }
-
-  /// Minimum requirement for post API
+  /// DELETE - This is for api that return object as reply
   Future<Map<String, dynamic>> delete(String url,
       {Map<String, dynamic> queryParams,
       Map<String, dynamic> requestBody,
       Duration receiveTimeout,
       Duration sendTimeout,
-      int maxRetries = 3}) async {
-    final RetryOptions retryOptions = RetryOptions(
-      maxAttempts: maxRetries,
+      int maxRetries = 0,
+      bool acceptError}) async {
+    final RetryOptions _retryOption = _getRetryOption(
+      maxRetries: maxRetries,
     );
-    return retryOptions.retry(
-        () => _dio
-                .delete<String>(
-              url,
-              queryParameters: queryParams,
-              data: requestBody,
-              options: _getAdditionalOptions(),
-            )
-                .then((Response<String> value) {
+
+    final Options _mergedOption = _getAdditionalOptions(
+        receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
+    return _retryOption.retry(
+        () => basicDelete(
+              url: url,
+              queryParams: queryParams,
+              requestBody: requestBody,
+              options: _mergedOption,
+            ).then((Response<String> value) {
               if (isSuccessResponse(value)) {
                 return jsonDecode(value.data) as Map<String, dynamic>;
               } else {
-                throwGlobalApiError(value);
+                throwApiException(value, acceptError: acceptError);
                 return null;
               }
             }),
-        retryIf: (Exception e) => shouldRetryException(e),
+        retryIf: (Exception e) => shouldRetry(e),
         onRetry: (Exception e) => printError(url, e));
   }
 
-  /// Use this function to retrieve direct list of json object
-  Future<List<Map<String, dynamic>>> deleteToList(String url,
+  /// DELETE - This is for api that return array object as reply
+  Future<List<dynamic>> deleteToList(String url,
       {Map<String, dynamic> queryParams,
       Map<String, dynamic> requestBody,
       Duration receiveTimeout,
       Duration sendTimeout,
-      int maxRetries = 3}) async {
-    final RetryOptions retryOptions = RetryOptions(
-      maxAttempts: maxRetries,
+      int maxRetries = 0,
+      bool acceptError}) async {
+    final RetryOptions _retryOption = _getRetryOption(
+      maxRetries: maxRetries,
     );
-    return retryOptions.retry(
-        () => _dio
-                .delete<String>(
-              url,
-              queryParameters: queryParams,
-              data: requestBody,
-              options: _getAdditionalOptions(),
-            )
-                .then((Response<String> value) {
-              if (isSuccessResponse(value)) {
-                final String toMapString = '\{\"data\":${value.data}\}';
-                final Map<String, dynamic> resultMap =
-                    jsonDecode(toMapString) as Map<String, dynamic>;
-                final List<Map<String, dynamic>> result =
-                    (resultMap['data'] as List<dynamic>)
-                        ?.map((dynamic e) =>
-                            e == null ? null : e as Map<String, dynamic>)
-                        ?.toList();
 
-                return result;
+    final Options _mergedOption = _getAdditionalOptions(
+        receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
+
+    return _retryOption.retry(
+        () => basicDelete(
+              url: url,
+              queryParams: queryParams,
+              requestBody: requestBody,
+              options: _mergedOption,
+            ).then((Response<String> value) {
+              if (isSuccessResponse(value)) {
+                return jsonDecode(value.data) as List<dynamic>;
               } else {
-                throwGlobalApiError(value);
+                throwApiException(value, acceptError: acceptError);
                 return null;
               }
             }),
-        retryIf: (Exception e) => shouldRetryException(e),
+        retryIf: (Exception e) => shouldRetry(e),
         onRetry: (Exception e) => printError(url, e));
   }
 
+  /// Basic api call start
+  /// GET
   Future<Response<String>> basicGet({
     String url,
     Options options,
@@ -431,24 +378,26 @@ class ApiClient {
     return await _dio.post<String>(
       url,
       queryParameters: queryParams,
-      options: options??_getAdditionalOptions(),
+      options: options ?? _getAdditionalOptions(),
     );
   }
 
+  /// POST with body
   Future<Response<String>> basicPostWithBody({
     String url,
     Options options,
-    Map<String, dynamic> requestBody,
     Map<String, dynamic> queryParams,
+    Map<String, dynamic> requestBody,
   }) async {
     return await _dio.post<String>(
       url,
       queryParameters: queryParams,
       data: requestBody,
-      options: options??_getAdditionalOptions(),
+      options: options ?? _getAdditionalOptions(),
     );
   }
 
+  /// POST with form data
   Future<Response<String>> basicPostWithFormData({
     String url,
     Options options,
@@ -459,19 +408,63 @@ class ApiClient {
       url,
       queryParameters: queryParams,
       data: formData,
-      options: options??_getAdditionalOptions(),
+      options: options ?? _getAdditionalOptions(),
     );
   }
 
+  /// PATCH
+  Future<Response<String>> basicPatch({
+    String url,
+    Options options,
+    Map<String, dynamic> queryParams,
+    Map<String, dynamic> requestBody,
+  }) async {
+    return await _dio.patch<String>(
+      url,
+      queryParameters: queryParams,
+      data: requestBody,
+      options: options ?? _getAdditionalOptions(),
+    );
+  }
+
+  /// DELETE
+  Future<Response<String>> basicDelete({
+    String url,
+    Options options,
+    Map<String, dynamic> queryParams,
+    Map<String, dynamic> requestBody,
+  }) async {
+    return await _dio.delete<String>(
+      url,
+      queryParameters: queryParams,
+      data: requestBody,
+      options: options ?? _getAdditionalOptions(),
+    );
+  }
+
+  /// Basic api call end
+
+  /// Check the response is success and acceptable or not
   bool isSuccessResponse(Response<String> value) {
     if (value == null || value.statusCode.isNull) {
       return false;
     } else {
-      return isSuccessResponse(value);
+      return value.statusCode.isMoreOrEqualTo(200) &&
+          value.statusCode.isLessThan(300);
     }
   }
 
-  bool shouldRetryException(Exception e) {
+  bool isAcceptableError(Response<String> value) {
+    if (value == null || value.statusCode.isNull) {
+      return false;
+    } else {
+      return value.statusCode.isMoreOrEqualTo(400) &&
+          value.statusCode.isLessThan(500);
+    }
+  }
+
+  /// Check the exception to determine whether the api should retry automatically
+  bool shouldRetry(Exception e) {
     if (e is DioError) {
       return e.type == DioErrorType.SEND_TIMEOUT ||
           e.type == DioErrorType.RECEIVE_TIMEOUT ||
@@ -481,26 +474,46 @@ class ApiClient {
     }
   }
 
+  void throwApiException(Response<String> value, {bool acceptError = false}) {
+    if (acceptError && isAcceptableError(value)) {
+      /// Acceptable Error
+      throwAcceptableApiError(value);
+    } else {
+      /// Unknown Error
+      throwGlobalApiError(value);
+    }
+  }
+
+  /// Throw acceptable error with GlobalResponse object
+  void throwAcceptableApiError(Response<String> value) {
+    try {
+      throw ApiAcceptableException(value.data);
+    } catch (e) {
+      throw Exception('Unknown error happen, please try again');
+    }
+  }
+
+  /// Throw global error with GlobalResponse object
   void throwGlobalApiError(Response<String> value) {
     try {
       final Map<String, dynamic> data =
           jsonDecode(value.data) as Map<String, dynamic>;
       final GlobalResponse _obj = GlobalResponse.fromJson(data);
-      throw ApiErrorException(ApiErrorType.General, _obj);
+      throw ApiGlobalException(ApiErrorType.General, _obj);
     } catch (e) {
       throw Exception('Unknown error happen, please try again');
     }
   }
 
   void printError(String endpoint, Exception exception) {
-    printDebug('XXX API call error when calling ${baseUrlEnd + endpoint}');
-    printDebug(
-        'XXX API call error because of ${dioErrorDescription(exception)}');
+    printDebug('API call error when calling ${baseUrlEnd + endpoint}');
+    printDebug('API call error because of ${dioErrorDescription(exception)}');
   }
 
+  /// Logger print
   void printDebug(String print) => _loggerBuilder.printDebug(print);
 
-  /// API ERROR DESCRIPTION
+  /// API error description
   String dioErrorDescription(Exception exception) {
     String errorDescription = '';
     if (exception is DioError) {

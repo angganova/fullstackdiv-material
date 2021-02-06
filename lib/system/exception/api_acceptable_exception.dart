@@ -2,11 +2,11 @@ import 'dart:convert';
 
 import 'package:fullstackdiv_material/model/app/global_error.dart';
 
-class GlobalErrorException implements Exception {
+class ApiAcceptableException implements Exception {
   /// This exception will throw GlobalErrorResponse in the message
   /// So make sure to throw GlobalErrorResponse data
   /// And GlobalErrorResponse can be deserialized on the exception handler
-  GlobalErrorException(this.message);
+  ApiAcceptableException(this.message);
   String message;
 
   GlobalErrorResponse getErrorFromException() {
@@ -20,4 +20,3 @@ class GlobalErrorException implements Exception {
     }
   }
 }
-
