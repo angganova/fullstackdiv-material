@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "845796654212",
+    "project_id": "fullstackdiv-5bbac",
+    "storage_bucket": "fullstackdiv-5bbac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845796654212:android:24c96cc7a06ab7391956d1",
+        "android_client_info": {
+          "package_name": "com.angganova.fullstackdiv_material"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845796654212-j7f3rk1cb557k7j514sa8k939bfv6j9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmLuMz24ku7LLutzJfCate-2M8ajHCC5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845796654212-j7f3rk1cb557k7j514sa8k939bfv6j9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

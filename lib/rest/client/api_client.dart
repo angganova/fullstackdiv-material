@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:fullstackdiv_material/system/config/env_types.dart';
+import 'package:fullstackdiv_material/system/config/environments.dart';
+import 'package:injectable/injectable.dart';
 import 'package:retry/retry.dart';
 import 'package:fullstackdiv_material/rest/response_model/global_response.dart';
 import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
@@ -9,23 +12,20 @@ import 'package:fullstackdiv_material/system/exception/api_acceptable_exception.
 import 'package:fullstackdiv_material/system/global_variables.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
 
+@lazySingleton
 class ApiClient {
+  ApiClient(this._environments) {
+    initClient();
+  }
+
+  final Environments _environments;
+
   /// Switch between beta and production
-  static bool betaMode = GlobalStrings.betaMode;
-
-  static final String _baseURL = betaMode
-      ? GlobalStrings.restBaseUrlBeta
-      : GlobalStrings.restBaseUrlProduction;
-
-  static final String _endpoint = GlobalStrings.restBaseUrlEndpoint;
   static final String _userName = GlobalStrings.restHeaderUn;
   static final String _password = GlobalStrings.restHeaderPw;
   static final String _basicAuth = GlobalStrings.restHeaderName +
       base64Encode(utf8.encode('$_userName:$_password'));
 
-  final String baseUrlEnd = _baseURL + _endpoint;
-  final String imgUrl = _baseURL;
-  final String htmlFile = _baseURL + GlobalStrings.restHtmlFileEndpoint;
   final LoggerBuilder _loggerBuilder = LoggerBuilder('Dio');
   final Dio _dio = Dio();
 
@@ -37,9 +37,9 @@ class ApiClient {
 
   final String _defaultContentType = 'application/json; charset=utf-8';
 
-  ApiClient getInstance() {
+  void initClient() {
     final BaseOptions options = BaseOptions(
-      baseUrl: baseUrlEnd,
+      baseUrl: _environments.getBaseUrl,
       followRedirects: false,
       contentType: _defaultContentType,
       validateStatus: (int status) => status.isLessThan(500),
@@ -50,12 +50,10 @@ class ApiClient {
     );
     _dio.options = options;
 
-    if (betaMode) {
+    if (_environments.getCurrentEnv == EnvTypes.dev) {
       _dio.interceptors
           .add(LogInterceptor(responseBody: true, requestBody: true));
     }
-
-    return this;
   }
 
   Options _getAdditionalOptions(
@@ -506,7 +504,8 @@ class ApiClient {
   }
 
   void printError(String endpoint, Exception exception) {
-    printDebug('API call error when calling ${baseUrlEnd + endpoint}');
+    printDebug(
+        'API call error when calling ${_environments.getBaseUrl + endpoint}');
     printDebug('API call error because of ${dioErrorDescription(exception)}');
   }
 

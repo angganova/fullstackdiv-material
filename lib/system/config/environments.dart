@@ -1,21 +1,10 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:fullstackdiv_material/system/config/config_service.dart';
 
 class Environments {
-  Environments() {
-    init();
-  }
+  Environments(this._configService);
+  final ConfigService _configService;
 
-  Future<void> init() async {
-    await DotEnv().load();
-  }
+  String get getCurrentEnv => _configService.getValue('FLUTTER_ENV');
 
-  String get currentEnv => getValue('FLUTTER_ENV');
-
-  String getValue(String key) {
-    if (DotEnv().env.containsKey(key)) {
-      return DotEnv().env[key];
-    } else {
-      return '';
-    }
-  }
+  String get getBaseUrl => _configService.getValue('FULLSTACKDIV_BASE_URL');
 }

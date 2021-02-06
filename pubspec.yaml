@@ -92,6 +92,9 @@ dependencies:
   # A Flutter plugin to use the Firebase Cloud Messaging (FCM) API.
   firebase_messaging: ^6.0.16
 
+  # A Flutter plugin to use the Firebase Remote Config API.
+  firebase_remote_config: ^0.6.0
+
   # Cross platform plugin for displaying local notifications
   flutter_local_notifications: ^3.0.1+5
 
