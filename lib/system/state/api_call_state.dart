@@ -1,5 +1,5 @@
 /// Zest Global rest call state to indicate the rest call of the taxi
-enum ZestRestCallState {
+enum ApiCallState {
   /// Initial state
   stateEmpty,
 

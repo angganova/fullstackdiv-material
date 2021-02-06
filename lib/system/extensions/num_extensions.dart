@@ -9,6 +9,10 @@ extension NumExtensions on num {
   bool get isMoreThanZero => this > 0;
   bool get isMoreOrEqualToZero => this >= 0;
   bool isEqual(double i) => this == i;
+  bool isMore(double i) => this == i;
+  bool isLess(double i) => this == i;
+  bool isMoreOrEqual(double i) => this >= i;
+  bool isLessOrEqual(double i) => this <= i;
 
   String formatCurrency(String currency, String separator) {
     if (this < 1000) return "$currency ${this.floor()}";

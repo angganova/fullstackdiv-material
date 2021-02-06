@@ -30,22 +30,22 @@ const double _kMenuScreenPadding = 8.0;
 /// The type `T` is the type of the value(s) the entry represents. All the
 /// entries in a given menu must represent values with consistent types.
 ///
-/// A [ZestPopupMenuEntry] may represent multiple values, for example a row with
+/// A [AppPopupMenuEntry] may represent multiple values, for example a row with
 /// several icons, or a single entry, for example a menu item with an icon (see
-/// [ZestPopupMenuItem]), or no value at all (for example, [ZestPopupMenuDivider]).
+/// [AppPopupMenuItem]), or no value at all (for example, [AppPopupMenuDivider]).
 ///
 /// See also:
 ///
-///  * [ZestPopupMenuItem], a popup menu entry for a single value.
-///  * [ZestPopupMenuDivider], a popup menu entry that is just a horizontal line.
+///  * [AppPopupMenuItem], a popup menu entry for a single value.
+///  * [AppPopupMenuDivider], a popup menu entry that is just a horizontal line.
 ///  * [CheckedPopupMenuItem], a popup menu item with a checkmark.
 ///  * [showMenu], a method to dynamically show a popup menu at a given location.
 ///  * [PopupMenuButton], an [IconButton] that automatically shows a menu when
 ///    it is tapped.
-abstract class ZestPopupMenuEntry<T> extends StatefulWidget {
+abstract class AppPopupMenuEntry<T> extends StatefulWidget {
   /// Abstract const constructor. This constructor enables subclasses to provide
   /// const constructors so that they can be used in const expressions.
-  const ZestPopupMenuEntry({Key key}) : super(key: key);
+  const AppPopupMenuEntry({Key key}) : super(key: key);
 
   /// The amount of vertical space occupied by this entry.
   ///
@@ -64,7 +64,7 @@ abstract class ZestPopupMenuEntry<T> extends StatefulWidget {
   /// the ambient [ThemeData.highlightColor]). If `initialValue` is null, then
   /// this method is not called.
   ///
-  /// If the [ZestPopupMenuEntry] represents a single value, this should return true
+  /// If the [AppPopupMenuEntry] represents a single value, this should return true
   /// if the argument matches that value. If it represents multiple values, it
   /// should return true if the argument matches any of them.
   bool represents(T value);
@@ -76,16 +76,16 @@ abstract class ZestPopupMenuEntry<T> extends StatefulWidget {
 ///
 /// See also:
 ///
-///  * [ZestPopupMenuItem], for the kinds of items that this widget divides.
+///  * [AppPopupMenuItem], for the kinds of items that this widget divides.
 ///  * [showMenu], a method to dynamically show a popup menu at a given location.
 ///  * [PopupMenuButton], an [IconButton] that automatically shows a menu when
 ///    it is tapped.
 // ignore: prefer_void_to_null, https://github.com/dart-lang/sdk/issues/34416
-class ZestPopupMenuDivider extends ZestPopupMenuEntry<Null> {
+class AppPopupMenuDivider extends AppPopupMenuEntry<Null> {
   /// Creates a horizontal divider for a popup menu.
   ///
   /// By default, the divider has a height of 16 logical pixels.
-  const ZestPopupMenuDivider({Key key, this.height = _kMenuDividerHeight})
+  const AppPopupMenuDivider({Key key, this.height = _kMenuDividerHeight})
       : super(key: key);
 
   /// The height of the divider entry.
@@ -101,7 +101,7 @@ class ZestPopupMenuDivider extends ZestPopupMenuEntry<Null> {
   _PopupMenuDividerState createState() => _PopupMenuDividerState();
 }
 
-class _PopupMenuDividerState extends State<ZestPopupMenuDivider> {
+class _PopupMenuDividerState extends State<AppPopupMenuDivider> {
   @override
   Widget build(BuildContext context) => Divider(height: widget.height);
 }
@@ -161,9 +161,9 @@ class _RenderMenuItem extends RenderShiftedBox {
 /// To show a checkmark next to a popup menu item, consider using
 /// [CheckedPopupMenuItem].
 ///
-/// Typically the [child] of a [ZestPopupMenuItem] is a [Text] widget. More
+/// Typically the [child] of a [AppPopupMenuItem] is a [Text] widget. More
 /// elaborate menus with icons can use a [ListTile]. By default, a
-/// [ZestPopupMenuItem] is [kMinInteractiveDimension] pixels high. If you use a widget
+/// [AppPopupMenuItem] is [kMinInteractiveDimension] pixels high. If you use a widget
 /// with a different height, it must be specified in the [height] property.
 ///
 /// {@tool snippet}
@@ -181,24 +181,24 @@ class _RenderMenuItem extends RenderShiftedBox {
 ///
 /// See the example at [PopupMenuButton] for how this example could be used in a
 /// complete menu, and see the example at [CheckedPopupMenuItem] for one way to
-/// keep the text of [ZestPopupMenuItem]s that use [Text] widgets in their [child]
-/// slot aligned with the text of [CheckedPopupMenuItem]s or of [ZestPopupMenuItem]
+/// keep the text of [AppPopupMenuItem]s that use [Text] widgets in their [child]
+/// slot aligned with the text of [CheckedPopupMenuItem]s or of [AppPopupMenuItem]
 /// that use a [ListTile] in their [child] slot.
 ///
 /// See also:
 ///
-///  * [ZestPopupMenuDivider], which can be used to divide items from each other.
-///  * [CheckedPopupMenuItem], a variant of [ZestPopupMenuItem] with a checkmark.
+///  * [AppPopupMenuDivider], which can be used to divide items from each other.
+///  * [CheckedPopupMenuItem], a variant of [AppPopupMenuItem] with a checkmark.
 ///  * [showMenu], a method to dynamically show a popup menu at a given location.
 ///  * [PopupMenuButton], an [IconButton] that automatically shows a menu when
 ///    it is tapped.
-class ZestPopupMenuItem<T> extends ZestPopupMenuEntry<T> {
+class AppPopupMenuItem<T> extends AppPopupMenuEntry<T> {
   /// Creates an item for a popup menu.
   ///
   /// By default, the item is [enabled].
   ///
   /// The `enabled` and `height` arguments must not be null.
-  const ZestPopupMenuItem({
+  const AppPopupMenuItem({
     Key key,
     this.value,
     this.enabled = true,
@@ -254,32 +254,32 @@ class ZestPopupMenuItem<T> extends ZestPopupMenuEntry<T> {
   bool represents(T value) => value == this.value;
 
   @override
-  PopupMenuItemState<T, ZestPopupMenuItem<T>> createState() =>
-      PopupMenuItemState<T, ZestPopupMenuItem<T>>();
+  PopupMenuItemState<T, AppPopupMenuItem<T>> createState() =>
+      PopupMenuItemState<T, AppPopupMenuItem<T>>();
 }
 
-/// The [State] for [ZestPopupMenuItem] subclasses.
+/// The [State] for [AppPopupMenuItem] subclasses.
 ///
 /// By default this implements the basic styling and layout of Material Design
 /// popup menu items.
 ///
 /// The [buildChild] method can be overridden to adjust exactly what gets placed
-/// in the menu. By default it returns [ZestPopupMenuItem.child].
+/// in the menu. By default it returns [AppPopupMenuItem.child].
 ///
 /// The [handleTap] method can be overridden to adjust exactly what happens when
 /// the item is tapped. By default, it uses [Navigator.pop] to return the
-/// [ZestPopupMenuItem.value] from the menu route.
+/// [AppPopupMenuItem.value] from the menu route.
 ///
 /// This class takes two type arguments. The second, `W`, is the exact type of
 /// the [Widget] that is using this [State]. It must be a subclass of
-/// [ZestPopupMenuItem]. The first, `T`, must match the type argument of that widget
+/// [AppPopupMenuItem]. The first, `T`, must match the type argument of that widget
 /// class, and is the type of values returned from this menu.
-class PopupMenuItemState<T, W extends ZestPopupMenuItem<T>> extends State<W> {
+class PopupMenuItemState<T, W extends AppPopupMenuItem<T>> extends State<W> {
   /// The menu item contents.
   ///
   /// Used by the [build] method.
   ///
-  /// By default, this returns [ZestPopupMenuItem.child]. Override this to put
+  /// By default, this returns [AppPopupMenuItem.child]. Override this to put
   /// something else in the menu entry.
   @protected
   Widget buildChild() => widget.child;
@@ -288,7 +288,7 @@ class PopupMenuItemState<T, W extends ZestPopupMenuItem<T>> extends State<W> {
   ///
   /// Used by the [InkWell] inserted by the [build] method.
   ///
-  /// By default, uses [Navigator.pop] to return the [ZestPopupMenuItem.value] from
+  /// By default, uses [Navigator.pop] to return the [AppPopupMenuItem.value] from
   /// the menu route.
   @protected
   void handleTap() {
@@ -353,7 +353,7 @@ class PopupMenuItemState<T, W extends ZestPopupMenuItem<T>> extends State<W> {
 /// shows a popup menu, consider using [PopupMenuButton].
 ///
 /// A [CheckedPopupMenuItem] is kMinInteractiveDimension pixels high, which
-/// matches the default minimum height of a [ZestPopupMenuItem]. The horizontal
+/// matches the default minimum height of a [AppPopupMenuItem]. The horizontal
 /// layout uses [ListTile]; the checkmark is an [Icons.done] icon, shown in the
 /// [ListTile.leading] position.
 ///
@@ -403,13 +403,13 @@ class PopupMenuItemState<T, W extends ZestPopupMenuItem<T>> extends State<W> {
 ///
 /// See also:
 ///
-///  * [ZestPopupMenuItem], a popup menu entry for picking a command (as opposed to
+///  * [AppPopupMenuItem], a popup menu entry for picking a command (as opposed to
 ///    toggling a value).
-///  * [ZestPopupMenuDivider], a popup menu entry that is just a horizontal line.
+///  * [AppPopupMenuDivider], a popup menu entry that is just a horizontal line.
 ///  * [showMenu], a method to dynamically show a popup menu at a given location.
 ///  * [PopupMenuButton], an [IconButton] that automatically shows a menu when
 ///    it is tapped.
-class CheckedPopupMenuItem<T> extends ZestPopupMenuItem<T> {
+class CheckedPopupMenuItem<T> extends AppPopupMenuItem<T> {
   /// Creates a popup menu item with a checkmark.
   ///
   /// By default, the menu item is [enabled] but unchecked. To mark the item as
@@ -700,7 +700,7 @@ class _PopupMenuRoute<T> extends PopupRoute<T> {
   }) : itemSizes = List<Size>(items.length);
 
   final RelativeRect position;
-  final List<ZestPopupMenuEntry<T>> items;
+  final List<AppPopupMenuEntry<T>> items;
   final List<Size> itemSizes;
   final T initialValue;
   final double elevation;
@@ -806,8 +806,8 @@ class _PopupMenuRoute<T> extends PopupRoute<T> {
 ///
 /// The positioning of the `initialValue` at the `position` is implemented by
 /// iterating over the `items` to find the first whose
-/// [ZestPopupMenuEntry.represents] method returns true for `initialValue`, and then
-/// summing the values of [ZestPopupMenuEntry.height] for all the preceding widgets
+/// [AppPopupMenuEntry.represents] method returns true for `initialValue`, and then
+/// summing the values of [AppPopupMenuEntry.height] for all the preceding widgets
 /// in the list.
 ///
 /// The `elevation` argument specifies the z-coordinate at which to place the
@@ -829,8 +829,8 @@ class _PopupMenuRoute<T> extends PopupRoute<T> {
 ///
 /// See also:
 ///
-///  * [ZestPopupMenuItem], a popup menu entry for a single value.
-///  * [ZestPopupMenuDivider], a popup menu entry that is just a horizontal line.
+///  * [AppPopupMenuItem], a popup menu entry for a single value.
+///  * [AppPopupMenuDivider], a popup menu entry that is just a horizontal line.
 ///  * [CheckedPopupMenuItem], a popup menu item with a checkmark.
 ///  * [PopupMenuButton], which provides an [IconButton] that shows a menu by
 ///    calling this method automatically.
@@ -839,7 +839,7 @@ class _PopupMenuRoute<T> extends PopupRoute<T> {
 Future<T> showMenu<T>({
   @required BuildContext context,
   @required RelativeRect position,
-  @required List<ZestPopupMenuEntry<T>> items,
+  @required List<AppPopupMenuEntry<T>> items,
   T initialValue,
   double elevation,
   String semanticLabel,
@@ -887,7 +887,7 @@ Future<T> showMenu<T>({
 }
 
 /// Signature for the callback invoked when a menu item is selected. The
-/// argument is the value of the [ZestPopupMenuItem] that caused its menu to be
+/// argument is the value of the [AppPopupMenuItem] that caused its menu to be
 /// dismissed.
 ///
 /// Used by [PopupMenuButton.onSelected].
@@ -903,7 +903,7 @@ typedef PopupMenuCanceled = void Function();
 /// the button is pressed.
 ///
 /// Used by [PopupMenuButton.itemBuilder].
-typedef PopupMenuItemBuilder<T> = List<ZestPopupMenuEntry<T>> Function(
+typedef PopupMenuItemBuilder<T> = List<AppPopupMenuEntry<T>> Function(
     BuildContext context);
 
 /// Displays a menu when pressed and calls [onSelected] when the menu is dismissed
@@ -953,8 +953,8 @@ typedef PopupMenuItemBuilder<T> = List<ZestPopupMenuEntry<T>> Function(
 ///
 /// See also:
 ///
-///  * [ZestPopupMenuItem], a popup menu entry for a single value.
-///  * [ZestPopupMenuDivider], a popup menu entry that is just a horizontal line.
+///  * [AppPopupMenuItem], a popup menu entry for a single value.
+///  * [AppPopupMenuDivider], a popup menu entry that is just a horizontal line.
 ///  * [CheckedPopupMenuItem], a popup menu item with a checkmark.
 ///  * [showMenu], a method to dynamically show a popup menu at a given location.
 class PopupMenuButton<T> extends StatefulWidget {
@@ -1097,7 +1097,7 @@ class PopupMenuButtonState<T> extends State<PopupMenuButton<T>> {
       ),
       Offset.zero & overlay.size,
     );
-    final List<ZestPopupMenuEntry<T>> items = widget.itemBuilder(context);
+    final List<AppPopupMenuEntry<T>> items = widget.itemBuilder(context);
     // Only show the menu if there is something to show
     if (items.isNotEmpty) {
       showMenu<T>(
@@ -1130,7 +1130,7 @@ class PopupMenuButtonState<T> extends State<PopupMenuButton<T>> {
       case TargetPlatform.fuchsia:
       case TargetPlatform.linux:
       case TargetPlatform.windows:
-        return Icon(Icons.more);
+        return const Icon(Icons.more);
       case TargetPlatform.iOS:
       case TargetPlatform.macOS:
         return const Icon(Icons.more_horiz);
@@ -1181,7 +1181,7 @@ class PopupMenuButtonState<T> extends State<PopupMenuButton<T>> {
 Future<T> showZestPopupMenu<T>(
     {BuildContext context,
     TapUpDetails tapUpDetails,
-    @required List<ZestPopupMenuEntry<T>> items}) async {
+    @required List<AppPopupMenuEntry<T>> items}) async {
   return await showMenu<T>(
     context: context,
     position: RelativeRect.fromLTRB(

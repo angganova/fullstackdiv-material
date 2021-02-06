@@ -46,7 +46,7 @@ class CustomSwitch extends StatelessWidget {
         ),
         child: AnimatedAlign(
           alignment: active ? Alignment.centerRight : Alignment.centerLeft,
-          curve: kZestEaseOut,
+          curve: kEaseOut,
           duration: kDuration300,
           child: ClipRRect(
             clipBehavior: Clip.hardEdge,

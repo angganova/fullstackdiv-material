@@ -129,6 +129,8 @@ class WideCard extends StatelessWidget {
   Widget get _badge {
     if (badgeText == null) {
       return Container();
+    }else{
+      return Container();
     }
   }
 

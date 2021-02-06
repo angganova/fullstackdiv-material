@@ -70,8 +70,8 @@ class DemoFloatingButtonPage extends StatelessWidget {
                           kSpacer.edgeInsets.only(left: 'sm', bottom: 'sm'),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          CustomIconButton(
+                        children: const <Widget>[
+                           CustomIconButton(
                             shadowStrokeType: ShadowStrokeType.lowShadow,
                             icon: Icons.brightness_1_outlined,
                           ),

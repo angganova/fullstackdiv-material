@@ -19,8 +19,8 @@ SlideTransition slideBottomTransition(
   final Tween<Offset> tween = Tween<Offset>(begin: begin, end: end);
   final CurvedAnimation curvedAnimation = CurvedAnimation(
     parent: animation,
-    curve: kZestEaseOut,
-    reverseCurve: kZestEaseIn,
+    curve: kEaseOut,
+    reverseCurve: kEaseIn,
   );
 
   return SlideTransition(

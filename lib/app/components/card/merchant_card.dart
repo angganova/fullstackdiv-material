@@ -60,7 +60,7 @@ class MerchantCard extends StatelessWidget {
                     child: Container(
                       width: 0.3 * AppQuery(context).width,
                       color: kAppGreyD,
-                      child: AspectRatio(
+                      child: const AspectRatio(
                         aspectRatio: 0.81,
                         child: Icon(
                           Icons.restaurant,

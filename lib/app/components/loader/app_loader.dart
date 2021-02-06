@@ -31,7 +31,7 @@ class AppLoader extends StatelessWidget {
                 SizedBox(
                   width: iconSize,
                   height: iconSize,
-                  child: CircularProgressIndicator(),
+                  child: const CircularProgressIndicator(),
                 ),
               ],
             ),

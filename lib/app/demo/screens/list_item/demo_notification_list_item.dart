@@ -61,14 +61,14 @@ class DemoNotificationListItem extends StatelessWidget {
                       trailingText: '7 mins',
                     ),
                     SizedBox(height: kSpacer.xs),
-                    NotificationListItem(
+                    const NotificationListItem(
                       text: 'Walk 400m',
                       widgetTheme: WidgetTheme.greyBlack,
                       icon: Icons.location_on,
                       trailingText: '2 mins',
                     ),
                     SizedBox(height: kSpacer.xs),
-                    NotificationListItem(
+                    const NotificationListItem(
                       text: 'Wait for bus',
                       widgetTheme: WidgetTheme.blackWhite,
                       icon: Icons.location_on,

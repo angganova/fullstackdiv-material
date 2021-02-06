@@ -43,7 +43,7 @@ class SearchListHeader extends StatelessWidget {
               hintText: searchHint,
               suffixIcon: Padding(
                 padding: kSpacer.edgeInsets.left.md,
-                child: Icon(
+                child: const Icon(
                   Icons.search,
                   size: kSmallIconSize,
                   color: kAppGreyB,

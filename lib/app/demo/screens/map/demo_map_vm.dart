@@ -7,7 +7,7 @@
 // import 'package:zest/data/repository/moovit_repository.dart';
 // import 'package:zest/demo/screens/map/demo_map_page.dart';
 // import 'package:zest/demo/screens/map/demo_pick_location_page.dart';
-// import 'package:zest/system/di/index.dart';
+// import 'package:zest/system/di/dependency_index.dart';
 // import 'package:zest/system/utils/map_utils.dart';
 //
 // part 'demo_map_vm.g.dart';

@@ -15,7 +15,7 @@
 // import 'package:fullstackdiv_material/app/components/map/zmap.dart';
 // import 'package:fullstackdiv_material/app/components/map/zmap_controller.dart';
 // import 'package:fullstackdiv_material/app/components/map/marker/zmarker.dart';
-// import 'package:zest/system/di/index.dart';
+// import 'package:zest/system/di/dependency_index.dart';
 // import 'package:fullstackdiv_material/system/global_styles.dart';
 //
 // class DemoMarkerMovement extends StatefulWidget {

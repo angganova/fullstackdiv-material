@@ -144,8 +144,8 @@ class _BasicSnackBarViewState extends State<BasicSnackBarView>
     _sizeAnimation = _sizeTween.animate(
       CurvedAnimation(
         parent: _sizeAnimationController,
-        curve: kZestEaseOut,
-        reverseCurve: kZestEaseIn,
+        curve: kEaseOut,
+        reverseCurve: kEaseIn,
       ),
     )..addListener(() {
         setState(() {});
@@ -178,7 +178,7 @@ class _BasicSnackBarViewState extends State<BasicSnackBarView>
     _imageSizeAnimation = _imageSizeTween.animate(
       CurvedAnimation(
         parent: _imageSizeAnimationController,
-        curve: kZestSoftOut,
+        curve: kSoftOut,
       ),
     )..addListener(() {
         setState(() {});
@@ -200,7 +200,7 @@ class _BasicSnackBarViewState extends State<BasicSnackBarView>
     _trailingPosAnimation = _trailingPosTween.animate(
       CurvedAnimation(
         parent: _trailingPosAnimationController,
-        curve: kZestEaseOut,
+        curve: kEaseOut,
       ),
     )..addListener(() {
         setState(() {});

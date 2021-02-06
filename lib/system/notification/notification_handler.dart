@@ -7,8 +7,8 @@
 // import 'package:zest/config/environments.dart';
 // import 'package:zest/data/domain/taxi/booking_status_message.dart';
 // import 'package:zest/data/model/notification/push_notification_model.dart';
-// import 'package:zest/data/model/zest/app_launch_data_model.dart';
-// import 'package:zest/system/di/index.dart';
+// import 'package:zest/data/model/zest/app_launch_data.dart';
+// import 'package:zest/system/di/dependency_index.dart';
 // import 'package:zest/system/utils/constants.dart';
 // import 'package:zest/system/utils/debugger/logger_builder.dart';
 // import 'package:zest/system/utils/notification/notification_constant.dart';

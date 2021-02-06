@@ -174,7 +174,7 @@ class _BasicButtonState extends State<BasicButton>
     ).animate(
       CurvedAnimation(
         parent: _disabledAnimationController,
-        curve: kZestEaseOut,
+        curve: kEaseOut,
       ),
     )
       ..addListener(() {

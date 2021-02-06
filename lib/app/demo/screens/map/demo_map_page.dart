@@ -17,7 +17,7 @@
 // import 'package:fullstackdiv_material/app/components/map/loading_indicator/map_loading_indicator.dart';
 // import 'package:zest/system/utils/extensions/extensions.dart';
 // import 'package:fullstackdiv_material/app/components/map/polyline/zpolyline.dart';
-// import 'package:zest/system/di/index.dart';
+// import 'package:zest/system/di/dependency_index.dart';
 // import 'package:zest/system/utils/constants.dart';
 // import 'package:fullstackdiv_material/system/global_styles.dart';
 // import 'package:zest/system/utils/map_utils.dart';

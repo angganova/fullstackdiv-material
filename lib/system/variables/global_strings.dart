@@ -1,7 +1,7 @@
 class GlobalStrings {
   ///
   /// App Data
-  static final betaMode = true;
+  static const betaMode = true;
   static final appName = "Fullstackdiv";
   static final packageName = "com.fullstackdiv";
   static final packageIdentifier = "fullstackdiv";

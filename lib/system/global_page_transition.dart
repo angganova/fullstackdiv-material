@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FadeRoute extends PageRouteBuilder {
+class FadeRoute extends PageRouteBuilder<dynamic> {
   final Widget page;
 
   FadeRoute({@required this.page})
@@ -24,7 +24,7 @@ class FadeRoute extends PageRouteBuilder {
   );
 }
 
-class ScaleRoute extends PageRouteBuilder {
+class ScaleRoute extends PageRouteBuilder<dynamic> {
   final Widget page;
   final String name;
   ScaleRoute({this.page, this.name = ""})
@@ -57,7 +57,7 @@ class ScaleRoute extends PageRouteBuilder {
   );
 }
 
-class EnterExitRoute extends PageRouteBuilder {
+class EnterExitRoute extends PageRouteBuilder<dynamic> {
   final Widget enterPage;
   final Widget exitPage;
   final String name;
@@ -97,7 +97,7 @@ class EnterExitRoute extends PageRouteBuilder {
   );
 }
 
-class SlideRightRoute extends PageRouteBuilder {
+class SlideRightRoute extends PageRouteBuilder<dynamic> {
   final Widget page;
   final String name;
   SlideRightRoute({this.page, this.name = ""})
@@ -125,7 +125,7 @@ class SlideRightRoute extends PageRouteBuilder {
   );
 }
 
-class SlideTopRoute extends PageRouteBuilder {
+class SlideTopRoute extends PageRouteBuilder<dynamic> {
   final Widget page;
   final String name;
   SlideTopRoute({this.page, this.name})
@@ -153,10 +153,10 @@ class SlideTopRoute extends PageRouteBuilder {
   );
 }
 
-class SizeRoute extends PageRouteBuilder {
+class SizeRoute extends PageRouteBuilder<dynamic> {
   final Widget page;
   final String name;
-  SizeRoute({this.page, this.name = ""})
+  SizeRoute({this.page, this.name = ''})
       : super(
     pageBuilder: (
         BuildContext context,

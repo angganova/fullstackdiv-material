@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/app/components/header/basic_header.dart';
 import 'package:fullstackdiv_material/app/components/list_item/interactive_list_item.dart';
-import 'package:fullstackdiv_material/app/components/popupmenu/zest_popup_menu.dart';
+import 'package:fullstackdiv_material/app/components/popupmenu/app_popup_menu.dart';
 import 'package:fullstackdiv_material/app/components/toast/public_toast.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
@@ -23,11 +23,11 @@ class _DemoInteractiveListItemState extends State<DemoInteractiveListItem> {
   }
 
   void showPopupMenu(TapUpDetails tapUpDetails, String text) {
-    final List<ZestPopupMenuEntry<String>> items = <ZestPopupMenuEntry<String>>[
-      ZestPopupMenuItem<String>(
+    final List<AppPopupMenuEntry<String>> items = <AppPopupMenuEntry<String>>[
+      const AppPopupMenuItem<String>(
           child: ZestMenu(icon: Icons.edit, text: 'Edit'), value: '1'),
-      const ZestPopupMenuDivider(),
-      ZestPopupMenuItem<String>(
+      const AppPopupMenuDivider(),
+      const AppPopupMenuItem<String>(
           child: ZestMenu(icon: Icons.share, text: 'Share'), value: '2'),
     ];
     showZestPopupMenu(

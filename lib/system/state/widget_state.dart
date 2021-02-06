@@ -1,5 +1,5 @@
 /// Zest global widget State to indicate the lifecycle of the widget
-enum ZestWidgetState {
+enum AppWidgetState {
   /// This is to check the state of the widget Lifecycle
   /// Useful to check your widget lifecycle from view model
 

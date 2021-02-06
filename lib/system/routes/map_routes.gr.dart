@@ -64,7 +64,7 @@ import '../../app/demo/screens/tab_bar/demo_custom_tab_bar_page.dart';
 import '../../app/demo/screens/vertical_drawer/demo_vertical_drawer_menu.dart';
 
 class Routes {
-  static const String zestDemo = '/zest-demo';
+  static const String demo = '/Demo';
   static const String demoCardPage = '/demo-card-page';
   static const String cardMenuPage = '/card-menu-page';
   static const String demoBottomSheetPage = '/demo-bottom-sheet-page';
@@ -119,7 +119,7 @@ class Routes {
   static const String demoSavedPage = '/demo-saved-page';
   static const String demoProfilePage = '/demo-profile-page';
   static const all = <String>{
-    zestDemo,
+    demo,
     demoCardPage,
     cardMenuPage,
     demoBottomSheetPage,
@@ -178,7 +178,7 @@ class AppRouter extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
-    RouteDef(Routes.zestDemo, page: Demo),
+    RouteDef(Routes.demo, page: Demo),
     RouteDef(Routes.demoCardPage, page: DemoCardPage),
     RouteDef(Routes.cardMenuPage, page: CardMenuPage),
     RouteDef(Routes.demoBottomSheetPage, page: DemoBottomSheetPage),
@@ -562,7 +562,7 @@ class AppRouter extends RouterBase {
 /// *************************************************************************
 
 extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
-  Future<dynamic> pushZestDemo() => push<dynamic>(Routes.zestDemo);
+  Future<dynamic> pushDemo() => push<dynamic>(Routes.demo);
 
   Future<dynamic> pushDemoCardPage() => push<dynamic>(Routes.demoCardPage);
 

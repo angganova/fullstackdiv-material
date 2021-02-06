@@ -247,8 +247,8 @@ extension CalendarDialog on Dialog {
           ).animate(
             CurvedAnimation(
               parent: anim,
-              curve: kZestEaseOut,
-              reverseCurve: kZestEaseIn,
+              curve: kEaseOut,
+              reverseCurve: kEaseIn,
             ),
           ),
           child: child,

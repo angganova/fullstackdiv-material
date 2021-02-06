@@ -16,7 +16,7 @@ FadeTransition fadeInTransition(
   final Tween<double> tween = Tween<double>(begin: 0.0, end: 1.0);
   final CurvedAnimation curvedAnimation = CurvedAnimation(
     parent: animation,
-    curve: kZestEaseOut,
+    curve: kEaseOut,
   );
 
   return FadeTransition(

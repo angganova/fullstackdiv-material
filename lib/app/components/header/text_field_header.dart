@@ -55,7 +55,7 @@ class _TextFieldHeaderState extends State<TextFieldHeader> {
                     width: kSpacer.lg,
                     height: kSpacer.lg,
                     alignment: Alignment.centerLeft,
-                    child: Icon(
+                    child: const Icon(
                       Icons.arrow_back,
                       size: kSmallIconSize,
                       color: kAppGreyB,

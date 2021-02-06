@@ -30,7 +30,7 @@ class _DemoPinPageState extends State<DemoPinPage> {
 
   /// Indicate that pin field on focused state (Keyboard shown)
   /// Will affect style of [AppPin] decoration
-  bool _focused = false;
+  final bool _focused = false;
 
 
   @override
@@ -116,7 +116,7 @@ class _DemoPinPageState extends State<DemoPinPage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.forward),
+        child: const Icon(Icons.forward),
         backgroundColor: _pinFilled ? kAppPrimaryElectricBlue : kAppGreyC,
         onPressed: _pinFilled
             ? () {

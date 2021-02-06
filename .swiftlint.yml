@@ -1,0 +1,36 @@
+# 
+#  IMPORTANT: DO NOT MOVE THIS FILE
+# 
+
+disabled_rules: # rule identifiers to exclude from running
+  - statement_position
+  - trailing_whitespace
+  - type_name
+  - function_body_length
+  - file_length
+  - nesting
+  - function_parameter_count
+  - mark
+  - closure_parameter_position
+  - redundant_string_enum_value
+  - large_tuple
+  - variable_name
+  - line_length
+  - unused_setter_value
+  - orphaned_doc_comment
+opt_in_rules: # some rules are only opt-in
+  - force_unwrapping
+  - force_try
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Tests
+  - Pods
+  - Frameworks
+
+#configurable rules
+line_length: 120
+
+force_unwrapping:
+  severity: warning # explicitly
+
+force_try:
+  severity: warning

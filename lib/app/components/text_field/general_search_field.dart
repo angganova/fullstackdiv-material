@@ -133,7 +133,7 @@ class _GeneralSearchFieldState extends State<GeneralSearchField> {
           width: kMedTappableArea,
           height: kMedTappableArea,
           alignment: Alignment.centerRight,
-          child: Icon(
+          child: const Icon(
             Icons.location_on,
             color: kAppPrimaryElectricBlue,
             size: kSmallIconSize,
@@ -149,7 +149,7 @@ class _GeneralSearchFieldState extends State<GeneralSearchField> {
           width: kMedTappableArea,
           height: kMedTappableArea,
           alignment: Alignment.centerRight,
-          child: Icon(
+          child: const Icon(
             Icons.close,
             color: kAppPrimaryElectricBlue,
             size: kSmallIconSize,
