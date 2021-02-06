@@ -35,12 +35,14 @@ class ApiClient {
   final Duration _defaultReceiveTimeout = const Duration(seconds: 15);
   final Duration _defaultSendTimeout = const Duration(seconds: 5);
 
+  final String _defaultContentType = 'application/json; charset=utf-8';
+
   ApiClient getInstance() {
     final BaseOptions options = BaseOptions(
       baseUrl: baseUrlEnd,
       followRedirects: false,
-      contentType: 'application/json; charset=utf-8',
-      validateStatus: (int status) => status < 500,
+      contentType: _defaultContentType,
+      validateStatus: (int status) => status.isLessThan(500),
       headers: <String, dynamic>{HttpHeaders.authorizationHeader: _basicAuth},
       connectTimeout: _defaultConnectTimeout.inMilliseconds,
       receiveTimeout: _defaultReceiveTimeout.inMilliseconds,
@@ -55,24 +57,21 @@ class ApiClient {
     return this;
   }
 
-  Options getMergedOptions(
+  Options _getAdditionalOptions(
       {Map<String, dynamic> extraHeaders,
       Duration sendTimeout,
       Duration receiveTimeout}) {
-    final Duration currentSendTimeout = _defaultSendTimeout;
-    final Duration currentReceiveTimeout = _defaultReceiveTimeout;
-    Map<String, dynamic> headers;
-    if (extraHeaders != null && extraHeaders.isNotEmpty) {
-      headers.addAll(extraHeaders);
-    }
-
     return Options(
         sendTimeout:
-            sendTimeout?.inMilliseconds ?? currentSendTimeout.inMilliseconds,
+            sendTimeout?.inMilliseconds ?? _defaultSendTimeout.inMilliseconds,
         receiveTimeout: receiveTimeout?.inMilliseconds ??
-            currentReceiveTimeout.inMilliseconds,
-        headers: headers);
+            _defaultReceiveTimeout.inMilliseconds,
+        headers: extraHeaders);
   }
+
+  RetryOptions _getRetryOption({int maxRetries}) => RetryOptions(
+        maxAttempts: maxRetries ?? 3,
+      );
 
   /// Minimum requirement for get API
   Future<Map<String, dynamic>> get(String url,
@@ -80,10 +79,10 @@ class ApiClient {
       Duration receiveTimeout,
       Duration sendTimeout,
       int maxRetries = 3}) async {
-    final RetryOptions _retryOptions = RetryOptions(
-      maxAttempts: maxRetries,
+    final RetryOptions _retryOptions = _getRetryOption(
+      maxRetries: maxRetries,
     );
-    final Options _mergedOption = getMergedOptions(
+    final Options _mergedOption = _getAdditionalOptions(
         receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
 
     return _retryOptions.retry(
@@ -94,8 +93,7 @@ class ApiClient {
               options: _mergedOption,
             )
                 .then((Response<String> value) {
-              if (value.statusCode.isMoreOrEqual(200) &&
-                  value.statusCode.isLess(300)) {
+              if (isSuccessResponse(value)) {
                 return jsonDecode(value.data) as Map<String, dynamic>;
               } else {
                 throwGlobalApiError(value);
@@ -106,24 +104,26 @@ class ApiClient {
         onRetry: (Exception e) => printError(url, e));
   }
 
-  // This is for api that read array object as reply
+  /// This is for api that read array object as reply
   Future<List<dynamic>> getList(String url,
       {Map<String, dynamic> queryParams,
       Duration receiveTimeout,
       Duration sendTimeout,
       int maxRetries = 3}) async {
-    final RetryOptions retryOptions = RetryOptions(
-      maxAttempts: maxRetries,
+    final RetryOptions _retryOptions = _getRetryOption(
+      maxRetries: maxRetries,
     );
-    return retryOptions.retry(
+    final Options _mergedOption = _getAdditionalOptions(
+        receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
+    return _retryOptions.retry(
         () => _dio
                 .get<String>(
               url,
               queryParameters: queryParams,
-              options: getMergedOptions(),
+              options: _mergedOption,
             )
                 .then((Response<String> value) {
-              if (value.statusCode >= 200 && value.statusCode < 300) {
+              if (isSuccessResponse(value)) {
                 return jsonDecode(value.data) as List<dynamic>;
               } else {
                 throwGlobalApiError(value);
@@ -144,20 +144,22 @@ class ApiClient {
     Duration sendTimeout,
     int maxRetries = 3,
   }) async {
-    final RetryOptions retryOptions = RetryOptions(
-      maxAttempts: maxRetries,
+    final RetryOptions _retryOptions = _getRetryOption(
+      maxRetries: maxRetries,
     );
-    final Options mergedOptions = getMergedOptions(extraHeaders: headers);
-    return retryOptions.retry(
+    final Options _mergedOption = _getAdditionalOptions(
+        receiveTimeout: receiveTimeout, sendTimeout: sendTimeout);
+
+    return _retryOptions.retry(
         () => _dio
                 .post<String>(
               url,
               queryParameters: queryParams,
               data: requestBody,
-              options: mergedOptions,
+              options: _mergedOption,
             )
                 .then((Response<String> value) {
-              if (value.statusCode >= 200 && value.statusCode < 300) {
+              if (isSuccessResponse(value)) {
                 final Map<String, dynamic> data =
                     jsonDecode(value.data) as Map<String, dynamic>;
                 return data;
@@ -187,10 +189,10 @@ class ApiClient {
               url,
               queryParameters: queryParams,
               data: formData,
-              options: getMergedOptions(),
+              options: _getAdditionalOptions(),
             )
                 .then((Response<String> value) {
-              if (value.statusCode >= 200 && value.statusCode < 300) {
+              if (isSuccessResponse(value)) {
                 return jsonDecode(value.data) as T;
               } else {
                 throwGlobalApiError(value);
@@ -217,10 +219,10 @@ class ApiClient {
               url,
               queryParameters: queryParams,
               data: requestBody,
-              options: getMergedOptions(),
+              options: _getAdditionalOptions(),
             )
                 .then((Response<String> value) {
-              if (value.statusCode >= 200 && value.statusCode < 300) {
+              if (isSuccessResponse(value)) {
                 return jsonDecode(value.data) as Map<String, dynamic>;
               } else {
                 throwGlobalApiError(value);
@@ -247,10 +249,10 @@ class ApiClient {
               url,
               queryParameters: queryParams,
               data: requestBody,
-              options: getMergedOptions(),
+              options: _getAdditionalOptions(),
             )
                 .then((Response<String> value) {
-              if (value.statusCode >= 200 && value.statusCode < 300) {
+              if (isSuccessResponse(value)) {
                 final String toMapString = '\{\"data\":${value.data}\}';
                 final Map<String, dynamic> resultMap =
                     jsonDecode(toMapString) as Map<String, dynamic>;
@@ -286,10 +288,10 @@ class ApiClient {
               url,
               queryParameters: queryParams,
               data: requestBody,
-              options: getMergedOptions(),
+              options: _getAdditionalOptions(),
             )
                 .then((Response<String> value) {
-              if (value.statusCode >= 200 && value.statusCode < 300) {
+              if (isSuccessResponse(value)) {
                 final String toMapString = '\{\"data\":${value.data}\}';
                 final Map<String, dynamic> resultMap =
                     jsonDecode(toMapString) as Map<String, dynamic>;
@@ -317,7 +319,7 @@ class ApiClient {
     Duration receiveTimeout,
     Duration sendTimeout,
   }) async {
-    final Options mergedOptions = getMergedOptions(
+    final Options mergedOptions = _getAdditionalOptions(
         extraHeaders: headers,
         sendTimeout: sendTimeout,
         receiveTimeout: receiveTimeout);
@@ -330,13 +332,14 @@ class ApiClient {
       options: mergedOptions,
     )
         .then((Response<String> value) {
-      if (value.statusCode >= 200 && value.statusCode < 300) {
+      if (isSuccessResponse(value)) {
         /// Success
         return jsonDecode(value.data) as Map<String, dynamic>;
-      } else if (value.statusCode >= 400 && value.statusCode < 500) {
+      } else if (value.statusCode.isMoreOrEqualTo(400) &&
+          value.statusCode.isLessThan(500)) {
         /// Client Error
         throw GlobalErrorException(value.data);
-      } else if (value.statusCode >= 500) {
+      } else if (value.statusCode.isMoreOrEqualTo(500)) {
         /// Server Error
         final Map<String, dynamic> data =
             jsonDecode(value.data) as Map<String, dynamic>;
@@ -367,10 +370,10 @@ class ApiClient {
               url,
               queryParameters: queryParams,
               data: requestBody,
-              options: getMergedOptions(),
+              options: _getAdditionalOptions(),
             )
                 .then((Response<String> value) {
-              if (value.statusCode >= 200 && value.statusCode < 300) {
+              if (isSuccessResponse(value)) {
                 return jsonDecode(value.data) as Map<String, dynamic>;
               } else {
                 throwGlobalApiError(value);
@@ -397,10 +400,10 @@ class ApiClient {
               url,
               queryParameters: queryParams,
               data: requestBody,
-              options: getMergedOptions(),
+              options: _getAdditionalOptions(),
             )
                 .then((Response<String> value) {
-              if (value.statusCode >= 200 && value.statusCode < 300) {
+              if (isSuccessResponse(value)) {
                 final String toMapString = '\{\"data\":${value.data}\}';
                 final Map<String, dynamic> resultMap =
                     jsonDecode(toMapString) as Map<String, dynamic>;
@@ -418,6 +421,54 @@ class ApiClient {
             }),
         retryIf: (Exception e) => shouldRetryException(e),
         onRetry: (Exception e) => printError(url, e));
+  }
+
+  Future<Response<String>> basicGet({
+    String url,
+    Options options,
+    Map<String, dynamic> queryParams,
+  }) async {
+    return await _dio.post<String>(
+      url,
+      queryParameters: queryParams,
+      options: options??_getAdditionalOptions(),
+    );
+  }
+
+  Future<Response<String>> basicPostWithBody({
+    String url,
+    Options options,
+    Map<String, dynamic> requestBody,
+    Map<String, dynamic> queryParams,
+  }) async {
+    return await _dio.post<String>(
+      url,
+      queryParameters: queryParams,
+      data: requestBody,
+      options: options??_getAdditionalOptions(),
+    );
+  }
+
+  Future<Response<String>> basicPostWithFormData({
+    String url,
+    Options options,
+    FormData formData,
+    Map<String, dynamic> queryParams,
+  }) async {
+    return await _dio.post<String>(
+      url,
+      queryParameters: queryParams,
+      data: formData,
+      options: options??_getAdditionalOptions(),
+    );
+  }
+
+  bool isSuccessResponse(Response<String> value) {
+    if (value == null || value.statusCode.isNull) {
+      return false;
+    } else {
+      return isSuccessResponse(value);
+    }
   }
 
   bool shouldRetryException(Exception e) {
