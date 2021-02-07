@@ -98,8 +98,8 @@ class LocalNotificationShow {
 
       await flutterLocalNotificationsPlugin.show(
           _notificationID,
-          title??notificationData.title,
-          body??notificationData.body,
+          title ?? notificationData.title,
+          body ?? notificationData.body,
           platformNotificationDetails(
               channelID: NotificationConstant.defaultChannelID),
           payload: payload);
@@ -129,8 +129,10 @@ class LocalNotificationShow {
 
     if (channelID != null) {
       try {
-        androidNotificationChannel = NotificationConstant.notificationChannelList
-            .firstWhere((AndroidNotificationChannel element) => element.id.ignoreCase(channelID));
+        androidNotificationChannel = NotificationConstant
+            .notificationChannelList
+            .firstWhere((AndroidNotificationChannel element) =>
+                element.id.ignoreCase(channelID));
       } catch (e) {
         printDebug('AndroidNotificationDetails not found $e');
       }

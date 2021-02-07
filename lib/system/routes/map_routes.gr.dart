@@ -62,8 +62,10 @@ import '../../app/screens/demo/screens/slider/demo_basic_slider_page.dart';
 import '../../app/screens/demo/screens/slider/slider_menu_page.dart';
 import '../../app/screens/demo/screens/tab_bar/demo_custom_tab_bar_page.dart';
 import '../../app/screens/demo/screens/vertical_drawer/demo_vertical_drawer_menu.dart';
+import '../../app/screens/home/home_view.dart';
 
 class Routes {
+  static const String homeView = '/home-view';
   static const String demoHomeView = '/demo-home-view';
   static const String demoCardPage = '/demo-card-page';
   static const String cardMenuPage = '/card-menu-page';
@@ -119,6 +121,7 @@ class Routes {
   static const String demoSavedPage = '/demo-saved-page';
   static const String demoProfilePage = '/demo-profile-page';
   static const all = <String>{
+    homeView,
     demoHomeView,
     demoCardPage,
     cardMenuPage,
@@ -178,6 +181,7 @@ class AppRouter extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
+    RouteDef(Routes.homeView, page: HomeView),
     RouteDef(Routes.demoHomeView, page: DemoHomeView),
     RouteDef(Routes.demoCardPage, page: DemoCardPage),
     RouteDef(Routes.cardMenuPage, page: CardMenuPage),
@@ -234,6 +238,13 @@ class AppRouter extends RouterBase {
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
+    HomeView: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) => HomeView(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
     DemoHomeView: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => DemoHomeView(),
@@ -562,6 +573,8 @@ class AppRouter extends RouterBase {
 /// *************************************************************************
 
 extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
+  Future<dynamic> pushHomeView() => push<dynamic>(Routes.homeView);
+
   Future<dynamic> pushDemoHomeView() => push<dynamic>(Routes.demoHomeView);
 
   Future<dynamic> pushDemoCardPage() => push<dynamic>(Routes.demoCardPage);

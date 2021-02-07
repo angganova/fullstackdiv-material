@@ -1,3 +1,4 @@
+export 'styles/app_theme.dart';
 export 'styles/colors.dart';
 export 'styles/constants.dart';
 export 'styles/curves.dart';

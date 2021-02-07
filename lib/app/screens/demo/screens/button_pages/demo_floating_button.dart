@@ -71,7 +71,7 @@ class DemoFloatingButtonPage extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: const <Widget>[
-                           CustomIconButton(
+                          CustomIconButton(
                             shadowStrokeType: ShadowStrokeType.lowShadow,
                             icon: Icons.brightness_1_outlined,
                           ),

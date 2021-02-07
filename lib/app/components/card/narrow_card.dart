@@ -225,7 +225,7 @@ class NarrowCard extends StatelessWidget {
   Widget get _badge {
     if (badgeText == null) {
       return Container();
-    }else{
+    } else {
       return Container();
     }
   }

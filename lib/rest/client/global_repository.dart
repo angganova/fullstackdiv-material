@@ -10,7 +10,7 @@ class RestRepo {
 
   /// App state
   /// Check Version
-  Future<GlobalResponse> userLogin(String phone) async{
+  Future<GlobalResponse> userLogin(String phone) async {
     final Map<String, dynamic> requestBody = <String, dynamic>{'no_hp': phone};
 
     return await apiClient

@@ -486,7 +486,8 @@ class _CheckedPopupMenuItemState<T>
       enabled: widget.enabled,
       leading: FadeTransition(
         opacity: _opacity,
-        child: Icon(_controller.isDismissed ? null : Icons.brightness_1_rounded),
+        child:
+            Icon(_controller.isDismissed ? null : Icons.brightness_1_rounded),
       ),
       title: widget.child,
     );

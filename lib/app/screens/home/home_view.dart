@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fullstackdiv_material/app/components/button/wide_button.dart';
+import 'package:fullstackdiv_material/app/components/spacer/space_view.dart';
 import 'package:fullstackdiv_material/app/screens/demo/demo.dart';
 import 'package:fullstackdiv_material/app/screens/home/home_vm.dart';
 import 'package:fullstackdiv_material/app/screens/notification/notification_tester.dart';
@@ -29,23 +31,32 @@ class _HomeViewState extends State<HomeView> {
     _appQuery ??= AppQuery(context);
     _appSpacer ??= AppSpacer(context: context);
 
-    return Builder(builder: (BuildContext _context) {
-      _widgetBuildContext ??= _context;
-      return Container(
-        alignment: Alignment.center,
-        width: _appQuery.width,
-        child: _contentView,
-      );
-    });
+    return Scaffold(
+      body: Builder(builder: (BuildContext _context) {
+        _widgetBuildContext ??= _context;
+        return SafeArea(
+          child: Container(
+            alignment: Alignment.center,
+            width: _appQuery.width,
+            height: _appQuery.height,
+            child: _contentView,
+          ),
+        );
+      }),
+    );
   }
 
   Widget get _contentView => Column(
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           WideButton(
             title: 'Open Demo',
             widgetTheme: WidgetTheme.whiteBlue,
             onPressed: () => Navigator.of(context)
                 .push<dynamic>(FadeRoute(page: DemoHomeView())),
+          ),
+          SpaceView(
+            height: _appSpacer.standard,
           ),
           WideButton(
             title: 'Open Notification Tester',

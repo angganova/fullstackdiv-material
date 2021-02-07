@@ -69,32 +69,33 @@ class IconStarTextChoiceChip extends StatelessWidget {
             : (_backgroundColor == kAppWhite
                 ? ShadowStrokeType.none
                 : ShadowStrokeType.none));
-    _shadowStrokeType = selected ? ShadowStrokeType.transparent2px : _shadowStrokeType;
+    _shadowStrokeType =
+        selected ? ShadowStrokeType.transparent2px : _shadowStrokeType;
 
-  List<Widget> _listIconStar(BuildContext context) {
+    List<Widget> _listIconStar(BuildContext context) {
+      final List<Widget> listIcon = <Widget>[];
 
-    final List<Widget> listIcon = <Widget>[];
-
-    for(int i = 0; i < numberStar; i++ ) {
-      listIcon.add(
-        Padding(
-          padding: EdgeInsets.fromLTRB(
-            kSpacer.none, kSpacer.none, kSpacer.xxs / 2, kSpacer.none),
+      for (int i = 0; i < numberStar; i++) {
+        listIcon.add(
+          Padding(
+            padding: EdgeInsets.fromLTRB(
+                kSpacer.none, kSpacer.none, kSpacer.xxs / 2, kSpacer.none),
             child: Icon(
-            Icons.star,
-            color: _iconColor,
-            size: iconSize,
+              Icons.star,
+              color: _iconColor,
+              size: iconSize,
+            ),
           ),
-        ),
-      );
+        );
+      }
+      return listIcon;
     }
-    return listIcon;
-  }
 
     return GestureDetector(
       onTap: () => onSelected(!selected),
       child: ShadowStrokeStyles(
-        shadowStrokeType: selected ? ShadowStrokeType.transparent2px :_shadowStrokeType,
+        shadowStrokeType:
+            selected ? ShadowStrokeType.transparent2px : _shadowStrokeType,
         radius: AppQuery(context).radius,
         padding: padding,
         color: _backgroundColor,
@@ -107,7 +108,7 @@ class IconStarTextChoiceChip extends StatelessWidget {
             // SizedBox(width: kSpacer.xxs),
             Text(
               // ignore: unnecessary_string_interpolations
-              '${name ?? "+"}' ,
+              '${name ?? "+"}',
               style: _style,
             ),
           ],

@@ -75,7 +75,7 @@ class TextHeader extends StatelessWidget {
       }
       return Text(
         customTitle,
-        style: titleStyle ?? style ,
+        style: titleStyle ?? style,
       );
     });
   }

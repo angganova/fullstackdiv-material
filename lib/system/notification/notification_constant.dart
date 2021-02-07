@@ -4,8 +4,8 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationConstant {
   static const String fcmDefaultTopic = 'all_topic';
-  static const String notificationSmallIcon = 'notification_small_icon';
-  static const String notificationBigIcon = 'notification_big_icon';
+  static const String notificationSmallIcon = 'ic_notification';
+  static const String notificationBigIcon = 'ic_notification_big';
   static const String androidDefaultNotificationSound =
       'default_notification_sound';
   static const String iosDefaultNotificationSound =

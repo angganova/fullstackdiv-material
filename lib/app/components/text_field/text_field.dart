@@ -116,7 +116,7 @@ class _AppTextFieldState extends State<AppTextField> {
 
   @override
   Widget build(BuildContext context) {
-      return _contentView;
+    return _contentView;
   }
 
   Widget get _contentView {

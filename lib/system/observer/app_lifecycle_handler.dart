@@ -4,9 +4,9 @@ import 'package:flutter/widgets.dart';
 class AppLifecycleHandler extends WidgetsBindingObserver {
   AppLifecycleHandler(
       {this.detachedCallBack,
-        this.inactiveCallBack,
-        this.pausedCallBack,
-        this.resumeCallBack});
+      this.inactiveCallBack,
+      this.pausedCallBack,
+      this.resumeCallBack});
 
   final AsyncCallback detachedCallBack;
   final AsyncCallback inactiveCallBack;

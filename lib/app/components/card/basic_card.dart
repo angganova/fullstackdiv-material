@@ -42,7 +42,7 @@ class BasicWideCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-              _image,
+            _image,
             SizedBox(height: kSpacer.sm),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -16,6 +16,7 @@ class GlobalStrings {
   static const String restOK = 'ok';
   static const String restError = 'error';
   static const String restDenied = 'auth_error';
-///
-///
+
+  ///
+  ///
 }

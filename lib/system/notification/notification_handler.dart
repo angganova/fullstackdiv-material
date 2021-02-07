@@ -33,9 +33,7 @@ class NotificationHandler {
         PushNotificationData.fromJson(jsonPayload);
 
     if (notificationData?.actionType != null &&
-        notificationData?.actionParameter != null) {
-
-    }
+        notificationData?.actionParameter != null) {}
   }
 
   void printDebug(String print) => _loggerBuilder.printDebug(print);

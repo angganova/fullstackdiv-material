@@ -47,20 +47,22 @@ class _NotificationTesterViewState extends State<NotificationTesterView> {
     return Scaffold(
       body: Builder(builder: (BuildContext _context) {
         _buildContext ??= _context;
-        return NoOverScrollView(
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                titleView,
-                listTileView('Device FCM Token',
-                    subtitle: _deviceFCMToken ?? '',
-                    trailing: statusValidIcon(_deviceFCMTokenValid),
-                    onTap: () =>
-                        _copyToClipboard(_deviceFCMToken, 'Device FCM Token')),
-                emptyView(height: _appSpacer.standard),
-                buttonView('Send FCM Notification', () => sendPN()),
-                emptyView(height: _appSpacer.sm),
-              ],
+        return SafeArea(
+          child: NoOverScrollView(
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  titleView,
+                  listTileView('Device FCM Token',
+                      subtitle: _deviceFCMToken ?? '',
+                      trailing: statusValidIcon(_deviceFCMTokenValid),
+                      onTap: () => _copyToClipboard(
+                          _deviceFCMToken, 'Device FCM Token')),
+                  emptyView(height: _appSpacer.standard),
+                  buttonView('Send FCM Notification', () => sendPN()),
+                  emptyView(height: _appSpacer.sm),
+                ],
+              ),
             ),
           ),
         );

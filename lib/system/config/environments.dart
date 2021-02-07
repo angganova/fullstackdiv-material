@@ -1,5 +1,4 @@
 import 'package:fullstackdiv_material/system/config/config_service.dart';
-import 'package:injectable/injectable.dart';
 
 class Environments {
   Environments(this._configService);

@@ -136,7 +136,8 @@ class _WideButtonState extends State<WideButton> {
       return kAppClearWhite;
     else
       return widget.selected
-          ? (widget.selectedBackgroundColor ?? widget.widgetTheme.selectedBackgroundColor)
+          ? (widget.selectedBackgroundColor ??
+              widget.widgetTheme.selectedBackgroundColor)
           : (widget.backgroundColor ?? widget.widgetTheme.backgroundColor);
   }
 }

@@ -44,7 +44,6 @@ class AvatarTextChoiceChip extends StatelessWidget {
   final Color backgroundColor;
   final Color selectedBackgroundColor;
 
-
   @override
   Widget build(BuildContext context) {
     /// here we set some of final (immutable) properties
@@ -65,7 +64,7 @@ class AvatarTextChoiceChip extends StatelessWidget {
         ? (selectedBackgroundColor ?? selectedWidgetTheme.backgroundColor)
         : backgroundColor ?? widgetTheme.backgroundColor;
 
-   /// for shadow/stroke type
+    /// for shadow/stroke type
     final ShadowStrokeType _shadowStrokeType = shadowStrokeType ??
         (selected
             ? selectedWidgetTheme.shadowStrokeType

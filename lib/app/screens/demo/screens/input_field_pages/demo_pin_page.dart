@@ -32,7 +32,6 @@ class _DemoPinPageState extends State<DemoPinPage> {
   /// Will affect style of [AppPin] decoration
   final bool _focused = false;
 
-
   @override
   void initState() {
     _pinController.addListener(() {

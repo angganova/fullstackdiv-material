@@ -1,0 +1,3 @@
+<resources>
+    <string name="defaultNotificationChannel">zig_default_notification</string>
+</resources>

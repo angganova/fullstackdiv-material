@@ -8,7 +8,8 @@ class DefaultAnalytics {
   final MixpanelAnalytics _analytics;
 
   @factoryMethod
-  static Future<DefaultAnalytics> getInstance(MixpanelAnalytics analytics) async {
+  static Future<DefaultAnalytics> getInstance(
+      MixpanelAnalytics analytics) async {
     return DefaultAnalytics(analytics);
   }
 

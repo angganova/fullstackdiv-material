@@ -10,6 +10,7 @@ import 'package:fullstackdiv_material/system/copy/copy_module.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_premodule.dart';
 import 'package:fullstackdiv_material/system/analytics/default_analytics.dart';
 import 'package:fullstackdiv_material/rest/client/default_api_client.dart';
+import 'package:fullstackdiv_material/system/deeplink/deeplink_service.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:fullstackdiv_material/system/notification/fcm_notification_setting.dart';
 import 'package:get_it/get_it.dart';
@@ -35,6 +36,7 @@ Future<GetIt> $initGetIt(
   final copyModule = _$CopyModule();
   final resolvedCopy = await copyModule.copy;
   gh.factory<Copy>(() => resolvedCopy);
+  gh.factory<DynamicLinkService>(() => DynamicLinkService());
   gh.lazySingleton<NotificationHandler>(
       () => NotificationHandler(get<Environments>()));
   gh.lazySingleton<DefaultApiClient>(
