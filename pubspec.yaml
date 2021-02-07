@@ -89,11 +89,20 @@ dependencies:
   # Pin Widget
   pin_input_text_field: ^3.1.1
 
+  # A Flutter plugin to use the Firebase Core API, which enables connecting to multiple Firebase apps.
+  firebase_core: ^0.4.4+3
+
   # A Flutter plugin to use the Firebase Cloud Messaging (FCM) API.
   firebase_messaging: ^6.0.16
 
   # A Flutter plugin to use the Firebase Remote Config API.
-  firebase_remote_config: ^0.6.0
+  firebase_remote_config: ^0.3.0+3
+
+  # A Flutter plugin to use the Google Analytics for Firebase API.
+  firebase_analytics: ^5.0.11
+
+  # This plugin wraps the most of the functions from Mixpanel SDK.
+  flutuate_mixpanel: 1.1.6
 
   # Cross platform plugin for displaying local notifications
   flutter_local_notifications: ^3.0.1+5
@@ -137,3 +146,6 @@ flutter:
   assets:
     - assets/images/
     - assets/sounds/
+    - assets/copy/
+    - assets/fonts/
+    - assets/icons/

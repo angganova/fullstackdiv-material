@@ -58,9 +58,8 @@ class _NotificationTesterViewState extends State<NotificationTesterView> {
                     onTap: () =>
                         _copyToClipboard(_deviceFCMToken, 'Device FCM Token')),
                 emptyView(height: _appSpacer.standard),
-                buttonView('Send to device Token', () => sendPN(true)),
+                buttonView('Send FCM Notification', () => sendPN()),
                 emptyView(height: _appSpacer.sm),
-                buttonView('Send to server Token', () => sendPN(false))
               ],
             ),
           ),
@@ -158,13 +157,13 @@ class _NotificationTesterViewState extends State<NotificationTesterView> {
     setState(() {});
   }
 
-  Future<void> sendPN(bool fromDeviceToken) async {
+  Future<void> sendPN() async {
     setState(() => _restSendFcmTokenRequesting = true);
 
     const String _serverToken =
-        'AAAAzHDzfgk:APA91bGYHdl4i_VzlVyqqKj2zkitqzmUDiWN'
-        '-q3K2wXOlCd2xDCjIbHA_SngSxtxMn_JNwNGKl1N7u8-zfasMlbE-CP9XPbgcgj0jWiyQ_-'
-        'kYMtq8LDw6udgbWJgvKzwFbCLGizzdbWD';
+        'AAAAxO1ovIQ:APA91bGaqdOVWYjV7xEU8k-2X0_iUC6sXIPrHFTnbzTiiK5K85cWJiTBbCP'
+        'ULYJi7ui7kUy0DoWgEkA0PtxFUNb8nDXkS7opaPYgmcd9FP5r3RvoBvY-Ld__HAx9uG3-Df'
+        'H5Jc6mla1T';
 
     final Map<String, String> _requestHeader = <String, String>{
       'Content-Type': 'application/json',
@@ -175,19 +174,17 @@ class _NotificationTesterViewState extends State<NotificationTesterView> {
     final Map<String, dynamic> _requestBody = <String, dynamic>{
       'notification': <String, dynamic>{
         'title': 'Test push notification',
-        'body':
-            'Push notification message to ${fromDeviceToken ? 'device token' : 'server token'} sent ',
+        'body': 'Push notification message sent ',
       },
       'data': <String, dynamic>{
         'title': 'Test push notification',
-        'body':
-            'Push notification message to ${fromDeviceToken ? 'device token' : 'server token'} sent ',
+        'body': 'Push notification message sent ',
         'click_action': 'FLUTTER_NOTIFICATION_CLICK',
         'status': 'done',
         'id': '1',
       },
       'priority': 'high',
-      'to': fromDeviceToken ? _deviceFCMToken : _serverFCMToken,
+      'to': _deviceFCMToken,
     };
 
     try {

@@ -66,7 +66,7 @@ import 'package:fullstackdiv_material/app/screens/demo/screens/vertical_drawer/d
   generateNavigationHelperExtension: true,
   routes: <AutoRoute<dynamic>>[
     /// this is the list of [route] to go to each pages in the [demo]
-    CupertinoRoute<dynamic>(page: Demo),
+    CupertinoRoute<dynamic>(page: DemoHomeView),
     CupertinoRoute<dynamic>(page: DemoCardPage),
     CupertinoRoute<dynamic>(page: CardMenuPage),
     CupertinoRoute<dynamic>(page: DemoBottomSheetPage),

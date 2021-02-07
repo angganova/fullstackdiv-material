@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:fullstackdiv_material/app/screens/demo/demo.dart';
+import 'package:fullstackdiv_material/app/screens/home/home_view.dart';
 import 'package:fullstackdiv_material/app/screens/home/home_vm.dart';
 import 'package:fullstackdiv_material/model/app/app_launch_data.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
@@ -14,6 +14,7 @@ Future<void> main() async {
 
   // TODO(Andre): Test actual firebase config env variables
   await initializeInjection();
+
   _setupApp();
   _startApp();
 }
@@ -80,7 +81,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.indigo,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Demo(),
+      home: HomeView(),
     );
   }
 }

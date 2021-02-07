@@ -1,7 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:fullstackdiv_material/app/components/button/wide_button.dart';
+import 'package:fullstackdiv_material/app/screens/demo/demo.dart';
 import 'package:fullstackdiv_material/app/screens/home/home_vm.dart';
+import 'package:fullstackdiv_material/app/screens/notification/notification_tester.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
+import 'package:fullstackdiv_material/system/global_page_transition.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
 class HomeView extends StatefulWidget {
@@ -37,18 +40,21 @@ class _HomeViewState extends State<HomeView> {
   }
 
   Widget get _contentView => Column(
-        children: const <Widget>[
+        children: <Widget>[
           WideButton(
             title: 'Open Demo',
             widgetTheme: WidgetTheme.whiteBlue,
+            onPressed: () => Navigator.of(context)
+                .push<dynamic>(FadeRoute(page: DemoHomeView())),
           ),
           WideButton(
             title: 'Open Notification Tester',
             widgetTheme: WidgetTheme.blueWhite,
+            onPressed: () => Navigator.of(context)
+                .push<dynamic>(FadeRoute(page: NotificationTesterView())),
           ),
         ],
       );
-
 
   void _initPlatformState() {
     _viewModel.widgetInitState();

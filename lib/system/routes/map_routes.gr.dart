@@ -64,7 +64,7 @@ import '../../app/screens/demo/screens/tab_bar/demo_custom_tab_bar_page.dart';
 import '../../app/screens/demo/screens/vertical_drawer/demo_vertical_drawer_menu.dart';
 
 class Routes {
-  static const String demo = '/Demo';
+  static const String demoHomeView = '/demo-home-view';
   static const String demoCardPage = '/demo-card-page';
   static const String cardMenuPage = '/card-menu-page';
   static const String demoBottomSheetPage = '/demo-bottom-sheet-page';
@@ -119,7 +119,7 @@ class Routes {
   static const String demoSavedPage = '/demo-saved-page';
   static const String demoProfilePage = '/demo-profile-page';
   static const all = <String>{
-    demo,
+    demoHomeView,
     demoCardPage,
     cardMenuPage,
     demoBottomSheetPage,
@@ -178,7 +178,7 @@ class AppRouter extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
-    RouteDef(Routes.demo, page: Demo),
+    RouteDef(Routes.demoHomeView, page: DemoHomeView),
     RouteDef(Routes.demoCardPage, page: DemoCardPage),
     RouteDef(Routes.cardMenuPage, page: CardMenuPage),
     RouteDef(Routes.demoBottomSheetPage, page: DemoBottomSheetPage),
@@ -234,9 +234,9 @@ class AppRouter extends RouterBase {
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
-    Demo: (data) {
+    DemoHomeView: (data) {
       return CupertinoPageRoute<dynamic>(
-        builder: (context) => Demo(),
+        builder: (context) => DemoHomeView(),
         settings: data,
       );
     },
@@ -562,7 +562,7 @@ class AppRouter extends RouterBase {
 /// *************************************************************************
 
 extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
-  Future<dynamic> pushDemo() => push<dynamic>(Routes.demo);
+  Future<dynamic> pushDemoHomeView() => push<dynamic>(Routes.demoHomeView);
 
   Future<dynamic> pushDemoCardPage() => push<dynamic>(Routes.demoCardPage);
 
