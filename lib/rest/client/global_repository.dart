@@ -1,4 +1,4 @@
-import 'package:fullstackdiv_material/rest/client/api_client.dart';
+import 'package:fullstackdiv_material/rest/client/default_api_client.dart';
 import 'package:fullstackdiv_material/rest/response_model/global_response.dart';
 import 'package:injectable/injectable.dart';
 
@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 class RestRepo {
   RestRepo(this.apiClient);
 
-  final ApiClient apiClient;
+  final DefaultApiClient apiClient;
 
   /// App state
   /// Check Version

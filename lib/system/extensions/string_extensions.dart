@@ -17,9 +17,9 @@ extension StringExtension on String {
     }
   }
 
-  bool get isBool => this.ignoreCase('true') || this.ignoreCase('false');
+  bool get isBool => ignoreCase('true') || ignoreCase('false');
 
-  bool get toBool => this.ignoreCase('true');
+  bool get toBool => ignoreCase('true');
 
   bool ignoreCase(String s2) {
     if (this == null) {
@@ -54,8 +54,7 @@ extension StringExtension on String {
 
   String get capsWords {
     try {
-      return this
-          .split(' ')
+      return split(' ')
           .map((String word) => word[0].toUpperCase() + word.substring(1))
           .join(' ');
     } catch (_) {
@@ -69,8 +68,7 @@ extension StringExtension on String {
 
   String get capsSentences {
     try {
-      return this
-          .split('. ')
+      return split('. ')
           .map((String sentence) =>
               sentence[0].toUpperCase() + sentence.substring(1))
           .join('. ');
@@ -113,17 +111,17 @@ extension StringExtension on String {
   }
 
   String formatDate(String format) {
-    final String emptyString = '';
-    if (this.isNullOrEmpty) {
+    const String emptyString = '';
+    if (isNullOrEmpty) {
       return emptyString;
-    } else if (!this.isDate) {
+    } else if (!isDate) {
       return emptyString;
     }
 
     DateTime newDate;
 
     try {
-      newDate = this.getUTCDateTimeFromString;
+      newDate = getUTCDateTimeFromString;
     } catch (e) {
       e.printStackTrace();
       return emptyString;

@@ -1,10 +1,8 @@
 import 'package:fullstackdiv_material/system/config/env_types.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
-import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
-@lazySingleton
 class LoggerBuilder {
   LoggerBuilder(this.tag, {this.easySearch = true});
 

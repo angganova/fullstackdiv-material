@@ -5,124 +5,124 @@ class FadeRoute extends PageRouteBuilder<dynamic> {
 
   FadeRoute({@required this.page})
       : super(
-    pageBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        ) =>
-    page,
-    transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-        ) =>
-        FadeTransition(
-          opacity: animation,
-          child: child,
-        ),
-  );
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              FadeTransition(
+            opacity: animation,
+            child: child,
+          ),
+        );
 }
 
 class ScaleRoute extends PageRouteBuilder<dynamic> {
   final Widget page;
   final String name;
-  ScaleRoute({this.page, this.name = ""})
+  ScaleRoute({this.page, this.name = ''})
       : super(
-    pageBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        ) =>
-    page,
-    transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-        ) =>
-        ScaleTransition(
-          scale: Tween<double>(
-            begin: 0.0,
-            end: 1.0,
-          ).animate(
-            CurvedAnimation(
-              parent: animation,
-              curve: Curves.fastOutSlowIn,
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              ScaleTransition(
+            scale: Tween<double>(
+              begin: 0.0,
+              end: 1.0,
+            ).animate(
+              CurvedAnimation(
+                parent: animation,
+                curve: Curves.fastOutSlowIn,
+              ),
             ),
+            child: child,
           ),
-          child: child,
-        ),
-    settings: RouteSettings(name: name),
-  );
+          settings: RouteSettings(name: name),
+        );
 }
 
 class EnterExitRoute extends PageRouteBuilder<dynamic> {
   final Widget enterPage;
   final Widget exitPage;
   final String name;
-  EnterExitRoute({this.exitPage, this.enterPage, this.name = ""})
+  EnterExitRoute({this.exitPage, this.enterPage, this.name = ''})
       : super(
-    pageBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        ) =>
-    enterPage,
-    transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-        ) =>
-        Stack(
-          children: <Widget>[
-            SlideTransition(
-              position: new Tween<Offset>(
-                begin: const Offset(0.0, 0.0),
-                end: const Offset(-1.0, 0.0),
-              ).animate(animation),
-              child: exitPage,
-            ),
-            SlideTransition(
-              position: new Tween<Offset>(
-                begin: const Offset(1.0, 0.0),
-                end: Offset.zero,
-              ).animate(animation),
-              child: enterPage,
-            )
-          ],
-        ),
-    settings: RouteSettings(name: name),
-  );
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              enterPage,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              Stack(
+            children: <Widget>[
+              SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(0.0, 0.0),
+                  end: const Offset(-1.0, 0.0),
+                ).animate(animation),
+                child: exitPage,
+              ),
+              SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(1.0, 0.0),
+                  end: Offset.zero,
+                ).animate(animation),
+                child: enterPage,
+              )
+            ],
+          ),
+          settings: RouteSettings(name: name),
+        );
 }
 
 class SlideRightRoute extends PageRouteBuilder<dynamic> {
   final Widget page;
   final String name;
-  SlideRightRoute({this.page, this.name = ""})
+  SlideRightRoute({this.page, this.name = ''})
       : super(
-    pageBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        ) =>
-    page,
-    transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-        ) =>
-        SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(-1, 0),
-            end: Offset.zero,
-          ).animate(animation),
-          child: child,
-        ),
-    settings: RouteSettings(name: name),
-  );
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(-1, 0),
+              end: Offset.zero,
+            ).animate(animation),
+            child: child,
+          ),
+          settings: RouteSettings(name: name),
+        );
 }
 
 class SlideTopRoute extends PageRouteBuilder<dynamic> {
@@ -130,27 +130,27 @@ class SlideTopRoute extends PageRouteBuilder<dynamic> {
   final String name;
   SlideTopRoute({this.page, this.name})
       : super(
-    pageBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        ) =>
-    page,
-    transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-        ) =>
-        SlideTransition(
-          position: Tween<Offset>(
-            begin: const Offset(0, 1),
-            end: Offset.zero,
-          ).animate(animation),
-          child: child,
-        ),
-    settings: RouteSettings(name: name),
-  );
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              SlideTransition(
+            position: Tween<Offset>(
+              begin: const Offset(0, 1),
+              end: Offset.zero,
+            ).animate(animation),
+            child: child,
+          ),
+          settings: RouteSettings(name: name),
+        );
 }
 
 class SizeRoute extends PageRouteBuilder<dynamic> {
@@ -158,24 +158,24 @@ class SizeRoute extends PageRouteBuilder<dynamic> {
   final String name;
   SizeRoute({this.page, this.name = ''})
       : super(
-    pageBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        ) =>
-    page,
-    transitionsBuilder: (
-        BuildContext context,
-        Animation<double> animation,
-        Animation<double> secondaryAnimation,
-        Widget child,
-        ) =>
-        Align(
-          child: SizeTransition(
-            sizeFactor: animation,
-            child: child,
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              Align(
+            child: SizeTransition(
+              sizeFactor: animation,
+              child: child,
+            ),
           ),
-        ),
-    settings: RouteSettings(name: name),
-  );
+          settings: RouteSettings(name: name),
+        );
 }

@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fullstackdiv_material/app/demo/demo.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:fullstackdiv_material/app/screens/demo/demo.dart';
+import 'package:fullstackdiv_material/app/screens/home/home_vm.dart';
+import 'package:fullstackdiv_material/model/app/app_launch_data.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
+import 'package:fullstackdiv_material/system/global_variables.dart';
+import 'package:fullstackdiv_material/system/notification/fcm_notification_setting.dart';
+import 'package:fullstackdiv_material/system/notification/local_notification_setting.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,39 +26,36 @@ void _setupApp() {
 }
 
 Future<void> _enableFcm() async {
-  // /// Disable / enable fcm according to user session in the app
-  // /// ( logged in / logged off )
-  // final bool isLoggedIn = _environments.getUserJWT != null;
-  // if (isLoggedIn) {
-  //   final FCMNotificationSetting _fcmSetting = getIt<FCMNotificationSetting>();
-  //   _fcmSetting.enableFCMNotification(true,
-  //       autoRequestPermissionIos: false, autoRegisterToken: false);
-  //
-  //   /// Check App launch detail will check whether the app is launched from other
-  //   /// source rather than app icon click
-  //   /// For now this will handle app launch from :
-  //   /// 1. Local notification click - direct
-  //   /// 2. FCM Push notification click - FCM handler
-  //   _checkAppLaunchDetail();
-  // }
+  /// Disable / enable fcm according to user session in the app
+  /// ( logged in / logged off )
+  final FCMNotificationSetting _fcmSetting = getIt<FCMNotificationSetting>();
+  _fcmSetting.enableFCMNotification(true,
+      autoRequestPermissionIos: false, autoRegisterToken: false);
+
+  /// Check App launch detail will check whether the app is launched from other
+  /// source rather than app icon click
+  /// For now this will handle app launch from :
+  /// 1. Local notification click - direct
+  /// 2. FCM Push notification click - FCM handler
+  _checkAppLaunchDetail();
 }
 
 Future<void> _checkAppLaunchDetail() async {
-  // /// Check if the app is launched from local notification
-  // final LocalNotificationSetting localNotificationSetting =
-  // getIt<LocalNotificationSetting>();
-  // final NotificationAppLaunchDetails notificationAppLaunchDetails =
-  // await localNotificationSetting.flutterLocalNotificationsPlugin
-  //     .getNotificationAppLaunchDetails();
-  // if (notificationAppLaunchDetails.didNotificationLaunchApp &&
-  //     notificationAppLaunchDetails.payload != null) {
-  //   /// App launched from local notification,
-  //   /// set home view to execute this detail later
-  //   final HomeViewModel _vmHome = getIt<HomeViewModel>();
-  //   _vmHome.setPendingInitialAction(InitialBuildData(
-  //       launchSource: appLaunchNotificationSourceID,
-  //       launchPayload: notificationAppLaunchDetails.payload));
-  // }
+  /// Check if the app is launched from local notification
+  final LocalNotificationSetting localNotificationSetting =
+      getIt<LocalNotificationSetting>();
+  final NotificationAppLaunchDetails notificationAppLaunchDetails =
+      await localNotificationSetting.flutterLocalNotificationsPlugin
+          .getNotificationAppLaunchDetails();
+  if (notificationAppLaunchDetails.didNotificationLaunchApp &&
+      notificationAppLaunchDetails.payload != null) {
+    /// App launched from local notification,
+    /// set home view to execute this detail later
+    final HomeViewModel _vmHome = getIt<HomeViewModel>();
+    _vmHome.setPendingInitialAction(InitialBuildData(
+        launchSource: GlobalStrings.appLaunchNotificationSourceID,
+        launchPayload: notificationAppLaunchDetails.payload));
+  }
 }
 
 Future<void> _startApp() async {

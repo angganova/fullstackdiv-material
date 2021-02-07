@@ -1,0 +1,2712 @@
+{
+  "general": {
+    "general.copy.version": {
+      "id": "general.copy.version",
+      "en": "11.0.0",
+      "datasource": "copy"
+    },
+    "general.app_store_description": {
+      "id": "general.app_store_description",
+      "en": "This is the app store description",
+      "datasource": "copy"
+    },
+    "general.phone": {
+      "id": "general.phone",
+      "en": "{+65}{6524525}",
+      "datasource": "copy"
+    },
+    "general.phone_backup": {
+      "id": "general.phone_backup",
+      "en": "{+65}{65524125}",
+      "datasource": "copy"
+    },
+    "general.email.feeback": {
+      "id": "general.email.feeback",
+      "en": "hello@zig.live",
+      "datasource": "copy"
+    },
+    "general.email.billing": {
+      "id": "general.email.billing",
+      "en": "billing@cdgtaxi.com.sg",
+      "datasource": "copy"
+    },
+    "undefined": {
+      "en": "*"
+    }
+  },
+  "errors": {
+    "error.server_error": {
+      "id": "error.server_error",
+      "en": "Oops... something went wrong – please try again",
+      "datasource": "copy"
+    },
+    "error.api_timeout": {
+      "id": "error.api_timeout",
+      "en": "$ref{error.server_error}",
+      "datasource": "copy"
+    },
+    "error.otp_incorrect": {
+      "id": "error.otp_incorrect",
+      "en": "Please enter a valid code",
+      "datasource": "copy"
+    },
+    "error.email_mismatched": {
+      "id": "error.email_mismatched",
+      "en": "The emails don't match",
+      "datasource": "copy"
+    },
+    "error.email_used": {
+      "id": "error.email_used",
+      "en": "This email is already being used",
+      "datasource": "copy"
+    },
+    "errorr.email.exisiting_user": {
+      "id": "errorr.email.exisiting_user",
+      "en": "Welcome back! Continue to sign in",
+      "datasource": "copy"
+    },
+    "errorr.email.new_user": {
+      "id": "errorr.email.new_user",
+      "en": "Continue to sign up",
+      "datasource": "copy"
+    },
+    "error.email_invalid_format": {
+      "id": "error.email_invalid_format",
+      "en": "Please enter a valid email address",
+      "datasource": "copy"
+    },
+    "error.short_number": {
+      "id": "error.short_number",
+      "en": "Please enter a valid mobile number",
+      "datasource": "copy"
+    },
+    "error.empty_number": {
+      "id": "error.empty_number",
+      "en": "Please enter your mobile number",
+      "datasource": "copy"
+    },
+    "error.email.required": {
+      "id": "error.email.required",
+      "en": "Please enter your email address",
+      "datasource": "copy"
+    },
+    "error.service.internet": {
+      "id": "error.service.internet",
+      "en": "No internet connection. Showing your recently searched places.",
+      "datasource": "copy"
+    },
+    "error.service.geo": {
+      "id": "error.service.geo",
+      "en": "No GPS location. You can move the map to pick a location.",
+      "datasource": "copy"
+    },
+    "error.search.locationoff.message": {
+      "id": "error.search.locationoff.message",
+      "en": "Zig is more fun with location switched on.",
+      "datasource": "copy"
+    },
+    "error.search.locationoff.cta": {
+      "id": "error.search.locationoff.cta",
+      "en": "Location settings",
+      "datasource": "copy"
+    },
+    "error.credit_card.cvv.incorrect": {
+      "id": "error.credit_card.cvv.incorrect",
+      "en": "N/A",
+      "datasource": "copy"
+    },
+    "error.credit_card.date.incorrect": {
+      "id": "error.credit_card.date.incorrect",
+      "en": "N/A",
+      "datasource": "copy"
+    },
+    "error.credit_card.number.incorrect": {
+      "id": "error.credit_card.number.incorrect",
+      "en": "N/A",
+      "datasource": "copy"
+    },
+    "error.credit_card.number": {
+      "id": "error.credit_card.number",
+      "en": "Something looks wrong – please try again",
+      "datasource": "copy"
+    },
+    "error.taxi.cancelled": {
+      "id": "error.taxi.cancelled",
+      "en": "Cancelled",
+      "datasource": "copy"
+    },
+    "error.taxi.payment_error": {
+      "id": "error.taxi.payment_error",
+      "en": "Payment error",
+      "datasource": "copy"
+    },
+    "error.firstname.invalid": {
+      "id": "error.firstname.invalid",
+      "en": "Please enter at least 4 characters",
+      "datasource": "copy"
+    },
+    "error.lastname.invalid": {
+      "id": "error.lastname.invalid",
+      "en": "Please enter at least 4 characters",
+      "datasource": "copy"
+    },
+    "error.payments.nameoncard.invalid": {
+      "id": "error.payments.nameoncard.invalid",
+      "en": "Please enter at least 4 characters",
+      "datasource": "copy"
+    },
+    "error.firstname.empty": {
+      "id": "error.firstname.empty",
+      "en": "Please enter your first name",
+      "datasource": "copy"
+    },
+    "error.lastname.empty": {
+      "id": "error.lastname.empty",
+      "en": "Please enter your last name",
+      "datasource": "copy"
+    }
+  },
+  "components": {
+    "component.navigation.home": {
+      "id": "component.navigation.home",
+      "en": "Zig it",
+      "datasource": "copy"
+    },
+    "component.navigation.deals": {
+      "id": "component.navigation.deals",
+      "en": "Discover",
+      "datasource": "copy"
+    },
+    "component.navigation.profile": {
+      "id": "component.navigation.profile",
+      "en": "Profile",
+      "datasource": "copy"
+    },
+    "component.list_item.card.default": {
+      "id": "component.list_item.card.default",
+      "en": "Default",
+      "datasource": "copy"
+    },
+    "component.list_item.card.expired": {
+      "id": "component.list_item.card.expired",
+      "en": "Expired",
+      "datasource": "copy"
+    },
+    "component.list_item.card.default.save_card": {
+      "id": "component.list_item.card.default.save_card",
+      "en": "Save card",
+      "datasource": "copy"
+    },
+    "component.cta.cancel": {
+      "id": "component.cta.cancel",
+      "en": "Cancel",
+      "datasource": "copy"
+    },
+    "component.skip": {
+      "id": "component.skip",
+      "en": "Skip",
+      "datasource": "copy"
+    },
+    "component.addnote": {
+      "id": "component.addnote",
+      "en": "Add note",
+      "datasource": "copy"
+    },
+    "component.ride.taxi": {
+      "id": "component.ride.taxi",
+      "en": "4 seater CDG Taxi",
+      "datasource": "copy"
+    },
+    "component.ride.limo": {
+      "id": "component.ride.limo",
+      "en": "4 seater CDG Limo",
+      "datasource": "copy"
+    },
+    "component.ride.maxi": {
+      "id": "component.ride.maxi",
+      "en": "7 seater  CDG Maxi",
+      "datasource": "copy"
+    },
+    "component.ride.rating.1": {
+      "id": "component.ride.rating.1",
+      "en": "Oh no, how can we make it better?",
+      "datasource": "copy"
+    },
+    "component.ride.rating.2": {
+      "id": "component.ride.rating.2",
+      "en": "How can we\nimprove it?",
+      "datasource": "copy"
+    },
+    "component.ride.rating.3": {
+      "id": "component.ride.rating.3",
+      "en": "Could be Ziggier",
+      "datasource": "copy"
+    },
+    "component.ride.rating.4": {
+      "id": "component.ride.rating.4",
+      "en": "Pretty Ziggy!",
+      "datasource": "copy"
+    },
+    "component.ride.rating.5": {
+      "id": "component.ride.rating.5",
+      "en": "Zigtastic!",
+      "datasource": "copy"
+    },
+    "component.submit": {
+      "id": "component.submit",
+      "en": "Submit",
+      "datasource": "copy"
+    },
+    "component.cta.update": {
+      "id": "component.cta.update",
+      "en": "Update",
+      "datasource": "copy"
+    },
+    "component.cta.done": {
+      "id": "component.cta.done",
+      "en": "Done",
+      "datasource": "copy"
+    },
+    "component.cta.confirm": {
+      "id": "component.cta.confirm",
+      "en": "Confirm",
+      "datasource": "copy"
+    },
+    "component.cta.save": {
+      "id": "component.cta.save",
+      "en": "Save",
+      "datasource": "copy"
+    },
+    "component.cta.paynow": {
+      "id": "component.cta.paynow",
+      "en": "Pay now",
+      "datasource": "copy"
+    },
+    "component.cta.support": {
+      "id": "component.cta.support",
+      "en": "Support",
+      "datasource": "copy"
+    },
+    "component.cta.apply": {
+      "id": "component.cta.apply",
+      "en": "Apply",
+      "datasource": "copy"
+    },
+    "component.cta.startnav": {
+      "id": "component.cta.startnav",
+      "en": "Let’s Zig"
+    },
+    "component.label.telluswhy": {
+      "id": "component.label.telluswhy",
+      "en": "TELL US WHY",
+      "datasource": "copy"
+    },
+    "component.label.otherreason": {
+      "id": "component.label.otherreason",
+      "en": "OTHER REASON",
+      "datasource": "copy"
+    },
+    "component.label.reason": {
+      "id": "component.label.reason",
+      "en": "REASON",
+      "datasource": "copy"
+    },
+    "component.label.SUGGESTED": {
+      "id": "component.label.SUGGESTED",
+      "en": "SUGGESTED",
+      "datasource": "copy"
+    },
+    "component.label.CHEAPEST": {
+      "id": "component.label.CHEAPEST",
+      "en": "CHEAPEST",
+      "datasource": "copy"
+    },
+    "component.map.explore.nearby": {
+      "id": "component.map.explore.nearby",
+      "en": "Explore nearby",
+      "datasource": "copy"
+    },
+    "component.label.POPULAR": {
+      "id": "component.label.POPULAR",
+      "en": "POPULAR",
+      "datasource": "copy"
+    },
+    "component.label.YOURPLACES": {
+      "id": "component.label.YOURPLACES",
+      "en": "YOUR PLACES",
+      "datasource": "copy"
+    },
+    "component.label.ACTIVE": {
+      "id": "component.label.ACTIVE",
+      "en": "ACTIVE",
+      "datasource": "copy"
+    },
+    "component.label.FASTEST": {
+      "id": "component.label.FASTEST",
+      "en": "FASTEST",
+      "datasource": "copy"
+    },
+    "component.label.FAVOURITES": {
+      "id": "component.label.FAVOURITES",
+      "en": "FAVOURITES",
+      "datasource": "copy"
+    },
+    "component.label.YOURPREFERENCES": {
+      "id": "component.label.YOURPREFERENCES",
+      "en": "ZIG YOUR WAY",
+      "datasource": "copy"
+    },
+    "component.label.CARDDETAILS": {
+      "id": "component.label.CARDDETAILS",
+      "en": "Card details",
+      "datasource": "copy"
+    },
+    "component.label.DIETARY": {
+      "id": "component.label.DIETARY",
+      "en": "Dietary",
+      "datasource": "copy"
+    },
+    "component.label.CUISINE": {
+      "id": "component.label.CUISINE",
+      "en": "Cusine",
+      "datasource": "copy"
+    },
+    "component.label.location": {
+      "id": "component.label.location",
+      "en": "Location",
+      "datasource": "copy"
+    },
+    "component.label.district": {
+      "id": "component.label.district",
+      "en": "District",
+      "datasource": "copy"
+    },
+    "component.label.area": {
+      "id": "component.label.area",
+      "en": "Area",
+      "datasource": "copy"
+    },
+    "component.label.frequentlyvisited": {
+      "id": "component.label.frequentlyvisited",
+      "en": "FREQUENTLY VISITED",
+      "datasource": "copy"
+    },
+    "component.label.RECENT": {
+      "id": "component.label.RECENT",
+      "en": "RECENT",
+      "datasource": "copy"
+    },
+    "component.label.NEARBY": {
+      "id": "component.label.NEARBY",
+      "en": "NEARBY",
+      "datasource": "copy"
+    },
+    "component.label.NEARAREA": {
+      "id": "component.label.NEARAREA",
+      "en": "NEAR {AREA}",
+      "datasource": "copy"
+    },
+    "component.label.POPULARINAREA": {
+      "id": "component.label.POPULARINAREA",
+      "en": "POPULAR IN {AREA}",
+      "datasource": "copy"
+    },
+    "component.cta.tryagain": {
+      "id": "component.cta.tryagain",
+      "en": "Try again",
+      "datasource": "copy"
+    },
+    "component.label.discoveratdest.area": {
+      "id": "component.label.discoveratdest.area",
+      "en": "DIscover at {Area}",
+      "datasource": "copy"
+    },
+    "component.label.discoveratdest.generic": {
+      "id": "component.label.discoveratdest.generic",
+      "en": "Discover nearby",
+      "datasource": "copy"
+    },
+    "undefined": {
+      "datasource": "copy"
+    },
+    "component.label.BUDGET": {
+      "id": "component.label.BUDGET",
+      "en": "BUDGET",
+      "datasource": "copy"
+    },
+    "component.label.RELATED": {
+      "id": "component.label.RELATED",
+      "en": "RELATED",
+      "datasource": "copy"
+    },
+    "component.label.THINGSTODO": {
+      "id": "component.label.THINGSTODO",
+      "en": "Things to do",
+      "datasource": "copy"
+    },
+    "component.label.ALL": {
+      "id": "component.label.ALL",
+      "en": "All",
+      "datasource": "copy"
+    },
+    "component.label.NEARBYAREAS": {
+      "id": "component.label.NEARBYAREAS",
+      "en": "Nearby areas",
+      "datasource": "copy"
+    },
+    "component.label.other": {
+      "id": "component.label.other",
+      "en": "Other",
+      "datasource": "copy"
+    },
+    "component.label.yourride": {
+      "id": "component.label.yourride",
+      "en": "YOUR RIDE",
+      "datasource": "copy"
+    },
+    "component.share.eta.message": {
+      "id": "component.share.eta.message",
+      "en": "Share your ETA",
+      "datasource": "copy"
+    },
+    "component.share.eta.link": {
+      "id": "component.share.eta.link",
+      "en": "Share",
+      "datasource": "copy"
+    },
+    "component.cta.feedback": {
+      "id": "component.cta.feedback",
+      "en": "Leave feedback ",
+      "datasource": "copy"
+    },
+    "component.placeholder.specify": {
+      "id": "component.placeholder.specify",
+      "en": "Please specify",
+      "datasource": "copy"
+    },
+    "component.time": {
+      "id": "component.time",
+      "en": "{HH:MM am/pm}",
+      "datasource": "copy"
+    },
+    "component.travel.time.hr.min": {
+      "id": "component.travel.time.hr.min",
+      "en": "{H} hr {MM} min",
+      "datasource": "copy"
+    },
+    "component.travel.time.min": {
+      "id": "component.travel.time.min",
+      "en": "{MM} min",
+      "datasource": "copy"
+    },
+    "component.distance.metre": {
+      "id": "component.distance.metre",
+      "en": "{X} m",
+      "datasource": "copy"
+    },
+    "component.distance.kms": {
+      "id": "component.distance.kms",
+      "en": "{X} km",
+      "datasource": "copy"
+    },
+    "component.price.fixed.2decimal.6char": {
+      "id": "component.price.fixed.2decimal.6char",
+      "en": "${XX.XX}",
+      "datasource": "copy"
+    },
+    "component.price.metered.nodecimal.7char": {
+      "id": "component.price.metered.nodecimal.7char",
+      "en": "${XX}-${XX}",
+      "datasource": "copy"
+    },
+    "component.label.category": {
+      "id": "component.label.category",
+      "en": "Category",
+      "datasource": "copy"
+    },
+    "component.share.deal.message": {
+      "id": "component.share.deal.message",
+      "en": "I found a deal on Zig {link}",
+      "datasource": "copy"
+    },
+    "component.share.deal.link": {
+      "id": "component.share.deal.link",
+      "en": "share.zig.live/discover/{dealId}",
+      "datasource": "copy"
+    },
+    "component.deal.discount": {
+      "id": "component.deal.discount",
+      "en": "{X}% off",
+      "datasource": "copy"
+    },
+    "component.label.getDeal": {
+      "id": "component.deal.getDeal",
+      "en": "Get deal",
+      "datasource": "copy"
+    },
+    "component.label.ratings": {
+      "id": "component.label.ratings",
+      "en": "Ratings",
+      "datasource": "copy"
+    },
+    "component.label.distance": {
+      "id": "component.label.distance",
+      "en": "Distance",
+      "datasource": "copy"
+    },
+    "component.label.rating": {
+      "id": "component.label.rating",
+      "en": "Rating",
+      "datasource": "copy"
+    },
+    "component.label.swipeUp": {
+      "id": "component.label.swipeUp",
+      "en": "Swipe up",
+      "datasource": "copy"
+    },
+    "component.label.save": {
+      "id": "component.label.save",
+      "en": "Save",
+      "datasource": "copy"
+    },
+    "component.label.AllDeals": {
+      "id": "component.label.AllDeals",
+      "en": "All Deals",
+      "datasource": "copy"
+    },
+    "component.label.ClearFilters": {
+      "id": "component.label.ClearFilters",
+      "en": "Clear filters",
+      "datasource": "copy"
+    }
+  },
+  "notifications": {
+    "notification.profile_new_created.title": {
+      "id": "notification.profile_new_created.title",
+      "en": "You can set up how you Zig in your profile at any time.",
+      "datasource": "copy"
+    },
+    "notification.geo_allow.title": {
+      "id": "notification.geo_allow.title",
+      "en": "{handled natively}",
+      "datasource": "copy"
+    },
+    "notification.geo_allow.always": {
+      "id": "notification.geo_allow.always",
+      "en": "{handled natively}",
+      "datasource": "copy"
+    },
+    "notification.geo_allow.in_app": {
+      "id": "notification.geo_allow.in_app",
+      "en": "{handled natively}",
+      "datasource": "copy"
+    },
+    "notification.geo_allow.deny": {
+      "id": "notification.geo_allow.deny",
+      "en": "{handled natively}",
+      "datasource": "copy"
+    },
+    "notification.push_notifications_allow.title": {
+      "id": "notification.push_notifications_allow.title",
+      "en": "{handled natively}",
+      "datasource": "copy"
+    },
+    "notification.push_notifications_allow.allow": {
+      "id": "notification.push_notifications_allow.allow",
+      "en": "{handled natively}",
+      "datasource": "copy"
+    },
+    "notification.push_notifications_allow.deny": {
+      "id": "notification.push_notifications_allow.deny",
+      "en": "{handled natively}",
+      "datasource": "copy"
+    },
+    "notification.card_invalid.title": {
+      "id": "notification.card_invalid.title",
+      "en": "Select another payment method",
+      "datasource": "copy"
+    },
+    "notification.card_invalid.description": {
+      "id": "notification.card_invalid.description",
+      "en": "Something’s not right with the payment method you selected.",
+      "datasource": "copy"
+    },
+    "notification.card_invalid.button.ok": {
+      "id": "notification.card_invalid.button.ok",
+      "en": "Okay",
+      "datasource": "copy"
+    },
+    "notification.delete_card.title": {
+      "id": "notification.delete_card.title",
+      "en": "Are you sure you want to delete this?",
+      "datasource": "copy"
+    },
+    "notification.delete_card.description": {
+      "id": "notification.delete_card.description",
+      "en": "Make sure you have a payment method saved to use Zig services.",
+      "datasource": "copy"
+    },
+    "notification.alert.accept": {
+      "id": "notification.alert.accept",
+      "en": "Yes, delete it",
+      "datasource": "copy"
+    },
+    "notification.alert.reject": {
+      "id": "notification.alert.reject",
+      "en": "No, cancel",
+      "datasource": "copy"
+    },
+    "notification.sms.otp": {
+      "id": "notification.sms.otp",
+      "en": "{XXXXXX} is your verification code. This code will expire in {X} seconds.",
+      "datasource": "copy"
+    },
+    "maintenance.full.screen.title": {
+      "id": "maintenance.full.screen.title",
+      "en": "We’re making things Ziggier",
+      "datasource": "copy"
+    },
+    "maintenance.screen.body": {
+      "id": "maintenance.screen.body",
+      "en": "We’re just doing a little maintenance. Check back from {time} on {Day, DD Mmm}.",
+      "datasource": "copy"
+    },
+    "maintenance.message.tryagain.title": {
+      "id": "maintenance.message.tryagain.title",
+      "en": "Hmm, let’s try Zigging that again",
+      "datasource": "copy"
+    },
+    "maintenance.message.tryagain.body": {
+      "id": "maintenance.message.tryagain.body",
+      "en": "Something went wrong. Please try again in a few moments.",
+      "datasource": "copy"
+    },
+    "maintenance.message.makingbetter.title": {
+      "id": "maintenance.message.makingbetter.title",
+      "en": "We’re making this Ziggier",
+      "datasource": "copy"
+    },
+    "maintenance.message.makingbetter.body": {
+      "id": "maintenance.message.makingbetter.body",
+      "en": "We’re working on improving this feature. Thanks for your patience.",
+      "datasource": "copy"
+    },
+    "maintenance.message.makingbetter.button": {
+      "id": "maintenance.message.makingbetter.button",
+      "en": "Okay",
+      "datasource": "copy"
+    },
+    "maintenance.message.makingfeaturebetter.title": {
+      "id": "maintenance.message.makingfeaturebetter.title",
+      "en": "We're making {feature} Ziggier",
+      "datasource": "copy"
+    },
+    "maintenance.message.makingfeaturebetter.body": {
+      "id": "maintenance.message.makingfeaturebetter.body",
+      "en": "$ref{Maintenance message.makingbetter.body}",
+      "datasource": "copy"
+    },
+    "maintenance.message.makingfeaturebetter.button": {
+      "id": "maintenance.message.makingfeaturebetter.button",
+      "en": "$ref{Maintenance message.makingbetter.button}",
+      "datasource": "copy"
+    }
+  },
+  "279_payment_options_flow": {
+    "279.1.0.0_ZestApp_PaymentOptions.title": {
+      "id": "279.1.0.0_ZestApp_PaymentOptions.title",
+      "en": "Payment methods",
+      "datasource": "copy"
+    },
+    "279.4.0.0_ZestApp_PaymentOptions.description": {
+      "id": "279.4.0.0_ZestApp_PaymentOptions.description",
+      "en": "na",
+      "datasource": "copy"
+    },
+    "279.1.0.0_ZestApp_PaymentOptions.description": {
+      "id": "279.1.0.0_ZestApp_PaymentOptions.description",
+      "en": "na",
+      "datasource": "copy"
+    },
+    "279.1.0.0_ZestApp_PaymentOptions.empty": {
+      "id": "279.1.0.0_ZestApp_PaymentOptions.empty",
+      "en": "na",
+      "datasource": "copy"
+    },
+    "279.1.0.0_ZestApp_PaymentOptions.": {
+      "id": "279.1.0.0_ZestApp_PaymentOptions.",
+      "en": "Add payment method",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.title": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.title",
+      "en": "Add card",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.description": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.description",
+      "en": "$ref{component.label.CARDDETAILS}",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.card_name.label": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.card_name.label",
+      "en": "Name on card",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.card_name.placeholder": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.card_name.placeholder",
+      "en": "N/A",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.card_number.label": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.card_number.label",
+      "en": "Card number",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.card_number.placeholder": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.card_number.placeholder",
+      "en": "0000 0000 0000 0000",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.card_exp_date.label": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.card_exp_date.label",
+      "en": "Expires",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.card_exp_date.placeholder": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.card_exp_date.placeholder",
+      "en": "MM/YYYY",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.card_cvv.label": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.card_cvv.label",
+      "en": "CVV",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.card_cvv.placeholder": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.card_cvv.placeholder",
+      "en": "000",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.set_default": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.set_default",
+      "en": "Set as default payment method",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.delete": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.delete",
+      "en": "Remove payment method",
+      "datasource": "copy"
+    },
+    "279.2.0.0_ZestApp_PaymentOptions.conditions": {
+      "id": "279.2.0.0_ZestApp_PaymentOptions.conditions",
+      "en": "By adding a payment method, you agree to our {terms & conditions} and {privacy policy}",
+      "datasource": "copy"
+    },
+    "279.3.0.0_ZestApp_PaymentOptions.button.done": {
+      "id": "279.3.0.0_ZestApp_PaymentOptions.button.done",
+      "en": "$ref{component.cta.done}",
+      "datasource": "copy"
+    },
+    "279.2.1.0_ZestApp_PaymentOptions_Error.cvv": {
+      "id": "279.2.1.0_ZestApp_PaymentOptions_Error.cvv",
+      "en": "$ref{error.credit_card.number}",
+      "datasource": "copy"
+    },
+    "279.1.4.0_ZestApp_PaymentOptions_InFlow.title": {
+      "id": "279.1.4.0_ZestApp_PaymentOptions_InFlow.title",
+      "en": "Select payment method",
+      "datasource": "copy"
+    },
+    "279.1.4.0_ZestApp_PaymentOptions_InFlow.add_card": {
+      "id": "279.1.4.0_ZestApp_PaymentOptions_InFlow.add_card",
+      "en": "$ref{279.1.0.0_ZestApp_PaymentOptions.add_card}",
+      "datasource": "copy"
+    },
+    "279.6.0.0_ZestApp_PaymentOptions_Delete.title": {
+      "id": "279.6.0.0_ZestApp_PaymentOptions_Delete.title",
+      "en": "Are you sure you want to delete this?",
+      "datasource": "copy"
+    },
+    "279.6.0.0_ZestApp_PaymentOptions_Delete.description": {
+      "id": "279.6.0.0_ZestApp_PaymentOptions_Delete.description",
+      "en": "Make sure you have a payment method saved to use Zig services.",
+      "datasource": "copy"
+    },
+    "279.6.0.0_ZestApp_PaymentOptions_Delete.button": {
+      "id": "279.6.0.0_ZestApp_PaymentOptions_Delete.button",
+      "en": "Delete card",
+      "datasource": "copy"
+    },
+    "279.6.0.0_ZestApp_PaymentOptions_Delete.go_back": {
+      "id": "279.6.0.0_ZestApp_PaymentOptions_Delete.go_back",
+      "en": "No, go back",
+      "datasource": "copy"
+    }
+  },
+  "301_ZestApp_Profile": {
+    "301.1.1.0_ZestApp_Profile_Main.header_card.name.placeholder": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.header_card.name.placeholder",
+      "en": "Name",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.header_card.description.placeholder": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.header_card.description.placeholder",
+      "en": "Curious explorer",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.profile_section.header": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.profile_section.header",
+      "en": "$ref{component.label.ZIGYOURWAY}",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.profile_section.1": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.profile_section.1",
+      "en": "How\nI explore",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.profile_section.2": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.profile_section.2",
+      "en": "What\nI'm into",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.profile_section.3": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.profile_section.3",
+      "en": "How\nI move",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.list.category.account": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.list.category.account",
+      "en": "Account",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.list.category.favourites": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.list.category.favourites",
+      "en": "Favourites",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.list.category.trips": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.list.category.trips",
+      "en": "Trips",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.list.category.payments": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.list.category.payments",
+      "en": "Payment methods",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.list.category.help": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.list.category.help",
+      "en": "Help",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.list.category.settings": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.list.category.settings",
+      "en": "Settings",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.list.category.feedback": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.list.category.feedback",
+      "en": "Feedback",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.list.category.log-out": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.list.category.log-out",
+      "en": "Log out",
+      "datasource": "copy"
+    },
+    "301.1.3.0_ZestApp_Profile.header": {
+      "id": "301.1.3.0_ZestApp_Profile.header",
+      "en": "Edit your profile",
+      "datasource": "copy"
+    },
+    "301.1.3.0_ZestApp_Profile.label.profile_picture.placeholder": {
+      "id": "301.1.3.0_ZestApp_Profile.label.profile_picture.placeholder",
+      "en": "Profile picture",
+      "datasource": "copy"
+    },
+    "301.1.3.0_ZestApp_Profile.textbox.first_name.placeholder": {
+      "id": "301.1.3.0_ZestApp_Profile.textbox.first_name.placeholder",
+      "en": "First name",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.header_card.name.firstname.error": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.header_card.name.firstname.error",
+      "en": "$ref{error.firstname.empty}",
+      "datasource": "copy"
+    },
+    "301.1.3.0_ZestApp_Profile.textbox.last_name.placeholder": {
+      "id": "301.1.3.0_ZestApp_Profile.textbox.last_name.placeholder",
+      "en": "Last name",
+      "datasource": "copy"
+    },
+    "301.1.1.0_ZestApp_Profile_Main.header_card.name.lastname.error": {
+      "id": "301.1.1.0_ZestApp_Profile_Main.header_card.name.lastname.error",
+      "en": "$ref{error.lastname.empty}",
+      "datasource": "copy"
+    },
+    "Default profile identity": {
+      "id": "Default profile identity",
+      "en": "$ref{Profile.identity.2}",
+      "datasource": "copy"
+    },
+    "Profile.identity.1": {
+      "id": "Profile.identity.1",
+      "en": "Creature of habit",
+      "datasource": "copy"
+    },
+    "Profile.identity.2": {
+      "id": "Profile.identity.2",
+      "en": "Curious explorer",
+      "datasource": "copy"
+    },
+    "Profile.identity.3": {
+      "id": "Profile.identity.3",
+      "en": "Thrill seeker",
+      "datasource": "copy"
+    },
+    "301.1.4.0_ZestApp_Profile.popup.profile_picture.take_photo": {
+      "id": "301.1.4.0_ZestApp_Profile.popup.profile_picture.take_photo",
+      "en": "Take a photo",
+      "datasource": "copy"
+    },
+    "301.1.4.0_ZestApp_Profile.popup.profile_picture.choose_photo": {
+      "id": "301.1.4.0_ZestApp_Profile.popup.profile_picture.choose_photo",
+      "en": "Choose a photo",
+      "datasource": "copy"
+    },
+    "301.1.4.0_ZestApp_Profile.popup.profile_picture.button.cancel": {
+      "id": "301.1.4.0_ZestApp_Profile.popup.profile_picture.button.cancel",
+      "en": "Cancel",
+      "datasource": "copy"
+    },
+    "301.1.6.0_ZestApp_Profile.header": {
+      "id": "301.1.6.0_ZestApp_Profile.header",
+      "en": "Move and scale",
+      "datasource": "copy"
+    },
+    "301.1.6.0_ZestApp_Profile.button.confirm": {
+      "id": "301.1.6.0_ZestApp_Profile.button.confirm",
+      "en": "Confirm",
+      "datasource": "copy"
+    },
+    "301.1.6.0_ZestApp_Profile.button.cancel": {
+      "id": "301.1.6.0_ZestApp_Profile.button.cancel",
+      "en": "Cancel",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.settings.header": {
+      "id": "301.0.0.0_ZestApp_Profile.settings.header",
+      "en": "$ref{301.1.1.0_ZestApp_Profile_Main.list.category.settings}",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.settings.location": {
+      "id": "301.0.0.0_ZestApp_Profile.settings.location",
+      "en": "Location sharing",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.settings.privacy": {
+      "id": "301.0.0.0_ZestApp_Profile.settings.privacy",
+      "en": "Privacy sharing",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.settings.notifications.subhead": {
+      "id": "301.0.0.0_ZestApp_Profile.settings.notifications.subhead",
+      "en": "NOTIFICATIONS",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.settings.notifications.nearby": {
+      "id": "301.0.0.0_ZestApp_Profile.settings.notifications.nearby",
+      "en": "Nearby suggestions",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.settings.notifications.receipts": {
+      "id": "301.0.0.0_ZestApp_Profile.settings.notifications.receipts",
+      "en": "Email receipts",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.settings.notifications.receipts.desc": {
+      "id": "301.0.0.0_ZestApp_Profile.settings.notifications.receipts.desc",
+      "en": "For rides and orders",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.settings.notifications.mechantemails": {
+      "id": "301.0.0.0_ZestApp_Profile.settings.notifications.mechantemails",
+      "en": "Email updates",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.settings.notifications.mechantemails.desc": {
+      "id": "301.0.0.0_ZestApp_Profile.settings.notifications.mechantemails.desc",
+      "en": "From merchants",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.button.language": {
+      "id": "301.0.0.0_ZestApp_Profile.button.language",
+      "en": "Language",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.button.language.default": {
+      "id": "301.0.0.0_ZestApp_Profile.button.language.default",
+      "en": "EN",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.title.terms_and_conditions": {
+      "id": "301.0.0.0_ZestApp_Profile.title.terms_and_conditions",
+      "en": "Terms & conditions",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.button.privacypolicy": {
+      "id": "301.0.0.0_ZestApp_Profile.button.privacypolicy",
+      "en": "Privacy policy",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.button.about": {
+      "id": "301.0.0.0_ZestApp_Profile.button.about",
+      "en": "About the app",
+      "datasource": "copy"
+    },
+    "29.1.1.0_ZestApp_SignupSignin_T&C.button.done": {
+      "id": "29.1.1.0_ZestApp_SignupSignin_T&C.button.done",
+      "en": "$ref{component.cta.done}",
+      "datasource": "copy"
+    },
+    "29.1.2.0_ZestApp_SignupSignin_Privacy.done": {
+      "id": "29.1.2.0_ZestApp_SignupSignin_Privacy.done",
+      "en": "$ref{component.cta.done}",
+      "datasource": "copy"
+    },
+    "29.1.3.0_ZestApp_SignupSignin_Privacy.title": {
+      "id": "29.1.3.0_ZestApp_SignupSignin_Privacy.title",
+      "en": "A little about\nthe app",
+      "datasource": "copy"
+    }
+  },
+  "302_ZestApp_Routes": {
+    "302.1.0.0_ZestApp_Routes.share.message": {
+      "id": "302.1.0.0_ZestApp_Routes.share.message",
+      "en": "I'm on my way! I'll be at {destination} by {time}. Follow my trip: {URL}",
+      "datasource": "copy"
+    }
+  },
+  "304_ZestApp_MyTrips": {
+    "304.2.0.0_ZestApp_MyTrips.header": {
+      "id": "304.2.0.0_ZestApp_MyTrips.header",
+      "en": "Your trips",
+      "datasource": "copy"
+    },
+    "304.2.1.0_ZestApp_MyTrips_empty.description": {
+      "id": "304.2.1.0_ZestApp_MyTrips_empty.description",
+      "en": "No trips to show.",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.header": {
+      "id": "304.1.5.0_ZestApp_MyTrips.header",
+      "en": "Your trip on\n{date} at {time}",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.id": {
+      "id": "304.1.5.0_ZestApp_MyTrips.id",
+      "en": "Trip # {id}",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.label.payment_status.paid": {
+      "id": "304.1.5.0_ZestApp_MyTrips.label.payment_status.paid",
+      "en": "Paid",
+      "datasource": "copy"
+    },
+    "304.2.1.0_ZestApp_MyTrips.label.payment_status.cancelled": {
+      "id": "304.2.1.0_ZestApp_MyTrips.label.payment_status.cancelled",
+      "en": "$ref{error.taxi.cancelled}",
+      "datasource": "copy"
+    },
+    "304.2.2.0_ZestApp_MyTrips.payment_status.error": {
+      "id": "304.2.2.0_ZestApp_MyTrips.payment_status.error",
+      "en": "$ref{error.taxi.payment_error}",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.label.distance": {
+      "id": "304.1.5.0_ZestApp_MyTrips.label.distance",
+      "en": "Distance travelled",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.label.summary.header": {
+      "id": "304.1.5.0_ZestApp_MyTrips.label.summary.header",
+      "en": "Summary",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.label.summary.list.promocodes": {
+      "id": "304.1.5.0_ZestApp_MyTrips.label.summary.list.promocodes",
+      "en": "Promotions",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.label.summary.list.surcharges": {
+      "id": "304.1.5.0_ZestApp_MyTrips.label.summary.list.surcharges",
+      "en": "Surcharges",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.label.summary.list.holding": {
+      "id": "304.1.5.0_ZestApp_MyTrips.label.summary.list.holding",
+      "en": "Holding fee",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.label.summary.list.booking_fee": {
+      "id": "304.1.5.0_ZestApp_MyTrips.label.summary.list.booking_fee",
+      "en": "Advanced booking fee",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.label.summary.list.total": {
+      "id": "304.1.5.0_ZestApp_MyTrips.label.summary.list.total",
+      "en": "Total fare",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.label.payment.header": {
+      "id": "304.1.5.0_ZestApp_MyTrips.label.payment.header",
+      "en": "Paid with",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.button.report": {
+      "id": "304.1.5.0_ZestApp_MyTrips.button.report",
+      "en": "Report an error",
+      "datasource": "copy"
+    },
+    "304.1.5.0_ZestApp_MyTrips.email.report": {
+      "id": "304.1.5.0_ZestApp_MyTrips.email.report",
+      "en": "$ref{general.email.billing}",
+      "datasource": "copy"
+    },
+    "304.2.0.0_ZestApp_MyTrips_Errors.error.outstanding": {
+      "id": "304.2.0.0_ZestApp_MyTrips_Errors.error.outstanding",
+      "en": "Total fare (outstanding)",
+      "datasource": "copy"
+    },
+    "304.2.2.0_ZestApp_MyTrips.label.pay_now": {
+      "id": "304.2.2.0_ZestApp_MyTrips.label.pay_now",
+      "en": "$ref{component.cta.paynow}",
+      "datasource": "copy"
+    },
+    "301.2.3.0_ZestApp_Profile.header": {
+      "id": "301.2.3.0_ZestApp_Profile.header",
+      "en": "Your account details",
+      "datasource": "copy"
+    },
+    "301.2.3.0_ZestApp_Profile.textfield.email": {
+      "id": "301.2.3.0_ZestApp_Profile.textfield.email",
+      "en": "N/A",
+      "datasource": "data"
+    },
+    "301.2.3.0_ZestApp_Profile.textfield.email.tooltip": {
+      "id": "301.2.3.0_ZestApp_Profile.textfield.email.tooltip",
+      "en": "Email address can’t be edited",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.popup.email.header": {
+      "id": "301.0.0.0_ZestApp_Profile.popup.email.header",
+      "en": "Unfortunately, you can’t edit your email address",
+      "datasource": "copy"
+    },
+    "301.0.0.0_ZestApp_Profile.popup.email.description": {
+      "id": "301.0.0.0_ZestApp_Profile.popup.email.description",
+      "en": "We do this to keep your account safe.",
+      "datasource": "copy"
+    }
+  },
+  "457_CustomerSupport_FAQ": {
+    "457.2.0.0_CustomerSupport_FAQ.header": {
+      "id": "457.2.0.0_CustomerSupport_FAQ.header",
+      "en": "Help with {taxi bookings}",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_FAQ.list.booking": {
+      "id": "457.2.0.0_CustomerSupport_FAQ.list.booking",
+      "en": "Booking & travel options",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_FAQ.list.vehicle_options": {
+      "id": "457.2.0.0_CustomerSupport_FAQ.list.vehicle_options",
+      "en": "Vehicle options",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_FAQ.list.airport_pickup": {
+      "id": "457.2.0.0_CustomerSupport_FAQ.list.airport_pickup",
+      "en": "Airport pickup",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_FAQ.list.multiple_destinations": {
+      "id": "457.2.0.0_CustomerSupport_FAQ.list.multiple_destinations",
+      "en": "Multiple destinations",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_FAQ.list.advance_booking": {
+      "id": "457.2.0.0_CustomerSupport_FAQ.list.advance_booking",
+      "en": "Advanced booking",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_FAQ.question.more_help": {
+      "id": "457.2.0.0_CustomerSupport_FAQ.question.more_help",
+      "en": "Need help with something else?",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_FAQ.button.more_help": {
+      "id": "457.2.0.0_CustomerSupport_FAQ.button.more_help",
+      "en": "Contact us",
+      "datasource": "copy"
+    },
+    "457.3.0.0_CustomerSupport_FAQ.header": {
+      "id": "457.3.0.0_CustomerSupport_FAQ.header",
+      "en": "$ref{457.2.0.0_CustomerSupport_FAQ.list.booking}",
+      "datasource": "copy"
+    },
+    "457.3.0.0_CustomerSupport_FAQ.question.1": {
+      "id": "457.3.0.0_CustomerSupport_FAQ.question.1",
+      "en": "Can I book a taxi through hotlink?",
+      "datasource": "copy"
+    },
+    "457.3.0.0_CustomerSupport_FAQ.answer.1": {
+      "id": "457.3.0.0_CustomerSupport_FAQ.answer.1",
+      "en": "No. Taxi bookings are only available in the Zig app."
+    },
+    "457.3.0.0_CustomerSupport_FAQ.question.2": {
+      "id": "457.3.0.0_CustomerSupport_FAQ.question.2",
+      "en": "Are infants subject to the taxi seating capacity policy?",
+      "datasource": "copy"
+    },
+    "457.3.0.0_CustomerSupport_FAQ.answer.2": {
+      "id": "457.3.0.0_CustomerSupport_FAQ.answer.2",
+      "en": "Infants between 0 and 12 months can be carried, therefore are not considered as passengers and are not subject to the taxi seating capacity policy.",
+      "datasource": "copy"
+    },
+    "457.3.0.0_CustomerSupport_FAQ.answer.2.hyperlink": {
+      "id": "457.3.0.0_CustomerSupport_FAQ.answer.2.hyperlink",
+      "en": "Find out more about the seating capacity of our taxis here",
+      "datasource": "copy"
+    },
+    "457.3.0.0_CustomerSupport_FAQ.question.3": {
+      "id": "457.3.0.0_CustomerSupport_FAQ.question.3",
+      "en": "Are child-seats required in taxis?",
+      "datasource": "copy"
+    },
+    "457.3.0.0_CustomerSupport_FAQ.answer.3": {
+      "id": "457.3.0.0_CustomerSupport_FAQ.answer.3",
+      "en": "No. According to the Singapore Police Force, taxis are exempt from the child-seat requirement.",
+      "datasource": "copy"
+    },
+    "457.3.0.0_CustomerSupport_FAQ.check.label.feedback": {
+      "id": "457.3.0.0_CustomerSupport_FAQ.check.label.feedback",
+      "en": "Was this helpful?",
+      "datasource": "copy"
+    },
+    "457.3.0.0_CustomerSupport_FAQ.check.label.positive": {
+      "id": "457.3.0.0_CustomerSupport_FAQ.check.label.positive",
+      "en": "Thanks for the feedback!",
+      "datasource": "copy"
+    },
+    "457.4.0.0_CustomerSupport_FAQ.check.label.negative.popup.header": {
+      "id": "457.4.0.0_CustomerSupport_FAQ.check.label.negative.popup.header",
+      "en": "That’s not Ziggy",
+      "datasource": "copy"
+    },
+    "457.4.0.0_CustomerSupport_FAQ.check.label.negative.popup.body": {
+      "id": "457.4.0.0_CustomerSupport_FAQ.check.label.negative.popup.body",
+      "en": "Let us know what could be improved."
+    },
+    "457.4.0.0_CustomerSupport_FAQ.check.label.negative.popup.feedback": {
+      "id": "457.4.0.0_CustomerSupport_FAQ.check.label.negative.popup.feedback",
+      "en": "$ref{component.cta.feedback}",
+      "datasource": "copy"
+    },
+    "457.4.0.0_CustomerSupport_FAQ.popup.email.to_address": {
+      "id": "457.4.0.0_CustomerSupport_FAQ.popup.email.to_address",
+      "en": "$ref{general.support}",
+      "datasource": "copy"
+    },
+    "457.4.0.0_CustomerSupport_FAQ.check.label.negative.popup.close": {
+      "id": "457.4.0.0_CustomerSupport_FAQ.check.label.negative.popup.close",
+      "en": "Close",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.1": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.1",
+      "en": "$ref{457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.4}",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.2": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.2",
+      "en": "$ref{457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.4}",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.3": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.3",
+      "en": "$ref{457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.4}",
+      "datasource": "copy"
+    },
+    "457.4.0.0_CustomerSupport_FAQ.header": {
+      "id": "457.4.0.0_CustomerSupport_FAQ.header",
+      "en": "So, how's it Zigging?",
+      "datasource": "copy"
+    },
+    "457.4.0.0_CustomerSupport_FAQ.Rate": {
+      "id": "457.4.0.0_CustomerSupport_FAQ.Rate",
+      "en": "Rate the app experience",
+      "datasource": "copy"
+    },
+    "457.4.0.0_CustomerSupport_FAQ.button": {
+      "id": "457.4.0.0_CustomerSupport_FAQ.button",
+      "en": "$ref{component.cta.done}",
+      "datasource": "copy"
+    },
+    "457.4.0.0_CustomerSupport_FAQ.Search_message": {
+      "id": "457.4.0.0_CustomerSupport_FAQ.Search_message",
+      "en": "Sorry, we couldn’t find that. Try a different search term.",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.5": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.5",
+      "en": "Zig Zig hooray!",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.4": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.header.rating.4",
+      "en": "Help us make it Ziggier",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.label.rating_info": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.label.rating_info",
+      "en": "You rated your experience {rating} out of 5",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.5": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.5",
+      "en": "What did you love?",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.4": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.4",
+      "en": "What did you like?",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.3": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.3",
+      "en": "What could be improved?",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.2": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.2",
+      "en": "What went wrong?",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.1": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.1",
+      "en": "$ref{457.2.0.0_CustomerSupport_InFlow_Feedback.label.contextual_query.rating.2}",
+      "datasource": "copy"
+    }
+  },
+  "29_sign_up_sign_in_flow": {
+    "29.1.1.0_ZestApp_SignupSignin_T&C.title": {
+      "id": "29.1.1.0_ZestApp_SignupSignin_T&C.title",
+      "en": "Our terms & conditions",
+      "datasource": "copy"
+    },
+    "29.1.2.0_ZestApp_SignupSignin_Privacy.title": {
+      "id": "29.1.2.0_ZestApp_SignupSignin_Privacy.title",
+      "en": "Our privacy policy",
+      "datasource": "copy"
+    },
+    "29.1.0.0_ZestApp_SignupSignin.title": {
+      "id": "29.1.0.0_ZestApp_SignupSignin.title",
+      "en": "Discover\nnew places",
+      "datasource": "copy"
+    },
+    "29.1.0.0_ZestApp_SignupSignin.description": {
+      "id": "29.1.0.0_ZestApp_SignupSignin.description",
+      "en": "Find exciting new things to see and do in your city.",
+      "datasource": "copy"
+    },
+    "29.1.0.0_ZestApp_SignupSignin.CTA": {
+      "id": "29.1.0.0_ZestApp_SignupSignin.CTA",
+      "en": "Get Zigging!",
+      "datasource": "copy"
+    },
+    "29.2.0.0_ZestApp_SignupSignin.title": {
+      "id": "29.2.0.0_ZestApp_SignupSignin.title",
+      "en": "Share with\nyour friends",
+      "datasource": "copy"
+    },
+    "29.2.0.0_ZestApp_SignupSignin.description": {
+      "id": "29.2.0.0_ZestApp_SignupSignin.description",
+      "en": "Share your discoveries with your friends and family.",
+      "datasource": "copy"
+    },
+    "29.2.0.0_ZestApp_SignupSignin.CTA": {
+      "id": "29.2.0.0_ZestApp_SignupSignin.CTA",
+      "en": "$ref{29.1.0.0_ZestApp_SignupSignin.CTA}",
+      "datasource": "copy"
+    },
+    "29.3.0.0_ZestApp_SignupSignin.title": {
+      "id": "29.3.0.0_ZestApp_SignupSignin.title",
+      "en": "Get there\nwith Zig",
+      "datasource": "copy"
+    },
+    "29.3.0.0_ZestApp_SignupSignin.description": {
+      "id": "29.3.0.0_ZestApp_SignupSignin.description",
+      "en": "Request a ride and get moving in minutes.",
+      "datasource": "copy"
+    },
+    "29.4.0.0_ZestApp_SignupSignin.title": {
+      "id": "29.4.0.0_ZestApp_SignupSignin.title",
+      "en": "Enter your mobile number",
+      "datasource": "copy"
+    },
+    "29.4.0.0_ZestApp_SignupSignin.description": {
+      "id": "29.4.0.0_ZestApp_SignupSignin.description",
+      "en": "We’ll send you an SMS with a verification code.",
+      "datasource": "copy"
+    },
+    "29.4.0.0_ZestApp_SignupSignin.terms": {
+      "id": "29.4.0.0_ZestApp_SignupSignin.terms",
+      "en": "I agree to the {terms & conditions} and conditions and {privacy policy}",
+      "datasource": "copy"
+    },
+    "29.4.1.0_ZestApp_SignupSignin_PhoneError.error_Invalid": {
+      "id": "29.4.1.0_ZestApp_SignupSignin_PhoneError.error_Invalid",
+      "en": "$ref{error.short_number}",
+      "datasource": "copy"
+    },
+    "29.4.1.0_ZestApp_SignupSignin_PhoneError.error_emptystate": {
+      "id": "29.4.1.0_ZestApp_SignupSignin_PhoneError.error_emptystate",
+      "en": "$ref{error.empty_number}",
+      "datasource": "copy"
+    },
+    "29.4.2.0_ZestApp_SignupSignin_CountryCode.alert_title": {
+      "id": "29.4.2.0_ZestApp_SignupSignin_CountryCode.alert_title",
+      "en": "The Zig app is only available in Singapore for now",
+      "datasource": "copy"
+    },
+    "29.4.2.0_ZestApp_SignupSignin_CountryCode.alert_description": {
+      "id": "29.4.2.0_ZestApp_SignupSignin_CountryCode.alert_description",
+      "en": "You’ll need a Singaporean mobile number to sign up.",
+      "datasource": "copy"
+    },
+    "29.5.0.0_ZestApp_SignupSignin_CountryCode.OK": {
+      "id": "29.5.0.0_ZestApp_SignupSignin_CountryCode.OK",
+      "en": "$ref{29.4.0.0_ZestApp_SignupSignin} / OK = $ref{29.5.0.0_ZestApp_SignupSignin_CountryCode.help_text_registered_number} / $ref{29.5.0.0_ZestApp_SignupSignin_CountryCode.help_text_unregistered_number}",
+      "datasource": "copy"
+    },
+    "29.5.0.0_ZestApp_SignupSignin_CountryCode.HelpText_KnownUser": {
+      "id": "29.5.0.0_ZestApp_SignupSignin_CountryCode.HelpText_KnownUser",
+      "en": "$ref{29.8.3.1_ZestApp_SignupSignin_KnownUser_Email}",
+      "datasource": "copy"
+    },
+    "29.5.0.0_ZestApp_SignupSignin_CountryCode.HelpText_UnknownUser": {
+      "id": "29.5.0.0_ZestApp_SignupSignin_CountryCode.HelpText_UnknownUser",
+      "en": "$ref{errorr.email.new_user}",
+      "datasource": "copy"
+    },
+    "29.6.0.0_ZestApp_SignupSignin.title": {
+      "id": "29.6.0.0_ZestApp_SignupSignin.title",
+      "en": "Enter your\n6-digit code",
+      "datasource": "copy"
+    },
+    "29.6.0.0_ZestApp_SignupSignin.description": {
+      "id": "29.6.0.0_ZestApp_SignupSignin.description",
+      "en": "To verify your mobile number, enter the code we sent to {phone_number}.",
+      "datasource": "copy"
+    },
+    "29.6.2.0_ZestApp_SignupSignin_OPTError.error": {
+      "id": "29.6.2.0_ZestApp_SignupSignin_OPTError.error",
+      "en": "$ref{error.otp_incorrect}",
+      "datasource": "copy"
+    },
+    "29.7.0.0_ZestApp_SignupSignin.title": {
+      "id": "29.7.0.0_ZestApp_SignupSignin.title",
+      "en": "$ref{ 29.6.0.0_ZestApp_SignupSignin.title }",
+      "datasource": "copy"
+    },
+    "29.7.0.0_ZestApp_SignupSignin.description": {
+      "id": "29.7.0.0_ZestApp_SignupSignin.description",
+      "en": "$ref{ 29.6.0.0_ZestApp_SignupSignin.description }",
+      "datasource": "copy"
+    },
+    "29.7.0.0_ZestApp_SignupSignin.CTA1_resend": {
+      "id": "29.7.0.0_ZestApp_SignupSignin.CTA1_resend",
+      "en": "Resend code",
+      "datasource": "copy"
+    },
+    "29.8.0.0_ZestApp_SignupSignin.title": {
+      "id": "29.8.0.0_ZestApp_SignupSignin.title",
+      "en": "Enter your email address",
+      "datasource": "copy"
+    },
+    "29.8.0.0_ZestApp_SignupSignin.description": {
+      "id": "29.8.0.0_ZestApp_SignupSignin.description",
+      "en": "This is the email you’ll use to sign in. You won’t be able to change this later.",
+      "datasource": "copy"
+    },
+    "29.8.0.0_ZestApp_SignupSignin.email_placeholder.1": {
+      "id": "29.8.0.0_ZestApp_SignupSignin.email_placeholder.1",
+      "en": "Email address",
+      "datasource": "copy"
+    },
+    "29.8.1.0_ZestApp_SignupSignin_Error_email_invalid": {
+      "id": "29.8.1.0_ZestApp_SignupSignin_Error_email_invalid",
+      "en": "$ref{error.email_invalid_format}",
+      "datasource": "copy"
+    },
+    "29.8.1.0_ZestApp_SignupSignin_Error_email_emptystate": {
+      "id": "29.8.1.0_ZestApp_SignupSignin_Error_email_emptystate",
+      "en": "$ref{error.email.required}",
+      "datasource": "copy"
+    },
+    "29.8.0.0_ZestApp_SignupSignin.email_placeholder.2": {
+      "id": "29.8.0.0_ZestApp_SignupSignin.email_placeholder.2",
+      "en": "Confirm email address",
+      "datasource": "copy"
+    },
+    "29.8.3.0_ZestApp_SignupSignin_KnownUser.error": {
+      "id": "29.8.3.0_ZestApp_SignupSignin_KnownUser.error",
+      "en": "$ref{error.email_used}",
+      "datasource": "copy"
+    },
+    "29.8.2.0_ZestApp_SignupSignin_Error_EmailMismatch": {
+      "id": "29.8.2.0_ZestApp_SignupSignin_Error_EmailMismatch",
+      "en": "$ref{error.email_mismatched}",
+      "datasource": "copy"
+    },
+    "29.10.0.0_ZestApp_SignupSignin.title": {
+      "id": "29.10.0.0_ZestApp_SignupSignin.title",
+      "en": "What gets you excited?",
+      "datasource": "copy"
+    },
+    "29.10.0.0_ZestApp_SignupSignin.component_slider.1": {
+      "id": "29.10.0.0_ZestApp_SignupSignin.component_slider.1",
+      "en": "I'm a\ncreature\nof habit",
+      "datasource": "copy"
+    },
+    "29.10.0.0_ZestApp_SignupSignin.component_slider.2": {
+      "id": "29.10.0.0_ZestApp_SignupSignin.component_slider.2",
+      "en": "I’m a\ncurious\nexplorer",
+      "datasource": "copy"
+    },
+    "29.10.0.0_ZestApp_SignupSignin.component_slider.3": {
+      "id": "29.10.0.0_ZestApp_SignupSignin.component_slider.3",
+      "en": "I’m a\nthrill\nseeker",
+      "datasource": "copy"
+    },
+    "29.10.0.0_ZestApp_SignupSignin.component_slider.under.left": {
+      "id": "29.10.0.0_ZestApp_SignupSignin.component_slider.under.left",
+      "en": "Less",
+      "datasource": "copy"
+    },
+    "29.10.0.0_ZestApp_SignupSignin.component_slider.under.right": {
+      "id": "29.10.0.0_ZestApp_SignupSignin.component_slider.under.right",
+      "en": "More",
+      "datasource": "copy"
+    },
+    "29.10.0.0_ZestApp_SignupSignin.next": {
+      "id": "29.10.0.0_ZestApp_SignupSignin.next",
+      "en": "{arrow}",
+      "datasource": "data"
+    },
+    "29.10.0.0_ZestApp_SignupSignin.skip": {
+      "id": "29.10.0.0_ZestApp_SignupSignin.skip",
+      "en": "Skip for now",
+      "datasource": "copy"
+    },
+    "29.10.0.0_ZestApp_SignupSignin.description": {
+      "id": "29.10.0.0_ZestApp_SignupSignin.description",
+      "en": "We'll help match your interests. Choose one or multiple.",
+      "datasource": "copy"
+    },
+    "29.11.0.0_ZestApp_SignupSignin.options": {
+      "id": "29.11.0.0_ZestApp_SignupSignin.options",
+      "en": "{cuisines}",
+      "datasource": "data"
+    },
+    "29.11.0.0_ZestApp_SignupSignin.next": {
+      "id": "29.11.0.0_ZestApp_SignupSignin.next",
+      "en": "$ref { 29.10.0.0_ZestApp_SignupSignin.next }",
+      "datasource": "data"
+    },
+    "29.11.0.0_ZestApp_SignupSignin.skip": {
+      "id": "29.11.0.0_ZestApp_SignupSignin.skip",
+      "en": "$ref { 29.10.0.0_ZestApp_SignupSignin.skip }",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.title": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.title",
+      "en": "How do you like to Zig ?",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.description": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.description",
+      "en": "Choose one or multiple.",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.fast.label": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.fast.label",
+      "en": "Quickly",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.fast.desc": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.fast.desc",
+      "en": "On the fastest route",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.comfortable.label": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.comfortable.label",
+      "en": "Comfortably",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.comforatble.desc": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.comforatble.desc",
+      "en": "Mostly seated with less walking",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.budget.label": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.budget.label",
+      "en": "Affordably",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.budget.desc": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.budget.desc",
+      "en": "The cheapest way",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.walk.label": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.walk.label",
+      "en": "Actively",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.walk.desc": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.walk.desc",
+      "en": "I’m ok with some light activity",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.disability.label": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.disability.label",
+      "en": "With extra care",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.disability.desc": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.disability.desc",
+      "en": "Wheelchair or assistance animal",
+      "datasource": "copy"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.next": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.next",
+      "en": "$ref { 29.10.0.0_ZestApp_SignupSignin.next }",
+      "datasource": "data"
+    },
+    "29.12.0.0_ZestApp_SignupSignin.skip": {
+      "id": "29.12.0.0_ZestApp_SignupSignin.skip",
+      "en": "$ref { 29.10.0.0_ZestApp_SignupSignin.skip}",
+      "datasource": "copy"
+    },
+    "6.1.0.0_ZestApp_Discover_Home_PopUp_MobilityPreference": {
+      "id": "6.1.0.0_ZestApp_Discover_Home_PopUp_MobilityPreference",
+      "en": "You can set up how you Zig in your profile at any time.",
+      "datasource": "copy"
+    }
+  },
+  "50_journey_input": {
+    "50.1.0.0_ZestApp_JourneyPlanner_NewUser.button.street_hail": {
+      "id": "50.1.0.0_ZestApp_JourneyPlanner_NewUser.button.street_hail",
+      "en": "Hail & pay",
+      "datasource": "copy"
+    },
+    "50.1.0.0_ZestApp_JourneyPlanner_NewUser.input.placeholder": {
+      "id": "50.1.0.0_ZestApp_JourneyPlanner_NewUser.input.placeholder",
+      "en": "Where to?",
+      "datasource": "copy"
+    },
+    "50.1.0.0_ZestApp_JourneyPlanner_NewUser.nav.MoveExplore": {
+      "id": "50.1.0.0_ZestApp_JourneyPlanner_NewUser.nav.MoveExplore",
+      "en": "$ref{component.navigation.home}",
+      "datasource": "copy"
+    },
+    "50.1.0.0_ZestApp_JourneyPlanner_NewUser.nav.deals": {
+      "id": "50.1.0.0_ZestApp_JourneyPlanner_NewUser.nav.deals",
+      "en": "$ref{component.navigation.deals}",
+      "datasource": "copy"
+    },
+    "50.1.0.0_ZestApp_JourneyPlanner_NewUser.nav.profile": {
+      "id": "50.1.0.0_ZestApp_JourneyPlanner_NewUser.nav.profile",
+      "en": "$ref{component.navigation.profile}",
+      "datasource": "copy"
+    },
+    "50.1.1.0_ZestApp_JourneyPlanner.label.back": {
+      "id": "50.1.1.0_ZestApp_JourneyPlanner.label.back",
+      "en": "{chevron}",
+      "datasource": "data"
+    },
+    "50.1.1.0_ZestApp_JourneyPlanner.label.from": {
+      "id": "50.1.1.0_ZestApp_JourneyPlanner.label.from",
+      "en": "From",
+      "datasource": "copy"
+    },
+    "50.1.1.0_ZestApp_JourneyPlanner.input.from.my_location": {
+      "id": "50.1.1.0_ZestApp_JourneyPlanner.input.from.my_location",
+      "en": "My location",
+      "datasource": "copy"
+    },
+    "50.1.1.0_ZestApp_JourneyPlanner.input.to": {
+      "id": "50.1.1.0_ZestApp_JourneyPlanner.input.to",
+      "en": "To",
+      "datasource": "copy"
+    },
+    "50.1.1.0_ZestApp_JourneyPlanner.unknown.location": {
+      "id": "50.1.1.0_ZestApp_JourneyPlanner.unknown.location",
+      "en": "Choose location",
+      "datasource": "copy"
+    },
+    "50.1.1.0_ZestApp_JourneyPlanner.label.carousell.popular": {
+      "id": "50.1.1.0_ZestApp_JourneyPlanner.label.carousell.popular",
+      "en": "$ref{component.label.POPULAR}",
+      "datasource": "copy"
+    },
+    "50.1.1.0_ZestApp_JourneyPlanner.label.recall_address": {
+      "id": "50.1.1.0_ZestApp_JourneyPlanner.label.recall_address",
+      "en": "Don't know the address?",
+      "datasource": "copy"
+    },
+    "50.1.1.0_ZestApp_JourneyPlanner.button.search": {
+      "id": "50.1.1.0_ZestApp_JourneyPlanner.button.search",
+      "en": "Use the map",
+      "datasource": "copy"
+    },
+    "50.1.2.0_ZestApp_JourneyPlanner.label.from": {
+      "id": "50.1.2.0_ZestApp_JourneyPlanner.label.from",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.label.from}",
+      "datasource": "copy"
+    },
+    "50.1.2.0_ZestApp_JourneyPlanner.input.from.my_location": {
+      "id": "50.1.2.0_ZestApp_JourneyPlanner.input.from.my_location",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.input.from.my_location}",
+      "datasource": "copy"
+    },
+    "50.1.2.0_ZestApp_JourneyPlanner.input.to": {
+      "id": "50.1.2.0_ZestApp_JourneyPlanner.input.to",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.input.to}",
+      "datasource": "copy"
+    },
+    "50.1.2.0_ZestApp_JourneyPlanner.unknown.location": {
+      "id": "50.1.2.0_ZestApp_JourneyPlanner.unknown.location",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.unknown.location}",
+      "datasource": "copy"
+    },
+    "50.1.2.0_ZestApp_JourneyPlanner.label.recall_address": {
+      "id": "50.1.2.0_ZestApp_JourneyPlanner.label.recall_address",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.label.recall_address}",
+      "datasource": "copy"
+    },
+    "50.1.2.0_ZestApp_JourneyPlanner.button.search": {
+      "id": "50.1.2.0_ZestApp_JourneyPlanner.button.search",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.button.search}",
+      "datasource": "copy"
+    },
+    "50.2.0.0_ZestApp_JourneyPlanner_Regular.button.street_hail": {
+      "id": "50.2.0.0_ZestApp_JourneyPlanner_Regular.button.street_hail",
+      "en": "$ref{50.1.0.0_ZestApp_JourneyPlanner_NewUser.button.street_hail}",
+      "datasource": "copy"
+    },
+    "50.2.0.0_ZestApp_JourneyPlanner_Regular.title.name_present": {
+      "id": "50.2.0.0_ZestApp_JourneyPlanner_Regular.title.name_present",
+      "en": "Where to, {name}?",
+      "datasource": "copy"
+    },
+    "50.2.0.0_ZestApp_JourneyPlanner_Regular.title.name_not_present": {
+      "id": "50.2.0.0_ZestApp_JourneyPlanner_Regular.title.name_not_present",
+      "en": "$ref{50.1.0.0_ZestApp_JourneyPlanner_NewUser.input.placeholder}",
+      "datasource": "copy"
+    },
+    "50.2.0.0_ZestApp_JourneyPlanner_Regular.input.placehlder": {
+      "id": "50.2.0.0_ZestApp_JourneyPlanner_Regular.input.placehlder",
+      "en": "$ref{50.1.0.0_ZestApp_JourneyPlanner_NewUser.input.placeholder}",
+      "datasource": "copy"
+    },
+    "50.2.0.0_ZestApp_JourneyPlanner_Regular.label.frequently_visited": {
+      "id": "50.2.0.0_ZestApp_JourneyPlanner_Regular.label.frequently_visited",
+      "en": "$ref{component.label.YOURPLACES}",
+      "datasource": "copy"
+    },
+    "50.2.0.0_ZestApp_JourneyPlanner_Regular.nav.travel": {
+      "id": "50.2.0.0_ZestApp_JourneyPlanner_Regular.nav.travel",
+      "en": "$ref{50.1.0.0_ZestApp_JourneyPlanner_NewUser.nav.MoveExplore}",
+      "datasource": "copy"
+    },
+    "50.2.0.0_ZestApp_JourneyPlanner_Regular.nav.deals": {
+      "id": "50.2.0.0_ZestApp_JourneyPlanner_Regular.nav.deals",
+      "en": "$ref{50.1.0.0_ZestApp_JourneyPlanner_NewUser.nav.deals}",
+      "datasource": "copy"
+    },
+    "50.2.0.0_ZestApp_JourneyPlanner_Regular.nav.profile": {
+      "id": "50.2.0.0_ZestApp_JourneyPlanner_Regular.nav.profile",
+      "en": "$ref{50.1.0.0_ZestApp_JourneyPlanner_NewUser.nav.profile}",
+      "datasource": "copy"
+    },
+    "50.2.2.0_ZestApp_JourneyPlanner.label.from": {
+      "id": "50.2.2.0_ZestApp_JourneyPlanner.label.from",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.label.from}",
+      "datasource": "copy"
+    },
+    "50.2.2.0_ZestApp_JourneyPlanner.input.from.my_location": {
+      "id": "50.2.2.0_ZestApp_JourneyPlanner.input.from.my_location",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.input.from.my_location}",
+      "datasource": "copy"
+    },
+    "50.2.2.0_ZestApp_JourneyPlanner.input.to": {
+      "id": "50.2.2.0_ZestApp_JourneyPlanner.input.to",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.input.to}",
+      "datasource": "copy"
+    },
+    "50.2.2.0_ZestApp_JourneyPlanner.unknown.location": {
+      "id": "50.2.2.0_ZestApp_JourneyPlanner.unknown.location",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.unknown.location}",
+      "datasource": "copy"
+    },
+    "50.2.2.0_ZestApp_JourneyPlanner.label.suggestions": {
+      "id": "50.2.2.0_ZestApp_JourneyPlanner.label.suggestions",
+      "en": "$ref{component.label.SUGGESTED}",
+      "datasource": "copy"
+    },
+    "50.3.3.0_ZestApp_JourneyPlanner_EditInput.title": {
+      "id": "50.3.3.0_ZestApp_JourneyPlanner_EditInput.title",
+      "en": "Move the map to pick a location",
+      "datasource": "copy"
+    },
+    "50.3.3.0_ZestApp_JourneyPlanner_EditInput.button.confirm": {
+      "id": "50.3.3.0_ZestApp_JourneyPlanner_EditInput.button.confirm",
+      "en": "$ref{component.confirm}",
+      "datasource": "copy"
+    },
+    "50.3.3.0_ZestApp_JourneyPlanner_EditInput.button.cancel": {
+      "id": "50.3.3.0_ZestApp_JourneyPlanner_EditInput.button.cancel",
+      "en": "$ref{component.cancel}",
+      "datasource": "copy"
+    },
+    "50.5.2.0_ZestApp_JourneyPlanner_ErrorStates.title": {
+      "id": "50.5.2.0_ZestApp_JourneyPlanner_ErrorStates.title",
+      "en": "These may help",
+      "datasource": "copy"
+    },
+    "50.5.2.0_ZestApp_JourneyPlanner_ErrorStates.message": {
+      "id": "50.5.2.0_ZestApp_JourneyPlanner_ErrorStates.message",
+      "en": "We couldn’t find an exact match, but maybe these results can help.",
+      "datasource": "copy"
+    },
+    "50.5.2.0_ZestApp_JourneyPlanner_ErrorStates.label": {
+      "id": "50.5.2.0_ZestApp_JourneyPlanner_ErrorStates.label",
+      "en": "$ref{component.label.SUGGESTED}",
+      "datasource": "copy"
+    },
+    "50.5.1.0_ZestApp_JourneyPlanner_ErrorStates.title": {
+      "id": "50.5.1.0_ZestApp_JourneyPlanner_ErrorStates.title",
+      "en": "Did you mean",
+      "datasource": "copy"
+    },
+    "50.5.1.0_ZestApp_JourneyPlanner_ErrorStates.recall_address": {
+      "id": "50.5.1.0_ZestApp_JourneyPlanner_ErrorStates.recall_address",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.label.recall_address}",
+      "datasource": "copy"
+    },
+    "50.5.1.0_ZestApp_JourneyPlanner_ErrorStates.button.search": {
+      "id": "50.5.1.0_ZestApp_JourneyPlanner_ErrorStates.button.search",
+      "en": "$ref{50.1.1.0_ZestApp_JourneyPlanner.button.search}",
+      "datasource": "copy"
+    },
+    "Directions.depart": {
+      "id": "Directions.depart",
+      "en": "Start from {Location}",
+      "datasource": "copy"
+    },
+    "Directions.walk.continue": {
+      "id": "Directions.walk.continue",
+      "en": "Walk along {street} ({distance}m)",
+      "datasource": "copy"
+    },
+    "Directions.bike.continue": {
+      "id": "Directions.bike.continue",
+      "en": "Ride along {street} ({distance}m)",
+      "datasource": "copy"
+    },
+    "Directions.turn.right": {
+      "id": "Directions.turn.right",
+      "en": "Turn right at {street} ({distance}m)",
+      "datasource": "copy"
+    },
+    "Directions.turn.slightlyright": {
+      "id": "Directions.turn.slightlyright",
+      "en": "Take a slight right at {street} ({distance}m)",
+      "datasource": "copy"
+    },
+    "Directions.turn.hardright": {
+      "id": "Directions.turn.hardright",
+      "en": "$ref{Directions.turn.right}",
+      "datasource": "copy"
+    },
+    "Directions.turn.circleclockwise": {
+      "id": "Directions.turn.circleclockwise",
+      "en": "$ref{Directions.turn.right}",
+      "datasource": "copy"
+    },
+    "Directions.turn.Uturnright": {
+      "id": "Directions.turn.Uturnright",
+      "en": "TBC",
+      "datasource": "copy"
+    },
+    "Directions.turn.left": {
+      "id": "Directions.turn.left",
+      "en": "Turn left at {street} ({distance}m)",
+      "datasource": "copy"
+    },
+    "Directions.turn.slightlyleft": {
+      "id": "Directions.turn.slightlyleft",
+      "en": "Take a slight left at {street} ({distance}m)",
+      "datasource": "copy"
+    },
+    "Directions.turn.hardleft": {
+      "id": "Directions.turn.hardleft",
+      "en": "$ref{Directions.turn.left}",
+      "datasource": "copy"
+    },
+    "Directions.turn.circlecounterclockwise": {
+      "id": "Directions.turn.circlecounterclockwise",
+      "en": "$ref{Directions.turn.left}",
+      "datasource": "copy"
+    },
+    "Directions.turn.Uturnleft": {
+      "id": "Directions.turn.Uturnleft",
+      "en": "TBC",
+      "datasource": "copy"
+    },
+    "Directions.turn.elevator": {
+      "id": "Directions.turn.elevator",
+      "en": "TBC",
+      "datasource": "copy"
+    },
+    "Directions.Walking.distance": {
+      "id": "Directions.Walking.distance",
+      "en": "Walk {distance}m",
+      "datasource": "copy"
+    },
+    "Directions.bike.distance": {
+      "id": "Directions.bike.distance",
+      "en": "Ride {distance}m",
+      "datasource": "copy"
+    },
+    "Directions.Walking.time": {
+      "id": "Directions.Walking.time",
+      "en": "{component.time} min",
+      "datasource": "copy"
+    },
+    "Directions.wait": {
+      "id": "Directions.wait",
+      "en": "Wait for {transportation.type}",
+      "datasource": "copy"
+    },
+    "Directions.wait.departure": {
+      "id": "Directions.wait.departure",
+      "en": "Departs in {X} min",
+      "datasource": "copy"
+    },
+    "Directions.ride": {
+      "id": "Directions.ride",
+      "en": "Ride for {X} stops",
+      "datasource": "copy"
+    },
+    "Directions.ride.arrival": {
+      "id": "Directions.ride.arrival",
+      "en": "Arrives in {X} min",
+      "datasource": "copy"
+    },
+    "eta.min / eta.hour.min": {
+      "id": "eta.min / eta.hour.min",
+      "en": "$ref{455.1.4.0_ZestApp_TaxiFlow.eta.time.min} $ref{455.1.4.0_ZestApp_TaxiFlow.eta.time.hour.min}",
+      "datasource": "copy"
+    },
+    "Journeyplanner.transportation.depart": {
+      "id": "Journeyplanner.transportation.depart",
+      "en": "Take {transportation.type} towards {location}",
+      "datasource": "copy"
+    },
+    "Journeyplanner.transportation.exit": {
+      "id": "Journeyplanner.transportation.exit",
+      "en": "Take {Exit name}",
+      "datasource": "copy"
+    },
+    "No transport routes available.title": {
+      "id": "No transport routes available.title",
+      "en": "Sorry, there weren’t any transport options nearby",
+      "datasource": "copy"
+    },
+    "No transport routes available.description": {
+      "id": "No transport routes available.description",
+      "en": "Please try searching again in a few minutes, or try changing your 'To' and 'From' locations.",
+      "datasource": "copy"
+    },
+    "No transport routes available.button1": {
+      "id": "No transport routes available.button1",
+      "en": "$ref{component.cta.tryagain}",
+      "datasource": "copy"
+    },
+    "No transport routes available.button2": {
+      "id": "No transport routes available.button2",
+      "en": "$ref{component.label.cancel}",
+      "datasource": "copy"
+    },
+    "Only taxi available.inlinealert.decription": {
+      "id": "Only taxi available.inlinealert.decription",
+      "en": "Try changing your 'To' and 'From' locations to find nearby public transport options.",
+      "datasource": "copy"
+    },
+    "Only taxi available.button": {
+      "id": "Only taxi available.button",
+      "en": "$ref{component.cta.cancel}",
+      "datasource": "copy"
+    }
+  },
+  "455_taxi": {
+    "455.1.0.0_ZestApp_TaxiFlow.dislaimer": {
+      "id": "455.1.0.0_ZestApp_TaxiFlow.dislaimer"
+    },
+    "455.1.0.0_ZestApp_TaxiFlow.title.confirm": {
+      "id": "455.1.0.0_ZestApp_TaxiFlow.title.confirm",
+      "en": "Confirm your pickup spot",
+      "datasource": "copy"
+    },
+    "455.1.0.0_ZestApp_TaxiFlow.address": {
+      "id": "455.1.0.0_ZestApp_TaxiFlow.address",
+      "en": "N/A",
+      "datasource": "data"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.title.confirm\n": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.title.confirm\n",
+      "en": "Confirm your ride and fare",
+      "datasource": "copy"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.title.yourride\n": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.title.yourride\n",
+      "en": "$ref{component.label.yourride}",
+      "datasource": "copy"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.CTA.changeride\n": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.CTA.changeride\n",
+      "en": "Change",
+      "datasource": "copy"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.ride.ridetype": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.ride.ridetype",
+      "en": "$ref{component.ride.taxi}, $ref{component.ride.limo}, $ref{component.ride.maxi}",
+      "datasource": "copy"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.price.fixed": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.price.fixed",
+      "en": "${XX.XX}",
+      "datasource": "copy"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.price.fixeddesc": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.price.fixeddesc",
+      "en": "Fixed price  (excl. surcharges)",
+      "datasource": "copy"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.price.variabledesc": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.price.variabledesc",
+      "en": "Metered price (excl. surcharges)"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.CTA.promo\n": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.CTA.promo\n",
+      "en": "Promo code",
+      "datasource": "copy"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.CTA.note\n": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.CTA.note\n",
+      "en": "Note to driver",
+      "datasource": "copy"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.CTA.business\n": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.CTA.business\n",
+      "en": "Business",
+      "datasource": "copy"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.CTA.payment\n": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.CTA.payment\n",
+      "en": "Ending in {card_ending}",
+      "datasource": "copy"
+    },
+    "455.1.2.0_ZestApp_TaxiFlow.book\n": {
+      "id": "455.1.2.0_ZestApp_TaxiFlow.book\n",
+      "en": "Book ride",
+      "datasource": "copy"
+    },
+    "455.1.2.4_ZestApp_TaxiFlow_Note.title": {
+      "id": "455.1.2.4_ZestApp_TaxiFlow_Note.title",
+      "en": "Add a note to your driver",
+      "datasource": "copy"
+    },
+    "455.1.2.4_ZestApp_TaxiFlow_Note.addnote": {
+      "id": "455.1.2.4_ZestApp_TaxiFlow_Note.addnote",
+      "en": "$ref{component.addnote}",
+      "datasource": "copy"
+    },
+    "455.1.2.4_ZestApp_TaxiFlow_Note.cancel": {
+      "id": "455.1.2.4_ZestApp_TaxiFlow_Note.cancel",
+      "en": "$ref{component.cta.cancel}",
+      "datasource": "copy"
+    },
+    "455.1.2.4_ZestApp_TaxiFlow_Note.removeifadded": {
+      "id": "455.1.2.4_ZestApp_TaxiFlow_Note.removeifadded",
+      "en": "Remove note"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.title": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.title",
+      "en": "Available rides",
+      "datasource": "copy"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.taxi": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.taxi",
+      "en": "$ref{component.ride.taxi}",
+      "datasource": "copy"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.limo": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.limo",
+      "en": "$ref{component.ride.limo}",
+      "datasource": "copy"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.maxi": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.maxi",
+      "en": "$ref{component.ride.maxi}",
+      "datasource": "copy"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.price.fixed": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.price.fixed",
+      "en": "${XX.XX}",
+      "datasource": "copy"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.price.fixeddesc": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.price.fixeddesc",
+      "en": "Fixed price  (excl. surcharges)",
+      "datasource": "copy"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.price.variable": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.price.variable",
+      "en": "${XX}-${XX}",
+      "datasource": "copy"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.price.variabledesc": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.price.variabledesc",
+      "en": "Metered price (excl. surcharges)",
+      "datasource": "copy"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.price.default": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.price.default",
+      "en": "Set as default  ride option",
+      "datasource": "copy"
+    },
+    "ZestApp_TaxiFlow.dislaimer": {
+      "id": "ZestApp_TaxiFlow.dislaimer",
+      "en": "This booking is made by CDG Taxi",
+      "datasource": "copy"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.price.TCs": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.price.TCs",
+      "en": "Booking subject to CDG Taxi's {terms & conditions}",
+      "datasource": "copy"
+    },
+    "455.1.2.1_ZestApp_TaxiFlow.confirm": {
+      "id": "455.1.2.1_ZestApp_TaxiFlow.confirm",
+      "en": "$ref{component.cta.confirm}",
+      "datasource": "copy"
+    },
+    "455.1.3.0_ZestApp_TaxiFlow.title": {
+      "id": "455.1.3.0_ZestApp_TaxiFlow.title",
+      "en": "Finding you a ride",
+      "datasource": "copy"
+    },
+    "455.1.3.0_ZestApp_TaxiFlow.ride.ride_type": {
+      "id": "455.1.3.0_ZestApp_TaxiFlow.ride.ride_type",
+      "en": "$ref{component.ride.taxi}, $ref{component.ride.limo}, $ref{component.ride.maxi}",
+      "datasource": "copy"
+    },
+    "455.1.3.0_ZestApp_TaxiFlow.from": {
+      "id": "455.1.3.0_ZestApp_TaxiFlow.from",
+      "en": "From {from}",
+      "datasource": "copy"
+    },
+    "455.1.3.0_ZestApp_TaxiFlow.to": {
+      "id": "455.1.3.0_ZestApp_TaxiFlow.to",
+      "en": "To {to}",
+      "datasource": "copy"
+    },
+    "455.1.3.0_ZestApp_TaxiFlow.ride.support": {
+      "id": "455.1.3.0_ZestApp_TaxiFlow.ride.support",
+      "en": "$ref{component.cta.support}",
+      "datasource": "copy"
+    },
+    "455.1.3.0_ZestApp_TaxiFlow.ride.cancelride": {
+      "id": "455.1.3.0_ZestApp_TaxiFlow.ride.cancelride",
+      "en": "Cancel ride",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.title": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.title",
+      "en": "Your ride's on its way!",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.eta.pickup.message": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.eta.pickup.message",
+      "en": "Your ride should arrive in",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.eta.pickup.time": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.eta.pickup.time",
+      "en": "{eta} min",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.ride.number": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.ride.number",
+      "en": "{Number plate}",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.ride.detail": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.ride.detail",
+      "en": "Number plate",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.ride.ride_type": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.ride.ride_type",
+      "en": "$ref{component.ride.taxi}, $ref{component.ride.limo}, $ref{component.ride.maxi}",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.ride.pricedesc": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.ride.pricedesc",
+      "en": "$ref{455.1.2.1_ZestApp_TaxiFlow.price.fixeddesc} or $ref{455.1.2.1_ZestApp_TaxiFlow.price.variabledesc}",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.ride.price": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.ride.price",
+      "en": "$ref{455.1.2.1_ZestApp_TaxiFlow.price.fixed} or $ref{455.1.2.1_ZestApp_TaxiFlow.price.variable}",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.ride.ride_card_summary": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.ride.ride_card_summary",
+      "en": "{payment} {card_number}",
+      "datasource": "copy"
+    },
+    "455.1.5.0_ZestApp_TaxiFlow.eta.pickup.title": {
+      "id": "455.1.5.0_ZestApp_TaxiFlow.eta.pickup.title",
+      "en": "Your ride's almost there",
+      "datasource": "copy"
+    },
+    "455.1.5.0_ZestApp_TaxiFlow.eta.pickup.message": {
+      "id": "455.1.5.0_ZestApp_TaxiFlow.eta.pickup.message",
+      "en": "$ref{455.1.4.0_ZestApp_TaxiFlow.eta.pickup.message}",
+      "datasource": "copy"
+    },
+    "455.1.5.0_ZestApp_TaxiFlow.eta.pickup.time": {
+      "id": "455.1.5.0_ZestApp_TaxiFlow.eta.pickup.time",
+      "en": "$ref{455.1.4.0_ZestApp_TaxiFlow.eta.pickup.time}",
+      "datasource": "copy"
+    },
+    "455.1.7.0_ZestApp_TaxiFlow.title": {
+      "id": "455.1.7.0_ZestApp_TaxiFlow.title",
+      "en": "Let’s Zig – your ride’s here!",
+      "datasource": "copy"
+    },
+    "455.1.7.0_ZestApp_TaxiFlow.DriverWait.message": {
+      "id": "455.1.7.0_ZestApp_TaxiFlow.DriverWait.message",
+      "en": "Your driver will wait up to 5 mins at your pickup spot.",
+      "datasource": "copy"
+    },
+    "455.1.7.0_ZestApp_TaxiFlow.DriverWait.explore.nearby": {
+      "id": "455.1.7.0_ZestApp_TaxiFlow.DriverWait.explore.nearby",
+      "en": "$ref{component.map.explore.nearby}",
+      "datasource": "copy"
+    },
+    "455.1.8.0_ZestApp_TaxiFlow.title": {
+      "id": "455.1.8.0_ZestApp_TaxiFlow.title",
+      "en": "Explore your destination",
+      "datasource": "copy"
+    },
+    "455.1.8.0_ZestApp_TaxiFlow.eta.message": {
+      "id": "455.1.8.0_ZestApp_TaxiFlow.eta.message",
+      "en": "You should arrive by",
+      "datasource": "copy"
+    },
+    "455.1.8.0_ZestApp_TaxiFlow.eta.time": {
+      "id": "455.1.8.0_ZestApp_TaxiFlow.eta.time",
+      "en": "$ref{component.time}",
+      "datasource": "copy"
+    },
+    "455.1.9.0_ZestApp_TaxiFlow.title": {
+      "id": "455.1.9.0_ZestApp_TaxiFlow.title",
+      "en": "Zig yeah!\nYou’ve arrived.",
+      "datasource": "copy"
+    },
+    "455.1.9.0_ZestApp_TaxiFlow.ride.question": {
+      "id": "455.1.9.0_ZestApp_TaxiFlow.ride.question",
+      "en": "How was your experience?",
+      "datasource": "copy"
+    },
+    "455.1.9.0_ZestApp_TaxiFlow.ride.price\t": {
+      "id": "455.1.9.0_ZestApp_TaxiFlow.ride.price\t",
+      "en": "Total fare ${amount}",
+      "datasource": "copy"
+    },
+    "455.1.9.0_ZestApp_TaxiFlow.ride.paid": {
+      "id": "455.1.9.0_ZestApp_TaxiFlow.ride.paid",
+      "en": "with {payment} ending in {card_number}",
+      "datasource": "copy"
+    },
+    "455.1.9.0_ZestApp_TaxiFlow.done": {
+      "id": "455.1.9.0_ZestApp_TaxiFlow.done",
+      "en": "$ref{component.cta.done}",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.title": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.title",
+      "en": "$ref{component.ride.rating.x}",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.description": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.description",
+      "en": "You gave us {rating.x} out of 5        ",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.5.question": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.5.question",
+      "en": "What did you love?\t",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.4.question": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.4.question",
+      "en": "What did you like?\t",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.3.question": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.3.question",
+      "en": "What could be improved?",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.2.question": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.2.question",
+      "en": "What went wrong?\t",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.1.question": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.rating.1.question",
+      "en": "What went wrong?\t",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.done": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.done",
+      "en": "$ref{component.cta.done}",
+      "datasource": "copy"
+    },
+    "457.2.0.0_CustomerSupport_InFlow_Feedback.suggestion": {
+      "id": "457.2.0.0_CustomerSupport_InFlow_Feedback.suggestion",
+      "en": "$ref{component.cta.feedback}",
+      "datasource": "copy"
+    },
+    "455.2.1.1_ZestApp_Edge_NoDrivers.title": {
+      "id": "455.2.1.1_ZestApp_Edge_NoDrivers.title",
+      "en": "Sorry, there weren’t any rides nearby",
+      "datasource": "copy"
+    },
+    "455.2.1.1_ZestApp_Edge_NoDrivers.message": {
+      "id": "455.2.1.1_ZestApp_Edge_NoDrivers.message",
+      "en": "Please try searching again in a few minutes.",
+      "datasource": "copy"
+    },
+    "455.2.1.1_ZestApp_Edge_NoDrivers.button.find_other": {
+      "id": "455.2.1.1_ZestApp_Edge_NoDrivers.button.find_other",
+      "en": "Try again",
+      "datasource": "copy"
+    },
+    "455.2.1.1_ZestApp_Edge_NoDrivers.button.cancel": {
+      "id": "455.2.1.1_ZestApp_Edge_NoDrivers.button.cancel",
+      "en": "$ref{component.cta.cancel}",
+      "datasource": "copy"
+    },
+    "455.3.2.0_ZestApp_Edge_DriverCancel.title": {
+      "id": "455.3.2.0_ZestApp_Edge_DriverCancel.title",
+      "en": "We’re finding another ride",
+      "datasource": "copy"
+    },
+    "455.3.2.0_ZestApp_Edge_DriverCancel.message": {
+      "id": "455.3.2.0_ZestApp_Edge_DriverCancel.message",
+      "en": "Sorry, your driver had to cancel so we’re finding you another ride.",
+      "datasource": "copy"
+    },
+    "455.5.2.0_ZestApp_Edge_UserCancel2.title": {
+      "id": "455.5.2.0_ZestApp_Edge_UserCancel2.title",
+      "en": "Are you sure you want to cancel?",
+      "datasource": "copy"
+    },
+    "455.5.2.0_ZestApp_Edge_UserCancel2.desc": {
+      "id": "455.5.2.0_ZestApp_Edge_UserCancel2.desc",
+      "en": "Your ride's on its way.",
+      "datasource": "copy"
+    },
+    "455.5.2.0_ZestApp_Edge_UserCancel2.yes": {
+      "id": "455.5.2.0_ZestApp_Edge_UserCancel2.yes",
+      "en": "Cancel ride",
+      "datasource": "copy"
+    },
+    "455.5.2.0_ZestApp_Edge_UserCancel2.no": {
+      "id": "455.5.2.0_ZestApp_Edge_UserCancel2.no",
+      "en": "No, go back",
+      "datasource": "copy"
+    },
+    "455.5.3.0_ZestApp_Edge_UserCancel2.title": {
+      "id": "455.5.3.0_ZestApp_Edge_UserCancel2.title",
+      "en": "Your ride's been cancelled",
+      "datasource": "copy"
+    },
+    "455.5.3.0_ZestApp_Edge_UserCancel2.why": {
+      "id": "455.5.3.0_ZestApp_Edge_UserCancel2.why",
+      "en": "$ref{component.label.telluswhy}",
+      "datasource": "copy"
+    },
+    "455.5.3.0_ZestApp_Edge_UserCancel2.otherreason": {
+      "id": "455.5.3.0_ZestApp_Edge_UserCancel2.otherreason",
+      "en": "$ref{component.label.otherreason}",
+      "datasource": "copy"
+    },
+    "455.5.3.0_ZestApp_Edge_UserCancel2.notes.placeholder": {
+      "id": "455.5.3.0_ZestApp_Edge_UserCancel2.notes.placeholder",
+      "en": "$ref{component.placeholder.specify}",
+      "datasource": "copy"
+    },
+    "455.5.3.0_ZestApp_Edge_UserCancel2.button.submit": {
+      "id": "455.5.3.0_ZestApp_Edge_UserCancel2.button.submit",
+      "en": "$ref{component.submit}",
+      "datasource": "copy"
+    },
+    "455.5.3.0_ZestApp_Edge_UserCancel2.button.cancel": {
+      "id": "455.5.3.0_ZestApp_Edge_UserCancel2.button.cancel",
+      "en": "$ref{component.cta.cancel}",
+      "datasource": "copy"
+    },
+    "455.2.1.1_ZestApp_Edge_NoDrivers.desc": {
+      "id": "455.2.1.1_ZestApp_Edge_NoDrivers.desc",
+      "en": "Please try searching again in a few minutes.",
+      "datasource": "copy"
+    },
+    "455.2.1.1_ZestApp_Edge_NoDrivers.tryagain": {
+      "id": "455.2.1.1_ZestApp_Edge_NoDrivers.tryagain",
+      "en": "$ref{component.cta.tryagain}",
+      "datasource": "copy"
+    },
+    "455.7.1.0_ZestApp_Edge_FeeBreakdown.surcharges": {
+      "id": "455.7.1.0_ZestApp_Edge_FeeBreakdown.surcharges",
+      "en": "Surcharges – {What’s this?}",
+      "datasource": "copy"
+    },
+    " ": {
+      "id": " ",
+      "en": "Surchages can include road tolls or additional fees charged during peak hours, midnight or at certain locations (e.g. airports).",
+      "datasource": "copy"
+    },
+    "455.7.1.0_ZestApp_Edge_FeeBreakdown.prebooking": {
+      "id": "455.7.1.0_ZestApp_Edge_FeeBreakdown.prebooking",
+      "en": "Pre-booking fee – {What’s this?}",
+      "datasource": "copy"
+    },
+    "455.7.1.0_ZestApp_Edge_FeeBreakdown.prebooking.snack": {
+      "id": "455.7.1.0_ZestApp_Edge_FeeBreakdown.prebooking.snack",
+      "en": "The is a booking fee to secure your ride in advance.",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.no_show.title": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.no_show.title",
+      "en": "You weren’t at the pickup spot",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.no_show.desc": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.no_show.desc",
+      "en": "Your driver had to cancel.",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.no_show.explain": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.no_show.explain",
+      "en": "I can explain",
+      "datasource": "copy"
+    },
+    "455.1.4.0_ZestApp_TaxiFlow.no_show.cancel": {
+      "id": "455.1.4.0_ZestApp_TaxiFlow.no_show.cancel",
+      "en": "$ref{component.cta.cancel}",
+      "datasource": "copy"
+    },
+    "455.8.2.0_ZestApp_Edge_NoShow.title": {
+      "id": "455.8.2.0_ZestApp_Edge_NoShow.title",
+      "en": "You missed your ride",
+      "datasource": "copy"
+    },
+    "455.8.2.0_ZestApp_Edge_NoShow.why": {
+      "id": "455.8.2.0_ZestApp_Edge_NoShow.why",
+      "en": "$ref{component.label.telluswhy}",
+      "datasource": "copy"
+    },
+    "455.8.2.0_ZestApp_Edge_NoShow.otherreason": {
+      "id": "455.8.2.0_ZestApp_Edge_NoShow.otherreason",
+      "en": "$ref{component.label.otherreason}",
+      "datasource": "copy"
+    },
+    "455.8.2.0_ZestApp_Edge_NoShow.specify": {
+      "id": "455.8.2.0_ZestApp_Edge_NoShow.specify",
+      "en": "$ref{component.placeholder.specify}",
+      "datasource": "copy"
+    },
+    "455.8.2.0_ZestApp_Edge_NoShow.button.submit": {
+      "id": "455.8.2.0_ZestApp_Edge_NoShow.button.submit",
+      "en": "$ref{component.submit}",
+      "datasource": "copy"
+    },
+    "455.8.2.0_ZestApp_Edge_NoShow.button.cancel": {
+      "id": "455.8.2.0_ZestApp_Edge_NoShow.button.cancel",
+      "en": "$ref{component.cta.cancel}",
+      "datasource": "copy"
+    },
+    "455.9.1.1_ZestApp_Edge_Payment.title": {
+      "id": "455.9.1.1_ZestApp_Edge_Payment.title",
+      "en": "Your payment method  is invalid",
+      "datasource": "copy"
+    },
+    "455.9.1.1_ZestApp_Edge_Payment.message": {
+      "id": "455.9.1.1_ZestApp_Edge_Payment.message",
+      "en": "Please update your payment method to request a ride.",
+      "datasource": "copy"
+    },
+    "455.9.1.1_ZestApp_Edge_Payment.button.use_another": {
+      "id": "455.9.1.1_ZestApp_Edge_Payment.button.use_another",
+      "en": "$ref{component.cta.update}",
+      "datasource": "copy"
+    },
+    "455.9.1.1_ZestApp_Edge_Payment.button.cancel": {
+      "id": "455.9.1.1_ZestApp_Edge_Payment.button.cancel",
+      "en": "$ref{component.cta.cancel}",
+      "datasource": "copy"
+    },
+    "455.9.2.0_ZestApp_Edge_Payment.title": {
+      "id": "455.9.2.0_ZestApp_Edge_Payment.title",
+      "en": "Oh no, we couldn’t process your payment",
+      "datasource": "copy"
+    },
+    "455.9.2.0_ZestApp_Edge_Payment.invalid_payment.message": {
+      "id": "455.9.2.0_ZestApp_Edge_Payment.invalid_payment.message",
+      "en": "You won’t be able to request any more rides until this is resolved.",
+      "datasource": "copy"
+    },
+    "455.9.2.0_ZestApp_Edge_Payment.button.use_another": {
+      "id": "455.9.2.0_ZestApp_Edge_Payment.button.use_another",
+      "en": "$ref{component.cta.paynow}",
+      "datasource": "copy"
+    },
+    "455.9.2.0_ZestApp_Edge_Payment.button.cancel": {
+      "id": "455.9.2.0_ZestApp_Edge_Payment.button.cancel",
+      "en": "$ref{component.cta.cancel}",
+      "datasource": "copy"
+    }
+  },
+  "XXX_marketplace": {
+    "homediscovery.restaurant.title": {
+      "id": "homediscovery.restaurant.title",
+      "en": "{Restaurant name}",
+      "datasource": "Data"
+    },
+    "homediscovery.restaurant.description": {
+      "id": "homediscovery.restaurant.description",
+      "en": "{Restaurant description}",
+      "datasource": "Data"
+    },
+    "homediscovery.restaurant.button.navigation": {
+      "id": "homediscovery.restaurant.button.navigation",
+      "en": "Zig there",
+      "datasource": "Copy"
+    },
+    "homediscovery.restaurant.button.book": {
+      "id": "homediscovery.restaurant.button.book",
+      "en": "Book",
+      "datasource": "Copy"
+    },
+    "homediscovery.restaurant.button.share": {
+      "id": "homediscovery.restaurant.button.share",
+      "en": "Share",
+      "datasource": "Copy"
+    },
+    "homediscovery.restaurant.button.contact": {
+      "id": "homediscovery.restaurant.button.contact",
+      "en": "Contact",
+      "datasource": "Copy"
+    },
+    "filterexplore.filterby.title": {
+      "id": "filterexplore.filterby.title",
+      "en": "Filter by",
+      "datasource": "Copy"
+    },
+    "filterexplore.filterby.label.cuisine": {
+      "id": "filterexplore.filterby.label.cuisine",
+      "en": "$ref{component.label.CUISINE}",
+      "datasource": "Copy"
+    },
+    "filterexplore.filterby.label.location": {
+      "id": "filterexplore.filterby.label.location",
+      "en": "$ref{component.label.location}",
+      "datasource": "Copy"
+    },
+    "filterexplore.filterby.label.district": {
+      "id": "filterexplore.filterby.label.district",
+      "en": "$ref{component.label.district}",
+      "datasource": "Copy"
+    },
+    "filterexplore.filterby.label.area": {
+      "id": "filterexplore.filterby.label.area",
+      "en": "$ref{component.label.area}",
+      "datasource": "Copy"
+    },
+    "filterexplore.filterby.button.apply": {
+      "id": "filterexplore.filterby.button.apply",
+      "en": "$ref{component.cta.apply}",
+      "datasource": "Copy"
+    },
+    "deals.title": {
+      "id": "deals.title",
+      "en": "$ref{component.navigation.deals}",
+      "datasource": "Copy"
+    },
+    "deals.label.sort.all": {
+      "id": "deals.label.sort.all",
+      "en": "$ref{component.label.ALL}",
+      "datasource": "Copy"
+    },
+    "deals.label.nearby": {
+      "id": "deals.label.nearby",
+      "en": "$ref{component.label.NEARBY}",
+      "datasource": "Copy"
+    },
+    "deals.label.popular": {
+      "id": "deals.label.popular",
+      "en": "$ref{component.label.POPULAR}",
+      "datasource": "Copy"
+    },
+    "912.7.2.0_ZestApp_Click+Collect_Error1.title": {
+      "id": "912.7.2.0_ZestApp_Click+Collect_Error1.title",
+      "en": "Sorry, that deal is no longer available",
+      "datasource": "Copy"
+    },
+    "912.7.2.0_ZestApp_Click+Collect_Error1.description": {
+      "id": "912.7.2.0_ZestApp_Click+Collect_Error1.description",
+      "en": "Why not look for something even more Zigtastic?",
+      "datasource": "Copy"
+    },
+    "912.7.2.0_ZestApp_Click+Collect_Error1.btn": {
+      "id": "912.7.2.0_ZestApp_Click+Collect_Error1.btn",
+      "en": "Browse all deals",
+      "datasource": "Copy"
+    },
+    "1065.1.2.0_ZestApp_Discover_Noresults.message": {
+      "id": "1065.1.2.0_ZestApp_Discover_Noresults.message",
+      "en": "Sorry, no deals were found. Lets look for some with different filters!",
+      "datasource": "Copy"
+    }
+  }
+}
