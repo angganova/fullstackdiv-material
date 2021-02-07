@@ -17,6 +17,7 @@ class BasicButton extends StatefulWidget {
   const BasicButton({
     @required this.onPressed,
     this.title,
+    this.titleReplacement,
     this.icon,
     this.image,
     this.widgetTheme = WidgetTheme.whiteBlack,
@@ -43,6 +44,7 @@ class BasicButton extends StatefulWidget {
 
   /// one of them (at least) should NOT NULL
   final String title;
+  final Widget titleReplacement;
   final IconData icon;
   final ImageProvider image;
 
@@ -343,7 +345,9 @@ class _BasicButtonState extends State<BasicButton>
           color: _iconColor,
           size: widget.iconSize,
         ),
-      if (widget.title != null && _backgroundColor == kAppClearWhite)
+      if (widget.titleReplacement != null)
+        widget.titleReplacement
+      else if (widget.title != null && _backgroundColor == kAppClearWhite)
         Padding(
           padding: widget.icon == null
               ? kSpacer.edgeInsets.left.none

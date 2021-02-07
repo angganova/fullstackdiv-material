@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/app/components/button/basic_button.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
-class WideButton extends StatelessWidget {
+class WideButton extends StatefulWidget {
   /// this is the [WideButton] type class
   /// [title] is required
   /// [icon] is optional so we can build a button
@@ -10,6 +10,7 @@ class WideButton extends StatelessWidget {
 
   const WideButton({
     @required this.title,
+    this.titleReplacement,
     this.onPressed,
     this.widgetTheme = WidgetTheme.whiteBlack,
     this.shadowStrokeType = ShadowStrokeType.lowShadow,
@@ -33,6 +34,7 @@ class WideButton extends StatelessWidget {
 
   /// required
   final String title;
+  final Widget titleReplacement;
 
   /// recommended
   final WidgetTheme widgetTheme;
@@ -63,36 +65,41 @@ class WideButton extends StatelessWidget {
   final bool fullWidth;
 
   @override
+  _WideButtonState createState() => _WideButtonState();
+}
+
+class _WideButtonState extends State<WideButton> {
+  @override
   Widget build(BuildContext context) {
     /// here we set some of final (immutable) properties
     /// for icons
-    final Color _iconColor = (onPressed == null)
-        ? widgetTheme.disabledTextColor
-        : (selected
-            ? (iconSelectedColor ?? widgetTheme.selectedTextColor)
-            : (iconColor ?? widgetTheme.textColor));
+    final Color _iconColor = (widget.onPressed == null)
+        ? widget.widgetTheme.disabledTextColor
+        : (widget.selected
+            ? (widget.iconSelectedColor ?? widget.widgetTheme.selectedTextColor)
+            : (widget.iconColor ?? widget.widgetTheme.textColor));
 
     /// for text styles
-    final Color _textColor = (onPressed == null)
-        ? widgetTheme.disabledTextColor
-        : (selected
-            ? (selectedTextColor ?? widgetTheme.selectedTextColor)
-            : (textColor ?? widgetTheme.textColor));
+    final Color _textColor = (widget.onPressed == null)
+        ? widget.widgetTheme.disabledTextColor
+        : (widget.selected
+            ? (widget.selectedTextColor ?? widget.widgetTheme.selectedTextColor)
+            : (widget.textColor ?? widget.widgetTheme.textColor));
     final TextStyle _kDefaultTextStyle =
         AppTextStyle(color: _textColor).primaryB1;
 
     /// for shadow/stroke type
     final ShadowStrokeType _shadowStrokeType =
-        (isTransparent || _backgroundColor != kAppWhite)
+        (widget.isTransparent || _backgroundColor != kAppWhite)
             ? ShadowStrokeType.none
-            : (shadowStrokeType ?? widgetTheme.shadowStrokeType);
+            : (widget.shadowStrokeType ?? widget.widgetTheme.shadowStrokeType);
 
     /// for radius (no radius means auto-rounded the button)
-    final double _radius = radius ?? (AppQuery(context).radius);
+    final double _radius = widget.radius ?? (AppQuery(context).radius);
 
     /// for disabled colors
     final Color _disabledColor =
-        disabledColor ?? widgetTheme.disabledBackgroundColor;
+        widget.disabledColor ?? widget.widgetTheme.disabledBackgroundColor;
 
     final EdgeInsets _padding =
         (_shadowStrokeType == ShadowStrokeType.stroke2px)
@@ -102,33 +109,34 @@ class WideButton extends StatelessWidget {
                 : const EdgeInsets.symmetric(vertical: 16.0, horizontal: 53.0);
 
     return BasicButton(
-      title: title,
-      icon: icon,
-      onPressed: onPressed,
-      widgetTheme: widgetTheme,
+      title: widget.title,
+      titleReplacement: widget.titleReplacement,
+      icon: widget.icon,
+      onPressed: widget.onPressed,
+      widgetTheme: widget.widgetTheme,
       shadowStrokeType: _shadowStrokeType,
-      padding: padding ?? _padding,
-      margin: margin,
+      padding: widget.padding ?? _padding,
+      margin: widget.margin,
       iconColor: _iconColor,
-      iconSize: iconSize,
+      iconSize: widget.iconSize,
       backgroundColor: _backgroundColor,
-      textStyle: textStyle != null
-          ? textStyle.copyWith(color: textColor)
+      textStyle: widget.textStyle != null
+          ? widget.textStyle.copyWith(color: widget.textColor)
           : _kDefaultTextStyle,
-      textColor: textColor,
-      selectedTextColor: selectedTextColor,
+      textColor: widget.textColor,
+      selectedTextColor: widget.selectedTextColor,
       disabledColor: _disabledColor,
       radius: _radius,
-      fullWidth: fullWidth,
+      fullWidth: widget.fullWidth,
     );
   }
 
   Color get _backgroundColor {
-    if (isTransparent)
+    if (widget.isTransparent)
       return kAppClearWhite;
     else
-      return selected
-          ? (selectedBackgroundColor ?? widgetTheme.selectedBackgroundColor)
-          : (backgroundColor ?? widgetTheme.backgroundColor);
+      return widget.selected
+          ? (widget.selectedBackgroundColor ?? widget.widgetTheme.selectedBackgroundColor)
+          : (widget.backgroundColor ?? widget.widgetTheme.backgroundColor);
   }
 }
