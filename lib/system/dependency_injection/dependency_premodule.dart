@@ -11,7 +11,7 @@ abstract class DataModule {
 
   @preResolve
   @singleton
-  Future<ConfigService> get config => ConfigServiceImpl.getInstance();
+  Future<ConfigService> get config => ConfigService.getInstance();
 
   @preResolve
   @singleton

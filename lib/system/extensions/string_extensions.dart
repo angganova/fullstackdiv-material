@@ -6,7 +6,13 @@ extension StringExtension on String {
   bool get isNull => this == null;
   bool get isNotNull => this != null;
   bool get isNullOrEmpty => this == null || isEmpty;
-  bool get isNotNullOrEmpty => this != null || isNotEmpty;
+  bool get isNotNullOrEmpty {
+    if(isNull){
+      return false;
+    }else{
+      return isNotEmpty;
+    }
+  }
 
   bool get isNumber {
     try {

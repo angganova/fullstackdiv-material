@@ -1,14 +1,9 @@
 import 'dart:async';
-
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-mixin ConfigService {
-  String getValue(String key);
-}
-
-class ConfigServiceImpl implements ConfigService {
-  ConfigServiceImpl._(this._remoteConfig);
+class ConfigService {
+  ConfigService._(this._remoteConfig);
 
   final RemoteConfig _remoteConfig;
 
@@ -21,7 +16,7 @@ class ConfigServiceImpl implements ConfigService {
       final RemoteConfig config = await _loadFirebaseConfig();
       await _loadEnv();
 
-      _completer.complete(ConfigServiceImpl._(config));
+      _completer.complete(ConfigService._(config));
     }
 
     return _completer.future;
@@ -30,7 +25,9 @@ class ConfigServiceImpl implements ConfigService {
   static Future<void> _loadEnv() async {
     try {
       await DotEnv().load();
-    } catch (_) {}
+    } catch (_) {
+      // No env files on app, so no need to do anything
+    }
   }
 
   static Future<RemoteConfig> _loadFirebaseConfig() async {
@@ -44,7 +41,6 @@ class ConfigServiceImpl implements ConfigService {
     }
   }
 
-  @override
   String getValue(String key) {
     if (DotEnv().env.containsKey(key)) {
       return DotEnv().env[key];

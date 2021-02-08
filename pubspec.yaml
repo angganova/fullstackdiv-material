@@ -156,3 +156,4 @@ flutter:
     - assets/demo/
     - assets/fonts/
     - assets/icons/
+    - .env

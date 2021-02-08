@@ -18,6 +18,7 @@ import 'package:fullstackdiv_material/app/screens/home/home_vm.dart';
 import 'package:fullstackdiv_material/system/notification/local_notification_setting.dart';
 import 'package:fullstackdiv_material/system/notification/local_notification_show.dart';
 import 'package:fullstackdiv_material/system/notification/notification_handler.dart';
+import 'package:fullstackdiv_material/app/screens/notification/notification_vm.dart';
 import 'package:fullstackdiv_material/system/config/platform_info.dart';
 import 'package:fullstackdiv_material/rest/client/global_repository.dart';
 
@@ -48,6 +49,8 @@ Future<GetIt> $initGetIt(
       get<NotificationHandler>(), get<LocalNotificationShow>()));
   gh.lazySingleton<HomeViewModel>(
       () => HomeViewModel(get<Copy>(), get<FCMNotificationSetting>()));
+  gh.lazySingleton<NotificationVM>(
+      () => NotificationVM(get<FCMNotificationSetting>()));
 
   // Eager singletons must be registered in the right order
   final resolvedConfigService = await dataModule.config;

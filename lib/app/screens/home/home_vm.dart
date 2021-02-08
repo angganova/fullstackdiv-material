@@ -70,6 +70,7 @@ abstract class _HomeViewModel with Store {
 
   Future<void> _widgetSetup() async {
     _initLifeCycleObserver();
+    _enableFcm(enable: true);
   }
 
   void _initLifeCycleObserver() {

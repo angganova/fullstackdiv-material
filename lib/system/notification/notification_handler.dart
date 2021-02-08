@@ -1,4 +1,5 @@
 import 'package:fullstackdiv_material/app/screens/home/home_vm.dart';
+import 'package:fullstackdiv_material/app/screens/notification/notification_vm.dart';
 import 'package:fullstackdiv_material/model/app/app_launch_data.dart';
 import 'package:fullstackdiv_material/model/notification/push_notification_model.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
@@ -13,10 +14,17 @@ class NotificationHandler {
   final LoggerBuilder _loggerBuilder = LoggerBuilder('NotificationHandler');
 
   void handleOnMessageTrigger(PushNotificationData notificationData) {
+    /// Trigger app when receive push notification
+
     if (notificationData?.actionType != null &&
         notificationData?.actionParameter != null) {
-      /// Trigger app when receive push notification
-      return;
+
+    }else{
+      printDebug('handleOnMessageTrigger');
+      final NotificationVM _notificationVM = getIt<NotificationVM>();
+      if(_notificationVM.isWidgetActive){
+        _notificationVM.displayPushNotification(notificationData);
+      }
     }
   }
 

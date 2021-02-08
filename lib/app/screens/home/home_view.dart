@@ -4,7 +4,7 @@ import 'package:fullstackdiv_material/app/components/button/wide_button.dart';
 import 'package:fullstackdiv_material/app/components/spacer/space_view.dart';
 import 'package:fullstackdiv_material/app/screens/demo/demo.dart';
 import 'package:fullstackdiv_material/app/screens/home/home_vm.dart';
-import 'package:fullstackdiv_material/app/screens/notification/notification_tester.dart';
+import 'package:fullstackdiv_material/app/screens/notification/notification_view.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_page_transition.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
@@ -62,7 +62,7 @@ class _HomeViewState extends State<HomeView> {
             title: 'Open Notification Tester',
             widgetTheme: WidgetTheme.blueWhite,
             onPressed: () => Navigator.of(context)
-                .push<dynamic>(FadeRoute(page: NotificationTesterView())),
+                .push<dynamic>(FadeRoute(page: NotificationView())),
           ),
         ],
       );

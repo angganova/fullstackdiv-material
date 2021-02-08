@@ -10,11 +10,11 @@ extension NumExtensions on num {
   bool get isNoNullOrNoZero => this != null || this != 0;
   bool get isLessThanZero => this < 0;
   bool get isMoreThanZero => this > 0;
-  bool isEqual(double i) => this == i;
-  bool isMoreThan(double i) => this == i;
-  bool isLessThan(double i) => this == i;
-  bool isMoreOrEqualTo(double i) => this >= i;
-  bool isLessOrEqualTo(double i) => this <= i;
+  bool isEqual(num i) => this == i;
+  bool isMoreThan(num i) => this > i;
+  bool isLessThan(num i) => this < i;
+  bool isMoreOrEqualTo(num i) => this >= i;
+  bool isLessOrEqualTo(num i) => this <= i;
 
   String formatCurrency(String currency, String separator) {
     if (isLessThan(1000)) {

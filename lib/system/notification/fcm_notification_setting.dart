@@ -183,16 +183,10 @@ class FCMNotificationSetting {
         notificationData = PushNotificationData.fromMap(message);
       }
 
-      if (notificationData?.actionType != null &&
-          notificationData?.actionParameter != null) {
-        _localNotificationShow.showNotificationTaxiBookingUpdate(
-            title: notificationData.title,
-            body: notificationData.body,
-            payload: notificationData.notificationDataJson);
-        _notificationHandler.handleOnMessageTrigger(notificationData);
-      } else {
+      if (notificationData != null) {
         _localNotificationShow.showSimpleNotification(
             title: notificationData.title, body: notificationData.body);
+        _notificationHandler.handleOnMessageTrigger(notificationData);
       }
     } catch (e) {
       _printDebug('_defaultOnMessage error $e');
