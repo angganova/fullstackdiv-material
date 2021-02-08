@@ -40,16 +40,19 @@ class _NotificationViewState extends State<NotificationView> {
           child: NoOverScrollView(
             child: SingleChildScrollView(
               child: Observer(
-                builder:(_) => Column(
+                builder: (_) => Column(
                   children: <Widget>[
                     titleView,
                     listTileView('Device FCM Token',
                         subtitle: _viewModel.deviceFCMToken ?? '',
-                        trailing: statusValidIcon(_viewModel.deviceFCMToken?.isNotNullOrEmpty??false),
+                        trailing: statusValidIcon(
+                            _viewModel.deviceFCMToken?.isNotNullOrEmpty ??
+                                false),
                         onTap: () => _viewModel.copyToClipboard(
                             _viewModel.deviceFCMToken, 'Device FCM Token')),
                     emptyView(height: _appSpacer.standard),
-                    buttonView('Send FCM Notification', () => _viewModel.sendPN()),
+                    buttonView(
+                        'Send FCM Notification', () => _viewModel.sendPN()),
                     emptyView(height: _appSpacer.sm),
                     _notificationView
                   ],
@@ -138,7 +141,8 @@ class _NotificationViewState extends State<NotificationView> {
         fullWidth: true,
         title: title,
         widgetTheme: theme,
-        onPressed: _viewModel.restSendFcmTokenRequesting ? null : () => onPressed(),
+        onPressed:
+            _viewModel.restSendFcmTokenRequesting ? null : () => onPressed(),
       );
     }
   }
@@ -148,22 +152,31 @@ class _NotificationViewState extends State<NotificationView> {
     if (notificationData == null) {
       return Container();
     } else {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          labelView('Title'),
-          textContentView(notificationData.title),
-          emptyView(height: _appSpacer.xs),
-          labelView('Body'),
-          textContentView(notificationData.body),
-          emptyView(height: _appSpacer.xs),
-          labelView('Action Type'),
-          textContentView(notificationData.actionType),
-          emptyView(height: _appSpacer.xs),
-          labelView('Action Parameter'),
-          textContentView(notificationData.actionParameter),
-          emptyView(height: _appSpacer.xs),
-        ],
+      return Container(
+        width: _appQuery.width,
+        padding: _appSpacer.edgeInsets.all.standard,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            labelView('Title'),
+            emptyView(height: _appSpacer.xs),
+            textContentView(notificationData.title),
+            emptyView(height: _appSpacer.sm),
+            labelView('Body'),
+            emptyView(height: _appSpacer.xs),
+            textContentView(notificationData.body),
+            emptyView(height: _appSpacer.sm),
+            labelView('Action Type'),
+            emptyView(height: _appSpacer.xs),
+            textContentView(notificationData.actionType ?? 'Empty . . .'),
+            emptyView(height: _appSpacer.sm),
+            labelView('Action Parameter'),
+            emptyView(height: _appSpacer.xs),
+            textContentView(notificationData.actionParameter ?? 'Empty . . .'),
+            emptyView(height: _appSpacer.sm),
+          ],
+        ),
       );
     }
   }
