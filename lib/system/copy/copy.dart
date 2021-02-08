@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:fullstackdiv_material/system/copy/copy_item.dart';
 import 'package:injectable/injectable.dart';
 
-// TODO(Rollen): Move hardcoded values into environment
 class Copy {
   Copy();
 

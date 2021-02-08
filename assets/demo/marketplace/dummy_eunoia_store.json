@@ -1,0 +1,348 @@
+{
+    "success": true,
+    "categories": [
+        {
+            "id": 137,
+            "name": "Desert",
+            "pluCode": null,
+            "description": null,
+            "children": [],
+            "imageId": null,
+            "image2Id": null,
+            "image3Id": null,
+            "sortIndex": 0,
+            "availabilities": []
+        },
+        {
+            "id": 135,
+            "name": "Appertizer",
+            "pluCode": null,
+            "description": null,
+            "children": [],
+            "imageId": null,
+            "image2Id": null,
+            "image3Id": null,
+            "sortIndex": 0,
+            "availabilities": []
+        },
+        {
+            "id": 136,
+            "name": "Main Dishes",
+            "pluCode": null,
+            "description": null,
+            "children": [],
+            "imageId": null,
+            "image2Id": null,
+            "image3Id": null,
+            "sortIndex": 0,
+            "availabilities": []
+        }
+    ],
+    "products": [
+        {
+            "id": 288,
+            "name": "Taco with Mango Avo Salsa",
+            "price": 8.90,
+            "description": "Avocado inside taco, one of the nicest thing on this planet.",
+            "tags": [
+                {
+                    "id": 4,
+                    "name": "American",
+                    "imageId": "b6kmpkzgo17h0outvcp8",
+                    "type": "Cuisine"
+                }
+            ],
+            "categories": [
+                137,
+                135
+            ],
+            "modifierGroups": [
+                {
+                    "id": 56,
+                    "name": "CHOICE OF",
+                    "minModifiers": 1,
+                    "maxModifiers": 5,
+                    "childGroups": [],
+                    "modifiers": [
+                        {
+                            "id": 205,
+                            "name": "Chicken",
+                            "price": 0.0,
+                            "minQuantity": 0,
+                            "maxQuantity": 1,
+                            "preSelected": false,
+                            "sortIndex": 0,
+                            "product": null,
+                            "pluCode": null
+                        },
+                        {
+                            "id": 206,
+                            "name": "Baja Fish",
+                            "price": 0.0,
+                            "minQuantity": 0,
+                            "maxQuantity": 1,
+                            "preSelected": false,
+                            "sortIndex": 1,
+                            "product": null,
+                            "pluCode": null
+                        },
+                        {
+                            "id": 207,
+                            "name": "Braised Beef",
+                            "price": 0.0,
+                            "minQuantity": 0,
+                            "maxQuantity": 1,
+                            "preSelected": false,
+                            "sortIndex": 2,
+                            "product": null,
+                            "pluCode": null
+                        }
+                    ],
+                    "disabledModifiers": [],
+                    "description": null,
+                    "combo": false,
+                    "pluCode": null,
+                    "modifierGroupType": "Normal modifiers (mandatory)",
+                    "sortIndex": 0
+                },
+                {
+                    "id": 57,
+                    "name": "EXTRAS",
+                    "minModifiers": 0,
+                    "maxModifiers": 5,
+                    "childGroups": [],
+                    "modifiers": [
+                        {
+                            "id": 208,
+                            "name": "Egg",
+                            "price": 1.50,
+                            "minQuantity": 0,
+                            "maxQuantity": 1,
+                            "preSelected": false,
+                            "sortIndex": 0,
+                            "product": null,
+                            "pluCode": null
+                        },
+                        {
+                            "id": 209,
+                            "name": "Rice",
+                            "price": 2.50,
+                            "minQuantity": 0,
+                            "maxQuantity": 1,
+                            "preSelected": false,
+                            "sortIndex": 1,
+                            "product": null,
+                            "pluCode": null
+                        },
+                        {
+                            "id": 210,
+                            "name": "Prawn",
+                            "price": 1.50,
+                            "minQuantity": 0,
+                            "maxQuantity": 1,
+                            "preSelected": false,
+                            "sortIndex": 2,
+                            "product": null,
+                            "pluCode": null
+                        }
+                    ],
+                    "disabledModifiers": [],
+                    "description": null,
+                    "combo": false,
+                    "pluCode": null,
+                    "modifierGroupType": "Normal modifiers (optional)",
+                    "sortIndex": 1
+                }
+            ],
+            "disabledModifierGroups": [],
+            "imageId": "izxsutaivyo34cduhydx",
+            "image2Id": null,
+            "image3Id": null,
+            "sortIndex": 0,
+            "delivery": false,
+            "takeAway": true,
+            "dineIn": true,
+            "variants": [],
+            "pluCode": null,
+            "custom": {},
+            "available": true
+        },
+        {
+            "id": 289,
+            "name": "3 Piece Chicken only",
+            "price": 7.50,
+            "description": null,
+            "tags": [],
+            "categories": [
+                137
+            ],
+            "modifierGroups": [],
+            "disabledModifierGroups": [],
+            "imageId": "izxsutaivyo34cduhydx",
+            "image2Id": null,
+            "image3Id": null,
+            "sortIndex": 0,
+            "delivery": false,
+            "takeAway": true,
+            "dineIn": true,
+            "variants": [],
+            "pluCode": null,
+            "custom": {},
+            "available": true
+        },
+        {
+            "id": 291,
+            "name": "Cajun Fries",
+            "price": 2.50,
+            "description": null,
+            "tags": [],
+            "categories": [
+                136
+            ],
+            "modifierGroups": [],
+            "disabledModifierGroups": [],
+            "imageId": "eprmseqeqlzxtmbh32rp",
+            "image2Id": null,
+            "image3Id": null,
+            "sortIndex": 0,
+            "delivery": false,
+            "takeAway": true,
+            "dineIn": true,
+            "variants": [],
+            "pluCode": null,
+            "custom": {},
+            "available": true
+        },
+        {
+            "id": 292,
+            "name": "Chicken Noodles",
+            "price": 0.0,
+            "description": null,
+            "tags": [],
+            "categories": [
+                135
+            ],
+            "modifierGroups": [],
+            "disabledModifierGroups": [],
+            "imageId": "wq1dupwy5m3c8kddlwkx",
+            "image2Id": null,
+            "image3Id": null,
+            "sortIndex": 0,
+            "delivery": false,
+            "takeAway": true,
+            "dineIn": true,
+            "variants": [
+                {
+                    "id": 122,
+                    "price": null,
+                    "modifierGroups": [],
+                    "disabledModifierGroups": [],
+                    "name": "Wing",
+                    "pluCode": null
+                },
+                {
+                    "id": 123,
+                    "price": null,
+                    "modifierGroups": [],
+                    "disabledModifierGroups": [],
+                    "name": "Chest",
+                    "pluCode": null
+                }
+            ],
+            "pluCode": null,
+            "custom": {},
+            "available": true
+        },
+        {
+            "id": 290,
+            "name": "Cookies",
+            "price": 2.00,
+            "description": null,
+            "tags": [],
+            "categories": [
+                136
+            ],
+            "modifierGroups": [],
+            "disabledModifierGroups": [],
+            "imageId": "xkaunz5vcu4g5qb6dvxz",
+            "image2Id": null,
+            "image3Id": null,
+            "sortIndex": 0,
+            "delivery": false,
+            "takeAway": true,
+            "dineIn": true,
+            "variants": [],
+            "pluCode": null,
+            "custom": {},
+            "available": true
+        },
+        {
+            "id": 287,
+            "name": "Family Bucket Meal",
+            "price": 10.00,
+            "description": null,
+            "tags": [
+                {
+                    "id": 4,
+                    "name": "American",
+                    "imageId": "b6kmpkzgo17h0outvcp8",
+                    "type": "Cuisine"
+                }
+            ],
+            "categories": [
+                135
+            ],
+            "modifierGroups": [],
+            "disabledModifierGroups": [],
+            "imageId": "anv9na3nrgabtrxdlthh",
+            "image2Id": null,
+            "image3Id": null,
+            "sortIndex": 0,
+            "delivery": false,
+            "takeAway": true,
+            "dineIn": true,
+            "variants": [],
+            "pluCode": null,
+            "custom": {},
+            "available": true
+        }
+    ],
+    "tags": [
+        {
+            "id": 4,
+            "name": "American",
+            "imageId": "b6kmpkzgo17h0outvcp8",
+            "type": "Cuisine"
+        }
+    ],
+    "brand": {
+        "id": 52,
+        "name": "JKFC",
+        "apiCode": "jkfc",
+        "imageId": "amnjkszxdelhcqu3coby",
+        "availabilityTimeIncrement": 1,
+        "description": "JKFC, mouth-watering fried chicken that makes you cry at the first bite!",
+        "bannerImage": null,
+        "defaultImageId": null,
+        "enableProductImages": true,
+        "favouritesImageId": null,
+        "currency": "SGD",
+        "currencySymbol": "$",
+        "countryCode": "SG",
+        "countryName": "Singapore",
+        "countryFone": "65",
+        "custom": {},
+        "facebookId": null,
+        "googleWebAppId": null,
+        "enableCredits": false,
+        "enableDelivery": false,
+        "enableLoyalty": false,
+        "enableReservation": true,
+        "minPhoneNumber": null,
+        "maxPhoneNumber": null,
+        "gstRegNumber": null,
+        "lalamoveAccount": null,
+        "enableOnemap": false
+    },
+    "banners": []
+}

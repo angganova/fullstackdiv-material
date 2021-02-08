@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:fullstackdiv_material/app/screens/home/home_view.dart';
+import 'package:fullstackdiv_material/app/fsd_app.dart';
 import 'package:fullstackdiv_material/app/screens/home/home_vm.dart';
 import 'package:fullstackdiv_material/model/app/app_launch_data.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
@@ -12,7 +12,6 @@ import 'package:fullstackdiv_material/system/notification/local_notification_set
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // TODO(Andre): Test actual firebase config env variables
   await initializeInjection();
 
   _setupApp();
@@ -69,19 +68,5 @@ Future<void> _startApp() async {
   ///
   SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
-  ]).then((_) => runApp(MyApp()));
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fullstackdiv Material Design',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: HomeView(),
-    );
-  }
+  ]).then((_) => runApp(FsdApp()));
 }

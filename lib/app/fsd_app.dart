@@ -61,7 +61,7 @@ class _Zest extends State<FsdApp> with WidgetsBindingObserver {
       theme: themeLight(),
       builder: ExtendedNavigator.builder(
         router: AppRouter(),
-        initialRoute: Routes.demoHomeView,
+        initialRoute: Routes.homeView,
         builder: (BuildContext context, Widget child) {
           final MediaQueryData data = MediaQuery.of(context);
           return MediaQuery(

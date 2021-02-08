@@ -8,7 +8,6 @@ import 'package:fullstackdiv_material/system/config/config_service.dart';
 import 'package:fullstackdiv_material/system/copy/copy.dart';
 import 'package:fullstackdiv_material/system/copy/copy_module.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_premodule.dart';
-import 'package:fullstackdiv_material/system/analytics/default_analytics.dart';
 import 'package:fullstackdiv_material/rest/client/default_api_client.dart';
 import 'package:fullstackdiv_material/system/deeplink/deeplink_service.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
@@ -18,7 +17,6 @@ import 'package:injectable/injectable.dart';
 import 'package:fullstackdiv_material/app/screens/home/home_vm.dart';
 import 'package:fullstackdiv_material/system/notification/local_notification_setting.dart';
 import 'package:fullstackdiv_material/system/notification/local_notification_show.dart';
-import 'package:fullstackdiv_material/system/analytics/mixpanel_analytics.dart';
 import 'package:fullstackdiv_material/system/notification/notification_handler.dart';
 import 'package:fullstackdiv_material/system/config/platform_info.dart';
 import 'package:fullstackdiv_material/rest/client/global_repository.dart';
@@ -57,12 +55,6 @@ Future<GetIt> $initGetIt(
   gh.singleton<Environments>(dataModule.getEnvironments(get<ConfigService>()));
   final resolvedPlatformInfo = await dataModule.platformInfo;
   gh.singleton<PlatformInfo>(resolvedPlatformInfo);
-  final resolvedMixpanelAnalytics =
-      await dataModule.getMixPanel(get<PlatformInfo>(), get<Environments>());
-  gh.singleton<MixpanelAnalytics>(resolvedMixpanelAnalytics);
-  final resolvedDefaultAnalytics =
-      await dataModule.getTaxiAnalytics(get<MixpanelAnalytics>());
-  gh.singleton<DefaultAnalytics>(resolvedDefaultAnalytics);
   return get;
 }
 

@@ -82,7 +82,6 @@ class AppTextField extends StatefulWidget {
   static EdgeInsets defaultContentPadding = kSpacer.edgeInsets.y.xs;
 
   /// Path for ZTextField correct icon
-  // TODO(Ikhsan): Will replace suffix icon with Animation or Svg
   static const String _correctIcon = 'assets/icons/ic_text_field_confirmed.png';
 
   @override

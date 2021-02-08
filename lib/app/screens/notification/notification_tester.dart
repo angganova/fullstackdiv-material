@@ -230,6 +230,8 @@ class _NotificationTesterViewState extends State<NotificationTesterView> {
       sendTimeout: 15000,
     );
     _dio = Dio(options);
+    _dio.interceptors
+        .add(LogInterceptor(responseBody: true, requestBody: true));
   }
 
   void _copyToClipboard(String text, String tokenTag) {

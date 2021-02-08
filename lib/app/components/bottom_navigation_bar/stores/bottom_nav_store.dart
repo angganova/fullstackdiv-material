@@ -6,7 +6,6 @@ part 'bottom_nav_store.g.dart';
 class BottomNavStore = _BottomNavStore with _$BottomNavStore;
 
 /// this is the [Store] class to help setting up the [CustomBottomNavigationBar] component
-// TODO(Andre): check this
 abstract class _BottomNavStore with Store {
   @observable
   bool _bottomNavHidden = false;
