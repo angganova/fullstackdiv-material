@@ -61,11 +61,16 @@ import 'package:fullstackdiv_material/app/screens/demo/screens/slider/demo_basic
 import 'package:fullstackdiv_material/app/screens/demo/screens/slider/slider_menu_page.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/tab_bar/demo_custom_tab_bar_page.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/vertical_drawer/demo_vertical_drawer_menu.dart';
+import 'package:fullstackdiv_material/app/screens/front/splash_view.dart';
 import 'package:fullstackdiv_material/app/screens/home/home_view.dart';
 
 @MaterialAutoRouter(
   generateNavigationHelperExtension: true,
   routes: <AutoRoute<dynamic>>[
+    CustomRoute<dynamic>(
+      page: SplashView,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+    ),
     CustomRoute<dynamic>(
       page: HomeView,
       transitionsBuilder: TransitionsBuilders.fadeIn,

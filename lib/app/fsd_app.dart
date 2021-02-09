@@ -11,10 +11,10 @@ import 'package:uni_links/uni_links.dart';
 
 class FsdApp extends StatefulWidget {
   @override
-  _Zest createState() => _Zest();
+  _FsdApp createState() => _FsdApp();
 }
 
-class _Zest extends State<FsdApp> with WidgetsBindingObserver {
+class _FsdApp extends State<FsdApp> with WidgetsBindingObserver {
   final DynamicLinkService _dynamicLinkService = getIt<DynamicLinkService>();
   StreamSubscription<String> _sub;
   bool initialLinkCalled = false;
@@ -57,11 +57,11 @@ class _Zest extends State<FsdApp> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Zest',
+      title: 'Fullstackdiv',
       theme: themeLight(),
       builder: ExtendedNavigator.builder(
         router: AppRouter(),
-        initialRoute: Routes.homeView,
+        initialRoute: Routes.splashView,
         builder: (BuildContext context, Widget child) {
           final MediaQueryData data = MediaQuery.of(context);
           return MediaQuery(

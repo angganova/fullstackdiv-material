@@ -66,9 +66,7 @@ dependencies:
   auto_route: ^0.6.7
 
   # Allows us to add an inline webview, to use an headless webview, and to open an in-app browser window.
-  flutter_inappwebview:
-    git:
-      url: https://github.com/gunantosteven/flutter_inappwebview.git
+  flutter_inappwebview: ^4.0.0+4
 
   # Calendar library
   date_picker_timeline: ^1.2.1
@@ -104,8 +102,8 @@ dependencies:
   # A Flutter plugin to use the Google Dynamic Links for Firebase API.
   firebase_dynamic_links: ^0.5.3
 
-  # This plugin wraps the most of the functions from Mixpanel SDK.
-  flutuate_mixpanel: 1.1.6
+  # A Flutter plugin to use the Firebase Crashlytics API.
+  firebase_crashlytics: ^0.1.4+1
 
   # Cross platform plugin for displaying local notifications
   flutter_local_notifications: ^3.0.1+5
@@ -156,4 +154,5 @@ flutter:
     - assets/demo/
     - assets/fonts/
     - assets/icons/
+    - assets/gif/
     - .env

@@ -4,11 +4,12 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
+import 'package:fullstackdiv_material/system/api/client/api_client.dart';
+import 'package:fullstackdiv_material/system/api/client/api_repository.dart';
 import 'package:fullstackdiv_material/system/config/config_service.dart';
 import 'package:fullstackdiv_material/system/copy/copy.dart';
 import 'package:fullstackdiv_material/system/copy/copy_module.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_premodule.dart';
-import 'package:fullstackdiv_material/rest/client/default_api_client.dart';
 import 'package:fullstackdiv_material/system/deeplink/deeplink_service.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:fullstackdiv_material/system/notification/fcm_notification_setting.dart';
@@ -20,7 +21,6 @@ import 'package:fullstackdiv_material/system/notification/local_notification_sho
 import 'package:fullstackdiv_material/system/notification/notification_handler.dart';
 import 'package:fullstackdiv_material/app/screens/notification/notification_vm.dart';
 import 'package:fullstackdiv_material/system/config/platform_info.dart';
-import 'package:fullstackdiv_material/rest/client/global_repository.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -38,13 +38,12 @@ Future<GetIt> $initGetIt(
   gh.factory<DynamicLinkService>(() => DynamicLinkService());
   gh.lazySingleton<NotificationHandler>(
       () => NotificationHandler(get<Environments>()));
-  gh.lazySingleton<DefaultApiClient>(
-      () => DefaultApiClient(get<Environments>()));
+  gh.lazySingleton<ApiClient>(() => ApiClient(get<Environments>()));
+  gh.lazySingleton<ApiRepository>(() => ApiRepository(get<ApiClient>()));
   gh.lazySingleton<LocalNotificationSetting>(() => LocalNotificationSetting(
       get<Environments>(), get<NotificationHandler>()));
   gh.lazySingleton<LocalNotificationShow>(() => LocalNotificationShow(
       get<LocalNotificationSetting>(), get<Environments>()));
-  gh.lazySingleton<RestRepo>(() => RestRepo(get<DefaultApiClient>()));
   gh.lazySingleton<FCMNotificationSetting>(() => FCMNotificationSetting(
       get<NotificationHandler>(), get<LocalNotificationShow>()));
   gh.lazySingleton<HomeViewModel>(

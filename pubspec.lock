@@ -190,13 +190,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
-  coverage:
-    dependency: transitive
-    description:
-      name: coverage
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.14.2"
   crypto:
     dependency: transitive
     description:
@@ -330,6 +323,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.1+2"
+  firebase_crashlytics:
+    dependency: "direct main"
+    description:
+      name: firebase_crashlytics
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.4+1"
   firebase_dynamic_links:
     dependency: "direct main"
     description:
@@ -394,12 +394,10 @@ packages:
   flutter_inappwebview:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "79ef44f943f460c0440f65d34d80a830a9a0a46d"
-      url: "https://github.com/gunantosteven/flutter_inappwebview.git"
-    source: git
-    version: "5.0.0"
+      name: flutter_inappwebview
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0+4"
   flutter_layout_grid:
     dependency: transitive
     description:
@@ -461,13 +459,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.1.6"
-  flutuate_mixpanel:
-    dependency: "direct main"
-    description:
-      name: flutuate_mixpanel
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.6"
   get_it:
     dependency: transitive
     description:
@@ -643,13 +634,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  node_preamble:
-    dependency: transitive
-    description:
-      name: node_preamble
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.4.13"
   octo_image:
     dependency: transitive
     description:
@@ -827,20 +811,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.7.9"
-  shelf_packages_handler:
-    dependency: transitive
-    description:
-      name: shelf_packages_handler
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.1"
-  shelf_static:
-    dependency: transitive
-    description:
-      name: shelf_static
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.9+2"
   shelf_web_socket:
     dependency: transitive
     description:
@@ -867,20 +837,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.10+1"
-  source_map_stack_trace:
-    dependency: transitive
-    description:
-      name: source_map_stack_trace
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.1.0-nullsafety.3"
-  source_maps:
-    dependency: transitive
-    description:
-      name: source_maps
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.10.10-nullsafety.2"
   source_span:
     dependency: transitive
     description:
@@ -944,13 +900,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0-nullsafety.1"
-  test:
-    dependency: transitive
-    description:
-      name: test
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.16.0-nullsafety.5"
   test_api:
     dependency: transitive
     description:
@@ -958,13 +907,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.19-nullsafety.2"
-  test_core:
-    dependency: transitive
-    description:
-      name: test_core
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.12-nullsafety.5"
   timezone:
     dependency: transitive
     description:
@@ -1070,13 +1012,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.4+1"
-  vm_service:
-    dependency: transitive
-    description:
-      name: vm_service
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "5.5.0"
   wakelock:
     dependency: transitive
     description:
@@ -1112,13 +1047,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  webkit_inspection_protocol:
-    dependency: transitive
-    description:
-      name: webkit_inspection_protocol
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.7.4"
   webview_flutter:
     dependency: transitive
     description:

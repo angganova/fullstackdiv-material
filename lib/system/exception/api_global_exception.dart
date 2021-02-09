@@ -1,4 +1,4 @@
-import 'package:fullstackdiv_material/rest/response_model/global_response.dart';
+import 'package:fullstackdiv_material/system/api/response_model/global_response.dart';
 
 class ApiGlobalException implements Exception {
   /// This exception will throw GlobalErrorResponse in the message
