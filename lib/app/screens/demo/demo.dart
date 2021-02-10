@@ -5,7 +5,7 @@ import 'package:fullstackdiv_material/app/components/grid_view/basic_grid_view_c
 import 'package:fullstackdiv_material/app/components/header/basic_header.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
-import 'data/demo_controller_data.dart';
+import 'data/demo_page_data.dart';
 
 class DemoHomeView extends StatelessWidget {
   /// this is the main menu of the demo page
@@ -26,16 +26,15 @@ class DemoHomeView extends StatelessWidget {
               child: BasicGridViewCount(
                 childAspectRatio: 1 / 1.1,
                 crossAxisCount: 2,
-                children:
-                    List<Widget>.generate(mainControllers.length, (int index) {
-                  return BasicWideCard(
-                    image: placeholderAssetImage,
-                    title: mainControllers[index].title,
-                    subtitle: mainControllers[index].subtitle,
-                    onCardTap: () => ExtendedNavigator.of(context)
-                        .push(mainControllers[index].child),
-                  );
-                }),
+                children: mainDemoCardList
+                    .map((PageCard pageCard) => BasicWideCard(
+                          image: placeholderAssetImage,
+                          title: pageCard.title,
+                          subtitle: pageCard.subtitle,
+                          onCardTap: () => ExtendedNavigator.of(context)
+                              .push(pageCard.route),
+                        ))
+                    .toList(),
               ),
             ),
           ],

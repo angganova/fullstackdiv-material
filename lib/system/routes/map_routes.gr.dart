@@ -10,7 +10,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../app/screens/demo/demo.dart';
 import '../../app/screens/demo/screens/bottom_navigation_pages/bottom_navigation_menu_page.dart';
 import '../../app/screens/demo/screens/bottom_navigation_pages/test_discover_page.dart';
 import '../../app/screens/demo/screens/bottom_navigation_pages/test_profile_page.dart';
@@ -24,6 +23,7 @@ import '../../app/screens/demo/screens/card_pages/demo_card_page.dart';
 import '../../app/screens/demo/screens/chip_pages/chip_menu_page.dart';
 import '../../app/screens/demo/screens/chip_pages/demo_chips_page.dart';
 import '../../app/screens/demo/screens/chip_pages/demo_iconstar_chips_page.dart';
+import '../../app/screens/demo/screens/chip_pages/demo_single_choice_chip_page.dart';
 import '../../app/screens/demo/screens/demo_action_sheet_page.dart';
 import '../../app/screens/demo/screens/demo_bottom_sheet_page.dart';
 import '../../app/screens/demo/screens/demo_checkbox_page.dart';
@@ -48,6 +48,12 @@ import '../../app/screens/demo/screens/list_item/demo_journey_list_item.dart';
 import '../../app/screens/demo/screens/list_item/demo_notification_list_item.dart';
 import '../../app/screens/demo/screens/list_item/demo_search_list_item.dart';
 import '../../app/screens/demo/screens/list_item/list_item_menu_page.dart';
+import '../../app/screens/demo/screens/map/demo_geofencing_page.dart';
+import '../../app/screens/demo/screens/map/demo_map_clustering_page.dart';
+import '../../app/screens/demo/screens/map/demo_map_page.dart';
+import '../../app/screens/demo/screens/map/demo_pick_location_page.dart';
+import '../../app/screens/demo/screens/map/demo_transportation_map_page.dart';
+import '../../app/screens/demo/screens/map/map_menu_page.dart';
 import '../../app/screens/demo/screens/option/demo_option_menu.dart';
 import '../../app/screens/demo/screens/option/demo_option_multi_selection.dart';
 import '../../app/screens/demo/screens/option/demo_option_single_selection.dart';
@@ -68,7 +74,6 @@ import '../../app/screens/home/home_view.dart';
 class Routes {
   static const String splashView = '/splash-view';
   static const String homeView = '/home-view';
-  static const String demoHomeView = '/demo-home-view';
   static const String demoCardPage = '/demo-card-page';
   static const String cardMenuPage = '/card-menu-page';
   static const String demoBottomSheetPage = '/demo-bottom-sheet-page';
@@ -87,6 +92,7 @@ class Routes {
       '/demo-option-single-selection';
   static const String demoOptionMultiSelection = '/demo-option-multi-selection';
   static const String demoTextStylePage = '/demo-text-style-page';
+  static const String demoSingleChoiceChip = '/demo-single-choice-chip';
   static const String demoIconStarChipsPage = '/demo-icon-star-chips-page';
   static const String demoSnackbarPage = '/demo-snackbar-page';
   static const String demoTextFieldPage = '/demo-text-field-page';
@@ -104,12 +110,19 @@ class Routes {
   static const String demoSearchListItem = '/demo-search-list-item';
   static const String demoBasicListItem = '/demo-basic-list-item';
   static const String demoNotificationListItem = '/demo-notification-list-item';
+  static const String demoMapPage = '/demo-map-page';
+  static const String demoPickLocationPage = '/demo-pick-location-page';
+  static const String demoGeofencingPage = '/demo-geofencing-page';
   static const String demoLargeTextFieldPage = '/demo-large-text-field-page';
   static const String expansionPanelMenu = '/expansion-panel-menu';
   static const String verticalDrawerMenu = '/vertical-drawer-menu';
   static const String demoRating = '/demo-rating';
   static const String pageExampleMenu = '/page-example-menu';
   static const String demoSharePage = '/demo-share-page';
+  static const String demoTransportationMapPage =
+      '/demo-transportation-map-page';
+  static const String demoMapClusteringPage = '/demo-map-clustering-page';
+  static const String mapMenuPage = '/map-menu-page';
   static const String demoInteractiveListItem = '/demo-interactive-list-item';
   static const String shimmerMenu = '/shimmer-menu';
   static const String basicListViewShimmerPage =
@@ -125,7 +138,6 @@ class Routes {
   static const all = <String>{
     splashView,
     homeView,
-    demoHomeView,
     demoCardPage,
     cardMenuPage,
     demoBottomSheetPage,
@@ -143,6 +155,7 @@ class Routes {
     demoOptionSingleSelection,
     demoOptionMultiSelection,
     demoTextStylePage,
+    demoSingleChoiceChip,
     demoIconStarChipsPage,
     demoSnackbarPage,
     demoTextFieldPage,
@@ -160,12 +173,18 @@ class Routes {
     demoSearchListItem,
     demoBasicListItem,
     demoNotificationListItem,
+    demoMapPage,
+    demoPickLocationPage,
+    demoGeofencingPage,
     demoLargeTextFieldPage,
     expansionPanelMenu,
     verticalDrawerMenu,
     demoRating,
     pageExampleMenu,
     demoSharePage,
+    demoTransportationMapPage,
+    demoMapClusteringPage,
+    mapMenuPage,
     demoInteractiveListItem,
     shimmerMenu,
     basicListViewShimmerPage,
@@ -186,7 +205,6 @@ class AppRouter extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.splashView, page: SplashView),
     RouteDef(Routes.homeView, page: HomeView),
-    RouteDef(Routes.demoHomeView, page: DemoHomeView),
     RouteDef(Routes.demoCardPage, page: DemoCardPage),
     RouteDef(Routes.cardMenuPage, page: CardMenuPage),
     RouteDef(Routes.demoBottomSheetPage, page: DemoBottomSheetPage),
@@ -204,6 +222,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.demoOptionSingleSelection, page: DemoOptionSingleSelection),
     RouteDef(Routes.demoOptionMultiSelection, page: DemoOptionMultiSelection),
     RouteDef(Routes.demoTextStylePage, page: DemoTextStylePage),
+    RouteDef(Routes.demoSingleChoiceChip, page: DemoSingleChoiceChip),
     RouteDef(Routes.demoIconStarChipsPage, page: DemoIconStarChipsPage),
     RouteDef(Routes.demoSnackbarPage, page: DemoSnackbarPage),
     RouteDef(Routes.demoTextFieldPage, page: DemoTextFieldPage),
@@ -221,12 +240,18 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.demoSearchListItem, page: DemoSearchListItem),
     RouteDef(Routes.demoBasicListItem, page: DemoBasicListItem),
     RouteDef(Routes.demoNotificationListItem, page: DemoNotificationListItem),
+    RouteDef(Routes.demoMapPage, page: DemoMapPage),
+    RouteDef(Routes.demoPickLocationPage, page: DemoPickLocationPage),
+    RouteDef(Routes.demoGeofencingPage, page: DemoGeofencingPage),
     RouteDef(Routes.demoLargeTextFieldPage, page: DemoLargeTextFieldPage),
     RouteDef(Routes.expansionPanelMenu, page: ExpansionPanelMenu),
     RouteDef(Routes.verticalDrawerMenu, page: VerticalDrawerMenu),
     RouteDef(Routes.demoRating, page: DemoRating),
     RouteDef(Routes.pageExampleMenu, page: PageExampleMenu),
     RouteDef(Routes.demoSharePage, page: DemoSharePage),
+    RouteDef(Routes.demoTransportationMapPage, page: DemoTransportationMapPage),
+    RouteDef(Routes.demoMapClusteringPage, page: DemoMapClusteringPage),
+    RouteDef(Routes.mapMenuPage, page: MapMenuPage),
     RouteDef(Routes.demoInteractiveListItem, page: DemoInteractiveListItem),
     RouteDef(Routes.shimmerMenu, page: ShimmerMenu),
     RouteDef(Routes.basicListViewShimmerPage, page: BasicListViewShimmerPage),
@@ -254,12 +279,6 @@ class AppRouter extends RouterBase {
         pageBuilder: (context, animation, secondaryAnimation) => HomeView(),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
-      );
-    },
-    DemoHomeView: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => DemoHomeView(),
-        settings: data,
       );
     },
     DemoCardPage: (data) {
@@ -361,6 +380,12 @@ class AppRouter extends RouterBase {
     DemoTextStylePage: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => DemoTextStylePage(),
+        settings: data,
+      );
+    },
+    DemoSingleChoiceChip: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => DemoSingleChoiceChip(),
         settings: data,
       );
     },
@@ -466,6 +491,24 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
+    DemoMapPage: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => DemoMapPage(),
+        settings: data,
+      );
+    },
+    DemoPickLocationPage: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => DemoPickLocationPage(),
+        settings: data,
+      );
+    },
+    DemoGeofencingPage: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => DemoGeofencingPage(),
+        settings: data,
+      );
+    },
     DemoLargeTextFieldPage: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => DemoLargeTextFieldPage(),
@@ -499,6 +542,24 @@ class AppRouter extends RouterBase {
     DemoSharePage: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => DemoSharePage(),
+        settings: data,
+      );
+    },
+    DemoTransportationMapPage: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => DemoTransportationMapPage(),
+        settings: data,
+      );
+    },
+    DemoMapClusteringPage: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => DemoMapClusteringPage(),
+        settings: data,
+      );
+    },
+    MapMenuPage: (data) {
+      return CupertinoPageRoute<dynamic>(
+        builder: (context) => MapMenuPage(),
         settings: data,
       );
     },
@@ -588,8 +649,6 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushHomeView() => push<dynamic>(Routes.homeView);
 
-  Future<dynamic> pushDemoHomeView() => push<dynamic>(Routes.demoHomeView);
-
   Future<dynamic> pushDemoCardPage() => push<dynamic>(Routes.demoCardPage);
 
   Future<dynamic> pushCardMenuPage() => push<dynamic>(Routes.cardMenuPage);
@@ -634,6 +693,9 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushDemoTextStylePage() =>
       push<dynamic>(Routes.demoTextStylePage);
+
+  Future<dynamic> pushDemoSingleChoiceChip() =>
+      push<dynamic>(Routes.demoSingleChoiceChip);
 
   Future<dynamic> pushDemoIconStarChipsPage() =>
       push<dynamic>(Routes.demoIconStarChipsPage);
@@ -680,6 +742,14 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushDemoNotificationListItem() =>
       push<dynamic>(Routes.demoNotificationListItem);
 
+  Future<dynamic> pushDemoMapPage() => push<dynamic>(Routes.demoMapPage);
+
+  Future<dynamic> pushDemoPickLocationPage() =>
+      push<dynamic>(Routes.demoPickLocationPage);
+
+  Future<dynamic> pushDemoGeofencingPage() =>
+      push<dynamic>(Routes.demoGeofencingPage);
+
   Future<dynamic> pushDemoLargeTextFieldPage() =>
       push<dynamic>(Routes.demoLargeTextFieldPage);
 
@@ -695,6 +765,14 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
       push<dynamic>(Routes.pageExampleMenu);
 
   Future<dynamic> pushDemoSharePage() => push<dynamic>(Routes.demoSharePage);
+
+  Future<dynamic> pushDemoTransportationMapPage() =>
+      push<dynamic>(Routes.demoTransportationMapPage);
+
+  Future<dynamic> pushDemoMapClusteringPage() =>
+      push<dynamic>(Routes.demoMapClusteringPage);
+
+  Future<dynamic> pushMapMenuPage() => push<dynamic>(Routes.mapMenuPage);
 
   Future<dynamic> pushDemoInteractiveListItem() =>
       push<dynamic>(Routes.demoInteractiveListItem);

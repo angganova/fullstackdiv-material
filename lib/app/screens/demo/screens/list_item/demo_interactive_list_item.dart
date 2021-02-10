@@ -25,13 +25,12 @@ class _DemoInteractiveListItemState extends State<DemoInteractiveListItem> {
   void showPopupMenu(TapUpDetails tapUpDetails, String text) {
     final List<AppPopupMenuEntry<String>> items = <AppPopupMenuEntry<String>>[
       const AppPopupMenuItem<String>(
-          child: ZestMenu(icon: Icons.edit, text: 'Edit'), value: '1'),
+          child: AppMenu(icon: Icons.edit, text: 'Edit'), value: '1'),
       const AppPopupMenuDivider(),
       const AppPopupMenuItem<String>(
-          child: ZestMenu(icon: Icons.share, text: 'Share'), value: '2'),
+          child: AppMenu(icon: Icons.share, text: 'Share'), value: '2'),
     ];
-    showZestPopupMenu(
-            context: context, tapUpDetails: tapUpDetails, items: items)
+    showAppPopupMenu(context: context, tapUpDetails: tapUpDetails, items: items)
         .then<void>((String itemSelected) {
       if (itemSelected == null) {
         return;

@@ -2,27 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'shadow_stroke_styles.dart';
 
-/// this is the class that contains all Button Styles
+/// This is the class that contains all Theme Styles
 /// to be used immediately inside the classes without
 /// adding any style like backgroundColor, selectedBackgroundColor,
 /// textColor, selectedTextColor & shadowStrokeType
 ///
-///
-/// the naming for the [2 color] styles is based on this rule :
+/// The naming for the [2 color] styles is based on this rule :
 /// [normal_background_color][normal_text_color]
-/// so for example : blue normal background color & white normal text color
+/// So for example : blue normal background color & white normal text color
 /// the name will be : blueWhite
 /// selected background color = normal text color
 /// & selected text color = normal background color
 
 enum WidgetTheme {
   /// 2 colors styles
+  primaryAndWhite,
   blueWhite,
   whiteBlue,
   blackWhite,
   whiteBlack,
   yellowBlack,
-  yellowBlackCheckbox, // yellow black style for check box
+  yellowBlackCheckbox,
   blackYellow,
   greyGrey,
   greyWhite,
@@ -39,33 +39,6 @@ enum WidgetTheme {
   pinkBlack,
   blackPink,
   secondaryTeal,
-
-  /// MRT Theme
-  mrtDTTheme,
-  mrtEWTheme,
-  mrtNSTheme,
-  mrtNETheme,
-  mrtCCTheme,
-  mrtTETheme,
-
-  /// LRT Theme
-  lrtBPTheme,
-  lrtSETheme,
-  lrtSWTheme,
-  lrtPETheme,
-  lrtPWTheme,
-
-  ///Tram
-  sentosaExpressTheme,
-
-  /// Bus Theme
-  busTheme,
-  grandShuttleTheme,
-  beachShuttleTheme,
-  mountFaberTheme,
-
-  /// Walk Theme
-  walkTheme,
 }
 
 extension WidgetThemeExtension on WidgetTheme {
@@ -73,6 +46,7 @@ extension WidgetThemeExtension on WidgetTheme {
   ///
   /// background colors
   static const Map<WidgetTheme, Color> backgroundColors = <WidgetTheme, Color>{
+    WidgetTheme.primaryAndWhite: kAppPrimaryColor,
     WidgetTheme.blueWhite: kAppPrimaryElectricBlue,
     WidgetTheme.whiteBlue: kAppWhite,
     WidgetTheme.blackWhite: kAppBlack,
@@ -88,7 +62,6 @@ extension WidgetThemeExtension on WidgetTheme {
     WidgetTheme.redWhite: kAppPrimaryRed,
     WidgetTheme.whiteRed: kAppWhite,
     WidgetTheme.whiteFriendlyRed: kAppWhite,
-    WidgetTheme.walkTheme: kAppWhite,
     WidgetTheme.custom: null,
     WidgetTheme.tealWhite: kAppFriendlyTeal,
     WidgetTheme.secondaryTealWhite: kAppSecondaryTeal,
@@ -104,6 +77,7 @@ extension WidgetThemeExtension on WidgetTheme {
   ///
   /// normal text colors
   static const Map<WidgetTheme, Color> textColors = <WidgetTheme, Color>{
+    WidgetTheme.primaryAndWhite: kAppWhite,
     WidgetTheme.blueWhite: kAppWhite,
     WidgetTheme.whiteBlue: kAppPrimaryElectricBlue,
     WidgetTheme.blackWhite: kAppWhite,
@@ -118,23 +92,6 @@ extension WidgetThemeExtension on WidgetTheme {
     WidgetTheme.redWhite: kAppWhite,
     WidgetTheme.whiteRed: kAppPrimaryRed,
     WidgetTheme.whiteFriendlyRed: kAppFriendlyRed,
-    WidgetTheme.mrtDTTheme: kAppWhite,
-    WidgetTheme.mrtEWTheme: kAppWhite,
-    WidgetTheme.mrtNSTheme: kAppWhite,
-    WidgetTheme.mrtNETheme: kAppWhite,
-    WidgetTheme.mrtCCTheme: kAppWhite,
-    WidgetTheme.mrtTETheme: kAppWhite,
-    WidgetTheme.lrtBPTheme: kAppWhite,
-    WidgetTheme.lrtSETheme: kAppWhite,
-    WidgetTheme.lrtSWTheme: kAppWhite,
-    WidgetTheme.lrtPETheme: kAppWhite,
-    WidgetTheme.lrtPWTheme: kAppWhite,
-    WidgetTheme.sentosaExpressTheme: kAppWhite,
-    WidgetTheme.busTheme: kAppWhite,
-    WidgetTheme.grandShuttleTheme: kAppWhite,
-    WidgetTheme.beachShuttleTheme: kAppWhite,
-    WidgetTheme.mountFaberTheme: kAppWhite,
-    WidgetTheme.walkTheme: kAppGreyA,
     WidgetTheme.custom: kAppWhite,
     WidgetTheme.tealWhite: kAppWhite,
     WidgetTheme.secondaryTealWhite: kAppBlack,
@@ -166,23 +123,6 @@ extension WidgetThemeExtension on WidgetTheme {
     WidgetTheme.redWhite: kAppWhite,
     WidgetTheme.whiteRed: kAppPrimaryRed,
     WidgetTheme.whiteFriendlyRed: kAppFriendlyRed,
-    WidgetTheme.mrtDTTheme: kAppWhite,
-    WidgetTheme.mrtEWTheme: kAppWhite,
-    WidgetTheme.mrtNSTheme: kAppWhite,
-    WidgetTheme.mrtNETheme: kAppWhite,
-    WidgetTheme.mrtCCTheme: kAppWhite,
-    WidgetTheme.mrtTETheme: kAppWhite,
-    WidgetTheme.lrtBPTheme: kAppWhite,
-    WidgetTheme.lrtSETheme: kAppWhite,
-    WidgetTheme.lrtSWTheme: kAppWhite,
-    WidgetTheme.lrtPETheme: kAppWhite,
-    WidgetTheme.lrtPWTheme: kAppWhite,
-    WidgetTheme.sentosaExpressTheme: kAppWhite,
-    WidgetTheme.busTheme: kAppWhite,
-    WidgetTheme.grandShuttleTheme: kAppWhite,
-    WidgetTheme.beachShuttleTheme: kAppWhite,
-    WidgetTheme.mountFaberTheme: kAppWhite,
-    WidgetTheme.walkTheme: kAppGreyA,
     WidgetTheme.custom: kAppWhite,
     WidgetTheme.tealWhite: kAppWhite,
     WidgetTheme.secondaryTealWhite: kAppWhite,
@@ -214,7 +154,6 @@ extension WidgetThemeExtension on WidgetTheme {
     WidgetTheme.redWhite: kAppPrimaryRed,
     WidgetTheme.whiteRed: kAppWhite,
     WidgetTheme.whiteFriendlyRed: kAppWhite,
-    WidgetTheme.walkTheme: kAppWhite,
     WidgetTheme.custom: kAppWhite,
     WidgetTheme.tealWhite: kAppFriendlyTeal,
     WidgetTheme.secondaryTealWhite: kAppSecondaryTeal,
@@ -246,23 +185,6 @@ extension WidgetThemeExtension on WidgetTheme {
     WidgetTheme.redWhite: ShadowStrokeType.none,
     WidgetTheme.whiteRed: ShadowStrokeType.stroke2px,
     WidgetTheme.whiteFriendlyRed: ShadowStrokeType.stroke2px,
-    WidgetTheme.mrtDTTheme: ShadowStrokeType.none,
-    WidgetTheme.mrtEWTheme: ShadowStrokeType.none,
-    WidgetTheme.mrtNSTheme: ShadowStrokeType.none,
-    WidgetTheme.mrtNETheme: ShadowStrokeType.none,
-    WidgetTheme.mrtCCTheme: ShadowStrokeType.none,
-    WidgetTheme.mrtTETheme: ShadowStrokeType.none,
-    WidgetTheme.lrtBPTheme: ShadowStrokeType.none,
-    WidgetTheme.lrtSETheme: ShadowStrokeType.none,
-    WidgetTheme.lrtSWTheme: ShadowStrokeType.none,
-    WidgetTheme.lrtPETheme: ShadowStrokeType.none,
-    WidgetTheme.lrtPWTheme: ShadowStrokeType.none,
-    WidgetTheme.sentosaExpressTheme: ShadowStrokeType.none,
-    WidgetTheme.busTheme: ShadowStrokeType.none,
-    WidgetTheme.grandShuttleTheme: ShadowStrokeType.none,
-    WidgetTheme.beachShuttleTheme: ShadowStrokeType.none,
-    WidgetTheme.mountFaberTheme: ShadowStrokeType.none,
-    WidgetTheme.walkTheme: ShadowStrokeType.stroke2px,
     WidgetTheme.custom: ShadowStrokeType.none,
     WidgetTheme.tealWhite: ShadowStrokeType.none,
     WidgetTheme.secondaryTealWhite: ShadowStrokeType.none,
@@ -294,23 +216,6 @@ extension WidgetThemeExtension on WidgetTheme {
     WidgetTheme.redWhite: kAppWhite,
     WidgetTheme.whiteRed: kAppPrimaryRed,
     WidgetTheme.whiteFriendlyRed: kAppFriendlyRed,
-    WidgetTheme.mrtDTTheme: kAppWhite,
-    WidgetTheme.mrtEWTheme: kAppWhite,
-    WidgetTheme.mrtNSTheme: kAppWhite,
-    WidgetTheme.mrtNETheme: kAppWhite,
-    WidgetTheme.mrtCCTheme: kAppWhite,
-    WidgetTheme.mrtTETheme: kAppWhite,
-    WidgetTheme.lrtBPTheme: kAppWhite,
-    WidgetTheme.lrtSETheme: kAppWhite,
-    WidgetTheme.lrtSWTheme: kAppWhite,
-    WidgetTheme.lrtPETheme: kAppWhite,
-    WidgetTheme.lrtPWTheme: kAppWhite,
-    WidgetTheme.sentosaExpressTheme: kAppWhite,
-    WidgetTheme.busTheme: kAppWhite,
-    WidgetTheme.grandShuttleTheme: kAppWhite,
-    WidgetTheme.beachShuttleTheme: kAppWhite,
-    WidgetTheme.mountFaberTheme: kAppWhite,
-    WidgetTheme.walkTheme: kAppGreyA,
     WidgetTheme.custom: kAppWhite,
     WidgetTheme.tealWhite: kAppWhite,
     WidgetTheme.secondaryTealWhite: kAppWhite,
@@ -342,23 +247,6 @@ extension WidgetThemeExtension on WidgetTheme {
     WidgetTheme.redWhite: kAppGreyD,
     WidgetTheme.whiteRed: kAppGreyD,
     WidgetTheme.whiteFriendlyRed: kAppGreyD,
-    WidgetTheme.mrtDTTheme: kAppGreyD,
-    WidgetTheme.mrtEWTheme: kAppGreyD,
-    WidgetTheme.mrtNSTheme: kAppGreyD,
-    WidgetTheme.mrtNETheme: kAppGreyD,
-    WidgetTheme.mrtCCTheme: kAppGreyD,
-    WidgetTheme.mrtTETheme: kAppGreyD,
-    WidgetTheme.lrtBPTheme: kAppGreyD,
-    WidgetTheme.lrtSETheme: kAppGreyD,
-    WidgetTheme.lrtSWTheme: kAppGreyD,
-    WidgetTheme.lrtPETheme: kAppGreyD,
-    WidgetTheme.lrtPWTheme: kAppGreyD,
-    WidgetTheme.sentosaExpressTheme: kAppGreyD,
-    WidgetTheme.busTheme: kAppGreyD,
-    WidgetTheme.grandShuttleTheme: kAppGreyD,
-    WidgetTheme.beachShuttleTheme: kAppGreyD,
-    WidgetTheme.mountFaberTheme: kAppGreyD,
-    WidgetTheme.walkTheme: kAppGreyD,
     WidgetTheme.custom: kAppGreyD,
     WidgetTheme.tealWhite: kAppGreyD,
     WidgetTheme.secondaryTealWhite: kAppGreyD,
@@ -390,23 +278,6 @@ extension WidgetThemeExtension on WidgetTheme {
     WidgetTheme.redWhite: kAppWhite,
     WidgetTheme.whiteRed: kAppWhite,
     WidgetTheme.whiteFriendlyRed: kAppWhite,
-    WidgetTheme.mrtDTTheme: kAppWhite,
-    WidgetTheme.mrtEWTheme: kAppWhite,
-    WidgetTheme.mrtNSTheme: kAppWhite,
-    WidgetTheme.mrtNETheme: kAppWhite,
-    WidgetTheme.mrtCCTheme: kAppWhite,
-    WidgetTheme.mrtTETheme: kAppWhite,
-    WidgetTheme.lrtBPTheme: kAppWhite,
-    WidgetTheme.lrtSETheme: kAppWhite,
-    WidgetTheme.lrtSWTheme: kAppWhite,
-    WidgetTheme.lrtPETheme: kAppWhite,
-    WidgetTheme.lrtPWTheme: kAppWhite,
-    WidgetTheme.sentosaExpressTheme: kAppWhite,
-    WidgetTheme.busTheme: kAppWhite,
-    WidgetTheme.grandShuttleTheme: kAppWhite,
-    WidgetTheme.beachShuttleTheme: kAppWhite,
-    WidgetTheme.mountFaberTheme: kAppWhite,
-    WidgetTheme.walkTheme: kAppWhite,
     WidgetTheme.custom: kAppWhite,
     WidgetTheme.tealWhite: kAppWhite,
     WidgetTheme.secondaryTealWhite: kAppWhite,
@@ -427,37 +298,8 @@ extension WidgetThemeExtension on WidgetTheme {
     switch (this) {
       case WidgetTheme.blueWhite:
         return 'assets/icons/pins/pin_shape_blue.png';
-      case WidgetTheme.whiteBlue:
-      case WidgetTheme.whiteBlack:
-      case WidgetTheme.whiteRed:
       case WidgetTheme.whiteFriendlyRed:
-
-      /// MRT Theme
-      case WidgetTheme.mrtDTTheme:
-      case WidgetTheme.mrtEWTheme:
-      case WidgetTheme.mrtNSTheme:
-      case WidgetTheme.mrtNETheme:
-      case WidgetTheme.mrtTETheme:
-      case WidgetTheme.mrtCCTheme:
-
-      /// LRT Theme
-      case WidgetTheme.lrtBPTheme:
-      case WidgetTheme.lrtSETheme:
-      case WidgetTheme.lrtSWTheme:
-      case WidgetTheme.lrtPETheme:
-      case WidgetTheme.lrtPWTheme:
-
-      /// Tram
-      case WidgetTheme.sentosaExpressTheme:
-
-      /// Bus
-      case WidgetTheme.busTheme:
-      case WidgetTheme.grandShuttleTheme:
-      case WidgetTheme.beachShuttleTheme:
-      case WidgetTheme.mountFaberTheme:
         return 'assets/icons/pins/pin_shape_white.png';
-
-      /// undefined
       default:
         return 'assets/icons/pins/pin_shape_white.png';
     }

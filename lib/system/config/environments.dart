@@ -8,5 +8,5 @@ class Environments {
   String get getBaseUrl => _configService.getValue('FULLSTACKDIV_BASE_URL');
   String get getBaseUn => _configService.getValue('FULLSTACKDIV_BASE_UN');
   String get getBasePw => _configService.getValue('FULLSTACKDIV_BASE_PW');
-  String get getMixpanelToken => _configService.getValue('APP_MIXPANEL_TOKEN');
+  String get getMapBoxToken => _configService.getValue('MAP_BOX_TOKEN');
 }

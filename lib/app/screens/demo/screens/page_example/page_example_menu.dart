@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/app/components/card/basic_card.dart';
 import 'package:fullstackdiv_material/app/components/grid_view/basic_grid_view_count.dart';
 import 'package:fullstackdiv_material/app/components/header/basic_header.dart';
-import 'package:fullstackdiv_material/app/screens/demo/data/demo_controller_data.dart';
+import 'package:fullstackdiv_material/app/screens/demo/data/demo_page_data.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
 class PageExampleMenu extends StatelessWidget {
@@ -26,14 +26,14 @@ class PageExampleMenu extends StatelessWidget {
                 childAspectRatio: 1 / 1.1,
                 crossAxisCount: 2,
                 children: List<Widget>.generate(
-                  pageExampleControllers.length,
+                  pageExampleDemoCardList.length,
                   (int index) {
                     return BasicWideCard(
                       image: placeholderAssetImage,
-                      title: pageExampleControllers[index].title,
-                      subtitle: pageExampleControllers[index].subtitle,
+                      title: pageExampleDemoCardList[index].title,
+                      subtitle: pageExampleDemoCardList[index].subtitle,
                       onCardTap: () => ExtendedNavigator.of(context)
-                          .push(pageExampleControllers[index].child),
+                          .push(pageExampleDemoCardList[index].route),
                     );
                   },
                 ),

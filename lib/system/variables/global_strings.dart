@@ -1,3 +1,7 @@
+const String mapBoxUrlTemplate = 'fullstackdiv_material';
+const double initialLatitude = 1.299187;
+const double initialLongitude = 103.845896;
+
 class GlobalStrings {
   ///
   /// App Data

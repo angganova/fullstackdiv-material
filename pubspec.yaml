@@ -68,6 +68,9 @@ dependencies:
   # Allows us to add an inline webview, to use an headless webview, and to open an in-app browser window.
   flutter_inappwebview: ^4.0.0+4
 
+  # Allows child widget to access its parent
+  provider: ^4.3.2+2
+  
   # Calendar library
   date_picker_timeline: ^1.2.1
   flutter_rounded_date_picker:
@@ -119,6 +122,28 @@ dependencies:
 
   # Helper for get_it, it allows for our classes to have annotations like @injectable
   injectable: ^1.0.0
+
+  # Geofencing library
+  geofencing:
+    git:
+      url: https://github.com/bkonyi/FlutterGeofencing.git
+      ref: master
+
+  # Compass to show direction on the map
+  flutter_compass: ^0.5.1
+
+  # Allows us to show map on flutter using any map provider
+  flutter_map: 0.10.1+1
+
+  # A flutter_map plugin to handle marker clustering
+  flutter_map_marker_cluster: 0.3.1
+
+  # Adds Geo convenience geo functions like getCurrentLocation
+  geolocator: ^6.1.6
+
+  # Allows Map lines to be encoded and decoded
+  polyline: ^1.0.2
+
 
 dev_dependencies:
   flutter_test:
