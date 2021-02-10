@@ -25,9 +25,9 @@ const Color kAppGreyD = Color(0xFFEEEEEE); // App Grey D // App Grey E
 const Color kAppGreyAnimation = Color(0xFF7E8294); // App Grey Animation
 const Color kAppWhite = Color(0xFFFFFFFF); // App White
 const Color kAppClearWhite =
-    Color(0x00FFFFFF); // App Clear/Transparent from White Color
+Color(0x00FFFFFF); // App Clear/Transparent from White Color
 const Color kAppClearBlack =
-    Color(0x00000000); // App Clear/Transparent from White Color
+Color(0x00000000); // App Clear/Transparent from White Color
 const Color kAppMapRadarColor = Color(0xFF2B73FF);
 const Color kAppMapRadiusColor = Color(0xFF0047FE);
 const Color kAppDefaultMapTilesColor = Color(0xFFE8F2FB);

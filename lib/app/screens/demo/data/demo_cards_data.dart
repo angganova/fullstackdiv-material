@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/app/components/card/feature_card.dart';
 import 'package:fullstackdiv_material/app/components/card/narrow_card.dart';
 import 'package:fullstackdiv_material/app/components/card/wide_card.dart';
-import 'package:fullstackdiv_material/app/components/snackbar/basic_snack_bar.dart';
+import 'package:fullstackdiv_material/system/pop_up/snack_bar_pop_up.dart';
 import 'package:fullstackdiv_material/app/components/toast/public_toast.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
@@ -256,7 +256,7 @@ Widget _buildFeatureCard({int length}) {
             metadata: 'metadata (index $index)',
             image: 'https://picsum.photos/200?$index',
             onTap: () {
-              showBasicSnackBar(
+              SnackBarPopUp.sBasicSnackBar(
                 context: context,
                 text: 'Feature Card $index',
                 assetImageName: 'assets/demo/bell.png',

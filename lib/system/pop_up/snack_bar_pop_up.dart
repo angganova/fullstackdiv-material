@@ -3,68 +3,110 @@ import 'package:fullstackdiv_material/app/components/button/just_text_button.dar
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
 /// this is the [Function] to show [BasicSnackBar]
-void showBasicSnackBar({
-  @required BuildContext context,
-  String text,
-  WidgetTheme widgetTheme = WidgetTheme.yellowBlack,
-  String assetImageName,
-  String networkImageUrl,
-  IconData icon,
-  double iconSize,
-  Color backgroundColor,
-  Color textColor,
-  Duration duration,
-  VoidCallback action,
-  String trailingText,
-  String trailingSubtitle,
-  String trailingActionName,
-  Color trailingActionColor,
-  VoidCallback trailingAction,
-  EdgeInsets padding,
-  double radius = kBorderRadiusSmall,
-  VoidCallback onClose,
-}) {
-  /// declare basic snack bar view
-  final BasicSnackBarView _snackBarView = BasicSnackBarView(
-    text: text,
-    widgetTheme: widgetTheme,
-    assetImageName: assetImageName,
-    networkImageUrl: networkImageUrl,
-    icon: icon,
-    iconSize: iconSize,
-    backgroundColor: backgroundColor,
-    textColor: textColor,
-    action: action,
-    trailingText: trailingText,
-    trailingSubtitle: trailingSubtitle,
-    trailingActionName: trailingActionName,
-    trailingActionColor: trailingActionColor,
-    trailingAction: trailingAction,
-    duration: duration ?? kDuration5s,
-    padding: padding,
-    radius: radius,
-    onClose: onClose,
-  );
+class SnackBarPopUp {
+  static void sInformationSnackBar(
+      {@required BuildContext context,
+      @required String text,
+      IconData icon = Icons.info_outline_rounded,
+      WidgetTheme widgetTheme = WidgetTheme.yellowBlack,
+      Duration duration = kDuration5s}) {
+    sBasicSnackBar(
+        context: context,
+        text: text,
+        icon: icon,
+        widgetTheme: widgetTheme,
+        duration: duration);
+  }
 
-  /// show Snack Bar view
-  Scaffold.of(context).showSnackBar(
-    SnackBar(
+  static void sWarningSnackBar(
+      {@required BuildContext context,
+      @required String text,
+      IconData icon = Icons.warning_amber_outlined,
+      WidgetTheme widgetTheme = WidgetTheme.yellowBlack,
+      Duration duration = kDuration5s}) {
+    sBasicSnackBar(
+        context: context,
+        text: text,
+        icon: icon,
+        widgetTheme: widgetTheme,
+        duration: duration);
+  }
+
+  static void sErrorSnackBar(
+      {@required BuildContext context,
+      @required String text,
+      IconData icon = Icons.error_outline,
+      WidgetTheme widgetTheme = WidgetTheme.redWhite,
+      Duration duration = kDuration5s}) {
+    sBasicSnackBar(
+        context: context,
+        text: text,
+        icon: icon,
+        widgetTheme: widgetTheme,
+        duration: duration);
+  }
+
+  static void sBasicSnackBar({
+    @required BuildContext context,
+    String text,
+    WidgetTheme widgetTheme = WidgetTheme.yellowBlack,
+    String assetImageName,
+    String networkImageUrl,
+    IconData icon,
+    double iconSize,
+    Color backgroundColor,
+    Color textColor,
+    Duration duration,
+    VoidCallback action,
+    String trailingText,
+    String trailingSubtitle,
+    String trailingActionName,
+    Color trailingActionColor,
+    VoidCallback trailingAction,
+    EdgeInsets padding,
+    double radius = kBorderRadiusSmall,
+    VoidCallback onClose,
+  }) {
+    /// declare basic snack bar view
+    final BasicSnackBarView _snackBarView = BasicSnackBarView(
+      text: text,
+      widgetTheme: widgetTheme,
+      assetImageName: assetImageName,
+      icon: icon,
+      iconSize: iconSize,
+      backgroundColor: backgroundColor,
+      textColor: textColor,
+      action: action,
+      trailingText: trailingText,
+      trailingSubtitle: trailingSubtitle,
+      trailingActionName: trailingActionName,
+      trailingActionColor: trailingActionColor,
+      trailingAction: trailingAction,
       duration: duration ?? kDuration5s,
-      elevation: 0.0,
-      backgroundColor: kAppClearWhite,
-      content: _snackBarView,
-    ),
-  );
+      padding: padding,
+      radius: radius,
+      onClose: onClose,
+    );
+
+    /// show Snack Bar view
+    Scaffold.of(context).showSnackBar(
+      SnackBar(
+        duration: duration ?? kDuration5s,
+        elevation: 0.0,
+        backgroundColor: kAppClearWhite,
+        content: _snackBarView,
+      ),
+    );
+  }
 }
 
 /// this is the [BasicSnackBar] view
-/// which called by [showBasicSnackBar]
+/// which called by [sBasicSnackBar]
 class BasicSnackBarView extends StatefulWidget {
   const BasicSnackBarView({
     @required this.text,
     this.widgetTheme = WidgetTheme.yellowBlack,
     this.assetImageName,
-    this.networkImageUrl,
     this.icon,
     this.iconSize,
     this.backgroundColor,
@@ -90,7 +132,6 @@ class BasicSnackBarView extends StatefulWidget {
 
   /// optional
   final String assetImageName;
-  final String networkImageUrl;
   final IconData icon;
   final double iconSize;
   final Color backgroundColor;
@@ -171,7 +212,7 @@ class _BasicSnackBarViewState extends State<BasicSnackBarView>
 
     _imageSizeTween = Tween<double>(
         begin: kExtentZeroPoint0,
-        end: (widget.assetImageName != null || widget.networkImageUrl != null)
+        end: (widget.assetImageName != null)
             ? kSpacer.md
             : (widget.iconSize ?? kSpacer.sm));
 
@@ -264,15 +305,6 @@ class _BasicSnackBarViewState extends State<BasicSnackBarView>
                         widget.assetImageName,
                         width: _imageSizeAnimation.value,
                         height: _imageSizeAnimation.value,
-                      ),
-                    )
-                  else if (widget.networkImageUrl != null)
-                    Padding(
-                      padding: kSpacer.edgeInsets.right.sm,
-                      child: Image.network(
-                        widget.networkImageUrl,
-                        width: kSpacer.md,
-                        height: kSpacer.md,
                       ),
                     )
                   else if (widget.icon != null)

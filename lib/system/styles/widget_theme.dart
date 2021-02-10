@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:fullstackdiv_material/system/global_styles.dart';
-
+import 'package:fullstackdiv_material/system/styles/colors.dart';
 import 'shadow_stroke_styles.dart';
 
-/// This is the class that contains all Theme Styles
+/// this is the class that contains all Button Styles
 /// to be used immediately inside the classes without
 /// adding any style like backgroundColor, selectedBackgroundColor,
 /// textColor, selectedTextColor & shadowStrokeType
 ///
-/// The naming for the [2 color] styles is based on this rule :
+///
+/// the naming for the [2 color] styles is based on this rule :
 /// [normal_background_color][normal_text_color]
-/// So for example : blue normal background color & white normal text color
+/// so for example : blue normal background color & white normal text color
 /// the name will be : blueWhite
 /// selected background color = normal text color
 /// & selected text color = normal background color
 
 enum WidgetTheme {
   /// 2 colors styles
-  primaryAndWhite,
+  primaryWhite,
+  whitePrimary,
   blueWhite,
   whiteBlue,
   blackWhite,
@@ -39,7 +40,7 @@ enum WidgetTheme {
   greyAWhite,
   pinkBlack,
   blackPink,
-  secondaryTeal,
+  secondaryTeal
 }
 
 extension WidgetThemeExtension on WidgetTheme {
@@ -47,7 +48,8 @@ extension WidgetThemeExtension on WidgetTheme {
   ///
   /// background colors
   static const Map<WidgetTheme, Color> backgroundColors = <WidgetTheme, Color>{
-    WidgetTheme.primaryAndWhite: kAppPrimaryColor,
+    WidgetTheme.primaryWhite: kAppPrimaryColor,
+    WidgetTheme.whitePrimary: kAppWhite,
     WidgetTheme.blueWhite: kAppPrimaryElectricBlue,
     WidgetTheme.whiteBlue: kAppWhite,
     WidgetTheme.blackWhite: kAppBlack,
@@ -78,7 +80,8 @@ extension WidgetThemeExtension on WidgetTheme {
   ///
   /// normal text colors
   static const Map<WidgetTheme, Color> textColors = <WidgetTheme, Color>{
-    WidgetTheme.primaryAndWhite: kAppWhite,
+    WidgetTheme.primaryWhite: kAppWhite,
+    WidgetTheme.whitePrimary: kAppPrimaryColor,
     WidgetTheme.blueWhite: kAppWhite,
     WidgetTheme.whiteBlue: kAppPrimaryElectricBlue,
     WidgetTheme.blackWhite: kAppWhite,
@@ -108,7 +111,7 @@ extension WidgetThemeExtension on WidgetTheme {
   ///
   /// selected background colors
   static const Map<WidgetTheme, Color> selectedBackgroundColors =
-      <WidgetTheme, Color>{
+  <WidgetTheme, Color>{
     WidgetTheme.blueWhite: kAppPrimaryBrightBlue,
     WidgetTheme.whiteBlue: kAppPrimaryElectricBlue,
     WidgetTheme.blackWhite: kAppWhite,
@@ -139,7 +142,7 @@ extension WidgetThemeExtension on WidgetTheme {
   ///
   /// selected text colors
   static const Map<WidgetTheme, Color> selectedTextColors =
-      <WidgetTheme, Color>{
+  <WidgetTheme, Color>{
     WidgetTheme.blueWhite: kAppBlack,
     WidgetTheme.whiteBlue: kAppWhite,
     WidgetTheme.blackWhite: kAppBlack,
@@ -170,7 +173,7 @@ extension WidgetThemeExtension on WidgetTheme {
   ///
   /// shadow/stroke
   static const Map<WidgetTheme, ShadowStrokeType> shadowStrokeTypes =
-      <WidgetTheme, ShadowStrokeType>{
+  <WidgetTheme, ShadowStrokeType>{
     WidgetTheme.blueWhite: ShadowStrokeType.none,
     WidgetTheme.whiteBlue: ShadowStrokeType.stroke2px,
     WidgetTheme.blackWhite: ShadowStrokeType.none,
@@ -201,7 +204,7 @@ extension WidgetThemeExtension on WidgetTheme {
   ///
   /// highlighted background color
   static const Map<WidgetTheme, Color> highlightedBackgroundColors =
-      <WidgetTheme, Color>{
+  <WidgetTheme, Color>{
     WidgetTheme.blueWhite: kAppPrimaryBrightBlue,
     WidgetTheme.whiteBlue: kAppPrimaryElectricBlue,
     WidgetTheme.blackWhite: kAppWhite,
@@ -232,7 +235,7 @@ extension WidgetThemeExtension on WidgetTheme {
   ///
   /// disabled background color
   static const Map<WidgetTheme, Color> disabledBackgroundColors =
-      <WidgetTheme, Color>{
+  <WidgetTheme, Color>{
     WidgetTheme.blueWhite: kAppGreyD,
     WidgetTheme.whiteBlue: kAppGreyD,
     WidgetTheme.blackWhite: kAppGreyC,
@@ -263,7 +266,7 @@ extension WidgetThemeExtension on WidgetTheme {
   ///
   /// disabled text color
   static const Map<WidgetTheme, Color> disabledTextColors =
-      <WidgetTheme, Color>{
+  <WidgetTheme, Color>{
     WidgetTheme.blueWhite: kAppGreyB,
     WidgetTheme.whiteBlue: kAppGreyB,
     WidgetTheme.blackWhite: kAppWhite,
@@ -299,8 +302,11 @@ extension WidgetThemeExtension on WidgetTheme {
     switch (this) {
       case WidgetTheme.blueWhite:
         return 'assets/icons/pins/pin_shape_blue.png';
+      case WidgetTheme.whiteBlue:
+      case WidgetTheme.whiteBlack:
+      case WidgetTheme.whiteRed:
       case WidgetTheme.whiteFriendlyRed:
-        return 'assets/icons/pins/pin_shape_white.png';
+      /// undefined
       default:
         return 'assets/icons/pins/pin_shape_white.png';
     }

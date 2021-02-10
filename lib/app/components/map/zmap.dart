@@ -14,7 +14,7 @@ import 'package:fullstackdiv_material/app/components/map/polygon/circle_region.d
 import 'package:fullstackdiv_material/app/components/map/polyline/zpolyline.dart';
 import 'package:fullstackdiv_material/app/components/map/zmap_controller.dart';
 import 'package:fullstackdiv_material/app/components/map/zmap_vm.dart';
-import 'package:fullstackdiv_material/app/components/snackbar/basic_snack_bar.dart';
+import 'package:fullstackdiv_material/system/pop_up/snack_bar_pop_up.dart';
 import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:fullstackdiv_material/system/copy/copy.dart';
@@ -223,7 +223,7 @@ class _ZMapState extends State<ZMap>
       reaction((_) => _viewModel.lowLocationAccuracy, (bool lowAccuracy) {
         if (lowAccuracy) {
           if (context != null) {
-            showBasicSnackBar(
+            SnackBarPopUp.sBasicSnackBar(
               context: widget.context,
               text: _copy.missing(
                   'Weak GPS signal. Your location on the map might not be accurate'),
