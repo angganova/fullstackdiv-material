@@ -1,5 +1,5 @@
-import 'package:mobx/mobx.dart';
 import 'package:fullstackdiv_material/app/components/chip/stores/task.dart';
+import 'package:mobx/mobx.dart';
 
 part 'chip_store.g.dart';
 

@@ -3,10 +3,10 @@ import 'dart:async';
 import 'package:fullstackdiv_material/app/components/map/view_model/location_vm.dart';
 import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
+import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
-import 'package:fullstackdiv_material/system/global_styles.dart';
 
 part 'zmap_vm.g.dart';
 
@@ -75,7 +75,7 @@ abstract class _ZMapViewModel with Store {
   @action
   Future<Location> getLastKnownLocation() async {
     final Location location = await _locationViewModel.getLastKnownLocation();
-    if (!location.equals(currentLocation)){
+    if (!location.equals(currentLocation)) {
       currentLocation = location;
     }
     return location;
@@ -84,7 +84,7 @@ abstract class _ZMapViewModel with Store {
   @action
   Future<void> getCurrentLocation() async {
     final Location location = await _locationViewModel.getCurrentLocation();
-    if (!location.equals(currentLocation)){
+    if (!location.equals(currentLocation)) {
       currentLocation = location;
     }
   }

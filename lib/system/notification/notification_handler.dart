@@ -18,11 +18,10 @@ class NotificationHandler {
 
     if (notificationData?.actionType != null &&
         notificationData?.actionParameter != null) {
-
-    }else{
+    } else {
       printDebug('handleOnMessageTrigger');
       final NotificationVM _notificationVM = getIt<NotificationVM>();
-      if(_notificationVM.isWidgetActive){
+      if (_notificationVM.isWidgetActive) {
         _notificationVM.displayPushNotification(notificationData);
       }
     }

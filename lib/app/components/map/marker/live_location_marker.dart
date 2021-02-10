@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:flutter_compass/flutter_compass.dart';
+import 'package:fullstackdiv_material/system/global_styles.dart';
 
 class LiveLocationMarker extends StatefulWidget {
   const LiveLocationMarker({Key key, this.radius, this.inactive = false})
@@ -14,7 +14,6 @@ class LiveLocationMarker extends StatefulWidget {
 }
 
 class _LiveLocationMarkerState extends State<LiveLocationMarker> {
-
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -30,23 +29,25 @@ class _LiveLocationMarkerState extends State<LiveLocationMarker> {
         ),
 
         /// compass direction
-        if (!widget.inactive) StreamBuilder<CompassEvent>(
-          stream: FlutterCompass.events,
-          builder: (BuildContext context, AsyncSnapshot<CompassEvent> snapshot) {
-            if (snapshot.hasData) {
-              final int direction = snapshot.data.heading.toInt();
-              if (direction == null) {
-                print('No sensor available');
+        if (!widget.inactive)
+          StreamBuilder<CompassEvent>(
+            stream: FlutterCompass.events,
+            builder:
+                (BuildContext context, AsyncSnapshot<CompassEvent> snapshot) {
+              if (snapshot.hasData) {
+                final int direction = snapshot.data.heading.toInt();
+                if (direction == null) {
+                  print('No sensor available');
+                  return Container();
+                }
+                return RotationTransition(
+                  turns: AlwaysStoppedAnimation<double>(direction / 360),
+                  child: _compassWidget,
+                );
+              } else
                 return Container();
-              }
-              return RotationTransition(
-                turns: AlwaysStoppedAnimation<double>(direction / 360),
-                child: _compassWidget,
-              );
-            } else
-              return Container();
-          },
-        ),
+            },
+          ),
 
         /// blue dot user location point
         Align(

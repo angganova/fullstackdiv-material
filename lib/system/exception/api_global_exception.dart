@@ -1,5 +1,3 @@
-
-
 import 'package:fullstackdiv_material/data/api/response/global_response.dart';
 
 class ApiGlobalException implements Exception {

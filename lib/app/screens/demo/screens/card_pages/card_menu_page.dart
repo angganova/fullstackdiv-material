@@ -25,8 +25,8 @@ class CardMenuPage extends StatelessWidget {
               child: BasicGridViewCount(
                 childAspectRatio: 1 / 1.1,
                 crossAxisCount: 2,
-                children:
-                    List<Widget>.generate(cardsDemoCardList.length, (int index) {
+                children: List<Widget>.generate(cardsDemoCardList.length,
+                    (int index) {
                   return BasicWideCard(
                     image: placeholderAssetImage,
                     title: cardsDemoCardList[index].title,

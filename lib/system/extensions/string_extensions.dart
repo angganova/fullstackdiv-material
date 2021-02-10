@@ -7,9 +7,9 @@ extension StringExtension on String {
   bool get isNotNull => this != null;
   bool get isNullOrEmpty => this == null || isEmpty;
   bool get isNotNullOrEmpty {
-    if(isNull){
+    if (isNull) {
       return false;
-    }else{
+    } else {
       return isNotEmpty;
     }
   }

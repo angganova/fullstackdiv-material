@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fullstackdiv_material/data/api/client/api_repository.dart';
+import 'package:fullstackdiv_material/data/api/repository/api_repository.dart';
 import 'package:fullstackdiv_material/data/api/response/global_response.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_state.dart';

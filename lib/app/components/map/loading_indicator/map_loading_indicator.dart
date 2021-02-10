@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fullstackdiv_material/app/components/map/marker_helper.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/marker_type.dart';
+import 'package:fullstackdiv_material/app/components/map/marker_helper.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
 class MapLoadingIndicator extends StatefulWidget {

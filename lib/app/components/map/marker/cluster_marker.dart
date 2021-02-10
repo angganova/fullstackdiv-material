@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
 class ClusterMarker extends StatelessWidget {
-  const ClusterMarker({Key key, this.markerCount, this.color, this.edgeInsets, this.highlighted = false})
+  const ClusterMarker(
+      {Key key,
+      this.markerCount,
+      this.color,
+      this.edgeInsets,
+      this.highlighted = false})
       : super(key: key);
 
   final int markerCount;
@@ -28,8 +33,8 @@ class ClusterMarker extends StatelessWidget {
                 child: FittedBox(
                   child: Image.asset(
                     highlighted
-                        ? 'assets/icons/pins/pin_shape_blue.png' :
-                    'assets/icons/pins/pin_shape_white.png',
+                        ? 'assets/icons/pins/pin_shape_blue.png'
+                        : 'assets/icons/pins/pin_shape_white.png',
                   ),
                   fit: BoxFit.fill,
                 ),
@@ -40,7 +45,9 @@ class ClusterMarker extends StatelessWidget {
               padding: kSpacer.edgeInsets.top.sm,
               child: Icon(
                 Icons.card_giftcard,
-                color: highlighted ? kAppWhite : kAppPrimaryElectricBlue.withOpacity(0.6),
+                color: highlighted
+                    ? kAppWhite
+                    : kAppPrimaryElectricBlue.withOpacity(0.6),
                 size: kPinIconSize,
               ),
             ),

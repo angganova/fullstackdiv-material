@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fullstackdiv_material/app/components/snackbar/basic_snack_bar.dart';
 import 'package:fullstackdiv_material/data/model/notification/push_notification_model.dart';
-import 'package:fullstackdiv_material/system/global_state.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
+import 'package:fullstackdiv_material/system/global_state.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/notification/fcm_notification_setting.dart';
 import 'package:injectable/injectable.dart';
@@ -59,7 +59,7 @@ abstract class _NotificationVM with Store {
       widgetState.index.isLessThan(AppWidgetState.stateDisposed.index);
 
   Future<void> sendPN() async {
-    if(deviceFCMToken.isNullOrEmpty){
+    if (deviceFCMToken.isNullOrEmpty) {
       return;
     }
 

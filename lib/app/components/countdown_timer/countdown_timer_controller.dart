@@ -1,7 +1,7 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:meta/meta.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
+import 'package:meta/meta.dart';
 
 /// A controller class to control [CountdownTimer]
 /// see [DemoCountdownTimerPage] to check the concrete implementation

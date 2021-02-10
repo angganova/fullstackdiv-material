@@ -5,12 +5,12 @@ import 'package:fullstackdiv_material/data/model/app/app_launch_data.dart';
 import 'package:fullstackdiv_material/system/copy/copy.dart';
 import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
+import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:fullstackdiv_material/system/global_variables.dart';
 import 'package:fullstackdiv_material/system/notification/fcm_notification_setting.dart';
 import 'package:fullstackdiv_material/system/notification/notification_handler.dart';
 import 'package:fullstackdiv_material/system/observer/app_lifecycle_handler.dart';
 import 'package:fullstackdiv_material/system/state/widget_state.dart';
-import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 

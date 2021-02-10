@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:date_picker_timeline/gestures/tap.dart';
+import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
-import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 
 class TimelineCalendar extends StatefulWidget {
   const TimelineCalendar(

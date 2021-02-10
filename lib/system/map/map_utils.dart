@@ -5,10 +5,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_map/flutter_map.dart';
 // ignore: implementation_imports
 import 'package:flutter_map/src/core/bounds.dart';
-import 'package:latlong/latlong.dart';
-import 'package:polyline/polyline.dart' as pl;
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/utils/math_utils.dart';
+import 'package:latlong/latlong.dart';
+import 'package:polyline/polyline.dart' as pl;
 
 ///
 /// Utility class for Flutter map
@@ -117,8 +117,6 @@ class MapUtils {
 
     path.add(startLocation);
 
-
-
     return path;
   }
 
@@ -168,7 +166,7 @@ class MapUtils {
     return const Epsg3857().pointToLatLng(point, zoom);
   }
 
-  static double meterPerPixel(LatLng centerPoint, double zoom){
+  static double meterPerPixel(LatLng centerPoint, double zoom) {
     /// ground resolution = cos(latitude * π / 180) * earth circumference / map width
     /// earth circumference =  2 * π * 6378137
     /// ground_resolution = (cos(latitude * π / 180) * 2 * π * 6378137) / (256 * 2^zoomLevel)
@@ -178,12 +176,14 @@ class MapUtils {
     /// https://medium.com/techtrument/how-many-miles-are-in-a-pixel-a0baf4611fff
     const num earthRadius = 6378137; // in meter
     const num earthCircumference = 2 * math.pi * earthRadius;
-    final num mapWidth = 256 *  math.pow(2, zoom);
-    final num groundResolution = (math.cos(centerPoint.latitude * math.pi / 180) * earthCircumference) / mapWidth;
+    final num mapWidth = 256 * math.pow(2, zoom);
+    final num groundResolution =
+        (math.cos(centerPoint.latitude * math.pi / 180) * earthCircumference) /
+            mapWidth;
     return groundResolution.toDouble();
   }
 
-  static double meterInPixels(LatLng centerPoint, double zoom, double pixel){
+  static double meterInPixels(LatLng centerPoint, double zoom, double pixel) {
     return meterPerPixel(centerPoint, zoom) * pixel;
   }
 

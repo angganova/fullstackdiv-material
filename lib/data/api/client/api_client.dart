@@ -1,15 +1,16 @@
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:fullstackdiv_material/data/api/response/global_response.dart';
 import 'package:fullstackdiv_material/system/config/env_types.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
+import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
+import 'package:fullstackdiv_material/system/exception/api_acceptable_exception.dart';
+import 'package:fullstackdiv_material/system/exception/api_global_exception.dart';
+import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retry/retry.dart';
-import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
-import 'package:fullstackdiv_material/system/exception/api_global_exception.dart';
-import 'package:fullstackdiv_material/system/exception/api_acceptable_exception.dart';
-import 'package:fullstackdiv_material/system/global_extensions.dart';
 
 @lazySingleton
 class ApiClient {

@@ -12,12 +12,6 @@ class ApiRepository {
   /// App state
   /// Check Version
   Future<GlobalResponse> getVersion(int version) async {
-    // final Map<String, dynamic> requestBody = <String, dynamic>{'version': version};
-    //
-    // return await apiClient
-    //     .post('user/login', requestBody: requestBody)
-    //     .then((Map<String, dynamic> value) => GlobalResponse.fromJson(value));
-    
     return Future<GlobalResponse>.delayed(kDuration2s, () => GlobalResponse());
   }
 

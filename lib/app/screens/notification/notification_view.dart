@@ -7,8 +7,8 @@ import 'package:fullstackdiv_material/app/components/list_view/no_overscroll_lis
 import 'package:fullstackdiv_material/app/screens/notification/notification_vm.dart';
 import 'package:fullstackdiv_material/data/model/notification/push_notification_model.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
-import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
+import 'package:fullstackdiv_material/system/global_styles.dart';
 
 class NotificationView extends StatefulWidget {
   @override

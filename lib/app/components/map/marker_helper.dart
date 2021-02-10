@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong/latlong.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/cluster_marker.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/icon_marker.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/image_marker.dart';
@@ -14,6 +13,7 @@ import 'package:fullstackdiv_material/app/components/map/marker/zmarker.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/zmarker_stop.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/zmarker_taxi.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
+import 'package:latlong/latlong.dart';
 
 const double kUserLocationRadius = 40.0; // radius in pixel
 

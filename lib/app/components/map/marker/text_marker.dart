@@ -60,9 +60,7 @@ class GroupMarker extends StatelessWidget {
                     boxShadow: <BoxShadow>[kPinBoxShadow]),
                 child: Text(
                   markerCount,
-                  style:
-                      AppTextStyle(color: kAppBlack)
-                          .primaryH4,
+                  style: AppTextStyle(color: kAppBlack).primaryH4,
                 ),
               ),
             ),

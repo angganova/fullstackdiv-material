@@ -25,8 +25,8 @@ class VerticalDrawerMenu extends StatelessWidget {
               child: BasicGridViewCount(
                 childAspectRatio: 1 / 1.1,
                 crossAxisCount: 2,
-                children: List<Widget>.generate(verticalDrawerDemoCardList.length,
-                    (int index) {
+                children: List<Widget>.generate(
+                    verticalDrawerDemoCardList.length, (int index) {
                   return BasicWideCard(
                     image: placeholderAssetImage,
                     title: verticalDrawerDemoCardList[index].title,

@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart' hide Router;
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:fullstackdiv_material/app/screens/demo/screens/bottom_navigation_pages/test_discover_page.dart';
-import 'package:fullstackdiv_material/app/screens/demo/screens/bottom_navigation_pages/test_profile_page.dart';
 import 'package:fullstackdiv_material/app/components/bottom_navigation_bar/bottom_navigation_bar.dart';
 import 'package:fullstackdiv_material/app/components/bottom_navigation_bar/bottom_navigation_item.dart';
 import 'package:fullstackdiv_material/app/components/bottom_navigation_bar/stores/bottom_nav_store.dart';
@@ -11,6 +9,8 @@ import 'package:fullstackdiv_material/app/components/header/basic_header.dart';
 import 'package:fullstackdiv_material/app/components/list_item/status_bar_list_item.dart';
 import 'package:fullstackdiv_material/app/components/overlay_box/overlay_box.dart';
 import 'package:fullstackdiv_material/app/components/single_child_scroll/single_child_scroll.dart';
+import 'package:fullstackdiv_material/app/screens/demo/screens/bottom_navigation_pages/test_discover_page.dart';
+import 'package:fullstackdiv_material/app/screens/demo/screens/bottom_navigation_pages/test_profile_page.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';

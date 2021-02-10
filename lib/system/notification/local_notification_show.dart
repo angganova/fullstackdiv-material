@@ -5,9 +5,9 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fullstackdiv_material/data/model/notification/push_notification_model.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
+import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:fullstackdiv_material/system/notification/local_notification_setting.dart';
 import 'package:fullstackdiv_material/system/notification/notification_constant.dart';
-import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:injectable/injectable.dart';
 
 import '../global_styles.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:fullstackdiv_material/app/components/map/marker/marker_type.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/zmarker.dart';
 import 'package:fullstackdiv_material/data/model/mapbox/location.dart';

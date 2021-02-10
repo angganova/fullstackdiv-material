@@ -87,8 +87,8 @@ abstract class _DemoMapViewModel with Store {
   @action
   void findRoutePolyline() {
     getRouteState = GetRouteState.loading;
-    final List<LatLng> points = MapUtils.encodedRouteToLocationList(encodedRoute)
-        .toList();
+    final List<LatLng> points =
+        MapUtils.encodedRouteToLocationList(encodedRoute).toList();
     routePoints.clear();
     routePoints.addAll(points);
     routeDrawn = true;

@@ -3,12 +3,12 @@ import 'dart:ui';
 import 'package:flutter/animation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
-import 'package:latlong/latlong.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/zmarker.dart';
-import 'package:fullstackdiv_material/system/global_styles.dart';
+import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
+import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/map/map_utils.dart';
+import 'package:latlong/latlong.dart';
 
 /// A controller for [ZMap]
 class ZMapController {
@@ -80,13 +80,15 @@ class ZMapController {
     final AnimationController animationController =
         AnimationController(duration: duration ?? kDuration800, vsync: vsync);
 
-    final Animation<double> animation =
-        CurvedAnimation(parent: animationController, curve: Curves.fastOutSlowIn);
+    final Animation<double> animation = CurvedAnimation(
+        parent: animationController, curve: Curves.fastOutSlowIn);
 
     animationController.addListener(() {
       controller.move(
           LatLng(_latTween.evaluate(animation), _lngTween.evaluate(animation)),
-          _zoomTween != null ? _zoomTween.evaluate(animation) : controller.zoom);
+          _zoomTween != null
+              ? _zoomTween.evaluate(animation)
+              : controller.zoom);
     });
 
     animation.addStatusListener((AnimationStatus status) {
@@ -176,8 +178,8 @@ class ZMapController {
     final AnimationController controller =
         AnimationController(duration: duration, vsync: vsync);
 
-    final Animation<double> animation =
-        CurvedAnimation(parent: controller, curve: Curves.fastLinearToSlowEaseIn);
+    final Animation<double> animation = CurvedAnimation(
+        parent: controller, curve: Curves.fastLinearToSlowEaseIn);
 
     controller.addListener(() {
       onMoveMarker(Location(
@@ -199,6 +201,4 @@ class ZMapController {
 
     controller.forward();
   }
-
-
 }

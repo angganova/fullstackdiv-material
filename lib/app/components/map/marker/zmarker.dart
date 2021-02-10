@@ -60,5 +60,4 @@ class ZMarker {
   Marker build() {
     return createMarker(this, svgFileName);
   }
-
 }

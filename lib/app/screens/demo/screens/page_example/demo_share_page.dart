@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:screenshot/screenshot.dart';
-import 'package:share/share.dart';
 import 'package:fullstackdiv_material/app/components/button/just_text_button.dart';
 import 'package:fullstackdiv_material/app/components/header/basic_header.dart';
 import 'package:fullstackdiv_material/app/components/vertical_drawer/vertical_drawer.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:share/share.dart';
 
 class DemoSharePage extends StatefulWidget {
   @override

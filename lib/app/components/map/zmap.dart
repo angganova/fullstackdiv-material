@@ -5,11 +5,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
-import 'package:fullstackdiv_material/system/config/environments.dart';
-import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
-import 'package:latlong/latlong.dart';
-import 'package:mobx/mobx.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/marker_type.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/zmarker.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/zmarker_stop.dart';
@@ -20,10 +15,15 @@ import 'package:fullstackdiv_material/app/components/map/polyline/zpolyline.dart
 import 'package:fullstackdiv_material/app/components/map/zmap_controller.dart';
 import 'package:fullstackdiv_material/app/components/map/zmap_vm.dart';
 import 'package:fullstackdiv_material/app/components/snackbar/basic_snack_bar.dart';
+import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
+import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:fullstackdiv_material/system/copy/copy.dart';
+import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/map/map_utils.dart';
+import 'package:latlong/latlong.dart';
+import 'package:mobx/mobx.dart';
 
 typedef LocationBoundsCallback = void Function(List<Location> locations);
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
-import 'package:latlong/latlong.dart';
-import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
+import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/map/map_utils.dart';
+import 'package:latlong/latlong.dart';
 
 /// A Polyline model
 class ZPolyline {

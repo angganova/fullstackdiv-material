@@ -3,21 +3,21 @@ import 'dart:isolate';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:fullstackdiv_material/app/components/map/view_model/geofence_vm.dart';
-import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
-import 'package:geofencing/geofencing.dart' as gf;
 import 'package:fullstackdiv_material/app/components/button/custom_icon_button.dart';
+import 'package:fullstackdiv_material/app/components/map/marker/zmarker.dart';
 import 'package:fullstackdiv_material/app/components/map/marker/zmarker_stop.dart';
 import 'package:fullstackdiv_material/app/components/map/polygon/circle_region.dart';
-import 'package:fullstackdiv_material/system/global_extensions.dart';
-import 'package:latlong/latlong.dart';
+import 'package:fullstackdiv_material/app/components/map/polyline/zpolyline.dart';
+import 'package:fullstackdiv_material/app/components/map/view_model/geofence_vm.dart';
 import 'package:fullstackdiv_material/app/components/map/zmap.dart';
 import 'package:fullstackdiv_material/app/components/map/zmap_controller.dart';
-import 'package:fullstackdiv_material/app/components/map/marker/zmarker.dart';
-import 'package:fullstackdiv_material/app/components/map/polyline/zpolyline.dart';
 import 'package:fullstackdiv_material/app/components/toast/public_toast.dart';
+import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
+import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/map/map_utils.dart';
+import 'package:geofencing/geofencing.dart' as gf;
+import 'package:latlong/latlong.dart';
 
 class DemoGeofencingPage extends StatefulWidget {
   @override
@@ -72,7 +72,7 @@ class _DemoGeofencingPageState extends State<DemoGeofencingPage> {
     await gf.GeofencingManager.initialize();
 
     /// subscribe Geofencing Service
-    if (IsolateNameServer.lookupPortByName(_geofencingSendPort) != null ) {
+    if (IsolateNameServer.lookupPortByName(_geofencingSendPort) != null) {
       unsubscribeGeofencing();
     }
     final bool result = subscribeGeofencing();
@@ -82,18 +82,20 @@ class _DemoGeofencingPageState extends State<DemoGeofencingPage> {
 
       /// Register geofence regions
       registerGeofence();
-    }else {
+    } else {
       print('Failed to subscribe Geofencing');
     }
   }
 
-  bool subscribeGeofencing(){
+  bool subscribeGeofencing() {
     port = ReceivePort();
-    return IsolateNameServer.registerPortWithName(port.sendPort, _geofencingSendPort);
+    return IsolateNameServer.registerPortWithName(
+        port.sendPort, _geofencingSendPort);
   }
 
   bool unsubscribeGeofencing() {
-    final bool result = IsolateNameServer.removePortNameMapping(_geofencingSendPort);
+    final bool result =
+        IsolateNameServer.removePortNameMapping(_geofencingSendPort);
     print('Success unsubscribe geofencing: $result');
     return result;
   }
@@ -113,7 +115,7 @@ class _DemoGeofencingPageState extends State<DemoGeofencingPage> {
     }
 
     final List<String> registeredGeofence =
-    await gf.GeofencingManager.getRegisteredGeofenceIds();
+        await gf.GeofencingManager.getRegisteredGeofenceIds();
     print('Registered geofence: $registeredGeofence');
   }
 
@@ -142,7 +144,6 @@ class _DemoGeofencingPageState extends State<DemoGeofencingPage> {
     geofenceStream?.cancel();
     port.close();
   }
-
 
   void geofencingEventCallback(dynamic data) {
     print('Geofencing Callback Invoked!');
@@ -200,7 +201,6 @@ class _DemoGeofencingPageState extends State<DemoGeofencingPage> {
           padding: const EdgeInsets.all(kDefaultSmallMargin),
         ),
       );
-
 
   List<ZMarkerStop> get _stopMarkers {
     return stopPoints
