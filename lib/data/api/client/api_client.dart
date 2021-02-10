@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:dio/dio.dart';
-import 'package:fullstackdiv_material/system/api/response_model/global_response.dart';
+import 'package:fullstackdiv_material/data/api/response/global_response.dart';
 import 'package:fullstackdiv_material/system/config/env_types.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:injectable/injectable.dart';

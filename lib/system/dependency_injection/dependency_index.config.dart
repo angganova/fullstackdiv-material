@@ -4,8 +4,8 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:fullstackdiv_material/system/api/client/api_client.dart';
-import 'package:fullstackdiv_material/system/api/client/api_repository.dart';
+import 'package:fullstackdiv_material/data/api/client/api_client.dart';
+import 'package:fullstackdiv_material/data/api/client/api_repository.dart';
 import 'package:fullstackdiv_material/system/config/config_service.dart';
 import 'package:fullstackdiv_material/system/copy/copy.dart';
 import 'package:fullstackdiv_material/system/copy/copy_module.dart';

@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fullstackdiv_material/app/fsd_app.dart';
 import 'package:fullstackdiv_material/app/screens/home/home_vm.dart';
-import 'package:fullstackdiv_material/model/app/app_launch_data.dart';
+import 'package:fullstackdiv_material/data/model/app/app_launch_data.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_variables.dart';
 import 'package:fullstackdiv_material/system/notification/fcm_notification_setting.dart';

@@ -5,7 +5,7 @@ import 'package:fullstackdiv_material/app/components/button/wide_button.dart';
 import 'package:fullstackdiv_material/app/components/header/basic_header.dart';
 import 'package:fullstackdiv_material/app/components/list_view/no_overscroll_list_view.dart';
 import 'package:fullstackdiv_material/app/screens/notification/notification_vm.dart';
-import 'package:fullstackdiv_material/model/notification/push_notification_model.dart';
+import 'package:fullstackdiv_material/data/model/notification/push_notification_model.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';

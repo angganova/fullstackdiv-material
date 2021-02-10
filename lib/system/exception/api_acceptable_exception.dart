@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:fullstackdiv_material/model/app/global_error.dart';
+import 'package:fullstackdiv_material/data/model/app/global_error.dart';
 
 class ApiAcceptableException implements Exception {
   /// This exception will throw GlobalErrorResponse in the message

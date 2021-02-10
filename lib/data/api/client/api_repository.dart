@@ -1,5 +1,5 @@
-import 'package:fullstackdiv_material/system/api/client/api_client.dart';
-import 'package:fullstackdiv_material/system/api/response_model/global_response.dart';
+import 'package:fullstackdiv_material/data/api/client/api_client.dart';
+import 'package:fullstackdiv_material/data/api/response/global_response.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:injectable/injectable.dart';
 

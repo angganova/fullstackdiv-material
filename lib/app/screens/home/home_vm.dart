@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:fullstackdiv_material/model/app/app_launch_data.dart';
+import 'package:fullstackdiv_material/data/model/app/app_launch_data.dart';
 import 'package:fullstackdiv_material/system/copy/copy.dart';
 import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';

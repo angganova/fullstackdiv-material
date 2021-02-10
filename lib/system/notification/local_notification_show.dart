@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:fullstackdiv_material/model/notification/push_notification_model.dart';
+import 'package:fullstackdiv_material/data/model/notification/push_notification_model.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
 import 'package:fullstackdiv_material/system/notification/local_notification_setting.dart';
