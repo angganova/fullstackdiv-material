@@ -117,6 +117,25 @@ class AppSpacer {
 
   /// value: 56
   double get xxl => spacerValue * _Helper['xxl'] * textScaleFactor;
+
+  Widget get vNone => Container();
+  Widget get vHStandard => Container(height: standard);
+  Widget get vHxxs => Container(height: xxs);
+  Widget get vHxs => Container(height: xs);
+  Widget get vHsm => Container(height: sm);
+  Widget get vHmd => Container(height: md);
+  Widget get vHlg => Container(height: lg);
+  Widget get vHxl => Container(height: xl);
+  Widget get vHxxl => Container(height: xxl);
+
+  Widget get vWStandard => Container(width: standard);
+  Widget get vWxxs => Container(width: xxs);
+  Widget get vWxs => Container(width: xs);
+  Widget get vWsm => Container(width: sm);
+  Widget get vWmd => Container(width: md);
+  Widget get vWlg => Container(width: lg);
+  Widget get vWxl => Container(width: xl);
+  Widget get vWxxl => Container(width: xxl);
 }
 
 ///

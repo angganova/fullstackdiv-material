@@ -14,14 +14,13 @@ import 'package:fullstackdiv_material/app/components/map/polygon/circle_region.d
 import 'package:fullstackdiv_material/app/components/map/polyline/zpolyline.dart';
 import 'package:fullstackdiv_material/app/components/map/zmap_controller.dart';
 import 'package:fullstackdiv_material/app/components/map/zmap_vm.dart';
-import 'package:fullstackdiv_material/system/pop_up/snack_bar_pop_up.dart';
 import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
-import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:fullstackdiv_material/system/copy/copy.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/map/map_utils.dart';
+import 'package:fullstackdiv_material/system/pop_up/snack_bar_pop_up.dart';
 import 'package:latlong/latlong.dart';
 import 'package:mobx/mobx.dart';
 
@@ -113,7 +112,6 @@ class _ZMapState extends State<ZMap>
   final Location _initialPosition = Location(1.299187, 103.845896);
   final ZMapViewModel _viewModel = getIt<ZMapViewModel>();
   final Copy _copy = getIt<Copy>();
-  final Environments _env = getIt<Environments>();
 
   MapController _mapController;
   List<ReactionDisposer> _disposers;
@@ -122,8 +120,7 @@ class _ZMapState extends State<ZMap>
   double mapHeight;
   LatLng offsetPosition;
 
-  String get _mapBoxUrl =>
-      '$mapBoxUrlTemplate?access_token=${_env.getMapBoxToken}';
+  String get _mapBoxUrl => '$mapBoxUrlTemplate?access_token=';
 
   @override
   void initState() {
@@ -223,7 +220,7 @@ class _ZMapState extends State<ZMap>
       reaction((_) => _viewModel.lowLocationAccuracy, (bool lowAccuracy) {
         if (lowAccuracy) {
           if (context != null) {
-            SnackBarPopUp.sBasicSnackBar(
+            SnackBarPopUp.sBasic(
               context: widget.context,
               text: _copy.missing(
                   'Weak GPS signal. Your location on the map might not be accurate'),

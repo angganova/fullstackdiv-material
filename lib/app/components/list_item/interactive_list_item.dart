@@ -21,7 +21,6 @@ class InteractiveListItem extends StatefulWidget {
     this.isSlideAble = true,
     this.frontInfoText,
     this.frontInfoIcon,
-    this.frontInfoPicture,
     this.backInfoText,
     this.backInfoIcon,
     this.descriptionMaxLines = 1,
@@ -69,7 +68,6 @@ class InteractiveListItem extends StatefulWidget {
 
   final IconData backInfoIcon;
   final IconData frontInfoIcon;
-  final SvgPicture frontInfoPicture;
 
   final Color imageBackgroundColor;
   final Color iconBackgroundColor;
@@ -208,7 +206,7 @@ class _InteractiveListItemState extends State<InteractiveListItem>
         children: <Widget>[
           Positioned.fill(
             child:
-                _buildBackContent(_radius + 2.0), // add radius to hide bleeding
+            _buildBackContent(_radius + 2.0), // add radius to hide bleeding
           ),
           _buildFront(_radius),
         ],
@@ -311,29 +309,29 @@ class _InteractiveListItemState extends State<InteractiveListItem>
                       borderRadius: BorderRadius.circular(kSpacer.sm),
                       child: widget.useCacheImage
                           ? CachedNetworkImage(
-                              imageUrl: widget.image,
-                              filterQuality: FilterQuality.high,
-                              memCacheHeight: cacheMaxHeightImage,
-                              fit: BoxFit.cover,
-                              fadeInDuration: const Duration(milliseconds: 100),
-                              placeholder:
-                                  (BuildContext context, String text) => Center(
-                                child: ShimmerView(
-                                  padding: AppSpacer(context: context)
-                                      .edgeInsets
-                                      .all
-                                      .none,
-                                  play: true,
-                                  child: Container(
-                                    color: kAppWhite,
-                                  ),
-                                ),
-                              ),
-                            )
-                          : Image.network(
-                              widget.image,
-                              fit: widget.imageFit,
+                        imageUrl: widget.image,
+                        filterQuality: FilterQuality.high,
+                        memCacheHeight: cacheMaxHeightImage,
+                        fit: BoxFit.cover,
+                        fadeInDuration: const Duration(milliseconds: 100),
+                        placeholder:
+                            (BuildContext context, String text) => Center(
+                          child: ShimmerView(
+                            padding: AppSpacer(context: context)
+                                .edgeInsets
+                                .all
+                                .none,
+                            play: true,
+                            child: Container(
+                              color: kAppWhite,
                             ),
+                          ),
+                        ),
+                      )
+                          : Image.network(
+                        widget.image,
+                        fit: widget.imageFit,
+                      ),
                     ),
                   ),
                 ),
@@ -363,10 +361,10 @@ class _InteractiveListItemState extends State<InteractiveListItem>
               ),
             )
           else if (widget.picture != null)
-            Padding(
-              padding: kSpacer.edgeInsets.right.sm,
-              child: widget.picture,
-            ),
+              Padding(
+                padding: kSpacer.edgeInsets.right.sm,
+                child: widget.picture,
+              ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -404,11 +402,6 @@ class _InteractiveListItemState extends State<InteractiveListItem>
                     SizedBox(
                       width: kSpacer.sm,
                     ),
-                  if (widget.frontInfoText != null &&
-                      widget.frontInfoPicture != null)
-                    SizedBox(
-                      width: kSpacer.xs,
-                    ),
                   if (widget.frontInfoIcon != null)
                     Stack(
                       alignment: Alignment.centerRight,
@@ -420,7 +413,6 @@ class _InteractiveListItemState extends State<InteractiveListItem>
                         ),
                       ],
                     ),
-                  if (widget.frontInfoPicture != null) widget.frontInfoPicture,
                 ],
               ),
               GestureDetector(

@@ -35,12 +35,10 @@ class JustTextButton extends StatelessWidget {
       title: title,
       onPressed: onPressed,
       shadowStrokeType: ShadowStrokeType.none,
+      widgetTheme: WidgetTheme.clearPrimary,
       padding: padding,
-      backgroundColor: kAppClearWhite,
-      textStyle: textStyle ?? AppTextStyle(color: textColor).primaryB2,
-      textColor: textColor,
-      selectedTextColor: selectedTextColor,
-      disableTextColor: disableTextColor,
+      textStyle: textStyle ??
+          AppTextStyle(context: context, color: textColor).primaryB2,
       radius: 0.0,
     );
   }

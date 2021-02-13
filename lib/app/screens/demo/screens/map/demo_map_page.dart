@@ -13,7 +13,6 @@ import 'package:fullstackdiv_material/app/components/map/zmap_controller.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/map/demo_map_vm.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/map/demo_pick_location_page.dart';
 import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
-import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
@@ -59,7 +58,7 @@ class _DemoMapPageState extends State<DemoMapPage>
 
   @override
   void initState() {
-    mapBoxToken = getIt<Environments>().getMapBoxToken;
+    mapBoxToken = '';
     mapBoxUrl = '$mapBoxUrlTemplate?access_token=$mapBoxToken';
 
     _viewModel.fetchLocation();

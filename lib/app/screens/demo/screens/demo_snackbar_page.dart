@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/app/components/button/wide_button.dart';
 import 'package:fullstackdiv_material/app/components/header/basic_header.dart';
 import 'package:fullstackdiv_material/app/components/single_child_scroll/single_child_scroll.dart';
-import 'package:fullstackdiv_material/system/pop_up/snack_bar_pop_up.dart';
 import 'package:fullstackdiv_material/app/components/toast/public_toast.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
+import 'package:fullstackdiv_material/system/pop_up/snack_bar_pop_up.dart';
 
 class DemoSnackbarPage extends StatelessWidget {
   /// this is the page where we show the example of [SnackBar]
@@ -36,7 +36,7 @@ class DemoSnackbarPage extends StatelessWidget {
                         WideButton(
                           title: 'White Snack Bar',
                           widgetTheme: WidgetTheme.whiteBlack,
-                          onPressed: () => SnackBarPopUp.sBasicSnackBar(
+                          onPressed: () => SnackBarPopUp.sBasic(
                               context: context,
                               widgetTheme: WidgetTheme.whiteBlack,
                               text: placeholderString,
@@ -53,7 +53,7 @@ class DemoSnackbarPage extends StatelessWidget {
                         WideButton(
                           title: 'Yellow Snack Bar',
                           widgetTheme: WidgetTheme.yellowBlack,
-                          onPressed: () => SnackBarPopUp.sBasicSnackBar(
+                          onPressed: () => SnackBarPopUp.sBasic(
                             context: context,
                             text: placeholderString,
                             assetImageName: 'assets/demo/bell.png',
@@ -70,7 +70,7 @@ class DemoSnackbarPage extends StatelessWidget {
                         WideButton(
                           title: 'Subtitle Snack Bar',
                           widgetTheme: WidgetTheme.blackYellow,
-                          onPressed: () => SnackBarPopUp.sBasicSnackBar(
+                          onPressed: () => SnackBarPopUp.sBasic(
                             context: context,
                             widgetTheme: WidgetTheme.blackYellow,
                             text: placeholderString,
@@ -88,7 +88,7 @@ class DemoSnackbarPage extends StatelessWidget {
                         WideButton(
                           title: 'Red Snack Bar',
                           widgetTheme: WidgetTheme.redWhite,
-                          onPressed: () => SnackBarPopUp.sBasicSnackBar(
+                          onPressed: () => SnackBarPopUp.sBasic(
                             context: context,
                             text: placeholderString,
                             assetImageName: 'assets/demo/bell.png',
@@ -104,7 +104,7 @@ class DemoSnackbarPage extends StatelessWidget {
                         WideButton(
                           title: 'No Icon/Image',
                           widgetTheme: WidgetTheme.blueWhite,
-                          onPressed: () => SnackBarPopUp.sBasicSnackBar(
+                          onPressed: () => SnackBarPopUp.sBasic(
                             context: context,
                             text: placeholderString,
                             widgetTheme: WidgetTheme.blueWhite,
@@ -119,7 +119,7 @@ class DemoSnackbarPage extends StatelessWidget {
                         WideButton(
                           title: 'No Icon/Image 2nd Ver',
                           widgetTheme: WidgetTheme.whiteBlue,
-                          onPressed: () => SnackBarPopUp.sBasicSnackBar(
+                          onPressed: () => SnackBarPopUp.sBasic(
                             context: context,
                             text: placeholderString,
                             widgetTheme: WidgetTheme.whiteBlue,
@@ -135,7 +135,7 @@ class DemoSnackbarPage extends StatelessWidget {
                         WideButton(
                           title: 'With Icon',
                           widgetTheme: WidgetTheme.blackWhite,
-                          onPressed: () => SnackBarPopUp.sBasicSnackBar(
+                          onPressed: () => SnackBarPopUp.sBasic(
                             context: context,
                             text: placeholderString,
                             widgetTheme: WidgetTheme.blackWhite,

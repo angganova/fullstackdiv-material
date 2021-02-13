@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 /// consists of solid colors without transparency
 ///
 /// used for main solid colors
-const Color kAppPrimaryColor = Color(0xFF3F51B5);
+const Color kAppPrimaryColor = Colors.indigo;
+const Color kAppPrimaryColorAccent = Colors.indigoAccent;
+
 const Color kAppPrimaryElectricBlue = Color(0xFF0000FE); // App Electric Blue
 const Color kAppPrimaryBrightBlue = Color(0xFF70C6FF); // App Bright Blue
 const Color kAppPrimaryBurgundy = Color(0xFFC42375); // App Burgundy

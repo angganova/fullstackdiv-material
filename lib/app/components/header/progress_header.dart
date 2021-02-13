@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fullstackdiv_material/app/components/linear_precent_indicator/linear_precent_indicator.dart';
+import 'package:fullstackdiv_material/app/components/percent_indicator/linear_precent_indicator.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
 /// Component TextStyle

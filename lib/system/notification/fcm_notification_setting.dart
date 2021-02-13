@@ -8,20 +8,20 @@ import 'package:fullstackdiv_material/system/dependency_injection/dependency_ind
 import 'package:fullstackdiv_material/system/global_variables.dart';
 import 'package:fullstackdiv_material/system/notification/local_notification_show.dart';
 import 'package:fullstackdiv_material/system/notification/notification_handler.dart';
-import 'package:injectable/injectable.dart';
 
 Future<dynamic> _defaultOnBackground(Map<String, dynamic> message) async {
   final FCMNotificationSetting fcmSetting = getIt<FCMNotificationSetting>();
   fcmSetting._defaultNotificationHandler(message, 'onBackground');
 }
 
-@lazySingleton
 class FCMNotificationSetting {
-  FCMNotificationSetting(
-      this._notificationHandler, this._localNotificationShow);
+  FCMNotificationSetting._();
 
-  final NotificationHandler _notificationHandler;
-  final LocalNotificationShow _localNotificationShow;
+  static FCMNotificationSetting instance = FCMNotificationSetting._();
+
+  final NotificationHandler _notificationHandler = NotificationHandler.instance;
+  final LocalNotificationShow _localNotificationShow =
+      LocalNotificationShow.instance;
   final LoggerBuilder _loggerBuilder = LoggerBuilder('FCMNotificationSetting');
 
   FirebaseMessaging _fireBaseMessaging;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
+import 'package:fullstackdiv_material/system/global_styles.dart';
 
 class ToastPopUp {
-  static void sInformationalToast(String text,
+  static void sInformationToast(String text,
       {BuildContext context,
       IconData icon = Icons.info_outline_rounded,
       String image,

@@ -25,14 +25,6 @@ class SvgMarker extends StatelessWidget {
               child: Container(
                 width: kPinSize - (highlighted ? 10 : 0),
                 height: kPinSize,
-                child: FittedBox(
-                  child: Image.asset(
-                    highlighted
-                        ? 'assets/icons/pins/pin_shape_blue.png'
-                        : theme.pinImage,
-                  ),
-                  fit: BoxFit.fill,
-                ),
               ),
             ),
             Container(

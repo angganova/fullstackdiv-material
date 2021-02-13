@@ -5,20 +5,21 @@ import 'package:fullstackdiv_material/system/config/environments.dart';
 import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
 import 'package:fullstackdiv_material/system/notification/notification_constant.dart';
 import 'package:fullstackdiv_material/system/notification/notification_handler.dart';
-import 'package:injectable/injectable.dart';
 
 /// Refer to
 /// https://github.com/MaikuB/flutter_local_notifications/blob/master/flutter_local_notifications/example/lib/main.dart
-@lazySingleton
 class LocalNotificationSetting {
-  LocalNotificationSetting(this.env, this.notificationHandler) {
+  LocalNotificationSetting._() {
     initLocalNotification();
   }
 
-  final Environments env;
+  static LocalNotificationSetting instance = LocalNotificationSetting._();
+
+  final Environments env = Environments.instance;
+  final NotificationHandler notificationHandler = NotificationHandler.instance;
+
   final LoggerBuilder _loggerBuilder =
       LoggerBuilder('LocalNotificationSetting');
-  final NotificationHandler notificationHandler;
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
 

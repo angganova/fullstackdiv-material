@@ -35,7 +35,6 @@ import 'package:fullstackdiv_material/app/screens/demo/screens/input_field_pages
 import 'package:fullstackdiv_material/app/screens/demo/screens/input_field_pages/demo_text_field_page.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/input_field_pages/input_field_menu_page.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/list_item/demo_basic_list_item.dart';
-import 'package:fullstackdiv_material/app/screens/demo/screens/list_item/demo_interactive_list_item.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/list_item/demo_journey_list_item.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/list_item/demo_notification_list_item.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/list_item/demo_search_list_item.dart';
@@ -167,7 +166,6 @@ import 'package:fullstackdiv_material/app/screens/home/home_view.dart';
     CupertinoRoute<dynamic>(page: DemoMapClusteringPage),
     CupertinoRoute<dynamic>(page: MapMenuPage),
     // CupertinoRoute<dynamic>(page: DemoPaymentMethodInteractiveListItem),
-    CupertinoRoute<dynamic>(page: DemoInteractiveListItem),
     // CupertinoRoute<dynamic>(page: ZestDemo),
     // CupertinoRoute<dynamic>(page: DemoFeedback),
     CupertinoRoute<dynamic>(page: ShimmerMenu),

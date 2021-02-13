@@ -71,14 +71,6 @@ class WideButton extends StatefulWidget {
 class _WideButtonState extends State<WideButton> {
   @override
   Widget build(BuildContext context) {
-    /// here we set some of final (immutable) properties
-    /// for icons
-    final Color _iconColor = (widget.onPressed == null)
-        ? widget.widgetTheme.disabledTextColor
-        : (widget.selected
-            ? (widget.iconSelectedColor ?? widget.widgetTheme.selectedTextColor)
-            : (widget.iconColor ?? widget.widgetTheme.textColor));
-
     /// for text styles
     final Color _textColor = (widget.onPressed == null)
         ? widget.widgetTheme.disabledTextColor
@@ -95,11 +87,7 @@ class _WideButtonState extends State<WideButton> {
             : (widget.shadowStrokeType ?? widget.widgetTheme.shadowStrokeType);
 
     /// for radius (no radius means auto-rounded the button)
-    final double _radius = widget.radius ?? (AppQuery(context).radius);
-
-    /// for disabled colors
-    final Color _disabledColor =
-        widget.disabledColor ?? widget.widgetTheme.disabledBackgroundColor;
+    final double _radius = widget.radius;
 
     final EdgeInsets _padding =
         (_shadowStrokeType == ShadowStrokeType.stroke2px)
@@ -111,21 +99,14 @@ class _WideButtonState extends State<WideButton> {
     return BasicButton(
       title: widget.title,
       titleReplacement: widget.titleReplacement,
-      icon: widget.icon,
+      leadingIcon: widget.icon,
       onPressed: widget.onPressed,
       widgetTheme: widget.widgetTheme,
       shadowStrokeType: _shadowStrokeType,
       padding: widget.padding ?? _padding,
       margin: widget.margin,
-      iconColor: _iconColor,
-      iconSize: widget.iconSize,
-      backgroundColor: _backgroundColor,
-      textStyle: widget.textStyle != null
-          ? widget.textStyle.copyWith(color: widget.textColor)
-          : _kDefaultTextStyle,
-      textColor: widget.textColor,
-      selectedTextColor: widget.selectedTextColor,
-      disabledColor: _disabledColor,
+      textStyle: widget.textStyle?.copyWith(color: widget.textColor) ??
+          _kDefaultTextStyle,
       radius: _radius,
       fullWidth: widget.fullWidth,
     );

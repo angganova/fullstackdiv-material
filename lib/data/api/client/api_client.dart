@@ -9,16 +9,16 @@ import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
 import 'package:fullstackdiv_material/system/exception/api_acceptable_exception.dart';
 import 'package:fullstackdiv_material/system/exception/api_global_exception.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
-import 'package:injectable/injectable.dart';
 import 'package:retry/retry.dart';
 
-@lazySingleton
 class ApiClient {
-  ApiClient(this._environments) {
+  ApiClient._() {
     initClient();
   }
 
-  final Environments _environments;
+  static ApiClient instance = ApiClient._();
+
+  final Environments _environments = Environments.instance;
   final LoggerBuilder _loggerBuilder = LoggerBuilder('DefaultApiClient');
   final Dio _dio = Dio();
 
@@ -30,7 +30,7 @@ class ApiClient {
 
   final String _defaultContentType = 'application/json; charset=utf-8';
 
-  void initClient() {
+  Future<void> initClient() async {
     final BaseOptions options = BaseOptions(
       baseUrl: _environments.getBaseUrl,
       followRedirects: false,
@@ -51,9 +51,7 @@ class ApiClient {
     }
   }
 
-  String _createBasicAuth() =>
-      'Basic ${base64Encode(utf8.encode('${_environments.getBaseUn}'
-          ':${_environments.getBasePw}'))}';
+  String get _createBasicAuth => 'Basic ASDF';
 
   Options _getAdditionalOptions(
           {Map<String, dynamic> extraHeaders,

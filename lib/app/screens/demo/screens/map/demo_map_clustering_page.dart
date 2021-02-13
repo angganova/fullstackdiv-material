@@ -5,8 +5,6 @@ import 'package:fullstackdiv_material/app/components/map/marker/zmarker.dart';
 import 'package:fullstackdiv_material/app/components/map/zmap.dart';
 import 'package:fullstackdiv_material/app/components/map/zmap_controller.dart';
 import 'package:fullstackdiv_material/data/model/mapbox/location.dart';
-import 'package:fullstackdiv_material/system/config/environments.dart';
-import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/global_variables.dart';
 
@@ -32,8 +30,7 @@ class _DemoMapClusteringPageState extends State<DemoMapClusteringPage> {
     Location(1.308111, 103.770749),
   ];
 
-  String get mapBoxUrl =>
-      '$mapBoxUrlTemplate?access_token=${getIt<Environments>().getMapBoxToken}';
+  String get mapBoxUrl => '$mapBoxUrlTemplate?access_token=';
 
   List<List<ZMarker>> get _markers {
     return <List<ZMarker>>[

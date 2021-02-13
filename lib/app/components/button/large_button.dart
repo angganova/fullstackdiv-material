@@ -58,14 +58,6 @@ class LargeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// here we set some of final (immutable) properties
-    /// for icons
-    final Color _iconColor = (onPressed == null)
-        ? widgetTheme.disabledTextColor
-        : (selected
-            ? (iconSelectedColor ?? widgetTheme.selectedTextColor)
-            : (iconColor ?? widgetTheme.textColor));
-
     /// for text styles
     final Color _textColor = (onPressed == null)
         ? widgetTheme.disabledTextColor
@@ -83,10 +75,6 @@ class LargeButton extends StatelessWidget {
     /// for radius (no radius means auto-rounded the button)
     final double _radius = radius ?? (AppQuery(context).radius);
 
-    /// for disabled colors
-    final Color _disabledColor =
-        disabledColor ?? widgetTheme.disabledBackgroundColor;
-
     final EdgeInsets _padding =
         (_shadowStrokeType == ShadowStrokeType.stroke2px)
             ? const EdgeInsets.symmetric(
@@ -99,29 +87,14 @@ class LargeButton extends StatelessWidget {
 
     return BasicButton(
       title: title,
-      icon: icon,
+      leadingIcon: icon,
       onPressed: onPressed,
       widgetTheme: widgetTheme,
       shadowStrokeType: _shadowStrokeType,
       padding: padding ?? _padding,
-      iconColor: _iconColor,
-      iconSize: iconSize,
-      backgroundColor: _backgroundColor,
       textStyle: _kDefaultTextStyle,
-      textColor: textColor,
-      selectedTextColor: selectedTextColor,
-      disabledColor: _disabledColor,
       radius: _radius,
       fullWidth: fullWidth,
     );
-  }
-
-  Color get _backgroundColor {
-    if (isTransparent)
-      return kAppClearWhite;
-    else
-      return selected
-          ? (selectedBackgroundColor ?? widgetTheme.selectedBackgroundColor)
-          : (backgroundColor ?? widgetTheme.backgroundColor);
   }
 }

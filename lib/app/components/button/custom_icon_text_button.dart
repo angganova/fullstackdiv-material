@@ -53,14 +53,6 @@ class CustomIconTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// here we set some of final (immutable) properties
-    /// for icons
-    final Color _iconColor = (onPressed == null)
-        ? widgetTheme.disabledTextColor
-        : (selected
-            ? (iconSelectedColor ?? widgetTheme.selectedTextColor)
-            : (iconColor ?? widgetTheme.textColor));
-
     /// for shadow/stroke type
     final ShadowStrokeType _shadowStrokeType = isTransparent
         ? ShadowStrokeType.none
@@ -68,10 +60,6 @@ class CustomIconTextButton extends StatelessWidget {
 
     /// for radius (no radius means auto-rounded the button)
     final double _radius = radius ?? (AppQuery(context).radius);
-
-    /// for disabled colors
-    final Color _disabledColor =
-        disabledColor ?? widgetTheme.disabledBackgroundColor;
 
     final EdgeInsets _padding =
         (_shadowStrokeType == ShadowStrokeType.stroke2px)
@@ -83,15 +71,11 @@ class CustomIconTextButton extends StatelessWidget {
     return Column(
       children: <Widget>[
         BasicButton(
-          icon: icon,
+          leadingIcon: icon,
           onPressed: onPressed,
           widgetTheme: widgetTheme,
           shadowStrokeType: _shadowStrokeType,
           padding: padding ?? _padding,
-          iconColor: _iconColor,
-          iconSize: iconSize,
-          backgroundColor: _backgroundColor,
-          disabledColor: _disabledColor,
           radius: _radius,
         ),
         SizedBox(
@@ -103,14 +87,5 @@ class CustomIconTextButton extends StatelessWidget {
         ),
       ],
     );
-  }
-
-  Color get _backgroundColor {
-    if (isTransparent)
-      return kAppClearWhite;
-    else
-      return selected
-          ? (selectedBackgroundColor ?? widgetTheme.selectedBackgroundColor)
-          : (backgroundColor ?? widgetTheme.backgroundColor);
   }
 }

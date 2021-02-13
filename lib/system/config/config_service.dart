@@ -4,23 +4,17 @@ import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class ConfigService {
-  ConfigService._(this._remoteConfig);
+  ConfigService._() {
+    _init();
+  }
 
-  final RemoteConfig _remoteConfig;
+  static ConfigService instance = ConfigService._();
 
-  static Completer<ConfigService> _completer;
+  RemoteConfig _remoteConfig;
 
-  static Future<ConfigService> getInstance() async {
-    if (_completer == null) {
-      _completer = Completer<ConfigService>();
-
-      final RemoteConfig config = await _loadFirebaseConfig();
-      await _loadEnv();
-
-      _completer.complete(ConfigService._(config));
-    }
-
-    return _completer.future;
+  Future<void> _init() async {
+    _loadEnv();
+    _remoteConfig = await _loadFirebaseConfig();
   }
 
   static Future<void> _loadEnv() async {

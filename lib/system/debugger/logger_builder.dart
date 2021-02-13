@@ -1,13 +1,12 @@
 import 'package:fullstackdiv_material/system/config/env_types.dart';
 import 'package:fullstackdiv_material/system/config/environments.dart';
-import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:logger/logger.dart';
 
 class LoggerBuilder {
   LoggerBuilder(this.tag, {this.easySearch = true});
 
-  final Environments _environment = getIt<Environments>();
+  final Environments _environment = Environments.instance;
   final Logger loggerDev = Logger(printer: PrettyPrinter(methodCount: 0));
   final Logger loggerQA = Logger(printer: PrettyPrinter(methodCount: 0));
 

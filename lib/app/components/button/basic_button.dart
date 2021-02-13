@@ -10,33 +10,24 @@ class BasicButton extends StatefulWidget {
   /// this is the main class of the button
   /// all button is made of this class
   /// [onPressed] are required
-  /// [icon] & [title] are optional so we can build a button
-  /// with/only/without [icon] or with/only/without [text] or with/only/without [image]
-  /// but we SHOULD choose one of [icon] & [title] & [image]
+  /// [leadingIcon] & [title] are optional so we can build a button
+  /// with/only/without [leadingIcon] or with/only/without [text] or with/only/without [leadingImage]
+  /// but we SHOULD choose one of [leadingIcon] & [title] & [leadingImage]
 
   const BasicButton({
     @required this.onPressed,
     this.title,
     this.titleReplacement,
-    this.icon,
-    this.image,
-    this.widgetTheme = WidgetTheme.whiteBlack,
+    this.leadingIcon,
+    this.widgetTheme = WidgetTheme.primaryWhite,
     this.shadowStrokeType,
     this.padding,
-    this.iconColor,
-    this.iconSize = kSmallIconSize,
-    this.imageSize,
-    this.backgroundColor,
     this.textStyle,
-    this.textColor,
-    this.selectedTextColor,
-    this.disableTextColor,
-    this.disabledColor,
     this.radius,
     this.fullWidth = false,
     this.margin,
     this.border,
-    this.oneLine = true,
+    this.trailingIcon,
   });
 
   /// required
@@ -45,8 +36,8 @@ class BasicButton extends StatefulWidget {
   /// one of them (at least) should NOT NULL
   final String title;
   final Widget titleReplacement;
-  final IconData icon;
-  final ImageProvider image;
+  final IconData leadingIcon;
+  final IconData trailingIcon;
 
   /// recommended
   final WidgetTheme widgetTheme;
@@ -54,29 +45,14 @@ class BasicButton extends StatefulWidget {
   final EdgeInsets padding;
 
   /// optional
-  final Color iconColor;
-  final double iconSize;
-  final double imageSize;
-  final Color backgroundColor;
   final TextStyle textStyle;
-  final Color textColor;
-  final Color selectedTextColor;
-  final Color disableTextColor;
-  final Color disabledColor;
   final BoxBorder border;
-
-  /// this [radius] is to declare how much the [corner radius] you want to set to the button
-  /// the default value is [height/2]
   final double radius;
 
   /// this [fullWidth] is to change button to full width or not
   final bool fullWidth;
 
-  /// Enforce button to not having margin at all this is for flex box
   final EdgeInsets margin;
-
-  /// Use flex direction row if one line
-  final bool oneLine;
 
   @override
   _BasicButtonState createState() => _BasicButtonState();
@@ -85,23 +61,23 @@ class BasicButton extends StatefulWidget {
 class _BasicButtonState extends State<BasicButton>
     with TickerProviderStateMixin {
   /// for icons
-  Color get _iconColor => widget.iconColor ?? widget.widgetTheme.textColor;
+  Color get _iconColor => widget.widgetTheme.textColor;
 
   /// for shadow/stroke type
   ShadowStrokeType get _shadowStrokeType =>
       widget.shadowStrokeType ?? widget.widgetTheme.shadowStrokeType;
 
   /// for background color
-  Color get _backgroundColor =>
-      widget.backgroundColor ?? widget.widgetTheme.backgroundColor;
+  Color get _backgroundColor => widget.widgetTheme.backgroundColor;
 
   /// for text style
   TextStyle get _textStyle =>
       widget.textStyle ??
-      AppTextStyle(color: widget.textColor, context: context).primaryB2;
+      AppTextStyle(color: widget.widgetTheme.textColor, context: context)
+          .primaryB2;
 
   /// for radius (no radius means auto-rounded the button)
-  double get _radius => widget.radius ?? (AppQuery(context).radius);
+  double get _radius => widget.radius ?? kBorderRadiusTiny;
 
   /// for padding
   EdgeInsets get _padding {
@@ -120,6 +96,8 @@ class _BasicButtonState extends State<BasicButton>
     }
   }
 
+  EdgeInsets get _margin => widget.margin;
+
   /// Animating the On Pressed in the button
   AnimationController _animationController;
   AnimationController _disabledAnimationController;
@@ -131,7 +109,6 @@ class _BasicButtonState extends State<BasicButton>
   ColorTween _colorTween;
   Tween<double> _opacityTween;
   bool _enableAnimation;
-  EdgeInsets get _margin => widget.margin;
   bool _isAnimating = false;
 
   @override
@@ -191,9 +168,10 @@ class _BasicButtonState extends State<BasicButton>
 
     /// color animation
     _colorTween = ColorTween(
-      begin: widget.textColor,
-      end: widget.selectedTextColor,
+      begin: widget.widgetTheme.textColor,
+      end: widget.widgetTheme.selectedTextColor,
     );
+
     _colorAnimation = _colorTween.animate(
       CurvedAnimation(
         parent: _animationController,
@@ -272,7 +250,6 @@ class _BasicButtonState extends State<BasicButton>
                 border: widget.border,
                 borderRadius: BorderRadius.all(
                   Radius.circular(
-                    /// auto-rounded the button
                     widget.radius ?? AppQuery(context).radius,
                   ),
                 ),
@@ -315,45 +292,34 @@ class _BasicButtonState extends State<BasicButton>
 
   Widget get _child {
     return ShadowStrokeStyles(
-      shadowStrokeType: _shadowStrokeType,
-      radius: _radius,
-      padding: widget.padding ?? _padding,
-      color: widget.onPressed != null ? _backgroundColor : widget.disabledColor,
-      child: widget.oneLine
-          ? Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize:
-                  widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
-              children: _content,
-            )
-          : Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize:
-                  widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
-              children: _content,
-            ),
-    );
+        shadowStrokeType: _shadowStrokeType,
+        radius: _radius,
+        padding: widget.padding ?? _padding,
+        color: widget.onPressed != null
+            ? _backgroundColor
+            : widget.widgetTheme.disabledBackgroundColor,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
+          children: _content,
+        ));
   }
 
   List<Widget> get _content {
     return <Widget>[
-      if (widget.icon != null)
+      if (widget.leadingIcon != null)
         Icon(
-          widget.icon,
+          widget.leadingIcon,
           color: _iconColor,
-          size: widget.iconSize,
         ),
       if (widget.titleReplacement != null)
         widget.titleReplacement
-      else if (widget.title != null && _backgroundColor == kAppClearWhite)
+      else if (widget.title != null)
         Padding(
-          padding: widget.icon == null
+          padding: widget.leadingIcon == null
               ? kSpacer.edgeInsets.left.none
-              : widget.oneLine == false
-                  ? kSpacer.edgeInsets.top.xxs
-                  : kSpacer.edgeInsets.left.xs,
+              : kSpacer.edgeInsets.left.xs,
           child: TextColorAnimation(
             text: widget.title,
             textStyle: _textStyle,
@@ -363,11 +329,9 @@ class _BasicButtonState extends State<BasicButton>
       else if (widget.title != null)
         Flexible(
           child: Padding(
-            padding: widget.icon == null
+            padding: widget.leadingIcon == null
                 ? kSpacer.edgeInsets.left.none
-                : widget.oneLine == false
-                    ? kSpacer.edgeInsets.top.xxs
-                    : kSpacer.edgeInsets.left.xs,
+                : kSpacer.edgeInsets.left.xs,
             child: Text(
               widget.title,
               maxLines: 1,
@@ -376,19 +340,6 @@ class _BasicButtonState extends State<BasicButton>
             ),
           ),
         ),
-      if (widget.image != null && widget.imageSize != null)
-        SizedBox(
-          width: widget.imageSize,
-          height: widget.imageSize,
-          child: Image(
-            image: widget.image,
-          ),
-        )
-      else if (widget.image != null)
-        Image(
-          fit: BoxFit.contain,
-          image: widget.image,
-        )
     ];
   }
 }

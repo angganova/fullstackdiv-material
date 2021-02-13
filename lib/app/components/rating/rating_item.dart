@@ -31,8 +31,7 @@ class RatingItem extends StatelessWidget {
                   shadowStrokeType: selected
                       ? ShadowStrokeType.none
                       : ShadowStrokeType.lowShadow,
-                  backgroundColor: selected ? kAppPrimaryRed : kAppWhite,
-                  icon: selected ? Icons.star : Icons.star_border,
+                  leadingIcon: selected ? Icons.star : Icons.star_border,
                   onPressed: () {
                     onSelected(!selected);
                   },

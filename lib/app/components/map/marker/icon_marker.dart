@@ -26,12 +26,6 @@ class IconMarker extends StatelessWidget {
               child: Container(
                 width: kPinSize,
                 height: kPinSize,
-                child: FittedBox(
-                  child: Image.asset(
-                    theme.pinImage,
-                  ),
-                  fit: BoxFit.fill,
-                ),
               ),
             ),
             Container(
@@ -39,7 +33,7 @@ class IconMarker extends StatelessWidget {
               padding: kSpacer.edgeInsets.top.sm,
               child: Icon(
                 icon,
-                color: color ?? theme.pinForegroundColor,
+                color: color ?? theme.textColor,
                 size: kPinIconSize,
               ),
             )

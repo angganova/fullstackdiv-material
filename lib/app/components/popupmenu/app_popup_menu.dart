@@ -1179,7 +1179,7 @@ class PopupMenuButtonState<T> extends State<PopupMenuButton<T>> {
 }
 
 ///////////// End Flutter popupmenu built-in ///////////////////
-Future<T> showAppPopupMenu<T>(
+Future<T> showZestPopupMenu<T>(
     {BuildContext context,
     TapUpDetails tapUpDetails,
     @required List<AppPopupMenuEntry<T>> items}) async {
@@ -1198,8 +1198,8 @@ Future<T> showAppPopupMenu<T>(
   );
 }
 
-class AppMenu extends StatelessWidget {
-  const AppMenu({this.icon, this.text});
+class ZestMenu extends StatelessWidget {
+  const ZestMenu({this.icon, this.text});
 
   final String text;
   final IconData icon;

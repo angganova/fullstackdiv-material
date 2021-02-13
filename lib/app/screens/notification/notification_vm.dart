@@ -4,12 +4,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:fullstackdiv_material/system/pop_up/snack_bar_pop_up.dart';
 import 'package:fullstackdiv_material/data/model/notification/push_notification_model.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
 import 'package:fullstackdiv_material/system/global_state.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/notification/fcm_notification_setting.dart';
+import 'package:fullstackdiv_material/system/pop_up/snack_bar_pop_up.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mobx/mobx.dart';
 
@@ -112,7 +112,7 @@ abstract class _NotificationVM with Store {
     }
   }
 
-  void showPNSentSuccessSnackBar(bool success) => SnackBarPopUp.sBasicSnackBar(
+  void showPNSentSuccessSnackBar(bool success) => SnackBarPopUp.sBasic(
       context: widgetBuildContext,
       icon: success ? Icons.thumb_up : Icons.warning,
       text: success
@@ -139,7 +139,7 @@ abstract class _NotificationVM with Store {
 
   void copyToClipboard(String text, String tokenTag) {
     Clipboard.setData(ClipboardData(text: text));
-    SnackBarPopUp.sBasicSnackBar(
+    SnackBarPopUp.sBasic(
         context: widgetBuildContext,
         icon: Icons.thumb_up,
         text: 'Copy $tokenTag success',

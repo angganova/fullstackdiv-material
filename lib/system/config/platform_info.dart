@@ -1,16 +1,17 @@
 import 'dart:async';
-import 'dart:io' show Platform;
+import 'dart:io';
 
 import 'package:device_info/device_info.dart';
-import 'package:injectable/injectable.dart';
 
-/// Use this class related to device information
-/// i.e. device ID, device name, current OS, etc.
-@singleton
 class PlatformInfo {
-  PlatformInfo() {
+  PlatformInfo._() {
     _init();
   }
+
+  String _deviceId;
+  String _deviceName;
+
+  static PlatformInfo instance = PlatformInfo._();
 
   Future<void> _init() async {
     final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
@@ -24,9 +25,6 @@ class PlatformInfo {
       _deviceName = iosInfo.utsname.machine;
     }
   }
-
-  String _deviceId;
-  String _deviceName;
 
   String get deviceId => _deviceId;
 
