@@ -301,11 +301,11 @@ class DimensionSize {
   double factorB; // Bottom side
 
   EdgeInsets get data => EdgeInsets.fromLTRB(
-        sidesFlag.leftFlag * spacer * factorL,
-        sidesFlag.topFlag * spacer * factorT,
-        sidesFlag.rightFlag * spacer * factorR,
-        sidesFlag.bottomFlag * spacer * factorB,
-      );
+    sidesFlag.leftFlag * spacer * factorL,
+    sidesFlag.topFlag * spacer * factorT,
+    sidesFlag.rightFlag * spacer * factorR,
+    sidesFlag.bottomFlag * spacer * factorB,
+  );
 }
 
 ///

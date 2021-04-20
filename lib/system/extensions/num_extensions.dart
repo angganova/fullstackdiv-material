@@ -3,22 +3,25 @@ import 'dart:math';
 import 'package:intl/intl.dart';
 
 extension NumExtensions on num {
-  bool get isNull => this == null;
-  bool get isNotNull => this != null;
-  bool get isZero => this == 0;
-  bool get isNullOrZero => this == null || this == 0;
-  bool get isNoNullOrNoZero => this != null || this != 0;
-  bool get isLessThanZero => this < 0;
-  bool get isMoreThanZero => this > 0;
   bool isEqual(num i) => this == i;
   bool isMoreThan(num i) => this > i;
   bool isLessThan(num i) => this < i;
   bool isMoreOrEqualTo(num i) => this >= i;
   bool isLessOrEqualTo(num i) => this <= i;
 
-  String formatCurrency(String currency, String separator) {
-    if (isLessThan(1000)) {
-      return '$currency ${floor()}';
+  bool get isNull => this == null;
+  bool get isNotNull => this != null;
+  bool get isZero => this == 0;
+  bool get isLessThanZero => this < 0;
+  bool get isMoreThanZero => this > 0;
+  bool get isNullOrZero => isNull || isZero;
+  bool get isNotNullOrZero => isNotNull && isMoreThanZero;
+  bool get isInteger => this is int || this == roundToDouble();
+
+  String formatCurrency(
+      {String currency = '\$', int decimalPlace = 2, String separator = ','}) {
+    if (abs().isLessThan(100)) {
+      return '$currency ${formatDecimal(decimalPlace)}';
     }
 
     final NumberFormat formatCurrency = NumberFormat('#$separator###');
@@ -34,8 +37,7 @@ extension NumExtensions on num {
     return formatCurrency.format(floor());
   }
 
-  String formatDecimal(double n) =>
-      n.toStringAsFixed(n.truncateToDouble().isEqual(n) ? 0 : 2);
+  String formatDecimal(int n) => toStringAsFixed(n);
 
   double roundToDecimals({int decimals = 6}) {
     final num fac = pow(10, decimals);

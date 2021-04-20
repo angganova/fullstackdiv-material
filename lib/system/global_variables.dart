@@ -1,1 +1,1 @@
-export 'variables/global_strings.dart';
+export 'variables/global_string.dart';

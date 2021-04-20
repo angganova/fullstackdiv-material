@@ -11,7 +11,7 @@ const String kPrimaryFontFam = 'Poppins';
 ///
 /// Letter Spacing : convert [em] to [px]
 class AppTextStyle {
-  AppTextStyle({@required this.color, this.context}) {
+  AppTextStyle({this.color, this.context}) {
     textScaleFactor = 1.0;
     if (context != null) {
       final AppQuery _query = AppQuery(context);

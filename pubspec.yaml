@@ -144,6 +144,11 @@ dependencies:
   # Allows Map lines to be encoded and decoded
   polyline: ^1.0.2
 
+  # Allows Flutter apps to discover network connectivity and configure themselves accordingly
+  connectivity: ^2.0.2
+
+  # Easy Mask
+  easy_mask: ^1.1.4
 
 dev_dependencies:
   flutter_test:

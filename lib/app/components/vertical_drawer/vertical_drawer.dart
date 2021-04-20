@@ -141,9 +141,7 @@ class VerticalDrawer extends StatelessWidget {
                           horizontal: AppQuery(context).width * 0.45,
                           vertical: 12.0,
                         ),
-                        child: AppDivider(
-                          thickness: kSpacer.xxs,
-                          height: kSpacer.xxs,
+                        child: const AppHDivider(
                         ),
                       ),
                       header ?? Container(),

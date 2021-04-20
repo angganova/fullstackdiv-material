@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/app/components/pop_up/snack_bar_view.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
-/// this is the [Function] to show [BasicSnackBar]
 class SnackBarPopUp {
   static void sInformation(
       {@required BuildContext context,
@@ -64,7 +63,7 @@ class SnackBarPopUp {
     Color trailingActionColor,
     VoidCallback trailingAction,
     EdgeInsets padding,
-    double radius = kBorderRadiusSmall,
+    double radius = kBorderRadiusTiny,
     VoidCallback onClose,
   }) {
     /// declare basic snack bar view
@@ -92,6 +91,7 @@ class SnackBarPopUp {
         duration: duration ?? kDuration5s,
         elevation: 0.0,
         backgroundColor: kAppClearWhite,
+        padding: AppSpacer(context: context).edgeInsets.x.sm,
         content: _snackBarView,
       ),
     );

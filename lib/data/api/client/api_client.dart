@@ -493,7 +493,7 @@ class ApiClient {
     try {
       final Map<String, dynamic> data =
           jsonDecode(value.data) as Map<String, dynamic>;
-      final GlobalResponse _obj = GlobalResponse.fromJson(data);
+      final GlobalApiResponse _obj = GlobalApiResponse.fromJson(data);
       throw ApiGlobalException(ApiErrorType.General, _obj);
     } catch (e) {
       throw Exception('Unknown error happen, please try again');

@@ -100,9 +100,9 @@ abstract class _HomeViewModel with Store {
     if (initialBuildData == null) {
       return;
     } else if (initialBuildData.launchSource
-        .ignoreCase(GlobalStrings.appLaunchNotificationSourceID)) {
+        .ignoreCase(GlobalString.appLaunchNotificationSourceID)) {
       printDebug('executePendingInitialAction '
-          '${GlobalStrings.appLaunchNotificationSourceID} '
+          '${GlobalString.appLaunchNotificationSourceID} '
           '$initialBuildData');
 
       /// Pending action from push notification

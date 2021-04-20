@@ -11,21 +11,21 @@ class ApiRepository {
 
   /// App state
   /// Check Version
-  Future<GlobalResponse> getVersion(int version) async {
+  Future<GlobalApiResponse> getVersion(int version) async {
     // final Map<String, dynamic> requestBody = <String, dynamic>{'version': version};
     //
     // return await apiClient
     //     .post('user/login', requestBody: requestBody)
     //     .then((Map<String, dynamic> value) => GlobalResponse.fromJson(value));
 
-    return Future<GlobalResponse>.delayed(kDuration2s, () => GlobalResponse());
+    return Future<GlobalApiResponse>.delayed(kDuration2s, () => GlobalApiResponse());
   }
 
-  Future<GlobalResponse> userLogin(String phone) async {
+  Future<GlobalApiResponse> userLogin(String phone) async {
     final Map<String, dynamic> requestBody = <String, dynamic>{'no_hp': phone};
 
     return await apiClient
         .post('user/login', requestBody: requestBody)
-        .then((Map<String, dynamic> value) => GlobalResponse.fromJson(value));
+        .then((Map<String, dynamic> value) => GlobalApiResponse.fromJson(value));
   }
 }

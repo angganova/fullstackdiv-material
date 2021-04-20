@@ -53,7 +53,7 @@ Future<void> _checkAppLaunchDetail() async {
     /// set home view to execute this detail later
     final HomeViewModel _vmHome = getIt<HomeViewModel>();
     _vmHome.setPendingInitialAction(InitialBuildData(
-        launchSource: GlobalStrings.appLaunchNotificationSourceID,
+        launchSource: GlobalString.appLaunchNotificationSourceID,
         launchPayload: notificationAppLaunchDetails.payload));
   }
 }

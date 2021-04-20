@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fullstackdiv_material/app/components/shimmer/shimmer_view.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 

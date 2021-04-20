@@ -1,43 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
-class AppLoader extends StatelessWidget {
-  const AppLoader({
-    this.stopLoad = false,
-    this.color,
-    this.backdropColor,
-    this.bottomPadding = 0.0,
-    this.iconSize = 80,
-  });
 
-  final bool stopLoad;
+class AppLoadingView extends StatefulWidget {
+  const AppLoadingView(
+      {Key key,
+      @required this.isLoading,
+      this.center = true,
+      this.color = kAppPrimaryColor})
+      : super(key: key);
+  final bool isLoading;
+  final bool center;
   final Color color;
-  final Color backdropColor;
-  final double bottomPadding;
-  final double iconSize;
+  @override
+  _AppLoadingViewState createState() => _AppLoadingViewState();
+}
 
+class _AppLoadingViewState extends State<AppLoadingView> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Stack(
-        children: <Widget>[
-          Container(
-            width: AppQuery(context).width,
-            height: AppQuery(context).height - bottomPadding,
-            color: backdropColor ?? kAppWhite.withOpacity(0.7),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  width: iconSize,
-                  height: iconSize,
-                  child: const CircularProgressIndicator(),
-                ),
-              ],
-            ),
-          ),
-        ],
+    final Widget _loadingView = AnimatedOpacity(
+      opacity: widget.isLoading ? 1 : 0,
+      duration: kDuration500,
+      child: CircularProgressIndicator(
+        valueColor: AlwaysStoppedAnimation<Color>(widget.color),
       ),
     );
+
+    if (widget.center) {
+      return Center(
+        child: _loadingView,
+      );
+    } else {
+      return _loadingView;
+    }
   }
 }

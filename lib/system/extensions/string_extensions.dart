@@ -5,18 +5,18 @@ import 'package:intl/intl.dart';
 extension StringExtension on String {
   bool get isNull => this == null;
   bool get isNotNull => this != null;
-  bool get isNullOrEmpty => this == null || isEmpty;
+  bool get isNullOrEmpty => this == null || trim().isEmpty;
   bool get isNotNullOrEmpty {
     if (isNull) {
       return false;
     } else {
-      return isNotEmpty;
+      return trim().isNotEmpty;
     }
   }
 
   bool get isNumber {
     try {
-      int.parse(this);
+      num.parse(this);
       return true;
     } catch (_) {
       return false;
@@ -27,6 +27,35 @@ extension StringExtension on String {
 
   bool get toBool => ignoreCase('true');
 
+  int get toInt {
+    if (isNumber) {
+      return int.tryParse(this) ?? 0;
+    } else {
+      return 0;
+    }
+  }
+
+  double get toDouble {
+    if (isNumber) {
+      return double.tryParse(this) ?? 0;
+    } else {
+      return 0;
+    }
+  }
+
+  DateTime get toDate {
+    return getUTCDateTimeFromString;
+  }
+
+  bool containIgnoreCase(String s2) {
+    if (this == null) {
+      return this == s2;
+    } else {
+      return toLowerCase().contains((s2 ?? '').toLowerCase()) &&
+          toUpperCase().contains((s2 ?? '').toUpperCase());
+    }
+  }
+
   bool ignoreCase(String s2) {
     if (this == null) {
       return this == s2;
@@ -36,15 +65,17 @@ extension StringExtension on String {
     }
   }
 
-  bool isEmail(String value) {
-    const Pattern pattern =
-        r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$";
-    final RegExp regex = RegExp(pattern.toString());
-    if (regex.hasMatch(value))
-      return true;
-    else
-      return false;
+  bool ignoreCaseIgnoreSpace(String s2) {
+    if (this == null) {
+      return this == s2;
+    } else {
+      s2 ??= '';
+      return removeSpace.toLowerCase() == s2.removeSpace.toLowerCase() &&
+          removeSpace.toUpperCase() == s2.removeSpace.toUpperCase();
+    }
   }
+
+  String get removeSpace => replaceAll(' ', '');
 
   bool get isDate {
     try {
@@ -116,7 +147,7 @@ extension StringExtension on String {
     return result;
   }
 
-  String formatDate(String format) {
+  String formatDateFromUTC(String format) {
     const String emptyString = '';
     if (isNullOrEmpty) {
       return emptyString;
@@ -141,10 +172,45 @@ extension StringExtension on String {
     return emptyString;
   }
 
+  String formatDateFromYYYYMMDD(String format) {
+    const String emptyString = '';
+    if (isNullOrEmpty) {
+      return emptyString;
+    } else if (!isDate) {
+      return emptyString;
+    }
+
+    DateTime newDate;
+
+    try {
+      newDate = getDateTimeFromYYYYMMDD;
+    } catch (e) {
+      e.printStackTrace();
+      return emptyString;
+    }
+
+    if (newDate != null) {
+      final DateFormat formatter = DateFormat(format);
+      return formatter.format(newDate);
+    }
+
+    return emptyString;
+  }
+
+  DateTime get getDateTimeFromYYYYMMDD {
+    try {
+      final DateTime dateTime =
+          DateFormat(ExtensionsVariable.dateFormatYYYYMMDD).parseUTC(this);
+      return dateTime;
+    } catch (e) {
+      return null;
+    }
+  }
+
   DateTime get getUTCDateTimeFromString {
     try {
       final DateTime dateTime =
-          DateFormat(ExtensionsVariable.dateFormatYYMMDDTHHMMSSZ)
+          DateFormat(ExtensionsVariable.dateFormatYYYYMMDDTHHMMSSZ)
               .parseUTC(this);
       return dateTime;
     } catch (e) {

@@ -1,12 +1,12 @@
-class GlobalResponse {
+class GlobalApiResponse {
   String status;
   String message;
   String data;
   String id;
 
-  GlobalResponse({this.status, this.message, this.data, this.id});
+  GlobalApiResponse({this.status, this.message, this.data, this.id});
 
-  GlobalResponse.fromJson(Map<String, dynamic> json) {
+  GlobalApiResponse.fromJson(Map<String, dynamic> json) {
     status = json['status'].toString();
     message = json['message'].toString();
     data = json['data'].toString();

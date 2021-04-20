@@ -1,3 +1,5 @@
+
+
 import 'package:fullstackdiv_material/data/api/response/global_response.dart';
 
 class ApiGlobalException implements Exception {
@@ -7,7 +9,7 @@ class ApiGlobalException implements Exception {
   ApiGlobalException(this.type, this.globalResponse);
 
   final ApiErrorType type;
-  final GlobalResponse globalResponse;
+  final GlobalApiResponse globalResponse;
 }
 
 enum ApiErrorType {

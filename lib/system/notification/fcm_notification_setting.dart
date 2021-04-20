@@ -211,7 +211,7 @@ class FCMNotificationSetting {
               message['data'] as Map<dynamic, dynamic>);
       if (notificationData != null) {
         _notificationHandler.handleNotificationLaunch(InitialBuildData(
-            launchSource: GlobalStrings.appLaunchNotificationSourceID,
+            launchSource: GlobalString.appLaunchNotificationSourceID,
             launchPayload: notificationData.notificationDataJson));
       }
     } catch (e) {

@@ -120,7 +120,7 @@ class _CustomExpansionPanelState extends State<CustomExpansionPanel>
                 padding: kSpacer.edgeInsets.x.standard,
                 child: Wrap(
                   children: <Widget>[
-                    const AppDivider(),
+                    const AppHDivider(),
                     SizedBox(height: kSpacer.sm),
                     Row(
                       children: <Widget>[

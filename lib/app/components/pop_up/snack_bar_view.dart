@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fullstackdiv_material/app/components/button/just_text_button.dart';
+import 'package:fullstackdiv_material/app/components/button/flat_button.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/styles/radius.dart';
 
-/// This is the [BasicSnackBar] view
 class SnackBarView extends StatefulWidget {
   const SnackBarView({
     @required this.text,
@@ -19,7 +18,7 @@ class SnackBarView extends StatefulWidget {
     this.duration,
     this.animation,
     this.padding,
-    this.radius = kBorderRadiusSmall,
+    this.radius = kBorderRadiusExtraTiny,
     this.onClose,
   });
 
@@ -155,6 +154,9 @@ class _SnackBarViewState extends State<SnackBarView>
 
   @override
   Widget build(BuildContext context) {
+    final AppSpacer _appSpacer = AppSpacer(context: context);
+    final AppQuery _appQuery = AppQuery(context);
+
     return WillPopScope(
       onWillPop: () async {
         if (widget.onClose != null) {
@@ -165,6 +167,7 @@ class _SnackBarViewState extends State<SnackBarView>
       child: Transform.scale(
         scale: _sizeAnimation.value,
         child: Container(
+          width: _appQuery.width,
           margin: AppQuery(context).notchNotNull
               ? const EdgeInsets.only(bottom: 11.0)
               : kSpacer.edgeInsets.all.none,
@@ -187,7 +190,7 @@ class _SnackBarViewState extends State<SnackBarView>
                 }
               },
               child: Padding(
-                padding: widget.padding ?? EdgeInsets.all(14.0),
+                padding: _appSpacer.edgeInsets.all.sm,
                 child: Row(
                   children: <Widget>[
                     if (widget.assetImageName != null)
@@ -214,7 +217,7 @@ class _SnackBarViewState extends State<SnackBarView>
                       ),
                     Expanded(
                       child: Text(
-                        widget.text,
+                        widget.text ?? '',
                         style: AppTextStyle(color: widget.widgetTheme.textColor)
                             .primaryLabel1,
                       ),
@@ -269,7 +272,7 @@ class _SnackBarViewState extends State<SnackBarView>
                         padding: const EdgeInsets.only(left: 12.0),
                         child: SizedBox(
                           height: _trailingPosAnimation.value,
-                          child: JustTextButton(
+                          child: AppFlatButton(
                             title: widget.trailingActionName,
                             onPressed: () {
                               _sizeAnimationController.reverse();

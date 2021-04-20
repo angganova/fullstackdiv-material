@@ -76,7 +76,7 @@ class _SplashViewState extends State<SplashView> {
     /// Check version update
     _apiRepository
         .getVersion(100)
-        .then((GlobalResponse value) => _getDirection());
+        .then((GlobalApiResponse value) => _getDirection());
 
     /// Crashlytics
     Crashlytics.instance.enableInDevMode = false;

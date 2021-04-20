@@ -54,7 +54,7 @@ class DemoTextItem extends StatelessWidget {
           SizedBox(
             height: kSpacer.sm,
           ),
-          const AppDivider(color: kAppBlack),
+          const AppHDivider(color: kAppBlack),
         ],
       ),
     );

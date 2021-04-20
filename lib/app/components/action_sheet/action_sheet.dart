@@ -58,7 +58,7 @@ class ActionSheet extends StatelessWidget {
                   ],
                 ),
               ),
-              const AppDivider(),
+              const AppHDivider(),
             ],
           ),
         ),
@@ -83,7 +83,7 @@ class ActionSheet extends StatelessWidget {
                   style: AppTextStyle(color: titleColor).primaryH3,
                 ),
               ),
-              const AppDivider(),
+              const AppHDivider(),
               Column(
                 children: childWidgets.toList(),
               ),

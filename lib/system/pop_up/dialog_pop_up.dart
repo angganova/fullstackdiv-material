@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/app/components/pop_up/dialog_view.dart';
+import 'package:fullstackdiv_material/app/components/pop_up/error_view.dart';
+import 'package:fullstackdiv_material/app/components/pop_up/sso_error_view.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 
-// ignore: avoid_classes_with_only_static_members
 class DialogPopUp {
-  static Dialog loadingDialog;
-  static bool loadingShowing = false;
+  DialogPopUp._();
 
-  static bool dialogShowing = false;
-  static BuildContext currentDialogContext;
+  static final DialogPopUp instance = DialogPopUp._();
+  BuildContext loadingDialogContext;
+  BuildContext currentDialogContext;
 
   /// Progress Dialog
   /// Show Progress Dialog
-  static Future<void> sLoading(BuildContext context) async {
-    if (loadingShowing) {
-      return;
+  Future<void> sLoading(BuildContext context) async {
+    if (loadingDialogContext != null) {
+      await hLoading();
     }
 
     const Dialog progressDialog = Dialog(
@@ -24,12 +25,11 @@ class DialogPopUp {
           child: CircularProgressIndicator(),
         ));
 
-    loadingShowing = true;
-
     await showDialog<dynamic>(
         context: context,
         barrierDismissible: false,
         builder: (BuildContext context) {
+          loadingDialogContext = context;
           return WillPopScope(
               onWillPop: () {
                 return;
@@ -39,17 +39,19 @@ class DialogPopUp {
   }
 
   /// Hide Progress Dialog
-  static void hProgress(BuildContext context) {
-    if (loadingDialog != null && loadingShowing) {
-      Navigator.pop(context, false);
-      loadingShowing = false;
+  Future<void> hLoading() async {
+    if (loadingDialogContext != null) {
+      try {
+        Navigator.pop(loadingDialogContext, false);
+        loadingDialogContext = null;
+      } catch (_) {}
     }
   }
 
   /// Dialog start
-  static Future<void> showNormal(
+  Future<void> sInformation(
       {@required BuildContext parentContext,
-      @required String title,
+      String title,
       String detail,
       VoidCallback confirmCallback,
       bool disableBackButton = true,
@@ -66,7 +68,7 @@ class DialogPopUp {
         shouldOverride: shouldOverride);
   }
 
-  static Future<void> showWarning(
+  Future<void> sWarning(
       {@required BuildContext parentContext,
       @required String title,
       String detail,
@@ -85,41 +87,43 @@ class DialogPopUp {
         shouldOverride: shouldOverride);
   }
 
-  static Future<void> showRestError(
+  Future<void> sApiError(
       {@required BuildContext parentContext,
-      bool internetConnected = true,
+      String message,
       VoidCallback retryCallback,
       VoidCallback cancelCallback}) async {
-    await sBasicConfirmation(
-      parentContext: parentContext,
-      title: 'Whoops...',
-      detail: internetConnected
-          ? 'Unfortunately something is wrong - please try again'
-          : 'Oops... your internet connection is not working - please try again',
-      confirmText: 'Retry',
-      firstButtonWidgetTheme: WidgetTheme.primaryWhite,
-      confirmCallback: () {
-        dismissCurrentPopUp();
-        if (retryCallback != null) {
-          retryCallback();
-        }
-      },
-      cancelText: 'Cancel',
-      secondButtonWidgetTheme: WidgetTheme.whitePrimary,
-      cancelCallback: () {
-        dismissCurrentPopUp();
-        if (cancelCallback != null) {
-          cancelCallback();
-        }
-      },
-    );
+    if (retryCallback != null) {
+      await sConfirmation(
+        parentContext: parentContext,
+        title: 'Whoops...',
+        detail: message,
+        confirmText: 'Retry',
+        firstButtonWidgetTheme: WidgetTheme.primaryWhite,
+        confirmCallback: () {
+          dismissCurrentPopUp();
+          if (retryCallback != null) {
+            retryCallback();
+          }
+        },
+        cancelText: 'Cancel',
+        secondButtonWidgetTheme: WidgetTheme.whitePrimary,
+        cancelCallback: () {
+          dismissCurrentPopUp();
+          if (cancelCallback != null) {
+            cancelCallback();
+          }
+        },
+      );
+    } else {
+      sInformation(parentContext: parentContext, detail: message);
+    }
   }
 
-  static Future<void> showNoInternet(
+  Future<void> sNoInternet(
       {@required BuildContext parentContext,
       VoidCallback retryCallback,
       VoidCallback cancelCallback}) async {
-    await sBasicConfirmation(
+    await sConfirmation(
       parentContext: parentContext,
       title: 'Whoops...',
       detail: 'Oops... your internet connection is not connected',
@@ -142,7 +146,80 @@ class DialogPopUp {
     );
   }
 
-  static Future<void> sBasic(
+  Future<void> sNoInternetFullScreen(
+      {@required BuildContext parentContext,
+      VoidCallback retryCallback,
+      VoidCallback cancelCallback}) async {
+    await dismissCurrentPopUp();
+
+    await showDialog<void>(
+        useSafeArea: false,
+        context: parentContext,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          currentDialogContext = context;
+          return WillPopScope(
+            onWillPop: () async => Future<bool>.value(false),
+            child: ErrorView(
+              text:
+                  'Oops... your internet connection is not connected / working',
+              imageAsset: 'assets/images/image_error.png',
+              retryCallback: retryCallback,
+              cancelCallback: cancelCallback,
+            ),
+          );
+        });
+    resetPopUp();
+  }
+
+  Future<void> sServerMaintenanceFullScreen(
+      {@required BuildContext parentContext,
+      VoidCallback retryCallback,
+      VoidCallback cancelCallback}) async {
+    await dismissCurrentPopUp();
+
+    await showDialog<void>(
+        useSafeArea: false,
+        context: parentContext,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          currentDialogContext = context;
+          return WillPopScope(
+            onWillPop: () async => Future<bool>.value(false),
+            child: ErrorView(
+              text:
+                  'Oops... unfortunately something is wrong - please try again',
+              imageAsset: 'assets/images/image_error.png',
+              retryCallback: retryCallback,
+              cancelCallback: cancelCallback,
+            ),
+          );
+        });
+    resetPopUp();
+  }
+
+  Future<void> sSSOError(
+      {@required BuildContext parentContext,
+      VoidCallback submitCallback}) async {
+    await dismissCurrentPopUp();
+
+    await showDialog<void>(
+        useSafeArea: false,
+        context: parentContext,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          currentDialogContext = context;
+          return WillPopScope(
+            onWillPop: () async => Future<bool>.value(false),
+            child: SSOErrorView(
+              submitCallback: submitCallback,
+            ),
+          );
+        });
+    resetPopUp();
+  }
+
+  Future<void> sBasic(
       {@required BuildContext parentContext,
       @required String title,
       bool disableBackButton = true,
@@ -154,11 +231,7 @@ class DialogPopUp {
       bool shouldOverride = false}) async {
     if (shouldOverride) {
       await dismissCurrentPopUp();
-    } else if (dialogShowing) {
-      return;
     }
-
-    dialogShowing = true;
 
     await showDialog<void>(
         useSafeArea: false,
@@ -187,10 +260,11 @@ class DialogPopUp {
         });
   }
 
-  static Future<void> sBasicConfirmation({
+  Future<void> sConfirmation({
     @required BuildContext parentContext,
-    @required String title,
-    bool enableTM = false,
+    String title,
+    Widget topWidget,
+    Widget botWidget,
     bool disableBackButton = true,
     bool barrierDismissible = false,
     String detail,
@@ -203,11 +277,6 @@ class DialogPopUp {
     bool autoDismissWhenConfirm = true,
     bool autoDismissWhenCancel = true,
   }) async {
-    if (dialogShowing) {
-      return;
-    }
-
-    dialogShowing = true;
     await showDialog<void>(
         useSafeArea: false,
         context: parentContext,
@@ -220,14 +289,18 @@ class DialogPopUp {
                 : Future<bool>.value(true),
             child: DialogView(
               title: title,
+              topWidget: topWidget,
               subtitle: detail,
+              botWidget: botWidget,
               firstButtonTitle: confirmCallback == null ? null : confirmText,
               firstButtonWidgetTheme: firstButtonWidgetTheme,
               firstButtonOnPressed: () {
                 if (autoDismissWhenConfirm) {
                   dismissCurrentPopUp();
                 }
-                confirmCallback();
+                if (confirmCallback != null) {
+                  confirmCallback();
+                }
               },
               secondButtonTitle: cancelText,
               secondButtonWidgetTheme: secondButtonWidgetTheme,
@@ -235,24 +308,48 @@ class DialogPopUp {
                 if (autoDismissWhenCancel) {
                   dismissCurrentPopUp();
                 }
-                cancelCallback();
+                if (cancelCallback != null) {
+                  cancelCallback();
+                }
               },
             ),
           );
         });
+    resetPopUp();
   }
+
+  Future<void> sFullScreenWidget(
+      {@required BuildContext parentContext,
+      @required Widget child,
+      bool disableBackButton = true,
+      bool shouldOverride = true}) async {
+    if (shouldOverride) {
+      await dismissCurrentPopUp();
+    }
+
+    await showDialog<void>(
+        useSafeArea: false,
+        context: parentContext,
+        barrierDismissible: true,
+        builder: (BuildContext context) {
+          currentDialogContext = context;
+          return child;
+        });
+  }
+
 
   /// Dialog end
 
-  static Future<void> dismissCurrentPopUp() async {
-    if (currentDialogContext != null && dialogShowing) {
-      Navigator.of(currentDialogContext).pop();
+  Future<void> dismissCurrentPopUp() async {
+    if (currentDialogContext != null) {
+      try {
+        Navigator.of(currentDialogContext).pop();
+      } catch (_) {}
     }
     resetPopUp();
   }
 
-  static void resetPopUp() {
-    dialogShowing = false;
+  void resetPopUp() {
     currentDialogContext = null;
   }
 }
