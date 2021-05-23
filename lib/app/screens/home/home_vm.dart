@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:fullstackdiv_material/data/model/app/app_launch_data.dart';
-import 'package:fullstackdiv_material/system/copy/copy.dart';
 import 'package:fullstackdiv_material/system/debugger/logger_builder.dart';
 import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_extensions.dart';
@@ -20,10 +19,8 @@ part 'home_vm.g.dart';
 class HomeViewModel = _HomeViewModel with _$HomeViewModel;
 
 abstract class _HomeViewModel with Store {
-  _HomeViewModel(this.copy, this._fcmSetting);
-  final Copy copy;
   final LoggerBuilder _loggerBuilder = LoggerBuilder('HomeView');
-  final FCMNotificationSetting _fcmSetting;
+  final FCMNotificationSetting _fcmSetting = FCMNotificationSetting.instance;
 
   InitialBuildData initialBuildData;
 

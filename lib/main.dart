@@ -28,7 +28,7 @@ void _setupApp() {
 Future<void> _enableFcm() async {
   /// Disable / enable fcm according to user session in the app
   /// ( logged in / logged off )
-  final FCMNotificationSetting _fcmSetting = getIt<FCMNotificationSetting>();
+  final FCMNotificationSetting _fcmSetting = FCMNotificationSetting.instance;
   _fcmSetting.enableFCMNotification(true,
       autoRequestPermissionIos: false, autoRegisterToken: false);
 
@@ -43,7 +43,7 @@ Future<void> _enableFcm() async {
 Future<void> _checkAppLaunchDetail() async {
   /// Check if the app is launched from local notification
   final LocalNotificationSetting localNotificationSetting =
-      getIt<LocalNotificationSetting>();
+      LocalNotificationSetting.instance;
   final NotificationAppLaunchDetails notificationAppLaunchDetails =
       await localNotificationSetting.flutterLocalNotificationsPlugin
           .getNotificationAppLaunchDetails();

@@ -10,6 +10,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../app/screens/coach_registration/coach_registration_view.dart';
 import '../../app/screens/demo/screens/bottom_navigation_pages/bottom_navigation_menu_page.dart';
 import '../../app/screens/demo/screens/bottom_navigation_pages/test_discover_page.dart';
 import '../../app/screens/demo/screens/bottom_navigation_pages/test_profile_page.dart';
@@ -43,7 +44,6 @@ import '../../app/screens/demo/screens/input_field_pages/demo_pin_page.dart';
 import '../../app/screens/demo/screens/input_field_pages/demo_text_field_page.dart';
 import '../../app/screens/demo/screens/input_field_pages/input_field_menu_page.dart';
 import '../../app/screens/demo/screens/list_item/demo_basic_list_item.dart';
-import '../../app/screens/demo/screens/list_item/demo_interactive_list_item.dart';
 import '../../app/screens/demo/screens/list_item/demo_journey_list_item.dart';
 import '../../app/screens/demo/screens/list_item/demo_notification_list_item.dart';
 import '../../app/screens/demo/screens/list_item/demo_search_list_item.dart';
@@ -70,10 +70,13 @@ import '../../app/screens/demo/screens/tab_bar/demo_custom_tab_bar_page.dart';
 import '../../app/screens/demo/screens/vertical_drawer/demo_vertical_drawer_menu.dart';
 import '../../app/screens/front/splash_view.dart';
 import '../../app/screens/home/home_view.dart';
+import '../../app/screens/main/main_view.dart';
 
 class Routes {
   static const String splashView = '/splash-view';
   static const String homeView = '/home-view';
+  static const String mainView = '/main-view';
+  static const String coachRegistrationView = '/coach-registration-view';
   static const String demoCardPage = '/demo-card-page';
   static const String cardMenuPage = '/card-menu-page';
   static const String demoBottomSheetPage = '/demo-bottom-sheet-page';
@@ -123,7 +126,6 @@ class Routes {
       '/demo-transportation-map-page';
   static const String demoMapClusteringPage = '/demo-map-clustering-page';
   static const String mapMenuPage = '/map-menu-page';
-  static const String demoInteractiveListItem = '/demo-interactive-list-item';
   static const String shimmerMenu = '/shimmer-menu';
   static const String basicListViewShimmerPage =
       '/basic-list-view-shimmer-page';
@@ -138,6 +140,8 @@ class Routes {
   static const all = <String>{
     splashView,
     homeView,
+    mainView,
+    coachRegistrationView,
     demoCardPage,
     cardMenuPage,
     demoBottomSheetPage,
@@ -185,7 +189,6 @@ class Routes {
     demoTransportationMapPage,
     demoMapClusteringPage,
     mapMenuPage,
-    demoInteractiveListItem,
     shimmerMenu,
     basicListViewShimmerPage,
     containerShimmerPage,
@@ -205,6 +208,8 @@ class AppRouter extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.splashView, page: SplashView),
     RouteDef(Routes.homeView, page: HomeView),
+    RouteDef(Routes.mainView, page: MainView),
+    RouteDef(Routes.coachRegistrationView, page: CoachRegistrationView),
     RouteDef(Routes.demoCardPage, page: DemoCardPage),
     RouteDef(Routes.cardMenuPage, page: CardMenuPage),
     RouteDef(Routes.demoBottomSheetPage, page: DemoBottomSheetPage),
@@ -252,7 +257,6 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.demoTransportationMapPage, page: DemoTransportationMapPage),
     RouteDef(Routes.demoMapClusteringPage, page: DemoMapClusteringPage),
     RouteDef(Routes.mapMenuPage, page: MapMenuPage),
-    RouteDef(Routes.demoInteractiveListItem, page: DemoInteractiveListItem),
     RouteDef(Routes.shimmerMenu, page: ShimmerMenu),
     RouteDef(Routes.basicListViewShimmerPage, page: BasicListViewShimmerPage),
     RouteDef(Routes.containerShimmerPage, page: ContainerShimmerPage),
@@ -277,6 +281,21 @@ class AppRouter extends RouterBase {
     HomeView: (data) {
       return PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) => HomeView(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    MainView: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) => MainView(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    CoachRegistrationView: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            CoachRegistrationView(),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
       );
@@ -563,12 +582,6 @@ class AppRouter extends RouterBase {
         settings: data,
       );
     },
-    DemoInteractiveListItem: (data) {
-      return CupertinoPageRoute<dynamic>(
-        builder: (context) => DemoInteractiveListItem(),
-        settings: data,
-      );
-    },
     ShimmerMenu: (data) {
       return CupertinoPageRoute<dynamic>(
         builder: (context) => ShimmerMenu(),
@@ -648,6 +661,11 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushSplashView() => push<dynamic>(Routes.splashView);
 
   Future<dynamic> pushHomeView() => push<dynamic>(Routes.homeView);
+
+  Future<dynamic> pushMainView() => push<dynamic>(Routes.mainView);
+
+  Future<dynamic> pushCoachRegistrationView() =>
+      push<dynamic>(Routes.coachRegistrationView);
 
   Future<dynamic> pushDemoCardPage() => push<dynamic>(Routes.demoCardPage);
 
@@ -773,9 +791,6 @@ extension AppRouterExtendedNavigatorStateX on ExtendedNavigatorState {
       push<dynamic>(Routes.demoMapClusteringPage);
 
   Future<dynamic> pushMapMenuPage() => push<dynamic>(Routes.mapMenuPage);
-
-  Future<dynamic> pushDemoInteractiveListItem() =>
-      push<dynamic>(Routes.demoInteractiveListItem);
 
   Future<dynamic> pushShimmerMenu() => push<dynamic>(Routes.shimmerMenu);
 

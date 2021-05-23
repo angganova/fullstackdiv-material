@@ -114,6 +114,9 @@ dependencies:
   # Universal link helper for deeplink
   uni_links: ^0.4.0
 
+  # A package that allows you to use the native file explorer to pick single or multiple files.
+#  file_picker: ^2.1.7
+
   # Share
   share:
     git:
@@ -150,6 +153,15 @@ dependencies:
   # Easy Mask
   easy_mask: ^1.1.4
 
+  # The official BottomAppBar
+  convex_bottom_bar: ^2.7.1+2
+
+#  epub_view: ^2.0.0
+  epub_viewer: ^0.1.9
+  permission_handler: ^5.1.0+2
+  path_provider: ^1.4.0
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -185,4 +197,5 @@ flutter:
     - assets/fonts/
     - assets/icons/
     - assets/gif/
+    - assets/epub/
     - .env

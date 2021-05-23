@@ -248,11 +248,6 @@ List<PageCard> listItemDemoCardList = <PageCard>[
     subtitle: 'Search List Item',
     route: Routes.demoSearchListItem,
   ),
-  PageCard(
-    title: 'Interactive List Item',
-    subtitle: 'Interactive List Item',
-    route: Routes.demoInteractiveListItem,
-  ),
 ];
 
 ///

@@ -2,6 +2,7 @@ import 'dart:core';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:auto_route/auto_route_annotations.dart';
+import 'package:fullstackdiv_material/app/screens/coach_registration/coach_registration_view.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/bottom_navigation_pages/bottom_navigation_menu_page.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/bottom_navigation_pages/test_discover_page.dart';
 import 'package:fullstackdiv_material/app/screens/demo/screens/bottom_navigation_pages/test_profile_page.dart';
@@ -61,6 +62,7 @@ import 'package:fullstackdiv_material/app/screens/demo/screens/tab_bar/demo_cust
 import 'package:fullstackdiv_material/app/screens/demo/screens/vertical_drawer/demo_vertical_drawer_menu.dart';
 import 'package:fullstackdiv_material/app/screens/front/splash_view.dart';
 import 'package:fullstackdiv_material/app/screens/home/home_view.dart';
+import 'package:fullstackdiv_material/app/screens/main/main_view.dart';
 
 @MaterialAutoRouter(
   generateNavigationHelperExtension: true,
@@ -71,6 +73,14 @@ import 'package:fullstackdiv_material/app/screens/home/home_view.dart';
     ),
     CustomRoute<dynamic>(
       page: HomeView,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+    ),
+    CustomRoute<dynamic>(
+      page: MainView,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+    ),
+    CustomRoute<dynamic>(
+      page: CoachRegistrationView,
       transitionsBuilder: TransitionsBuilders.fadeIn,
     ),
 

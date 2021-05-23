@@ -85,7 +85,7 @@ extension StringExtension on String {
     }
   }
 
-  String get capWord => isNotNullOrEmpty
+  String get capsWord => isNotNullOrEmpty
       ? '${this[0].toUpperCase()}${substring(1).toLowerCase()}'
       : '';
 
@@ -107,7 +107,7 @@ extension StringExtension on String {
     try {
       return split('. ')
           .map((String sentence) =>
-              sentence[0].toUpperCase() + sentence.substring(1))
+      sentence[0].toUpperCase() + sentence.substring(1))
           .join('. ');
     } catch (_) {
       return this;
@@ -200,7 +200,7 @@ extension StringExtension on String {
   DateTime get getDateTimeFromYYYYMMDD {
     try {
       final DateTime dateTime =
-          DateFormat(ExtensionsVariable.dateFormatYYYYMMDD).parseUTC(this);
+      DateFormat(ExtensionsVariable.dateFormatYYYYMMDD).parseUTC(this);
       return dateTime;
     } catch (e) {
       return null;
@@ -210,8 +210,8 @@ extension StringExtension on String {
   DateTime get getUTCDateTimeFromString {
     try {
       final DateTime dateTime =
-          DateFormat(ExtensionsVariable.dateFormatYYYYMMDDTHHMMSSZ)
-              .parseUTC(this);
+      DateFormat(ExtensionsVariable.dateFormatYYYYMMDDTHHMMSSZ)
+          .parseUTC(this);
       return dateTime;
     } catch (e) {
       return null;

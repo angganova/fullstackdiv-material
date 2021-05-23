@@ -14,12 +14,14 @@ class HomeView extends StatefulWidget {
   _HomeViewState createState() => _HomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _HomeViewState extends State<HomeView>
+    with SingleTickerProviderStateMixin {
   final HomeViewModel _viewModel = getIt<HomeViewModel>();
 
   BuildContext _widgetBuildContext;
   AppQuery _appQuery;
   AppSpacer _appSpacer;
+
   @override
   void initState() {
     _initPlatformState();

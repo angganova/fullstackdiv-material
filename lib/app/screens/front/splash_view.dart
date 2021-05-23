@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fullstackdiv_material/data/api/repository/api_repository.dart';
 import 'package:fullstackdiv_material/data/api/response/global_response.dart';
-import 'package:fullstackdiv_material/system/dependency_injection/dependency_index.dart';
 import 'package:fullstackdiv_material/system/global_state.dart';
 import 'package:fullstackdiv_material/system/global_styles.dart';
 import 'package:fullstackdiv_material/system/routes/map_routes.gr.dart';
@@ -17,7 +16,7 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  final ApiRepository _apiRepository = getIt<ApiRepository>();
+  final ApiRepository _apiRepository = ApiRepository.instance;
 
   ApiCallState _apiStateGetVersion = ApiCallState.stateEmpty;
   Timer _ignoreTimer;
@@ -65,7 +64,7 @@ class _SplashViewState extends State<SplashView> {
     } else {
       /// Push to home view if user has session and no update needed
       _ignoreTimer?.cancel();
-      ExtendedNavigator.of(context).replace(Routes.homeView);
+      ExtendedNavigator.of(context).replace(Routes.coachRegistrationView);
     }
   }
 

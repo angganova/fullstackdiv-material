@@ -126,7 +126,7 @@ packages:
       name: cached_network_image
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.0"
+    version: "2.5.1"
   characters:
     dependency: transitive
     description:
@@ -161,7 +161,7 @@ packages:
       name: chewie_audio
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.2"
   cli_util:
     dependency: transitive
     description:
@@ -182,7 +182,7 @@ packages:
       name: code_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.6.0"
+    version: "3.7.0"
   collection:
     dependency: transitive
     description:
@@ -232,6 +232,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.1"
+  convex_bottom_bar:
+    dependency: "direct main"
+    description:
+      name: convex_bottom_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.7.1+2"
   crypto:
     dependency: transitive
     description:
@@ -302,6 +309,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.5"
+  epub_viewer:
+    dependency: "direct main"
+    description:
+      name: epub_viewer
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.9"
   fake_async:
     dependency: transitive
     description:
@@ -515,7 +529,7 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "855d0f0bb34ed37bb8c905f637d6c4fab5b1ed5c"
+      resolved-ref: "1e316c3e6f83d00f5ba2a0956d500c3f14f1c704"
       url: "https://github.com/purnomoeko/flutter_rounded_date_picker"
     source: git
     version: "1.0.5+1"
@@ -542,7 +556,7 @@ packages:
       name: fluttertoast
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.1.6"
+    version: "7.1.8"
   geofencing:
     dependency: "direct main"
     description:
@@ -558,7 +572,7 @@ packages:
       name: geolocator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.2.0"
+    version: "6.2.1"
   geolocator_platform_interface:
     dependency: transitive
     description:
@@ -572,7 +586,7 @@ packages:
       name: geolocator_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   get_it:
     dependency: transitive
     description:
@@ -642,14 +656,14 @@ packages:
       name: injectable
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.7"
+    version: "1.1.2"
   injectable_generator:
     dependency: "direct dev"
     description:
       name: injectable_generator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.7"
+    version: "1.1.2"
   intl:
     dependency: "direct main"
     description:
@@ -663,7 +677,7 @@ packages:
       name: io
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.4"
+    version: "0.3.5"
   jiffy:
     dependency: "direct main"
     description:
@@ -677,7 +691,7 @@ packages:
       name: js
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.3-nullsafety.2"
+    version: "0.6.2"
   json_annotation:
     dependency: transitive
     description:
@@ -812,12 +826,12 @@ packages:
     source: hosted
     version: "0.1.4"
   path_provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.6.27"
+    version: "1.6.28"
   path_provider_linux:
     dependency: transitive
     description:
@@ -852,7 +866,21 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.10.0-nullsafety.2"
+    version: "1.9.2"
+  permission_handler:
+    dependency: "direct main"
+    description:
+      name: permission_handler
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.1.0+2"
+  permission_handler_platform_interface:
+    dependency: transitive
+    description:
+      name: permission_handler_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2"
   petitparser:
     dependency: transitive
     description:
@@ -866,7 +894,7 @@ packages:
       name: pin_input_text_field
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.0"
+    version: "3.3.1"
   platform:
     dependency: transitive
     description:
@@ -894,7 +922,7 @@ packages:
       name: pool
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.5.0-nullsafety.2"
+    version: "1.4.0"
   positioned_tap_detector:
     dependency: transitive
     description:
@@ -936,7 +964,7 @@ packages:
       name: pubspec_parse
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.7"
+    version: "0.1.8"
   quiver:
     dependency: transitive
     description:
@@ -987,7 +1015,7 @@ packages:
       name: shelf_web_socket
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.4"
+    version: "0.2.4+1"
   shimmer:
     dependency: "direct main"
     description:
@@ -1006,7 +1034,7 @@ packages:
       name: source_gen
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.9.10+1"
+    version: "0.9.10+2"
   source_span:
     dependency: transitive
     description:
@@ -1027,7 +1055,7 @@ packages:
       name: sqflite_common
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3+1"
+    version: "1.0.3+3"
   stack_trace:
     dependency: transitive
     description:
